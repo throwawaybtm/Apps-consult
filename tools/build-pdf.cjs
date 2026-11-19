@@ -13,28 +13,38 @@ async function withLoadedPage(abs, fn) {
   const browser = await chromium.launch();
   try {
     const page = await browser.newPage();
+    const failed = [];
+    page.on("requestfailed", (req) => failed.push(decodeURIComponent(path.basename(new URL(req.url()).pathname))));
     await page.goto(pathToFileURL(abs).href, { waitUntil: "load" });
+    // Load lazy images now, so they are printed and not mistaken for broken files.
+    await page.evaluate(() =>
+      Promise.all([...document.images].map((img) => { img.loading = "eager"; return img.decode().catch(() => {}); }))
+    );
     await page.evaluate(() => document.fonts.ready);
-    return await fn(page);
+    return await fn(page, failed);
   } finally {
     await browser.close();
   }
 }
 
-const brokenImages = (page) =>
-  page.evaluate(() =>
-    [...document.images].filter((img) => img.naturalWidth === 0).map((img) => img.getAttribute("src"))
-  );
+// Images that didn't decode, fonts that failed to load, and any file request that failed (e.g. CSS backgrounds).
+async function brokenAssets(page, failed) {
+  const inPage = await page.evaluate(() => [
+    ...[...document.images].filter((img) => img.naturalWidth === 0).map((img) => decodeURIComponent(new URL(img.src).pathname.split("/").pop())),
+    ...[...document.fonts].filter((f) => f.status === "error").map((f) => `font "${f.family}"`),
+  ]);
+  return [...new Set([...inPage, ...failed])];
+}
 
 async function checkAssets(inputHtml) {
-  return withLoadedPage(resolveInput(inputHtml), brokenImages);
+  return withLoadedPage(resolveInput(inputHtml), brokenAssets);
 }
 
 async function buildPdf(inputHtml, outputPdf) {
   const abs = resolveInput(inputHtml);
   const out = path.resolve(outputPdf ?? abs.replace(/\.html?$/i, "") + ".pdf");
-  await withLoadedPage(abs, async (page) => {
-    const broken = await brokenImages(page);
+  await withLoadedPage(abs, async (page, failed) => {
+    const broken = await brokenAssets(page, failed);
     if (broken.length) throw new Error(`Broken assets: ${broken.join(", ")}`);
     await page.pdf({ path: out, format: "A4", printBackground: true, preferCSSPageSize: true });
   });

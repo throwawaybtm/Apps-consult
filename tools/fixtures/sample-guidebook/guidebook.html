@@ -5,7 +5,9 @@
 <title>Panduan Aplikasi</title>
 <style>
   @page { size: A4; margin: 20mm; }
-  body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #fdfcf8; }
+  /* Caladea (Apache 2.0) ships in assets/, as CLAUDE.md requires for guidebooks. */
+  @font-face { font-family: "GuideFont"; src: url("assets/guide.ttf") format("truetype"); }
+  body { font-family: "GuideFont", serif; color: #1a1a1a; background: #fdfcf8; }
   h1 { color: #0b6e4f; }
 </style>
 </head>

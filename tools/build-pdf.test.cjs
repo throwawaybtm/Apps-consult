@@ -27,8 +27,8 @@ test("buildPdf embeds fonts", async () => {
   const bytes = fs.readFileSync(out, "latin1");
   // Chromium embeds fonts either as font files (/FontFile*) or as Type 3 glyph outlines (/CharProcs).
   assert.match(bytes, /\/FontFile[23]?\b|\/CharProcs/);
-  // The fixture asks for Inter; finding it proves fonts loaded before printing (no fallback font).
-  assert.match(bytes, /\/(FontName|BaseFont) ?\/[A-Z]{6}\+Inter-/);
+  // The fixture loads Caladea from assets/ via @font-face; finding it means the fallback font wasn't used.
+  assert.match(bytes, /\/(FontName|BaseFont) ?\/[A-Z]{6}\+Caladea/);
 });
 
 test("buildPdf renders a relative asset", async () => {
@@ -50,4 +50,28 @@ test("buildPdf defaults the output path", async () => {
   const out = await buildPdf(input);
   assert.equal(out, path.join(dir, "guidebook.pdf"));
   assert.ok(fs.existsSync(out));
+});
+
+const page = (dir, html) => {
+  fs.mkdirSync(path.join(dir, "assets"), { recursive: true });
+  const file = path.join(dir, "g.html");
+  fs.writeFileSync(file, `<!doctype html><html lang="id"><head><meta charset="utf-8"></head><body>${html}</body></html>`);
+  return file;
+};
+
+test("buildPdf fails on a missing @font-face file", async () => {
+  const file = page(tmp(), '<style>@font-face{font-family:X;src:url("assets/missing.ttf")} p{font-family:X}</style><p>Halo</p>');
+  await assert.rejects(buildPdf(file), /Broken assets: .*missing\.ttf/);
+});
+
+test("buildPdf fails on a missing CSS background image", async () => {
+  const file = page(tmp(), '<div style="width:50px;height:50px;background:url(assets/missing-bg.png)"></div>');
+  await assert.rejects(buildPdf(file), /Broken assets: .*missing-bg\.png/);
+});
+
+test("buildPdf accepts lazy-loaded images below the fold", async () => {
+  const dir = tmp();
+  const file = page(dir, '<div style="height:5000px"></div><img loading="lazy" src="assets/dot.svg">');
+  fs.copyFileSync(path.join(FIXTURE_DIR, "assets", "dot.svg"), path.join(dir, "assets", "dot.svg"));
+  assert.ok(fs.existsSync(await buildPdf(file)));
 });
