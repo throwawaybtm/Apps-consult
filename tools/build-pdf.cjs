@@ -3,9 +3,15 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 const { chromium } = require("playwright");
 
+// `npm run` switches to the repo root; INIT_CWD is the folder the user ran it from.
+const fromCaller = (p) => path.resolve(process.env.INIT_CWD || process.cwd(), p);
+
 function resolveInput(inputHtml) {
-  const abs = path.resolve(inputHtml);
+  const abs = fromCaller(inputHtml);
   if (!fs.existsSync(abs)) throw new Error(`Input not found: ${abs}`);
+  if (!fs.statSync(abs).isFile() || !/\.html?$/i.test(abs)) {
+    throw new Error(`Input must be an .html file: ${abs}`);
+  }
   return abs;
 }
 
@@ -42,7 +48,7 @@ async function checkAssets(inputHtml) {
 
 async function buildPdf(inputHtml, outputPdf) {
   const abs = resolveInput(inputHtml);
-  const out = path.resolve(outputPdf ?? abs.replace(/\.html?$/i, "") + ".pdf");
+  const out = outputPdf ? fromCaller(outputPdf) : abs.replace(/\.html?$/i, "") + ".pdf";
   await withLoadedPage(abs, async (page, failed) => {
     const broken = await brokenAssets(page, failed);
     if (broken.length) throw new Error(`Broken assets: ${broken.join(", ")}`);

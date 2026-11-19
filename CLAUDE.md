@@ -34,7 +34,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - Every GAS endpoint must verify the caller's Firebase identity. Never serve Drive files as public links.
 - The stack is decided per project, in a decision record at the top of the dev handbook. Help the user weigh it every time.
 - PDF output: A4, backgrounds printed, embedded fonts that support Indonesian text.
-- Guidebook fonts: put TTF or WOFF2 web fonts in `guidebook/assets/` and load them with `@font-face`. System OTF fonts get embedded as Type 3 glyphs, which some PDF viewers render poorly.
+- Guidebook fonts: put TrueType-outline fonts (`.ttf`, or a `.woff2` built from TrueType outlines) in `guidebook/assets/` and load them with `@font-face`. CFF/OTF outlines, including WOFF2 files that wrap them, get embedded as Type 3 glyphs, which some PDF viewers render poorly.
 
 ## Human checkpoints: stop and ask at each one
 

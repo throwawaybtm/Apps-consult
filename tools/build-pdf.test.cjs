@@ -75,3 +75,22 @@ test("buildPdf accepts lazy-loaded images below the fold", async () => {
   fs.copyFileSync(path.join(FIXTURE_DIR, "assets", "dot.svg"), path.join(dir, "assets", "dot.svg"));
   assert.ok(fs.existsSync(await buildPdf(file)));
 });
+
+test("buildPdf rejects a directory or non-HTML input", async () => {
+  await assert.rejects(buildPdf(FIXTURE_DIR), /must be an \.html file/);
+  await assert.rejects(buildPdf(path.join(FIXTURE_DIR, "assets", "dot.svg")), /must be an \.html file/);
+});
+
+test("buildPdf resolves relative paths from the caller's folder (INIT_CWD)", async () => {
+  const dir = tmp();
+  fs.cpSync(FIXTURE_DIR, dir, { recursive: true });
+  const saved = process.env.INIT_CWD;
+  process.env.INIT_CWD = dir;
+  try {
+    const out = await buildPdf("guidebook.html", "rel.pdf");
+    assert.equal(out, path.join(dir, "rel.pdf"));
+    assert.ok(fs.existsSync(out));
+  } finally {
+    if (saved === undefined) delete process.env.INIT_CWD; else process.env.INIT_CWD = saved;
+  }
+});

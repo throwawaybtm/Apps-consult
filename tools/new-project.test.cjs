@@ -33,3 +33,17 @@ test("createProject refuses an existing project", () => {
   assert.throws(() => createProject("toko-budi", root), /already exists/);
   assert.equal(fs.readFileSync(notes, "utf8"), "catatan penting");
 });
+
+test("new-project CLI creates projects in the repo, whatever folder it runs from", () => {
+  const { spawnSync } = require("node:child_process");
+  const repoProjects = path.join(__dirname, "..", "projects");
+  const name = "zz-cli-cwd-test";
+  const target = path.join(repoProjects, name);
+  try {
+    const r = spawnSync(process.execPath, [path.join(__dirname, "new-project.cjs"), name], { cwd: tmpRoot(), encoding: "utf8" });
+    assert.equal(r.status, 0, r.stderr);
+    assert.ok(fs.existsSync(path.join(target, "research")));
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

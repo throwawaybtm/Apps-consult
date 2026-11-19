@@ -26,7 +26,7 @@ module.exports = { createProject };
 
 if (require.main === module) {
   try {
-    console.log(createProject(process.argv[2]));
+    console.log(createProject(process.argv[2], path.join(__dirname, "..", "projects")));
   } catch (err) {
     console.error(err.message);
     process.exit(1);
