@@ -1,8 +1,8 @@
 # BLUD Digital System (Diskum Batam): Design for the First Round
 
 Date: 2026-11-19
-Status: Draft, waiting for approval
-Project folder: `projects/blud-diskum-batam/`
+Status: Approved 2026-11-19 (project name changed to e-blud)
+Project folder: `projects/e-blud/`
 
 ## Intent and why
 
@@ -72,9 +72,9 @@ Decided by the user:
 - Two surfaces: a **public site** (modern, Simantab style) and an **admin site** (modern, but government style).
 - BLUD lends money to mitra; today they use Excel.
 - Go with option B.
+- Project name is **e-blud** (folder `projects/e-blud/`).
 
 My calls (the user can reject any of these):
-- **Project name:** `blud-diskum-batam`.
 - **Starting feature list (all placeholders):**
   - F1 Login and roles
   - F2 Data mitra (with photo)
@@ -117,7 +117,7 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 
 ## Next steps once approved
 
-1. `npm run new-project -- blud-diskum-batam`.
+1. The project folder `projects/e-blud/` already exists.
 2. Write `research/` notes.
 3. Draft `prd.md` v0 (Indonesian).
 4. Build the three mockups with `frontend-design` and `modern-web-guidance`, then check accessibility.
