@@ -50,13 +50,23 @@ Why this matters: the client needs to understand and agree to what they are buyi
 - **Reader:** the client. The tone is plain, visual and persuasive.
 - **Contents:** the client's problem in their own words; the proposed solution; key screens as mockups; how users move through the app (a flow diagram); what is included and not included (from the PRD); timeline and phases; what the client needs to provide; next steps.
 - **Every feature it shows must be in the PRD.**
+- **No pricing.** The price and terms go in a separate quote. The guidebook can mention that a quote follows separately.
 
 ### 3. Dev handbook (English)
 
 There are two layers.
 
 **a. The readable handbook (`dev-handbook.md`)**, for a human reviewer, tech lead or auditor:
-tech stack and why; architecture (frontend, backend, data, integrations) with a diagram; data model; API design; authentication and authorisation; security design; performance targets; testing strategy; environments and deployment; and how to run the project locally.
+a **stack decision record** (see below); architecture (frontend, backend, data, integrations) with a diagram; data model; API design; authentication and authorisation; security design; performance targets; testing strategy; environments and deployment; and how to run the project locally.
+
+**Stack decision (made per project).** The stack is chosen for each project, not fixed. The handbook opens with a short decision record: the requirements that drive the choice (from the PRD), the options considered, the choice made, and its trade-offs. Human checkpoint 2 approves it.
+
+- **Preferred starting point:** Firebase (Auth, Firestore, Hosting, and Cloud Functions where needed). For files, the user prefers Google Drive as the storage server, reached through Google Apps Script (GAS).
+- **Criteria for choosing file storage:**
+  - Drive/GAS fits when the client's staff manage the files in Google Drive or Workspace, traffic is low to moderate, files are documents rather than media served to the public, and avoiding a billing account matters.
+  - Firebase Storage (needs the Blaze plan, which still has a free tier; set budget alerts) fits for user uploads, images and media shown in the app, many users uploading at once, large files, or file access controlled per user.
+  - A hybrid works too: Firebase Storage for app files, with GAS syncing selected files into the client's Drive.
+- **If Drive/GAS is used, the handbook must specify:** how the GAS web app checks the caller's Firebase identity (never an open endpoint); which account it runs as and what that account can reach in Drive; how it stays within GAS limits (6 minutes per execution, about 30 simultaneous executions per user, and quotas that can change); file size limits; and how files are served (not as public Drive links).
 
 **b. Agent-executable files**, generated from the handbook and placed in the app's code repo when building starts:
 - `CLAUDE.md`: stack, commands, coding conventions, folder structure, and "never do" rules.
@@ -116,6 +126,8 @@ projects/
 - Guidebook is a visual PDF in Indonesian, produced with approach A.
 - Claude Code builds the software as fully as possible, across backend, frontend, UI/UX, testing, performance and security.
 - Either language works for the PRD; the call below picks one.
+- Pricing is not in the guidebook; it goes in a separate quote.
+- The stack is chosen per project. Firebase, with Drive/GAS for storage, is the preferred starting point, and the user wants help making this decision each time.
 
 ## Calls made by Claude (for review)
 
