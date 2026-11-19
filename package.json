@@ -2,8 +2,14 @@
   "name": "apps-consult",
   "private": true,
   "scripts": {
+    "pretest": "npm install --no-audit --no-fund --silent",
     "test": "node --test tools/*.test.cjs",
     "new-project": "node tools/new-project.cjs",
-    "build:pdf": "node tools/build-pdf.cjs"
+    "build:pdf": "node tools/build-pdf.cjs",
+    "precheck:a11y": "npm install --no-audit --no-fund --silent",
+    "check:a11y": "node tools/check-a11y.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.1"
   }
 }

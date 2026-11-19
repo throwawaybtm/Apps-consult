@@ -53,7 +53,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 
 - New project or a big decision: `superpowers:brainstorming`, then `superpowers:writing-plans`.
 - Guidebook look and mockups: `frontend-design`, `website-design:web-design-system`, and `modern-web-guidance` for any HTML, CSS or JS.
-- Accessibility: `design:accessibility-review` (and Axe once `/axe-accessibility:mcp-setup` is done).
+- Accessibility: `npm run check:a11y -- <page.html> ...` (automated WCAG 2.2 AA scan with the free axe-core engine) on every guidebook and mockup page, then `design:accessibility-review` for what automation can't judge (reading order, meaning, keyboard flow). The paid Axe scanner plugin isn't used.
 - Security: `/security-review`.
 - Lookups, doc reading and source gathering: the `researcher` subagent (Haiku).
 - Token spend: `token-usage:report`.
@@ -62,4 +62,6 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 
 - `npm run new-project -- <name>`: creates `projects/<name>/` folders. Names use lowercase letters, digits and single hyphens.
 - `npm run build:pdf -- <input.html> [output.pdf]`: prints a guidebook to an A4 PDF with the preinstalled Playwright Chromium. Never run `playwright install`.
+- `npm run check:a11y -- <page.html> [more.html ...]`: runs axe-core WCAG 2.0–2.2 A/AA rules in Chromium. Exits 1 and lists each violation with where and how to fix it; items needing a manual check are listed without failing.
 - `npm test`: runs the tool tests.
+- `npm test` and `check:a11y` run `npm install` first, so a fresh session needs no setup.

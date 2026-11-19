@@ -77,7 +77,7 @@ a **stack decision record** (see below); architecture (frontend, backend, data, 
 - `build-order.md`: the order features are built in, their dependencies, and the checks between stages.
 - **Quality targets** that apply to every feature:
   - Web platform: follow Modern Web Guidance at **Baseline Widely available**, unless the PRD sets a different browser target.
-  - Accessibility: **WCAG 2.2 AA**, checked with Axe where available, plus `design:accessibility-review`.
+  - Accessibility: **WCAG 2.2 AA**, checked with `npm run check:a11y` (axe-core, free), plus `design:accessibility-review`.
   - Performance: **Core Web Vitals "good"** thresholds (LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1).
   - Security: an OWASP Top 10-based checklist, and `/security-review` on every change.
 

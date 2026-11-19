@@ -12,4 +12,5 @@ Language: **Indonesian**. Format: HTML in `guidebook/guidebook.html`, built to a
 - [ ] **Next steps:** what happens after they read this.
 - [ ] **No pricing:** the price and terms are in a separate quote. It's fine to say a quote will follow.
 - [ ] **Matches the PRD:** every feature shown appears in the PRD, with the same F-number.
+- [ ] **Accessible:** `npm run check:a11y -- projects/<name>/guidebook/guidebook.html` (and any mockup pages) reports no violations, and `design:accessibility-review` finds nothing blocking.
 - [ ] **Builds cleanly:** `npm run build:pdf` succeeds, with no broken images and Indonesian text rendered in the chosen font.

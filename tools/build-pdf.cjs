@@ -57,7 +57,7 @@ async function buildPdf(inputHtml, outputPdf) {
   return out;
 }
 
-module.exports = { buildPdf, checkAssets };
+module.exports = { buildPdf, checkAssets, resolveInput, withLoadedPage };
 
 if (require.main === module) {
   const [input, output] = process.argv.slice(2);
