@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e-BLUD: contoh situs publik</title>
+<meta name="description" content="Contoh tampilan situs publik e-BLUD untuk diskusi dengan klien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .wrap { inline-size: min(100% - 2 * var(--gutter), 72rem); margin-inline: auto; }
+
+  /* Header: popover menu on narrow screens, inline row on wide */
+  .site-header { background: var(--surface); border-block-end: 1px solid var(--line); position: relative; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-block-size: 4.25rem; }
+  .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--sky-900); text-decoration: none; font-weight: 700; }
+  .brand-mark {
+    display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem;
+    border-radius: 10px; background: var(--sky-700); color: #fff; font-size: 0.95rem;
+  }
+  .brand small { display: block; font-weight: 500; color: var(--ink-2); font-size: 0.78rem; line-height: 1.2; }
+  .menu-button { anchor-name: --menu-button; }
+  .site-menu {
+    position: fixed; inset: auto; inset-block-start: anchor(--menu-button bottom); inset-inline-end: var(--gutter);
+    margin: 0.5rem 0 0; padding: 0.5rem; list-style: none; inline-size: min(80dvw, 18rem);
+    border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface);
+    box-shadow: 0 8px 24px rgb(11 37 64 / 0.14);
+  }
+  .site-menu a { display: block; padding: 0.75rem 1rem; border-radius: var(--radius-control); color: var(--ink); text-decoration: none; font-weight: 500; }
+  .site-menu a:hover { background: var(--sky-50); }
+  @media (min-width: 52rem) {
+    .menu-button { display: none; }
+    .site-menu {
+      position: static; display: flex; gap: 0.25rem; margin: 0; padding: 0; inline-size: auto;
+      border: 0; background: transparent; box-shadow: none; overflow: visible;
+    }
+  }
+
+  /* Hero */
+  .hero { background: linear-gradient(180deg, var(--sky-50), var(--surface)); padding-block: clamp(2.5rem, 7vw, 5rem); }
+  .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+  @media (min-width: 52rem) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
+  .hero h1 { font-size: clamp(2rem, 5.5vw, 3.25rem); letter-spacing: -0.02em; color: var(--sky-900); max-inline-size: 18ch; }
+  .hero p { margin-block-start: 1rem; color: var(--ink-2); font-size: 1.125rem; max-inline-size: 52ch; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.75rem; }
+
+  /* Journey card: a real sequence, so an ordered list */
+  .journey { padding: 1.5rem; box-shadow: 0 10px 30px rgb(11 37 64 / 0.08); }
+  .journey h2 { font-size: 1.05rem; }
+  .journey .code { color: var(--ink-2); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .steps { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0; }
+  .steps li { position: relative; padding: 0 0 1.25rem 2.25rem; }
+  .steps li:last-child { padding-block-end: 0; }
+  .steps li::before {
+    content: ""; position: absolute; inset-inline-start: 0.4rem; inset-block-start: 0.25rem;
+    inline-size: 0.9rem; block-size: 0.9rem; border-radius: 50%; border: 2px solid var(--sky-700); background: var(--surface);
+  }
+  .steps li::after {
+    content: ""; position: absolute; inset-inline-start: 0.8rem; inset-block-start: 1.25rem; inset-block-end: 0.1rem;
+    inline-size: 2px; background: var(--line);
+  }
+  .steps li:last-child::after { display: none; }
+  .steps .done::before { background: var(--sky-700); }
+  .steps .now::before { background: var(--surface); box-shadow: 0 0 0 4px var(--sky-200); }
+  .steps strong { display: block; }
+  .steps span { color: var(--ink-2); font-size: 0.875rem; }
+
+  /* Sections */
+  section.block { padding-block: clamp(2.5rem, 6vw, 4rem); }
+  section.block > .wrap > h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--sky-900); }
+  .lede { margin-block-start: 0.5rem; color: var(--ink-2); max-inline-size: var(--measure); }
+  .stats { display: grid; gap: 1rem; margin-block-start: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+  .charts { display: grid; gap: 1rem; margin-block-start: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+
+  .how { background: var(--sky-50); }
+  .how-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); counter-reset: s; }
+  .how-list li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 1.25rem; }
+  .how-list li::before { content: counter(s); display: grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: 50%; background: var(--sky-100); color: var(--sky-900); font-weight: 700; margin-block-end: 0.75rem; }
+  .how-list h3 { font-size: 1.05rem; margin-block-end: 0.25rem; }
+  .how-list p { color: var(--ink-2); font-size: 0.95rem; }
+
+  /* Tracking form */
+  .track-box { display: grid; gap: 1.5rem; margin-block-start: 1.5rem; }
+  @media (min-width: 52rem) { .track-box { grid-template-columns: 1fr 1fr; align-items: start; } }
+  .field label { display: block; font-weight: 600; margin-block-end: 0.25rem; }
+  .hint { display: block; color: var(--ink-2); font-size: 0.875rem; margin-block-end: 0.5rem; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .row input { flex: 1 1 14rem; min-block-size: 2.75rem; padding: 0.5rem 0.75rem; font: inherit; border: 2px solid var(--ink-2); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); }
+  .row input:focus-visible { outline: 3px solid var(--sky-800); outline-offset: 2px; }
+  #track-result { min-block-size: 3rem; }
+  .result { padding: 1rem 1.25rem; border-radius: var(--radius-card); border: 1px solid var(--line); background: var(--sky-50); }
+  .result.error { background: var(--err-bg); border-color: var(--err); color: var(--err); }
+
+  footer { background: var(--navy-900); color: #dbeafe; padding-block: 2.5rem; }
+  footer a { color: #fff; }
+  footer .wrap { display: grid; gap: 1.5rem; }
+  @media (min-width: 52rem) { footer .wrap { grid-template-columns: 1.2fr 1fr; } }
+  footer h2 { font-size: 1.05rem; color: #fff; margin-block-end: 0.5rem; }
+  footer p { max-inline-size: 48ch; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#konten">Lewati ke konten utama</a>
+<p class="contoh-banner">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama di halaman ini adalah data contoh.</p>
+
+<header class="site-header" id="beranda">
+  <div class="wrap header-inner">
+    <a class="brand" href="#beranda">
+      <span class="brand-mark" aria-hidden="true">eB</span>
+      <span>e-BLUD<small>BLUD Diskum Batam (nama resmi menyusul)</small></span>
+    </a>
+    <nav aria-label="Utama">
+      <button class="btn btn-quiet menu-button" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
+      <ul id="site-menu" class="site-menu" popover="auto">
+        <li><a href="#beranda" aria-current="page">Beranda</a></li>
+        <li><a href="#statistik">Statistik</a></li>
+        <li><a href="#alur">Cara mengajukan</a></li>
+        <li><a href="#lacak">Lacak permohonan</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="konten">
+  <section class="hero" aria-labelledby="judul-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="judul-hero">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
+        <p>Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
+        <div class="cta-row">
+          <a class="btn" href="#alur">Ajukan pembiayaan</a>
+          <a class="btn btn-quiet" href="#lacak">Lacak permohonan</a>
+        </div>
+      </div>
+      <aside class="card journey" aria-labelledby="judul-journey">
+        <h2 id="judul-journey">Perjalanan satu permohonan</h2>
+        <p class="code">Contoh kode KD-2026-0001</p>
+        <ol class="steps">
+          <li class="done"><strong>Pengajuan diterima</strong><span>Berkas dicatat petugas</span></li>
+          <li class="done"><strong>Survei lapangan</strong><span>Fasilitator mengunjungi usaha</span></li>
+          <li class="now" aria-current="step"><strong>Penetapan</strong><span>Menunggu keputusan pimpinan</span></li>
+          <li><strong>Pencairan</strong><span>Akad dan dana dicairkan</span></li>
+          <li><strong>Cicilan sampai lunas</strong><span>Pembayaran dicatat bendahara</span></li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="statistik" aria-labelledby="judul-statistik">
+    <div class="wrap">
+      <h2 id="judul-statistik">Penyaluran pembiayaan tahun ini</h2>
+      <p class="lede">Hanya angka gabungan. Data pribadi mitra tidak ditampilkan di halaman publik.</p>
+
+      <div class="stats">
+        <div class="card stat"><span class="stat-label">Mitra pemanfaat</span><span class="stat-value">128 orang</span><span class="stat-note">Contoh data</span></div>
+        <div class="card stat"><span class="stat-label">Pembiayaan tersalurkan</span><span class="stat-value">Rp 338 juta</span><span class="stat-note">Januari sampai November, contoh data</span></div>
+        <div class="card stat"><span class="stat-label">Pembiayaan lunas</span><span class="stat-value">41 permohonan</span><span class="stat-note">Contoh data</span></div>
+      </div>
+
+      <div class="charts">
+        <figure class="card chart" style="margin:0">
+          <figcaption>
+            <h3>Pembiayaan tersalurkan per bulan</h3>
+            <p class="chart-sub">Juta rupiah, Juni sampai November (contoh data)</p>
+          </figcaption>
+          <div class="cols" aria-hidden="true">
+            <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
+            <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
+            <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
+            <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
+            <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
+            <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+          </div>
+          <details class="data-table">
+            <summary>Lihat tabel data</summary>
+            <table>
+              <caption class="sr-only">Pembiayaan tersalurkan per bulan, juta rupiah</caption>
+              <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Juni</th><td>45</td></tr>
+                <tr><th scope="row">Juli</th><td>60</td></tr>
+                <tr><th scope="row">Agustus</th><td>38</td></tr>
+                <tr><th scope="row">September</th><td>72</td></tr>
+                <tr><th scope="row">Oktober</th><td>55</td></tr>
+                <tr><th scope="row">November</th><td>68</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </figure>
+
+        <figure class="card chart" style="margin:0">
+          <figcaption>
+            <h3>Mitra per bidang usaha</h3>
+            <p class="chart-sub">Jumlah orang (contoh data)</p>
+          </figcaption>
+          <ul class="hbars" aria-hidden="true">
+            <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">48</span></li>
+            <li><span>Industri</span><span class="track"><span class="fill" style="--v:.63"></span></span><span class="num">30</span></li>
+            <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.44"></span></span><span class="num">21</span></li>
+            <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.31"></span></span><span class="num">15</span></li>
+            <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.29"></span></span><span class="num">14</span></li>
+          </ul>
+          <details class="data-table">
+            <summary>Lihat tabel data</summary>
+            <table>
+              <caption class="sr-only">Jumlah mitra per bidang usaha</caption>
+              <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Perdagangan</th><td>48</td></tr>
+                <tr><th scope="row">Industri</th><td>30</td></tr>
+                <tr><th scope="row">Pertanian</th><td>21</td></tr>
+                <tr><th scope="row">Peternakan</th><td>15</td></tr>
+                <tr><th scope="row">Jasa</th><td>14</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block how" id="alur" aria-labelledby="judul-alur">
+    <div class="wrap">
+      <h2 id="judul-alur">Cara mengajukan pembiayaan</h2>
+      <p class="lede">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
+      <ol class="how-list">
+        <li><h3>Siapkan berkas</h3><p>Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></li>
+        <li><h3>Datang ke kantor BLUD</h3><p>Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></li>
+        <li><h3>Survei dan penetapan</h3><p>Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></li>
+        <li><h3>Pencairan dan cicilan</h3><p>Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="lacak" aria-labelledby="judul-lacak">
+    <div class="wrap">
+      <h2 id="judul-lacak">Lacak permohonan</h2>
+      <p class="lede">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
+      <div class="track-box">
+        <form id="track-form" class="field" novalidate>
+          <label for="kode">Kode permohonan</label>
+          <span class="hint" id="kode-hint">Contoh: KD-2026-0001</span>
+          <div class="row">
+            <input id="kode" name="kode" type="text" autocomplete="off" aria-describedby="kode-hint" required>
+            <button class="btn" type="submit">Lacak</button>
+          </div>
+        </form>
+        <div id="track-result" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="kontak">
+  <div class="wrap">
+    <div>
+      <h2>BLUD Diskum Batam</h2>
+      <p>Alamat, jam layanan, telepon, dan email akan diisi dari data resmi BLUD.</p>
+    </div>
+    <p>Halaman ini adalah contoh tampilan. Nama resmi dan logo menyusul.</p>
+  </div>
+</footer>
+
+<script>
+  // Mockup behaviour only: one fake code returns a status, anything else says not found.
+  (function () {
+    var form = document.getElementById('track-form');
+    var out = document.getElementById('track-result');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var code = document.getElementById('kode').value.trim().toUpperCase();
+      out.textContent = '';
+      var box = document.createElement('p');
+      box.className = 'result';
+      if (code === 'KD-2026-0001') {
+        box.textContent = 'Permohonan KD-2026-0001: tahap Penetapan. Menunggu keputusan pimpinan.';
+      } else {
+        box.className = 'result error';
+        box.textContent = 'Kode tidak ditemukan. Periksa kembali kode pada tanda terima berkas.';
+      }
+      out.appendChild(box);
+    });
+  })();
+</script>
+</body>
+</html>
