@@ -115,10 +115,10 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 - PRD wording, acceptance criteria and success measures, using `docs/checklists/prd.md`.
 - File layout inside `research/` and `mockups/`.
 
-## Next steps once approved
+## Next steps (first round)
 
-1. The project folder `projects/e-blud/` already exists.
-2. Write `research/` notes.
-3. Draft `prd.md` v0 (Indonesian).
-4. Build the three mockups with `frontend-design` and `modern-web-guidance`, then check accessibility.
-5. Show you the result. Nothing goes to the client until you say so.
+1. Done: project folder `projects/e-blud/`.
+2. Done: `research/` notes.
+3. Done: `prd.md` v0 (Indonesian), marked DRAFT.
+4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
+5. Next: you review. Nothing goes to the client until you say so. After the client reacts to the feature list, update the PRD first, then the guidebook.

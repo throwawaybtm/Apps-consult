@@ -126,3 +126,11 @@
 - Spec coverage: research (T1), PRD v0 with open questions (T2), three mockups (T3–T4), accessibility (T5), non-goals untouched, merge rule (T5).
 - Anti-goals covered: identity and personal data greps (T1, T2, T3, T4), "contoh" labels (T3 check), assumptions flagged (T2).
 - Names consistent: `shared.css` tokens, `check.cjs`, F1–F14.
+
+## Deviations made while executing (2026-11-19)
+
+- Charts are CSS-only bars (monthly columns and horizontal bars), not Chart.js and not a donut. Reason: single-series magnitude comparisons need no library, no CDN and no categorical palette; each chart has a "Lihat tabel data" table. No third-party script is loaded.
+- Added `mockups/admin.css` (admin layout) next to `shared.css` so the public page does not carry admin styles.
+- The persyaratan checklist has 8 generic items, not 10 (the reference's three collateral items are merged into two).
+- Task 5 used `npm run check:a11y` (axe-core, WCAG 2.2 AA) for automation, plus a manual pass for keyboard, focus, target size, reflow and contrast. Axe MCP is not used.
+- Screenshots are palette-optimised PNGs to stay under 200K each.
