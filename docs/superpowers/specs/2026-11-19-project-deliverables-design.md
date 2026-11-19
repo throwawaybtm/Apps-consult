@@ -61,11 +61,14 @@ a **stack decision record** (see below); architecture (frontend, backend, data, 
 
 **Stack decision (made per project).** The stack is chosen for each project, not fixed. The handbook opens with a short decision record: the requirements that drive the choice (from the PRD), the options considered, the choice made, and its trade-offs. Human checkpoint 2 approves it.
 
-- **Preferred starting point:** Firebase (Auth, Firestore, Hosting, and Cloud Functions where needed). For files, the user prefers Google Drive as the storage server, reached through Google Apps Script (GAS).
-- **Criteria for choosing file storage:**
-  - Drive/GAS fits when the client's staff manage the files in Google Drive or Workspace, traffic is low to moderate, files are documents rather than media served to the public, and avoiding a billing account matters.
-  - Firebase Storage (needs the Blaze plan, which still has a free tier; set budget alerts) fits for user uploads, images and media shown in the app, many users uploading at once, large files, or file access controlled per user.
-  - A hybrid works too: Firebase Storage for app files, with GAS syncing selected files into the client's Drive.
+- **Free first.** The default is services that cost nothing and need **no billing account or credit card**. Any paid service, including Firebase's Blaze plan, needs a written reason in the decision record and the client's approval.
+- **Default free stack:**
+  - **Firebase on the free Spark plan:** Auth, Firestore and Hosting.
+  - **Google Apps Script (GAS)** as the server-side layer, because Cloud Functions aren't available on Spark.
+  - **Google Drive** as file storage, reached through GAS. Use the client's own Google account where possible, so the files and quota belong to them.
+- **Know the free limits.** The handbook lists the free-tier limits that matter for the project: Firestore daily reads and writes, Hosting bandwidth, GAS quotas, and Drive's 15 GB per account (shared with Gmail). It also says what happens when the project outgrows them.
+- **When the free default doesn't fit,** the decision record names the problem and proposes the cheapest fix. Examples: a free image service with no card needed, for image-heavy public apps; or Firebase Storage on Blaze, with budget alerts, once the client agrees to pay.
+
 - **If Drive/GAS is used, the handbook must specify:** how the GAS web app checks the caller's Firebase identity (never an open endpoint); which account it runs as and what that account can reach in Drive; how it stays within GAS limits (6 minutes per execution, about 30 simultaneous executions per user, and quotas that can change); file size limits; and how files are served (not as public Drive links).
 
 **b. Agent-executable files**, generated from the handbook and placed in the app's code repo when building starts:
@@ -127,7 +130,8 @@ projects/
 - Claude Code builds the software as fully as possible, across backend, frontend, UI/UX, testing, performance and security.
 - Either language works for the PRD; the call below picks one.
 - Pricing is not in the guidebook; it goes in a separate quote.
-- The stack is chosen per project. Firebase, with Drive/GAS for storage, is the preferred starting point, and the user wants help making this decision each time.
+- The stack is chosen per project, and the user wants help making this decision each time.
+- Free first: Firebase on Spark, with GAS and Drive. Nothing that needs a billing account unless it's justified and the client approves.
 
 ## Calls made by Claude (for review)
 
