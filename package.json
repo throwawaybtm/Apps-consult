@@ -1,0 +1,9 @@
+{
+  "name": "apps-consult",
+  "private": true,
+  "scripts": {
+    "test": "node --test tools/*.test.cjs",
+    "new-project": "node tools/new-project.cjs",
+    "build:pdf": "node tools/build-pdf.cjs"
+  }
+}
