@@ -17,7 +17,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 
 ## Branches
 
-- Cloud sessions push to their own `claude/...` branch. **Approved by the repo owner:** when a piece of work is finished (tests pass, `git status` clean), also merge it into `main` and push `main`, without asking first. Use a fast-forward when possible; if `main` has moved on, merge `main` in first and re-run `npm test`. Never force-push `main`.
+- Cloud sessions push to their own `claude/...` branch. **Approved by the repo owner:** every time you push something you'd report as done (a design, an approved design, a plan, a PRD draft, a guidebook, a finished task), also merge it into `main` and push `main` in the same step, without asking first. Only do this when `npm test` passes and `git status` is clean. Say in your reply that `main` was updated. Use a fast-forward when possible; if `main` has moved on, merge `main` in first and re-run `npm test`. Never force-push `main`.
 
 ## Documents and languages
 
