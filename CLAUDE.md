@@ -36,6 +36,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 
 - **Quality bars:** Modern Web Guidance at **Baseline Widely available**; **WCAG 2.2 AA**; Core Web Vitals "good" (**LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1**); **OWASP Top 10** checklist plus `/security-review` on every change.
 - **Free first:** default to Firebase on the **Spark** plan (Auth, Firestore, Hosting), **Google Apps Script (GAS)** as the server-side layer, and **Google Drive** for storage. Anything that needs a billing account (including Blaze) needs a written reason in the stack decision record and the client's approval.
+- **Frontend styling default: Tailwind CSS v4** (free, open source). Put the project's design tokens (colours, fonts, spacing, radius) in one `@theme` block that matches its DESIGN.md, and use `frontend-design` so it doesn't look like default Tailwind. Real apps compile it with Vite (`@tailwindcss/vite`). Never ship the CDN script. The project's stack decision record confirms or replaces this.
 - Every GAS endpoint must verify the caller's Firebase identity. Never serve Drive files as public links.
 - The stack is decided per project, in a decision record at the top of the dev handbook. Help the user weigh it every time.
 - PDF output: A4, backgrounds printed, embedded fonts that support Indonesian text.
@@ -52,7 +53,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 ## Skills and tools
 
 - New project or a big decision: `superpowers:brainstorming`, then `superpowers:writing-plans`.
-- Guidebook look and mockups: `frontend-design`, `website-design:web-design-system`, and `modern-web-guidance` for any HTML, CSS or JS.
+- Guidebook look and mockups: `frontend-design`, `website-design:web-design-system`, and `modern-web-guidance` for any HTML, CSS or JS. Mockups use Tailwind v4 (compiled with `npm run css`) so they carry straight into the real build. The guidebook's own print layout can be plain CSS.
 - Accessibility: `npm run check:a11y -- <page.html> ...` (automated WCAG 2.2 AA scan with the free axe-core engine) on every guidebook and mockup page, then `design:accessibility-review` for what automation can't judge (reading order, meaning, keyboard flow). The paid Axe scanner plugin isn't used.
 - Security: `/security-review`.
 - Lookups, doc reading and source gathering: the `researcher` subagent (Haiku).
@@ -62,6 +63,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 
 - `npm run new-project -- <name>`: creates `projects/<name>/` folders. Names use lowercase letters, digits and single hyphens.
 - `npm run build:pdf -- <input.html> [output.pdf]`: prints a guidebook to an A4 PDF with the preinstalled Playwright Chromium. Never run `playwright install`.
+- `npm run css -- -i <input.css> -o <output.css> [--minify]`: compiles Tailwind v4 for mockups. Run it from the repo root with repo-root paths. The input CSS must sit inside the repo (for example `projects/<name>/mockups/`) so `@import "tailwindcss"` resolves; it starts with `@import "tailwindcss";` and holds the `@theme` tokens. Recompile before `build:pdf` or `check:a11y`.
 - `npm run check:a11y -- <page.html> [more.html ...]`: runs axe-core WCAG 2.0–2.2 A/AA rules in Chromium. Exits 1 and lists each violation with where and how to fix it; items needing a manual check are listed without failing.
 - `npm test`: runs the tool tests.
-- `npm test` and `check:a11y` run `npm install` first, so a fresh session needs no setup.
+- `npm test`, `css` and `check:a11y` run `npm install` first, so a fresh session needs no setup.

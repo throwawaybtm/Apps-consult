@@ -7,9 +7,13 @@
     "new-project": "node tools/new-project.cjs",
     "build:pdf": "node tools/build-pdf.cjs",
     "precheck:a11y": "npm install --no-audit --no-fund --silent",
-    "check:a11y": "node tools/check-a11y.cjs"
+    "check:a11y": "node tools/check-a11y.cjs",
+    "precss": "npm install --no-audit --no-fund --silent",
+    "css": "tailwindcss"
   },
   "devDependencies": {
-    "axe-core": "^4.14.1"
+    "@tailwindcss/cli": "^4.3.5",
+    "axe-core": "^4.14.1",
+    "tailwindcss": "^4.3.5"
   }
 }

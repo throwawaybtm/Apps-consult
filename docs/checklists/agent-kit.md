@@ -2,7 +2,7 @@
 
 Language: **English**. These files go in `projects/<name>/agent-kit/` and are copied into the app's code repo when building starts. Claude Code follows them literally, so be exact.
 
-- [ ] **`CLAUDE.md`:** stack and versions, install/dev/test/build/deploy commands, coding conventions, folder structure, and "never do" rules (no secrets in code, no public Drive links, no open GAS endpoints, no paid services without approval).
+- [ ] **`CLAUDE.md`:** stack and versions (including Tailwind v4 and where its `@theme` tokens live, with a rule to use tokens and not hard-coded colours or sizes), install/dev/test/build/deploy commands, coding conventions, folder structure, and "never do" rules (no secrets in code, no public Drive links, no open GAS endpoints, no paid services without approval).
 - [ ] **Checkpoints in `CLAUDE.md`:** stop and ask at each of the five human checkpoints (PRD approved; stack and architecture approved; secrets, payments or personal data; production deploy; final security and accessibility sign-off).
 - [ ] **`specs/<feature>.md`:** one per PRD feature, named with its F-number (for example `specs/F1-login.md`).
 - [ ] **Acceptance tests per spec:** each test maps to a PRD acceptance criterion and is written so it can be automated.

@@ -9,6 +9,7 @@ Language: **English**. Audience: a human reviewer, tech lead or auditor. It is a
   - the free-tier limits that matter (Firestore daily reads and writes, Hosting bandwidth, GAS quotas, Drive's 15 GB per account shared with Gmail);
   - what happens when those limits are outgrown: name the problem and propose the cheapest fix (for example a free image service that needs no card for image-heavy public apps, or Firebase Storage on Blaze with budget alerts once the client agrees to pay).
   - Free first: Firebase on Spark, plus GAS and Drive. Anything needing a billing account needs a written reason and client approval.
+- [ ] **Frontend styling:** Tailwind CSS v4 by default (or a written reason for something else); the `@theme` tokens that match the project's DESIGN.md; the build setup (Vite with `@tailwindcss/vite`); and browser support checked against Baseline Widely available.
 - [ ] **Architecture:** frontend, backend (GAS), data and integrations, with a diagram.
 - [ ] **Data model:** collections or tables, fields, relationships and indexes.
 - [ ] **API design:** every endpoint or function, its inputs and outputs, and its errors.

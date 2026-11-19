@@ -1,0 +1,5 @@
+@import "tailwindcss" source(none);
+@source "./page.html";
+@theme {
+  --color-guide-600: #0369a1;
+}

@@ -4,7 +4,7 @@ Language: **Indonesian**. Format: HTML in `guidebook/guidebook.html`, built to a
 
 - [ ] **The client's problem:** stated in their own words, so they recognise it.
 - [ ] **The solution:** what will be built and how it solves the problem, in a page or less.
-- [ ] **Key screens:** mockups of the main screens, built as real HTML in the planned design style (use `frontend-design`, `website-design:web-design-system` and `modern-web-guidance`).
+- [ ] **Key screens:** mockups of the main screens, built as real HTML with Tailwind v4 (`npm run css`) in the planned design style (use `frontend-design`, `website-design:web-design-system` and `modern-web-guidance`).
 - [ ] **User flow:** a diagram of how users move through the app.
 - [ ] **Included and not included:** taken directly from the PRD's features and out-of-scope list.
 - [ ] **Timeline and phases:** what is delivered when.
