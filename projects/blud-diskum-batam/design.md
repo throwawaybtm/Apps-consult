@@ -2,7 +2,7 @@
 
 Date: 2026-11-19
 Status: Draft, waiting for approval
-Project folder (planned): `projects/blud-diskum-batam/`
+Project folder: `projects/blud-diskum-batam/`
 
 ## Intent and why
 

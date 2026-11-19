@@ -13,6 +13,11 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - Write the PRD first. The guidebook and dev handbook are derived from it.
 - **Every feature in the guidebook or dev handbook must exist in the PRD.** Scope changes go into the PRD first, then flow down.
 - Start a new project with `superpowers:brainstorming`, then `npm run new-project -- <name>`.
+- **Everything for a project lives in `projects/<name>/`**, including its brainstorming design (`projects/<name>/design.md`) and any plans (`projects/<name>/plans/`). Don't use `docs/superpowers/specs/` or `docs/superpowers/plans/` for project work; those are only for changes to this repo's own tooling.
+
+## Branches
+
+- Cloud sessions push to their own `claude/...` branch. **Approved by the repo owner:** when a piece of work is finished (tests pass, `git status` clean), also merge it into `main` and push `main`, without asking first. Use a fast-forward when possible; if `main` has moved on, merge `main` in first and re-run `npm test`. Never force-push `main`.
 
 ## Documents and languages
 
