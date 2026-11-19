@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e-BLUD: contoh form permohonan</title>
+<meta name="description" content="Contoh form permohonan pembiayaan di situs admin e-BLUD untuk diskusi dengan klien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+<a class="skip-link" href="#konten">Lewati ke konten utama</a>
+<div class="shell">
+  <p class="contoh-banner">Contoh tampilan untuk diskusi, bukan desain akhir. Semua isian dan aturan di halaman ini adalah contoh.</p>
+
+  <nav class="sidebar" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="brand" href="admin-dashboard.html">
+      <span class="brand-mark" aria-hidden="true">eB</span>
+      <span>e-BLUD<small>BLUD Diskum Batam (contoh)</small></span>
+    </a>
+    <ul>
+      <li><a class="nav-item" href="admin-dashboard.html">Dashboard</a></li>
+      <li><span class="nav-item off">Mitra</span></li>
+      <li><a class="nav-item" href="admin-permohonan.html" aria-current="page">Permohonan</a></li>
+      <li><span class="nav-item off">Pencairan</span></li>
+      <li><span class="nav-item off">Pembayaran</span></li>
+      <li><span class="nav-item off">Laporan</span></li>
+      <li><span class="nav-item off">Log aktivitas</span></li>
+    </ul>
+    <p class="sidebar-note">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-quiet sidebar-close" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+  </nav>
+
+  <div>
+    <header class="topbar">
+      <button class="btn btn-quiet menu-toggle" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
+      <span class="who">Petugas Contoh<br>Peran: Petugas pelayanan (contoh)</span>
+    </header>
+
+    <main class="content" id="konten">
+      <div class="page-head">
+        <div>
+          <p class="crumbs"><a href="admin-dashboard.html">Dashboard</a> / Permohonan</p>
+          <h1>Permohonan pembiayaan baru</h1>
+        </div>
+      </div>
+
+      <form id="form-permohonan" action="#" novalidate>
+        <div class="form-grid">
+          <section class="panel" aria-labelledby="h-data">
+            <div class="panel-head"><h2 id="h-data">Data permohonan</h2></div>
+            <div class="fields">
+              <div class="field wide">
+                <label for="mitra">Mitra <span class="req" aria-hidden="true">*</span></label>
+                <select id="mitra" name="mitra" required data-error="mitra-error">
+                  <option value="">Pilih mitra</option>
+                  <option>Mitra Contoh A</option>
+                  <option>Mitra Contoh B</option>
+                  <option>Mitra Contoh C</option>
+                </select>
+                <div class="error-msg" id="mitra-error"><span aria-hidden="true">&#10005;</span> <span class="sr-only">Kesalahan:</span> Pilih mitra dari daftar.</div>
+              </div>
+
+              <div class="field">
+                <label for="jumlah">Jumlah pembiayaan (rupiah) <span class="req" aria-hidden="true">*</span></label>
+                <span class="hint" id="jumlah-hint">Isi angka saja, tanpa titik. Batas jumlah menunggu aturan BLUD.</span>
+                <input id="jumlah" name="jumlah" type="text" inputmode="numeric" pattern="[0-9]+" required aria-describedby="jumlah-hint" data-error="jumlah-error">
+                <div class="error-msg" id="jumlah-error"><span aria-hidden="true">&#10005;</span> <span class="sr-only">Kesalahan:</span> Isi jumlah pembiayaan dengan angka saja.</div>
+              </div>
+
+              <div class="field">
+                <label for="tenor">Jangka waktu <span class="req" aria-hidden="true">*</span></label>
+                <span class="hint" id="tenor-hint">Pilihan contoh, menunggu aturan BLUD.</span>
+                <select id="tenor" name="tenor" required aria-describedby="tenor-hint" data-error="tenor-error">
+                  <option value="">Pilih jangka waktu</option>
+                  <option>12 bulan</option>
+                  <option>24 bulan</option>
+                  <option>36 bulan</option>
+                </select>
+                <div class="error-msg" id="tenor-error"><span aria-hidden="true">&#10005;</span> <span class="sr-only">Kesalahan:</span> Pilih jangka waktu.</div>
+              </div>
+
+              <div class="field">
+                <label for="jenis">Jenis usaha</label>
+                <input id="jenis" name="jenis" type="text" autocomplete="off">
+              </div>
+
+              <div class="field">
+                <label for="bidang">Bidang usaha</label>
+                <select id="bidang" name="bidang">
+                  <option value="">Pilih bidang usaha</option>
+                  <option>Perdagangan</option>
+                  <option>Industri</option>
+                  <option>Pertanian</option>
+                  <option>Peternakan</option>
+                  <option>Jasa</option>
+                </select>
+              </div>
+
+              <div class="field wide">
+                <label for="tanggal">Rencana tanggal pencairan <span class="req" aria-hidden="true">*</span></label>
+                <span class="hint" id="tanggal-hint">Aturan contoh: pencairan paling lambat tanggal 28, agar tanggal cicilan ada di setiap bulan. Menunggu konfirmasi BLUD.</span>
+                <input id="tanggal" name="tanggal" type="date" required aria-describedby="tanggal-hint" data-error="tanggal-error">
+                <div class="error-msg" id="tanggal-error"><span aria-hidden="true">&#10005;</span> <span class="sr-only">Kesalahan:</span> <span id="tanggal-pesan">Isi tanggal pencairan.</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="h-syarat">
+            <div class="panel-head"><h2 id="h-syarat">Persyaratan</h2></div>
+            <fieldset>
+              <legend class="hint">Centang dokumen yang sudah diterima. Daftar ini contoh.</legend>
+              <ul class="checklist" id="syarat">
+                <li><label><input type="checkbox" name="syarat"><span>Fotokopi KTP yang masih berlaku</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Fotokopi Kartu Keluarga</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Proposal pengembangan usaha</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Surat rekomendasi dari kelurahan</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Bukti pembayaran pajak bumi dan bangunan</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Rekening listrik atau air terbaru</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Dokumen jaminan (kendaraan)</span></label></li>
+                <li><label><input type="checkbox" name="syarat"><span>Sertifikat tanah (jika menjadi jaminan)</span></label></li>
+              </ul>
+            </fieldset>
+            <p class="progress" id="progres" role="status" aria-live="polite">0 dari 8 dokumen lengkap</p>
+          </section>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-quiet" href="admin-dashboard.html">Kembali</a>
+          <button class="btn" type="submit">Simpan permohonan</button>
+        </div>
+        <div id="save-status" role="status" aria-live="polite"></div>
+      </form>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Mockup behaviour only. Validation follows the "show errors after interaction" pattern:
+  // the browser's :user-invalid decides when an error is shown; this script supplies the rules
+  // and links each visible error to its field.
+  (function () {
+    var form = document.getElementById('form-permohonan');
+
+    function linkErrors(field) {
+      var errId = field.getAttribute('data-error');
+      if (!errId) return;
+      var ids = (field.getAttribute('aria-describedby') || '').split(' ').filter(function (x) { return x && x !== errId; });
+      if (!field.validity.valid) ids.push(errId);
+      field.setAttribute('aria-describedby', ids.join(' '));
+      field.setAttribute('aria-invalid', field.validity.valid ? 'false' : 'true');
+    }
+
+    var date = document.getElementById('tanggal');
+    var msg = document.getElementById('tanggal-pesan');
+    function checkDate() {
+      date.setCustomValidity('');
+      msg.textContent = 'Isi tanggal pencairan.';
+      if (date.value) {
+        var day = Number(date.value.split('-')[2]);
+        if (day > 28) {
+          msg.textContent = 'Tanggal pencairan tidak boleh lebih dari tanggal 28.';
+          date.setCustomValidity(msg.textContent);
+        }
+      }
+    }
+
+    form.querySelectorAll('[data-error]').forEach(function (f) {
+      ['input', 'change', 'blur'].forEach(function (ev) {
+        f.addEventListener(ev, function () { if (f === date) checkDate(); linkErrors(f); });
+      });
+    });
+
+    var boxes = form.querySelectorAll('input[name="syarat"]');
+    var progress = document.getElementById('progres');
+    form.addEventListener('change', function (e) {
+      if (e.target.name !== 'syarat') return;
+      var n = form.querySelectorAll('input[name="syarat"]:checked').length;
+      progress.textContent = n + ' dari ' + boxes.length + ' dokumen lengkap';
+    });
+
+    var status = document.getElementById('save-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      checkDate();
+      form.querySelectorAll('[data-error]').forEach(linkErrors);
+      status.textContent = '';
+      var firstBad = form.querySelector('[data-error]:invalid');
+      if (firstBad) {
+        // Mark fields as touched so :user-invalid shows their errors, then move focus to the first.
+        form.querySelectorAll('[data-error]').forEach(function (f) { f.dispatchEvent(new Event('blur')); });
+        firstBad.focus();
+        form.reportValidity();
+        return;
+      }
+      var p = document.createElement('p');
+      p.className = 'notice';
+      p.textContent = 'Permohonan disimpan (contoh, tidak ada data yang dikirim).';
+      status.appendChild(p);
+    });
+  })();
+</script>
+</body>
+</html>

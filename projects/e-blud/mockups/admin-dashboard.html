@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e-BLUD: contoh dashboard admin</title>
+<meta name="description" content="Contoh tampilan dashboard admin e-BLUD untuk diskusi dengan klien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+<a class="skip-link" href="#konten">Lewati ke konten utama</a>
+<div class="shell">
+  <p class="contoh-banner">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama adalah data contoh.</p>
+
+  <nav class="sidebar" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="brand" href="admin-dashboard.html">
+      <span class="brand-mark" aria-hidden="true">eB</span>
+      <span>e-BLUD<small>BLUD Diskum Batam (contoh)</small></span>
+    </a>
+    <ul>
+      <li><a class="nav-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
+      <li><span class="nav-item off">Mitra</span></li>
+      <li><a class="nav-item" href="admin-permohonan.html">Permohonan</a></li>
+      <li><span class="nav-item off">Pencairan</span></li>
+      <li><span class="nav-item off">Pembayaran</span></li>
+      <li><span class="nav-item off">Laporan</span></li>
+      <li><span class="nav-item off">Log aktivitas</span></li>
+    </ul>
+    <p class="sidebar-note">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-quiet sidebar-close" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+  </nav>
+
+  <div>
+    <header class="topbar">
+      <button class="btn btn-quiet menu-toggle" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
+      <span class="who">Petugas Contoh<br>Peran: Pimpinan (contoh)</span>
+    </header>
+
+    <main class="content" id="konten">
+      <div class="page-head">
+        <div>
+          <h1>Dashboard</h1>
+        </div>
+        <form class="filters" aria-label="Filter periode">
+          <div>
+            <label for="periode">Periode</label>
+            <select id="periode" name="periode">
+              <option>Tahun ini</option>
+              <option>Bulan ini</option>
+              <option>Pilih tanggal</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <section class="kpi-group" aria-labelledby="k-cair">
+        <h2 id="k-cair">Pencairan pembiayaan</h2>
+        <dl class="kpis">
+          <div class="kpi"><dt>Hari ini</dt><dd class="v">Rp 0</dd><dd class="s">0 orang</dd></div>
+          <div class="kpi"><dt>Bulan ini</dt><dd class="v">Rp 68 juta</dd><dd class="s">3 orang</dd></div>
+          <div class="kpi"><dt>Tahun ini</dt><dd class="v">Rp 338 juta</dd><dd class="s">14 orang</dd></div>
+        </dl>
+      </section>
+
+      <section class="kpi-group" aria-labelledby="k-cil">
+        <h2 id="k-cil">Pembayaran cicilan</h2>
+        <dl class="kpis">
+          <div class="kpi"><dt>Hari ini</dt><dd class="v">Rp 2,2 juta</dd><dd class="s">4 pembayaran</dd></div>
+          <div class="kpi"><dt>Bulan ini</dt><dd class="v">Rp 14,6 juta</dd><dd class="s">31 pembayaran</dd></div>
+          <div class="kpi"><dt>Tahun ini</dt><dd class="v">Rp 96,4 juta</dd><dd class="s">287 pembayaran</dd></div>
+          <div class="kpi"><dt>Jumlah mitra</dt><dd class="v">128 orang</dd><dd class="s">Semua yang terdaftar</dd></div>
+        </dl>
+      </section>
+
+      <div class="grid-2">
+        <figure class="panel chart" style="margin:0">
+          <figcaption>
+            <h2>Pencairan per bulan</h2>
+            <p class="chart-sub">Juta rupiah, Juni sampai November</p>
+          </figcaption>
+          <div class="cols" aria-hidden="true">
+            <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
+            <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
+            <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
+            <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
+            <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
+            <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+          </div>
+          <details class="data-table">
+            <summary>Lihat tabel data</summary>
+            <table>
+              <caption class="sr-only">Pencairan per bulan, juta rupiah</caption>
+              <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Juni</th><td>45</td></tr>
+                <tr><th scope="row">Juli</th><td>60</td></tr>
+                <tr><th scope="row">Agustus</th><td>38</td></tr>
+                <tr><th scope="row">September</th><td>72</td></tr>
+                <tr><th scope="row">Oktober</th><td>55</td></tr>
+                <tr><th scope="row">November</th><td>68</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </figure>
+
+        <figure class="panel chart" style="margin:0">
+          <figcaption>
+            <h2>Pencairan per bidang usaha</h2>
+            <p class="chart-sub">Jumlah orang, tahun ini</p>
+          </figcaption>
+          <ul class="hbars" aria-hidden="true">
+            <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">6</span></li>
+            <li><span>Industri</span><span class="track"><span class="fill" style="--v:.67"></span></span><span class="num">4</span></li>
+            <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.5"></span></span><span class="num">3</span></li>
+            <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.33"></span></span><span class="num">2</span></li>
+            <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.17"></span></span><span class="num">1</span></li>
+          </ul>
+          <details class="data-table">
+            <summary>Lihat tabel data</summary>
+            <table>
+              <caption class="sr-only">Pencairan per bidang usaha, jumlah orang</caption>
+              <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Perdagangan</th><td>6</td></tr>
+                <tr><th scope="row">Industri</th><td>4</td></tr>
+                <tr><th scope="row">Pertanian</th><td>3</td></tr>
+                <tr><th scope="row">Peternakan</th><td>2</td></tr>
+                <tr><th scope="row">Jasa</th><td>1</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </figure>
+      </div>
+
+      <section class="panel" aria-labelledby="judul-pinjaman">
+        <div class="panel-head">
+          <h2 id="judul-pinjaman">Pinjaman</h2>
+          <a class="btn" href="admin-permohonan.html">Tambah permohonan</a>
+        </div>
+        <div class="filters">
+          <fieldset class="seg" id="status-filter">
+            <legend>Status</legend>
+            <label><input type="radio" name="status" value="semua" checked><span>Semua</span></label>
+            <label><input type="radio" name="status" value="berjalan"><span>Berjalan</span></label>
+            <label><input type="radio" name="status" value="lunas"><span>Lunas</span></label>
+            <label><input type="radio" name="status" value="batal"><span>Batal</span></label>
+          </fieldset>
+        </div>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="judul-pinjaman">
+          <table id="tabel-pinjaman">
+            <caption class="sr-only">Daftar pinjaman contoh</caption>
+            <thead>
+              <tr><th scope="col">Nomor</th><th scope="col">Mitra</th><th scope="col">Bidang usaha</th><th scope="col" class="num">Jumlah</th><th scope="col">Jangka waktu</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr data-status="berjalan"><th scope="row">KD-2026-0006</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">MA</span>Mitra Contoh A</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 20.000.000</td><td data-label="Jangka waktu">18 bulan</td><td data-label="Status"><span class="chip chip-info">Berjalan</span></td></tr>
+              <tr data-status="berjalan"><th scope="row">KD-2026-0005</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">MB</span>Mitra Contoh B</span></td><td data-label="Bidang usaha">Industri</td><td class="num" data-label="Jumlah">Rp 30.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="chip chip-info">Berjalan</span></td></tr>
+              <tr data-status="berjalan"><th scope="row">KD-2026-0004</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">MC</span>Mitra Contoh C</span></td><td data-label="Bidang usaha">Pertanian</td><td class="num" data-label="Jumlah">Rp 15.000.000</td><td data-label="Jangka waktu">24 bulan</td><td data-label="Status"><span class="chip chip-warn">Berjalan, menunggak</span></td></tr>
+              <tr data-status="lunas"><th scope="row">KD-2026-0003</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">MD</span>Mitra Contoh D</span></td><td data-label="Bidang usaha">Peternakan</td><td class="num" data-label="Jumlah">Rp 10.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="chip chip-ok">Lunas</span></td></tr>
+              <tr data-status="lunas"><th scope="row">KD-2026-0002</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">ME</span>Mitra Contoh E</span></td><td data-label="Bidang usaha">Jasa</td><td class="num" data-label="Jumlah">Rp 25.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="chip chip-ok">Lunas</span></td></tr>
+              <tr data-status="batal"><th scope="row">KD-2026-0001</th><td data-label="Mitra"><span class="who-cell"><span class="avatar" aria-hidden="true">MF</span>Mitra Contoh F</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 50.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="chip chip-err">Batal</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="empty" id="kosong" hidden>Tidak ada pinjaman dengan status ini.</p>
+        <p class="sr-only" role="status" id="jumlah-hasil"></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Mockup behaviour only: filter the sample rows by status.
+  (function () {
+    var rows = document.querySelectorAll('#tabel-pinjaman tbody tr');
+    var empty = document.getElementById('kosong');
+    var count = document.getElementById('jumlah-hasil');
+    document.getElementById('status-filter').addEventListener('change', function (e) {
+      var v = e.target.value, n = 0;
+      rows.forEach(function (r) {
+        var show = v === 'semua' || r.dataset.status === v;
+        r.hidden = !show;
+        if (show) n++;
+      });
+      empty.hidden = n !== 0;
+      count.textContent = n + ' pinjaman ditampilkan';
+    });
+  })();
+</script>
+</body>
+</html>
