@@ -14,17 +14,18 @@ Tanggal: 19 November 2026 · Status: Draft v0
 3. Aturan pembiayaan dicek otomatis oleh sistem *(aturan Batam: lihat bagian 9)*.
 4. Pimpinan melihat angka pencairan dan cicilan di dashboard tanpa menunggu rekap.
 5. Masyarakat mendapat situs publik yang modern berisi informasi BLUD dan statistik ringkas.
+6. Mitra dapat mengajukan pembiayaan sendiri secara online, tanpa akun, lalu memantau prosesnya *(Asumsi)*.
 
 ## 2. Pengguna
 
 | Pengguna | Kebutuhan | Status |
 |---|---|---|
 | Admin | Mengelola akun, peran dan data master | *(Asumsi)* |
-| Petugas pelayanan | Menginput mitra dan permohonan | *(Asumsi)* |
+| Petugas pelayanan | Memverifikasi permohonan yang masuk online; menginput permohonan untuk pemohon yang datang langsung | *(Asumsi)* |
 | Fasilitator lapangan | Mengisi hasil survei mitra | *(Asumsi)* |
 | Pimpinan (Kasubag atau Kepala) | Menyetujui, mencairkan, memantau dashboard | *(Asumsi)* |
 | Bendahara atau kasir | Mencatat pembayaran cicilan, mencetak kwitansi | *(Asumsi)* |
-| Masyarakat dan mitra | Melihat informasi dan statistik; melacak permohonan dengan kode *(Asumsi)* | *(Asumsi)* |
+| Masyarakat dan mitra | Mengisi permohonan pembiayaan sendiri secara online tanpa akun, mengunggah dokumen persyaratan, melihat statistik, dan melacak permohonan dengan kode | *(Asumsi)* |
 
 Peran sebenarnya di Diskum Batam belum diketahui.
 
@@ -53,14 +54,18 @@ Dua tampilan: **situs publik** (modern) dan **situs admin** (modern, bergaya pem
 
 Alur di bawah ini adalah **asumsi** sampai dikonfirmasi klien.
 
-**F1 Login dan peran.** Pengguna masuk dengan akun yang dibuat admin; hak akses mengikuti peran.
+**F1 Login dan peran.** Pengguna (petugas) masuk dengan akun yang dibuat admin; hak akses mengikuti peran. Mitra tidak memerlukan akun.
 *Given* pengguna tanpa akun, *when* membuka halaman admin, *then* diarahkan ke login. *Given* peran petugas pelayanan, *when* membuka menu pencairan, *then* akses ditolak.
 
-**F2 Data mitra.** Simpan data identitas mitra (NIK, nama, alamat, kontak, foto, data rekening). Foto dan data pribadi hanya terlihat oleh pengguna yang berhak.
+**F2 Data mitra.** Simpan data identitas mitra (NIK, nama, alamat, kontak, foto, data rekening). Data berasal dari formulir online mitra (F3) atau diinput petugas, dan menjadi data mitra resmi setelah diverifikasi petugas. Foto dan data pribadi hanya terlihat oleh pengguna yang berhak.
 *Given* NIK sudah terdaftar, *when* petugas menambah mitra dengan NIK sama, *then* sistem menolak dan menampilkan data yang ada.
 
-**F3 Permohonan pembiayaan.** Petugas mencatat permohonan: mitra, jumlah, jangka waktu, jenis dan bidang usaha, daftar persyaratan dokumen. Permohonan dapat dibatalkan dengan alasan wajib.
-*Given* persyaratan wajib belum lengkap, *when* permohonan diajukan ke survei, *then* sistem menampilkan dokumen yang kurang.
+**F3 Permohonan pembiayaan.** Permohonan masuk dengan dua cara: (a) mitra mengisi formulir di situs publik tanpa akun, berisi data diri, data usaha, jumlah dan jangka waktu pembiayaan, serta unggahan dokumen persyaratan (foto atau scan) *(Asumsi)*; (b) petugas menginput untuk pemohon yang datang langsung *(Asumsi)*. Pemohon menyetujui pemrosesan data pribadinya sebelum mengirim, dan formulir publik dilindungi dari kiriman otomatis (misalnya CAPTCHA, usulan). Setelah dikirim, sistem memberi kode permohonan dan status "Menunggu verifikasi". Petugas memeriksa identitas dan dokumen, lalu meneruskan ke survei (F4), meminta perbaikan, atau menolak dengan alasan wajib. Permohonan juga dapat dibatalkan dengan alasan wajib.
+*Given* formulir online belum lengkap, *when* dikirim, *then* sistem menunjukkan isian yang kurang dan tidak mengirim.
+*Given* formulir lengkap dan persetujuan dicentang, *when* dikirim, *then* tampil kode permohonan dan status "Menunggu verifikasi".
+*Given* NIK sudah punya permohonan yang masih diproses, *when* dikirim lagi, *then* sistem menolak dan menyarankan melacak permohonan yang ada.
+*Given* permohonan "Menunggu verifikasi", *when* petugas memverifikasi, *then* status menjadi "Siap survei" dan tercatat di log aktivitas (F12).
+*Given* dokumen yang diunggah, *when* dibuka, *then* hanya petugas yang berhak yang dapat melihatnya, dan tidak ada tautan publik.
 
 **F4 Survei dan analisa.** Fasilitator mengisi hasil survei (modal, target penjualan, keuntungan, rincian penggunaan dana) pada permohonan yang sama.
 *Given* permohonan belum disurvei, *when* pimpinan membuka penetapan, *then* sistem meminta survei diselesaikan dahulu.
@@ -89,16 +94,18 @@ Alur di bawah ini adalah **asumsi** sampai dikonfirmasi klien.
 **F12 Log aktivitas.** Setiap perubahan data tercatat: siapa, kapan, apa. Log tidak dapat diubah dari aplikasi.
 *Given* data pinjaman diubah, *when* admin membuka log, *then* tampil pengguna, waktu dan nilai sebelum dan sesudah.
 
-**F13 Situs publik.** Beranda, profil, layanan, berita, galeri, kontak, dan statistik agregat. Tidak menampilkan data pribadi mitra.
+**F13 Situs publik.** Beranda, profil, layanan, berita, galeri, kontak, statistik agregat, dan halaman formulir pengajuan (F3). Halaman publik tidak pernah menampilkan data pribadi mitra.
 *Given* pengunjung membuka situs publik, *when* melihat statistik, *then* hanya angka total dan grafik yang tampil, tanpa nama, NIK atau foto.
 
-**F14 Lacak permohonan** *(Asumsi)*. Pemohon memasukkan kode dan melihat status permohonan saja.
+**F14 Lacak permohonan** *(Asumsi)*. Pemohon memasukkan kode (diberikan setelah mengirim formulir, atau dari tanda terima) dan hanya melihat tahap permohonan, termasuk "Menunggu verifikasi" dan "Perlu perbaikan".
+*Given* kode benar, *when* dikirim, *then* hanya tahap permohonan yang tampil, tanpa data pribadi.
 *Given* kode salah, *when* dikirim, *then* tampil "Kode tidak ditemukan" tanpa petunjuk lain.
 
 ## 5. Di luar cakupan
 
 - Harga dan penawaran (dibuat terpisah).
 - Pemindahan data Excel lama *(Asumsi, dikonfirmasi di bagian 9)*.
+- Akun login untuk mitra (mitra mengajukan lewat formulir tanpa akun).
 - Pembayaran online oleh mitra; pembayaran dicatat oleh petugas.
 - Aplikasi mobile.
 - Peta lokasi mitra (GIS), kecuali klien memintanya.
@@ -116,7 +123,7 @@ Alur di bawah ini adalah **asumsi** sampai dikonfirmasi klien.
 - **Biaya:** gratis lebih dulu (Firebase Spark, Google Apps Script, Google Drive). Layanan berbayar hanya dengan alasan tertulis dan persetujuan klien.
 - **Waktu:** belum ditentukan.
 - **Perangkat:** peramban modern di komputer dan ponsel.
-- **Data pribadi dan keuangan:** NIK, foto, alamat, serta data pinjaman dan pembayaran diperlakukan sebagai data sensitif; setiap tahap yang menyentuhnya perlu persetujuan sebelum dibangun.
+- **Data pribadi dan keuangan:** NIK, foto, alamat, serta data pinjaman dan pembayaran diperlakukan sebagai data sensitif; setiap tahap yang menyentuhnya perlu persetujuan sebelum dibangun. Formulir publik mengumpulkan NIK, foto, dan dokumen dari masyarakat: persetujuan pemrosesan, penyimpanan dokumen secara privat di Google Drive (tanpa tautan publik), batas jenis dan ukuran berkas, serta perlindungan dari spam harus disetujui sebelum dibangun.
 - **Keamanan:** daftar periksa OWASP Top 10 dan tinjauan keamanan pada setiap perubahan.
 
 ## 8. Tampilan
@@ -130,13 +137,17 @@ Situs publik: modern, biru muda, ramah ponsel. Situs admin: modern tetapi bergay
 | 1 | Bagaimana alur pembiayaan sebenarnya, dan siapa mengerjakan tiap langkah? | Klien (Kepala BLUD) |
 | 2 | Peran apa saja yang ada di Diskum Batam? | Klien |
 | 3 | Aturan pembiayaan: batas per jenis, jasa, jangka waktu, agunan, denda, batas tanggal pencairan | Klien |
-| 4 | Apakah mitra boleh mengajukan atau melacak permohonan secara online? | Klien |
+| 4 | Benarkah mitra mengajukan sendiri lewat formulir online tanpa akun, lalu melacak dengan kode? | Klien |
 | 5 | Apakah peta lokasi mitra diperlukan? | Klien |
 | 6 | Dasar hukum Batam (Perwako dan tarif) yang berlaku | Klien |
 | 7 | Nama resmi, logo dan penulisan BLUD | Klien |
 | 8 | Apakah data Excel lama harus dimasukkan? | Klien |
 | 9 | Laporan apa saja yang benar-benar dipakai? | Klien |
 | 10 | Perkiraan jumlah pengguna dan mitra | Klien |
+| 11 | Apakah pemohon yang datang langsung tetap diinput petugas? | Klien |
+| 12 | Bagaimana petugas memverifikasi identitas pemohon online (NIK dan dokumen)? | Klien |
+| 13 | Dokumen mana yang wajib diunggah, serta jenis dan ukuran maksimal berkas? | Klien |
+| 14 | Teks persetujuan data pribadi dan lama data disimpan | Klien dan pihak hukum |
 
 ## 10. Persetujuan
 

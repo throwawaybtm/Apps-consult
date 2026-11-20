@@ -1,0 +1,132 @@
+{
+  "public-home": [
+    {
+      "n": 1,
+      "text": "Tombol Ajukan pembiayaan membuka formulir online (F3, F13).",
+      "x": 0.075,
+      "y": 0.3800998263888889
+    },
+    {
+      "n": 2,
+      "text": "Perjalanan satu permohonan, supaya tahapnya jelas bagi pemohon.",
+      "x": 0.56416015625,
+      "y": 0.15138888888888888
+    },
+    {
+      "n": 3,
+      "text": "Angka gabungan penyaluran pembiayaan, tanpa data pribadi mitra (F13).",
+      "x": 0.075,
+      "y": 0.6186957465277778
+    },
+    {
+      "n": 4,
+      "text": "Pemohon melacak tahap permohonan dengan kode (F14).",
+      "x": 0.075,
+      "y": 1.4642252604166666
+    }
+  ],
+  "public-daftar": [
+    {
+      "n": 1,
+      "text": "Pemohon mengisi data diri tanpa membuat akun (F3).",
+      "x": 0.09236111111111112,
+      "y": 0.2572048611111111
+    },
+    {
+      "n": 2,
+      "text": "Data usaha serta jumlah dan jangka waktu pembiayaan (F3).",
+      "x": 0.09236111111111112,
+      "y": 0.6884548611111111
+    },
+    {
+      "n": 3,
+      "text": "Dokumen persyaratan diunggah sebagai foto atau scan (F3).",
+      "x": 0.09236111111111112,
+      "y": 0.9947048611111111
+    },
+    {
+      "n": 4,
+      "text": "Dokumen disimpan privat dan hanya dibuka petugas yang berhak.",
+      "x": 0.6527777777777778,
+      "y": 0.56484375
+    }
+  ],
+  "admin-dashboard": [
+    {
+      "n": 1,
+      "text": "Pemberitahuan permohonan online yang menunggu verifikasi (F3).",
+      "x": 0.175,
+      "y": 0.14791666666666667
+    },
+    {
+      "n": 2,
+      "text": "Kartu angka pencairan dan cicilan: hari ini, bulan ini, tahun ini (F9).",
+      "x": 0.175,
+      "y": 0.20208333333333334
+    },
+    {
+      "n": 3,
+      "text": "Grafik dengan tabel data sebagai alternatif teks (F9).",
+      "x": 0.175,
+      "y": 0.42569444444444443
+    },
+    {
+      "n": 4,
+      "text": "Daftar pinjaman dengan filter status (F7, F8).",
+      "x": 0.19236111111111112,
+      "y": 0.6902777777777778
+    }
+  ],
+  "admin-verifikasi": [
+    {
+      "n": 1,
+      "text": "Status permohonan: Menunggu verifikasi (F3).",
+      "x": 0.6330946180555556,
+      "y": 0.11458333333333333
+    },
+    {
+      "n": 2,
+      "text": "Data pemohon, dengan pemeriksaan NIK ganda (F2, F3).",
+      "x": 0.19236111111111112,
+      "y": 0.1798611111111111
+    },
+    {
+      "n": 3,
+      "text": "Petugas membuka tiap dokumen dan menandai yang sesuai (F3).",
+      "x": 0.6216471354166667,
+      "y": 0.1798611111111111
+    },
+    {
+      "n": 4,
+      "text": "Keputusan: lanjut survei, minta perbaikan, atau tolak dengan catatan (F3, F4).",
+      "x": 0.19236111111111112,
+      "y": 0.6930555555555555
+    }
+  ],
+  "admin-permohonan": [
+    {
+      "n": 1,
+      "text": "Petugas menginput permohonan untuk pemohon yang datang langsung (F3).",
+      "x": 0.19236111111111112,
+      "y": 0.1798611111111111
+    },
+    {
+      "n": 2,
+      "text": "Contoh aturan: tanggal pencairan paling lambat tanggal 28 (F5, F6).",
+      "x": 0.19236111111111112,
+      "y": 0.4736111111111111
+    },
+    {
+      "n": 3,
+      "text": "Daftar persyaratan dokumen yang diterima (F3).",
+      "x": 0.6368055555555555,
+      "y": 0.1798611111111111
+    },
+    {
+      "n": 4,
+      "text": "Simpan permohonan (F3).",
+      "x": 0.8326822916666666,
+      "y": 0.5444444444444444
+    }
+  ]
+}

@@ -38,9 +38,9 @@
     <div class="wrap grid items-center gap-10 nav:grid-cols-[1.15fr_0.85fr]">
       <div>
         <h1 id="judul-hero" class="max-w-[18ch] text-[clamp(2rem,5.5vw,3.25rem)] tracking-[-0.02em] text-heading">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
-        <p class="mt-4 max-w-[52ch] text-[1.125rem] text-muted-foreground">Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
+        <p class="mt-4 max-w-[52ch] text-[1.125rem] text-muted-foreground">Ajukan pembiayaan secara online, pantau prosesnya dengan kode, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
         <div class="mt-7 flex flex-wrap gap-3">
-          <a class="btn btn-default btn-lg" href="#alur">Ajukan pembiayaan</a>
+          <a class="btn btn-default btn-lg" href="public-daftar.html">Ajukan pembiayaan</a>
           <a class="btn btn-outline btn-lg" href="#lacak">Lacak permohonan</a>
         </div>
       </div>
@@ -51,11 +51,11 @@
         </div>
         <div class="card-content">
           <ol class="grid">
-            <li class="step" data-state="done"><strong class="block">Pengajuan diterima</strong><span class="text-sm text-muted-foreground">Berkas dicatat petugas</span></li>
-            <li class="step" data-state="done"><strong class="block">Survei lapangan</strong><span class="text-sm text-muted-foreground">Fasilitator mengunjungi usaha</span></li>
-            <li class="step" data-state="now" aria-current="step"><strong class="block">Penetapan</strong><span class="text-sm text-muted-foreground">Menunggu keputusan pimpinan</span></li>
-            <li class="step"><strong class="block">Pencairan</strong><span class="text-sm text-muted-foreground">Akad dan dana dicairkan</span></li>
-            <li class="step"><strong class="block">Cicilan sampai lunas</strong><span class="text-sm text-muted-foreground">Pembayaran dicatat bendahara</span></li>
+            <li class="step" data-state="done"><strong class="block">Pengajuan diterima</strong><span class="text-sm text-muted-foreground">Formulir dan dokumen dikirim online</span></li>
+            <li class="step" data-state="done"><strong class="block">Verifikasi petugas</strong><span class="text-sm text-muted-foreground">Identitas dan dokumen diperiksa</span></li>
+            <li class="step" data-state="now" aria-current="step"><strong class="block">Survei lapangan</strong><span class="text-sm text-muted-foreground">Fasilitator mengunjungi usaha</span></li>
+            <li class="step"><strong class="block">Penetapan</strong><span class="text-sm text-muted-foreground">Keputusan pimpinan</span></li>
+            <li class="step"><strong class="block">Pencairan dan cicilan</strong><span class="text-sm text-muted-foreground">Akad, dana cair, cicilan sampai lunas</span></li>
           </ol>
         </div>
       </aside>
@@ -152,9 +152,10 @@
     <div class="wrap">
       <h2 id="judul-alur" class="text-[clamp(1.5rem,3.5vw,2rem)] text-heading">Cara mengajukan pembiayaan</h2>
       <p class="mt-2 max-w-[68ch] text-muted-foreground">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
+      <p class="mt-5"><a class="btn btn-default btn-lg" href="public-daftar.html">Isi formulir pengajuan</a></p>
       <ol class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-4 [counter-reset:s]">
-        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Siapkan berkas</h3><p class="card-description">Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></div></li>
-        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Datang ke kantor BLUD</h3><p class="card-description">Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></div></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Isi formulir online</h3><p class="card-description">Isi data diri dan data usaha, lalu unggah foto atau scan dokumen persyaratan.</p></div></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Verifikasi petugas</h3><p class="card-description">Anda mendapat kode permohonan. Petugas memeriksa data dan dokumen, dan meminta perbaikan jika ada yang kurang.</p></div></li>
         <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Survei dan penetapan</h3><p class="card-description">Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></div></li>
         <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Pencairan dan cicilan</h3><p class="card-description">Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></div></li>
       </ol>
@@ -164,7 +165,7 @@
   <section class="py-[clamp(2.5rem,6vw,4rem)]" id="lacak" aria-labelledby="judul-lacak">
     <div class="wrap">
       <h2 id="judul-lacak" class="text-[clamp(1.5rem,3.5vw,2rem)] text-heading">Lacak permohonan</h2>
-      <p class="mt-2 max-w-[68ch] text-muted-foreground">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
+      <p class="mt-2 max-w-[68ch] text-muted-foreground">Masukkan kode yang Anda terima setelah mengirim formulir untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
       <div class="mt-6 grid gap-6 nav:grid-cols-2 nav:items-start">
         <form id="track-form" class="grid gap-2" novalidate>
           <label class="label" for="kode">Kode permohonan</label>
@@ -202,7 +203,7 @@
       var box = document.createElement('p');
       if (code === 'KD-2026-0001') {
         box.className = 'alert bg-tint text-foreground';
-        box.textContent = 'Permohonan KD-2026-0001: tahap Penetapan. Menunggu keputusan pimpinan.';
+        box.textContent = 'Permohonan KD-2026-0001: tahap Survei lapangan. Fasilitator akan menghubungi Anda untuk jadwal kunjungan.';
       } else {
         box.className = 'alert alert-destructive';
         box.textContent = 'Kode tidak ditemukan. Periksa kembali kode pada tanda terima berkas.';

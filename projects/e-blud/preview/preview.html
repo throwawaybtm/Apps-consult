@@ -9,86 +9,173 @@
   @font-face { font-family: "Inter"; src: url("assets/Inter-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; }
   @font-face { font-family: "Inter"; src: url("assets/Inter-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
 
-  :root { --sky-50: #f0f9ff; --sky-100: #e0f2fe; --sky-700: #0369a1; --sky-900: #0c4a6e; --navy: #0b2540; --ink: #0f2233; --ink-2: #3b4a5a; --line: #c9d6e2; --warn: #92400e; --warn-bg: #fef3c7; }
-  @page { size: A4; margin: 18mm 16mm 20mm; @bottom-center { content: "e-BLUD · pratinjau draft v0 · halaman " counter(page); font: 400 8pt Inter, sans-serif; color: #3b4a5a; } }
-  @page :first { margin: 0; @bottom-center { content: none; } }
+  :root {
+    --navy: #0b2540; --navy-2: #12365a; --brand: #0369a1; --brand-d: #0c4a6e; --sky: #7dd3fc; --halo: #bae6fd;
+    --tint: #f0f9ff; --ink: #0f2233; --ink-2: #3b4a5a; --line: #d3dde6; --stripe: #f4f8fb;
+    --warn: #92400e; --warn-bg: #fef3c7;
+  }
+  @page { size: A4; margin: 18mm 16mm 20mm;
+    @top-left { content: "e-BLUD"; font: 600 8pt Inter, sans-serif; color: #0369a1; }
+    @top-right { content: "Pratinjau draft v0"; font: 400 8pt Inter, sans-serif; color: #3b4a5a; }
+    @bottom-right { content: counter(page); font: 600 8pt Inter, sans-serif; color: #0c4a6e; } }
+  @page :first { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-right { content: none; } }
 
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body { margin: 0; font: 400 10pt/1.55 "Inter", sans-serif; color: var(--ink); }
-  h1, h2, h3, h4 { color: var(--sky-900); line-height: 1.2; margin: 0; break-after: avoid; }
-  p { margin: 0 0 0.6em; }
-  ul, ol { margin: 0 0 0.8em; padding-left: 1.3em; }
+  body { margin: 0; font: 400 9.5pt/1.55 "Inter", sans-serif; color: var(--ink); }
+  h1, h2, h3, h4 { color: var(--brand-d); line-height: 1.2; margin: 0; break-after: avoid; }
+  p { margin: 0 0 0.55em; }
+  ul, ol { margin: 0 0 0.8em; padding-left: 1.25em; }
   li { margin-bottom: 0.2em; }
   strong { font-weight: 700; }
   /* No italic face: Inter Italic embeds as Type 3, so emphasis uses SemiBold instead. */
-  em { font-style: normal; font-weight: 600; }
+  em { font-style: normal; font-weight: 600; color: var(--brand); }
 
   .page { break-before: page; }
+  h2 { font-size: 20pt; letter-spacing: -0.01em; }
+  .kicker { font-size: 8.5pt; font-weight: 600; color: var(--brand); margin-bottom: 1.5mm; }
 
-  /* Cover */
-  .cover { break-before: auto; height: 297mm; padding: 30mm 22mm 24mm; background: linear-gradient(180deg, var(--sky-50), #fff 70%); display: flex; flex-direction: column; justify-content: space-between; }
-  .mark { display: inline-grid; place-items: center; width: 18mm; height: 18mm; border-radius: 4mm; background: var(--sky-700); color: #fff; font-weight: 700; font-size: 16pt; }
-  .cover h1 { font-size: 34pt; letter-spacing: -0.02em; margin-top: 12mm; }
-  .cover .sub { font-size: 14pt; color: var(--ink-2); margin-top: 3mm; max-width: 120mm; }
-  .cover .tag { display: inline-block; margin-top: 8mm; padding: 1.5mm 4mm; border: 1.5px solid var(--warn); border-radius: 99px; background: var(--warn-bg); color: var(--warn); font-weight: 600; font-size: 10pt; }
-  .cover .note { max-width: 140mm; color: var(--ink-2); font-size: 10pt; border-top: 1px solid var(--line); padding-top: 5mm; }
+  /* ---------- Cover ---------- */
+  .cover { break-before: auto; height: 297mm; position: relative; overflow: hidden; color: #fff; padding: 24mm 20mm;
+    background: radial-gradient(circle at 85% 8%, rgba(125,211,252,0.28), transparent 38%), radial-gradient(circle at 5% 95%, rgba(3,105,161,0.55), transparent 45%), var(--navy); }
+  .cover::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.13) 1px, transparent 1px); background-size: 6mm 6mm; mask-image: linear-gradient(180deg, #000, transparent 55%); }
+  .cover > * { position: relative; }
+  .mark { display: inline-grid; place-items: center; width: 16mm; height: 16mm; border-radius: 4mm; background: #fff; color: var(--brand); font-weight: 700; font-size: 15pt; }
+  .cover h1 { color: #fff; font-size: 66pt; letter-spacing: -0.035em; line-height: 1; margin-top: 10mm; }
+  .cover .sub { font-size: 14pt; line-height: 1.35; color: var(--halo); margin-top: 5mm; max-width: 125mm; }
+  .cover .tag { display: inline-block; margin-top: 7mm; padding: 1.4mm 4mm; border-radius: 99px; background: var(--warn-bg); color: var(--warn); font-weight: 600; font-size: 9.5pt; }
+  .collage { position: absolute; left: 14mm; right: 14mm; bottom: 38mm; height: 128mm; }
+  .collage .f { position: absolute; border-radius: 3mm; overflow: hidden; background: #fff; box-shadow: 0 6mm 14mm rgba(0,0,0,0.38); border: 0.4mm solid rgba(255,255,255,0.5); }
+  .collage .f img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .collage .a { left: 0; top: 4mm; width: 112mm; height: 80mm; transform: rotate(-3deg); }
+  .collage .b { right: 0; top: 30mm; width: 104mm; height: 84mm; transform: rotate(2.5deg); }
+  .collage .c { left: 78mm; bottom: -6mm; width: 30mm; height: 62mm; border-radius: 5mm; border: 1.2mm solid var(--navy-2); transform: rotate(-1deg); z-index: 2; }
+  .cover .note { position: absolute; left: 20mm; right: 20mm; bottom: 16mm; font-size: 9pt; color: var(--halo); border-top: 1px solid rgba(186,230,253,0.35); padding-top: 4mm; }
 
-  /* Intro */
-  h2 { font-size: 18pt; margin-bottom: 4mm; }
-  h3 { font-size: 12.5pt; margin: 6mm 0 2mm; padding-bottom: 1mm; border-bottom: 2px solid var(--sky-900); }
-  h4 { font-size: 10.5pt; margin: 4mm 0 1mm; }
-  .box { border: 1px solid var(--line); border-left: 4px solid var(--sky-700); border-radius: 2mm; padding: 3mm 4mm; margin: 0 0 5mm; background: var(--sky-50); }
-  .box h3 { border: 0; margin: 0 0 1.5mm; padding: 0; font-size: 11.5pt; }
-  .box ul { margin-bottom: 0; }
+  /* ---------- Summary ---------- */
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin: 6mm 0; }
+  .col { border: 1px solid var(--line); border-top: 1.2mm solid var(--brand); border-radius: 2mm; padding: 4mm; background: #fff; }
+  .col h3 { font-size: 11pt; margin-bottom: 2mm; }
+  .col ul { padding-left: 1.1em; margin: 0; font-size: 9.6pt; }
+  .col li { margin-bottom: 1.4mm; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); border-radius: 2mm; overflow: hidden; background: var(--navy); color: #fff; margin-bottom: 6mm; }
+  .strip div { padding: 4mm; border-right: 1px solid rgba(255,255,255,0.15); }
+  .strip div:last-child { border-right: 0; }
+  .strip b { display: block; font-size: 18pt; letter-spacing: -0.02em; color: #fff; }
+  .strip span { font-size: 8.5pt; color: var(--halo); }
+  .box { border: 1px solid var(--line); border-left: 1.2mm solid var(--brand); border-radius: 2mm; padding: 4.5mm 5mm; margin: 0 0 5mm; background: var(--tint); }
+  .box h3 { font-size: 10.5pt; margin-bottom: 1.5mm; }
+  .box ul { margin: 0; }
 
-  /* Screens */
-  .fitur { color: var(--sky-700); font-weight: 600; margin-bottom: 3mm; }
-  .shots { display: grid; grid-template-columns: 1fr 38mm; gap: 6mm; align-items: start; margin-top: 4mm; }
-  .shots figure { margin: 0; }
-  .shots img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 1.5mm; }
-  .shots .desk img { max-height: 185mm; object-fit: contain; object-position: top; }
-  .shots .mob img { height: 150mm; object-fit: cover; object-position: top; }
-  figcaption { margin-top: 1.5mm; font-size: 8pt; color: var(--ink-2); }
-  .screen .shots { break-inside: avoid; }
+  /* ---------- Journey ---------- */
+  .journey { list-style: none; padding: 0; margin: 6mm 0 0; }
+  .journey > li { position: relative; display: grid; grid-template-columns: 11mm 1fr; gap: 5mm; padding-bottom: 9mm; margin: 0; break-inside: avoid; }
+  .journey > li::before { content: ""; position: absolute; left: 5.1mm; top: 9mm; bottom: -1mm; width: 0.5mm; background: var(--halo); }
+  .journey > li:last-child::before { display: none; }
+  .jn { display: grid; place-items: center; width: 11mm; height: 11mm; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; font-size: 11pt; }
+  .jb h3 { font-size: 13pt; margin-bottom: 1.2mm; }
+  .jb p { margin: 0 0 1.2mm; color: var(--ink-2); font-size: 10pt; }
+  .jwho { display: flex; gap: 2mm; align-items: center; }
+  .role { font-weight: 600; color: var(--ink); }
+  .fchip, .fchips { display: inline-block; padding: 0.4mm 2.2mm; border-radius: 99px; background: var(--halo); color: var(--brand-d); font-size: 8pt; font-weight: 600; }
 
-  /* PRD content */
+  /* ---------- Screen pages ---------- */
+  .sh { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2mm 4mm; margin-bottom: 3mm; }
+  .sh .count { flex-basis: 100%; margin: 0; font-size: 8.5pt; font-weight: 600; color: var(--brand); }
+  .lead { color: var(--ink-2); max-width: 150mm; margin-bottom: 4mm; font-size: 10pt; }
+  .stage { display: grid; grid-template-columns: 1fr 38mm; gap: 6mm; align-items: start; }
+  .stage.wide { grid-template-columns: 1fr; }
+  .stage.wide .browser { width: 150mm; margin-inline: auto; }
+  figure { margin: 0; }
+  .browser { border: 0.3mm solid var(--line); border-radius: 2.5mm; overflow: hidden; background: #fff; box-shadow: 0 2mm 6mm rgba(11,37,64,0.14); }
+  .bar { display: flex; align-items: center; gap: 1.4mm; padding: 2mm 3mm; background: var(--navy); }
+  .bar i { width: 2mm; height: 2mm; border-radius: 50%; background: rgba(255,255,255,0.35); }
+  .bar span { margin-left: 3mm; font-size: 7.5pt; color: var(--halo); }
+  .shotbox { position: relative; container-type: inline-size; overflow: hidden; }
+  .shotbox img { display: block; width: 100%; }
+  .shotbox.crop { height: 150mm; }
+  .shotbox.crop img { height: 100%; object-fit: cover; object-position: top; }
+  .pin { position: absolute; left: calc(var(--x) * 100%); top: calc(var(--y) * 100cqw); transform: translate(-50%, -50%); display: grid; place-items: center; width: 5.2mm; height: 5.2mm; border-radius: 50%; background: #c2410c; color: #fff; font-size: 8pt; font-weight: 700; box-shadow: 0 0 0 0.7mm #fff; }
+  .phone { border: 1.6mm solid var(--navy); border-radius: 6mm; background: var(--navy); overflow: hidden; box-shadow: 0 2mm 6mm rgba(11,37,64,0.2); }
+  .screen-m { height: 130mm; overflow: hidden; border-radius: 4mm; background: #fff; }
+  .screen-m img { display: block; width: 100%; }
+  .phone figcaption { text-align: center; font-size: 7.5pt; color: var(--halo); padding: 1.2mm 0 0.6mm; }
+  .legend { list-style: none; padding: 0; margin: 5mm 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 6mm; }
+  .legend li { display: flex; gap: 2.5mm; align-items: flex-start; margin: 0; font-size: 9pt; color: var(--ink); break-inside: avoid; }
+  .lnum { flex: none; display: grid; place-items: center; width: 5mm; height: 5mm; border-radius: 50%; background: #c2410c; color: #fff; font-size: 8pt; font-weight: 700; }
+
+  /* ---------- Features ---------- */
+  .fgrid { list-style: none; padding: 0; margin: 5mm 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 4mm; }
+  .fcard { display: flex; gap: 3mm; margin: 0; padding: 3mm; border: 1px solid var(--line); border-radius: 2mm; background: #fff; break-inside: avoid; }
+  .fnum { flex: none; display: grid; place-items: center; min-width: 10mm; height: 7mm; padding: 0 1.5mm; border-radius: 1.5mm; background: var(--brand); color: #fff; font-weight: 700; font-size: 9pt; }
+  .fcard h3 { font-size: 10pt; margin-bottom: 0.8mm; }
+  .fcard p { margin: 0; font-size: 8.8pt; color: var(--ink-2); }
+  .fcard .fwho { margin-top: 1mm; font-size: 8pt; font-weight: 600; color: var(--brand); }
+
+  /* ---------- Next steps ---------- */
+  .steps { list-style: none; padding: 0; margin: 5mm 0 6mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; counter-reset: s; }
+  .steps li { counter-increment: s; margin: 0; padding: 4mm; border-radius: 2mm; background: var(--tint); border: 1px solid var(--halo); }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 7mm; height: 7mm; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; margin-bottom: 2mm; }
+  .steps h3 { font-size: 10pt; margin-bottom: 1mm; }
+  .steps p { margin: 0; font-size: 8.8pt; color: var(--ink-2); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+
+  /* ---------- PRD appendix ---------- */
+  .prd h3 { font-size: 13pt; margin: 7mm 0 2.5mm; padding-bottom: 1.2mm; border-bottom: 0.6mm solid var(--brand-d); }
+  .prd h4 { font-size: 10.5pt; margin-bottom: 1mm; }
+  .prd h3 + p { break-after: avoid; }
   .banner { padding: 2.5mm 4mm; background: var(--warn-bg); color: var(--warn); border-radius: 2mm; font-weight: 600; }
   table { border-collapse: collapse; width: 100%; margin: 0 0 4mm; font-size: 9pt; break-inside: avoid; }
   th, td { border: 1px solid var(--line); padding: 1.6mm 2.4mm; text-align: left; vertical-align: top; }
   th { background: var(--navy); color: #fff; font-weight: 600; }
   tr { break-inside: avoid; }
+  tbody tr:nth-child(even) td { background: var(--stripe); }
   td:empty { height: 14mm; }
-  tbody tr:nth-child(even) td { background: #f4f8fb; }
+  .feat { display: grid; grid-template-columns: 12mm 1fr; gap: 3.5mm; margin: 0 0 3.5mm; padding: 3.5mm; border: 1px solid var(--line); border-left: 1.2mm solid var(--brand); border-radius: 2mm; break-inside: avoid; }
+  .feat .fnum { align-self: start; }
+  .feat p { margin: 0 0 1.5mm; font-size: 9.2pt; }
+  .crit { margin: 1.5mm 0 0; padding: 2.5mm 3mm 2.5mm 5mm; list-style: disc; background: var(--stripe); border-radius: 1.5mm; font-size: 8.6pt; color: var(--ink-2); }
+  .crit li { margin-bottom: 1mm; }
 </style>
 </head>
 <body>
 <main>
   <section class="cover" aria-labelledby="judul">
-    <div>
-      <span class="mark" aria-hidden="true">eB</span>
-      <h1 id="judul">e-BLUD</h1>
-      <p class="sub">Sistem digital untuk BLUD Diskum Batam: rancangan kebutuhan dan contoh tampilan</p>
-      <span class="tag">Pratinjau untuk diskusi, draft v0</span>
+    <span class="mark" aria-hidden="true">eB</span>
+    <h1 id="judul">e-BLUD</h1>
+    <p class="sub">Sistem digital untuk BLUD Diskum Batam: rancangan kebutuhan dan contoh tampilan</p>
+    <span class="tag">Pratinjau untuk diskusi, draft v0</span>
+    <div class="collage" aria-hidden="true">
+      <div class="f a"><img src="assets/shots/public-home-desktop.png" alt=""></div>
+      <div class="f b"><img src="assets/shots/admin-dashboard-desktop.png" alt=""></div>
+      <div class="f c"><img src="assets/shots/public-daftar-mobile.png" alt=""></div>
     </div>
-    <p class="note">Disiapkan 19 November 2026. Dokumen ini bukan penawaran dan bukan desain akhir. Penawaran harga akan disampaikan secara terpisah.</p>
+    <p class="note">Disiapkan 20 November 2026. Dokumen ini bukan penawaran dan bukan desain akhir. Penawaran harga akan disampaikan secara terpisah.</p>
   </section>
 
-  <section class="page" aria-labelledby="tentang">
-    <h2 id="tentang">Tentang dokumen ini</h2>
-    <div class="box">
-      <h3>Yang ada di dalamnya</h3>
-      <ul>
-        <li>Tiga contoh tampilan: satu untuk masyarakat dan mitra, dua untuk petugas BLUD.</li>
-        <li>Rancangan kebutuhan (PRD draft v0): masalah, pengguna, 14 fitur (F1 sampai F14), batasan, dan pertanyaan terbuka.</li>
-      </ul>
+  <section class="page" aria-labelledby="ringkas">
+    <p class="kicker">Gambaran singkat</p>
+    <h2 id="ringkas">Dari Excel ke satu sistem</h2>
+    <div class="three">
+      <div class="col"><h3>Masalah sekarang</h3><ul>
+        <li>Pencatatan masih manual di lembar Excel.</li><li>Data mudah ganda atau berbeda versi.</li><li>Mencari status pencairan dan cicilan memakan waktu.</li><li>Laporan lambat dibuat, dan sulit diketahui siapa mengubah apa.</li></ul></div>
+      <div class="col"><h3>Yang kami usulkan</h3><ul>
+        <li>Satu sistem dari permohonan sampai lunas.</li><li>Situs publik yang modern, tempat mitra mengajukan sendiri.</li><li>Situs petugas untuk memverifikasi, mencairkan, dan mencatat cicilan.</li><li>Aturan pembiayaan dicek otomatis.</li></ul></div>
+      <div class="col"><h3>Yang diharapkan</h3><ul>
+        <li>Rekap pencairan dan cicilan dalam hitungan menit.</li><li>Data diketik sekali, tidak dua kali.</li><li>Setiap perubahan dapat ditelusuri ke satu pengguna.</li><li>Dashboard untuk pimpinan.</li></ul></div>
+    </div>
+    <div class="strip">
+      <div><b>14</b><span>fitur (F1 sampai F14)</span></div>
+      <div><b>2</b><span>tampilan: publik dan petugas</span></div>
+      <div><b>5</b><span>contoh layar di dokumen ini</span></div>
+      <div><b>1</b><span>sistem, dari permohonan sampai lunas</span></div>
     </div>
     <div class="box">
       <h3>Yang perlu diperhatikan</h3>
       <ul>
         <li>Alur kerja di sini mengikuti contoh sistem dari Dinas lain. Semuanya masih asumsi dan perlu dikoreksi sesuai cara kerja BLUD Diskum Batam.</li>
         <li>Semua angka, nama, dan tampilan adalah contoh. Nama resmi dan logo BLUD akan menyusul.</li>
-        <li>Dua tampilan: situs publik yang modern dan ringan, serta situs petugas yang modern tetapi tetap bergaya aplikasi pemerintahan.</li>
+        <li>Mitra mengajukan sendiri lewat formulir online tanpa akun. Ini juga masih perlu dikonfirmasi.</li>
       </ul>
     </div>
     <div class="box">
@@ -98,83 +185,232 @@
         <li>Aturan pembiayaan yang berlaku: batas jumlah, jasa, jangka waktu, agunan, dan denda.</li>
         <li>Peran petugas yang ada, dan laporan yang benar-benar dipakai.</li>
       </ul>
-      <p>Daftar lengkapnya ada di bagian "Pertanyaan terbuka" pada rancangan kebutuhan.</p>
     </div>
   </section>
 
-<section class="page screen" aria-labelledby="contoh-tampilan-1-situs-publik">
-  <h2 id="contoh-tampilan-1-situs-publik">Contoh tampilan 1: situs publik</h2>
-  <p class="fitur">Fitur: F13 dan F14</p>
-  <p>Halaman depan untuk masyarakat dan mitra. Tampilannya modern, berwarna biru muda, dan nyaman dibuka dari ponsel.</p>
-  <ul><li>Informasi BLUD dan cara mengajukan pembiayaan (F13).</li><li>Angka gabungan penyaluran pembiayaan, tanpa data pribadi mitra (F13).</li><li>Kolom lacak permohonan dengan kode dari tanda terima berkas (F14, masih asumsi).</li></ul>
-  <div class="shots">
-    <figure class="desk"><img src="../mockups/screenshots/public-home-1440.png" alt="Contoh halaman depan situs publik e-BLUD dengan judul, alur satu permohonan, kartu statistik, dua grafik, langkah pengajuan, dan kolom lacak permohonan"><figcaption>Tampilan komputer (contoh)</figcaption></figure>
-    <figure class="mob"><img src="../mockups/screenshots/public-home-360.png" alt="Tampilan ponsel dari halaman yang sama, bagian atas"><figcaption>Tampilan ponsel, bagian atas</figcaption></figure>
+  <section class="page" aria-labelledby="alur">
+    <p class="kicker">Alur contoh</p>
+    <h2 id="alur">Perjalanan satu permohonan</h2>
+    <p class="lead">Dari formulir online sampai lunas. Peran dan langkah di bawah ini asumsi sampai dikonfirmasi BLUD. Pemohon yang datang langsung diinput petugas (F3).</p>
+    <ol class="journey">
+    <li>
+      <span class="jn" aria-hidden="true">1</span>
+      <div class="jb"><h3>Mitra mengisi formulir online</h3><p class="jwho"><span class="role">Pemohon</span><span class="fchip">F3, F13</span></p><p>Data diri, data usaha, dan dokumen diunggah. Tanpa membuat akun.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">2</span>
+      <div class="jb"><h3>Mendapat kode permohonan</h3><p class="jwho"><span class="role">Sistem</span><span class="fchip">F3, F14</span></p><p>Status awal: Menunggu verifikasi. Kode dipakai untuk melacak tahap.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">3</span>
+      <div class="jb"><h3>Petugas memverifikasi</h3><p class="jwho"><span class="role">Petugas pelayanan</span><span class="fchip">F2, F3</span></p><p>Cek identitas dan dokumen. Lanjut ke survei, minta perbaikan, atau tolak dengan catatan.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">4</span>
+      <div class="jb"><h3>Survei lapangan</h3><p class="jwho"><span class="role">Fasilitator</span><span class="fchip">F4</span></p><p>Kunjungan ke usaha pemohon. Hasil survei tercatat pada permohonan.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">5</span>
+      <div class="jb"><h3>Penetapan dan pencairan</h3><p class="jwho"><span class="role">Pimpinan</span><span class="fchip">F5, F6</span></p><p>Aturan pembiayaan dicek otomatis, lalu akad dan pencairan dicatat.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">6</span>
+      <div class="jb"><h3>Cicilan dan pembayaran</h3><p class="jwho"><span class="role">Bendahara atau kasir</span><span class="fchip">F7, F11</span></p><p>Jadwal cicilan dibuat otomatis. Pembayaran dicatat dan kwitansi dicetak.</p></div>
+    </li>
+    <li>
+      <span class="jn" aria-hidden="true">7</span>
+      <div class="jb"><h3>Lunas</h3><p class="jwho"><span class="role">Sistem</span><span class="fchip">F8, F9, F12</span></p><p>Pelunasan tercatat. Pimpinan memantau lewat dashboard, dan setiap perubahan ada di log aktivitas.</p></div>
+    </li>
+    </ol>
+  </section>
+
+<section class="page screen" aria-labelledby="s-public-home">
+  <header class="sh">
+    <p class="count">Contoh layar 1 dari 5</p>
+    <h2 id="s-public-home">Beranda situs publik</h2>
+    <p class="fchips">Fitur F13, F14</p>
+  </header>
+  <p class="lead">Halaman depan untuk masyarakat dan mitra: modern, berwarna biru muda, dan nyaman dibuka dari ponsel.</p>
+  <div class="stage ">
+    <figure class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Contoh tampilan komputer</span></div>
+      <div class="shotbox crop">
+        <img src="assets/shots/public-home-desktop.png" alt="Contoh halaman depan situs publik e-BLUD">
+        <span class="pin" style="--x:0.0750;--y:0.3801" aria-hidden="true">1</span><span class="pin" style="--x:0.5642;--y:0.1514" aria-hidden="true">2</span><span class="pin" style="--x:0.0750;--y:0.6187" aria-hidden="true">3</span><span class="pin" style="--x:0.0750;--y:1.4642" aria-hidden="true">4</span>
+      </div>
+    </figure>
+    <figure class="phone">
+      <div class="screen-m"><img src="assets/shots/public-home-mobile.png" alt="Tampilan ponsel dari halaman yang sama, bagian atas"></div>
+      <figcaption>Tampilan ponsel</figcaption>
+    </figure>
   </div>
+  <ol class="legend"><li><span class="lnum" aria-hidden="true">1</span><span>Tombol Ajukan pembiayaan membuka formulir online (F3, F13).</span></li><li><span class="lnum" aria-hidden="true">2</span><span>Perjalanan satu permohonan, supaya tahapnya jelas bagi pemohon.</span></li><li><span class="lnum" aria-hidden="true">3</span><span>Angka gabungan penyaluran pembiayaan, tanpa data pribadi mitra (F13).</span></li><li><span class="lnum" aria-hidden="true">4</span><span>Pemohon melacak tahap permohonan dengan kode (F14).</span></li></ol>
 </section>
 
-<section class="page screen" aria-labelledby="contoh-tampilan-2-dashboard-petugas">
-  <h2 id="contoh-tampilan-2-dashboard-petugas">Contoh tampilan 2: dashboard petugas</h2>
-  <p class="fitur">Fitur: F9, dengan data dari F3 sampai F8</p>
-  <p>Halaman awal petugas setelah login (F1). Tampilannya modern tetapi tetap bergaya aplikasi pemerintahan: menu di samping, kartu angka, dan tabel.</p>
-  <ul><li>Angka pencairan dan cicilan hari ini, bulan ini, dan tahun ini (F9).</li><li>Dua grafik, masing-masing dengan tabel data (F9).</li><li>Daftar pinjaman yang dapat disaring menurut status: Berjalan, Lunas, Batal (F7, F8).</li></ul>
-  <div class="shots">
-    <figure class="desk"><img src="../mockups/screenshots/admin-dashboard-1440.png" alt="Contoh dashboard admin e-BLUD dengan menu samping, kartu angka pencairan dan cicilan, dua grafik, dan tabel pinjaman"><figcaption>Tampilan komputer (contoh)</figcaption></figure>
-    <figure class="mob"><img src="../mockups/screenshots/admin-dashboard-360.png" alt="Tampilan ponsel dari halaman yang sama, bagian atas"><figcaption>Tampilan ponsel, bagian atas</figcaption></figure>
+<section class="page screen" aria-labelledby="s-public-daftar">
+  <header class="sh">
+    <p class="count">Contoh layar 2 dari 5</p>
+    <h2 id="s-public-daftar">Formulir pengajuan online</h2>
+    <p class="fchips">Fitur F3, F13</p>
+  </header>
+  <p class="lead">Mitra mengajukan pembiayaan sendiri tanpa akun: mengisi data, mengunggah dokumen, dan menyetujui pemrosesan data pribadi.</p>
+  <div class="stage ">
+    <figure class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Contoh tampilan komputer</span></div>
+      <div class="shotbox crop">
+        <img src="assets/shots/public-daftar-desktop.png" alt="Contoh formulir pengajuan pembiayaan online di situs publik e-BLUD">
+        <span class="pin" style="--x:0.0924;--y:0.2572" aria-hidden="true">1</span><span class="pin" style="--x:0.0924;--y:0.6885" aria-hidden="true">2</span><span class="pin" style="--x:0.0924;--y:0.9947" aria-hidden="true">3</span><span class="pin" style="--x:0.6528;--y:0.5648" aria-hidden="true">4</span>
+      </div>
+    </figure>
+    <figure class="phone">
+      <div class="screen-m"><img src="assets/shots/public-daftar-mobile.png" alt="Tampilan ponsel dari halaman yang sama, bagian atas"></div>
+      <figcaption>Tampilan ponsel</figcaption>
+    </figure>
   </div>
+  <ol class="legend"><li><span class="lnum" aria-hidden="true">1</span><span>Pemohon mengisi data diri tanpa membuat akun (F3).</span></li><li><span class="lnum" aria-hidden="true">2</span><span>Data usaha serta jumlah dan jangka waktu pembiayaan (F3).</span></li><li><span class="lnum" aria-hidden="true">3</span><span>Dokumen persyaratan diunggah sebagai foto atau scan (F3).</span></li><li><span class="lnum" aria-hidden="true">4</span><span>Dokumen disimpan privat dan hanya dibuka petugas yang berhak.</span></li></ol>
 </section>
 
-<section class="page screen" aria-labelledby="contoh-tampilan-3-form-permohonan">
-  <h2 id="contoh-tampilan-3-form-permohonan">Contoh tampilan 3: form permohonan</h2>
-  <p class="fitur">Fitur: F3, dengan aturan dari F5 dan F6</p>
-  <p>Petugas mencatat permohonan pembiayaan dan mencentang dokumen persyaratan yang sudah diterima.</p>
-  <ul><li>Isian permohonan dan daftar persyaratan dokumen (F3).</li><li>Contoh aturan: tanggal pencairan paling lambat tanggal 28. Jika lebih, muncul pesan kesalahan yang jelas (F5, F6).</li><li>Aturan yang sebenarnya menunggu konfirmasi BLUD.</li></ul>
-  <div class="shots">
-    <figure class="desk"><img src="../mockups/screenshots/admin-permohonan-1440.png" alt="Contoh form permohonan pembiayaan di situs admin e-BLUD dengan isian data permohonan dan daftar persyaratan"><figcaption>Tampilan komputer (contoh)</figcaption></figure>
-    <figure class="mob"><img src="../mockups/screenshots/admin-permohonan-360.png" alt="Tampilan ponsel dari halaman yang sama, bagian atas"><figcaption>Tampilan ponsel, bagian atas</figcaption></figure>
+<section class="page screen" aria-labelledby="s-admin-dashboard">
+  <header class="sh">
+    <p class="count">Contoh layar 3 dari 5</p>
+    <h2 id="s-admin-dashboard">Dashboard petugas</h2>
+    <p class="fchips">Fitur F9, F7, F8</p>
+  </header>
+  <p class="lead">Halaman awal petugas setelah login (F1). Modern, tetapi tetap bergaya aplikasi pemerintahan: menu di samping, kartu angka, dan tabel.</p>
+  <div class="stage wide">
+    <figure class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Contoh tampilan komputer</span></div>
+      <div class="shotbox natural">
+        <img src="assets/shots/admin-dashboard-desktop.png" alt="Contoh dashboard petugas e-BLUD">
+        <span class="pin" style="--x:0.1750;--y:0.1479" aria-hidden="true">1</span><span class="pin" style="--x:0.1750;--y:0.2021" aria-hidden="true">2</span><span class="pin" style="--x:0.1750;--y:0.4257" aria-hidden="true">3</span><span class="pin" style="--x:0.1924;--y:0.6903" aria-hidden="true">4</span>
+      </div>
+    </figure>
+    
   </div>
+  <ol class="legend"><li><span class="lnum" aria-hidden="true">1</span><span>Pemberitahuan permohonan online yang menunggu verifikasi (F3).</span></li><li><span class="lnum" aria-hidden="true">2</span><span>Kartu angka pencairan dan cicilan: hari ini, bulan ini, tahun ini (F9).</span></li><li><span class="lnum" aria-hidden="true">3</span><span>Grafik dengan tabel data sebagai alternatif teks (F9).</span></li><li><span class="lnum" aria-hidden="true">4</span><span>Daftar pinjaman dengan filter status (F7, F8).</span></li></ol>
 </section>
 
-  <section class="page" aria-labelledby="prd">
+<section class="page screen" aria-labelledby="s-admin-verifikasi">
+  <header class="sh">
+    <p class="count">Contoh layar 4 dari 5</p>
+    <h2 id="s-admin-verifikasi">Verifikasi permohonan masuk</h2>
+    <p class="fchips">Fitur F2, F3, F4</p>
+  </header>
+  <p class="lead">Permohonan online masuk ke petugas. Petugas memeriksa data dan dokumen sebelum permohonan diteruskan ke survei.</p>
+  <div class="stage wide">
+    <figure class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Contoh tampilan komputer</span></div>
+      <div class="shotbox natural">
+        <img src="assets/shots/admin-verifikasi-desktop.png" alt="Contoh layar verifikasi permohonan masuk di situs petugas e-BLUD">
+        <span class="pin" style="--x:0.6331;--y:0.1146" aria-hidden="true">1</span><span class="pin" style="--x:0.1924;--y:0.1799" aria-hidden="true">2</span><span class="pin" style="--x:0.6216;--y:0.1799" aria-hidden="true">3</span><span class="pin" style="--x:0.1924;--y:0.6931" aria-hidden="true">4</span>
+      </div>
+    </figure>
+    
+  </div>
+  <ol class="legend"><li><span class="lnum" aria-hidden="true">1</span><span>Status permohonan: Menunggu verifikasi (F3).</span></li><li><span class="lnum" aria-hidden="true">2</span><span>Data pemohon, dengan pemeriksaan NIK ganda (F2, F3).</span></li><li><span class="lnum" aria-hidden="true">3</span><span>Petugas membuka tiap dokumen dan menandai yang sesuai (F3).</span></li><li><span class="lnum" aria-hidden="true">4</span><span>Keputusan: lanjut survei, minta perbaikan, atau tolak dengan catatan (F3, F4).</span></li></ol>
+</section>
+
+<section class="page screen" aria-labelledby="s-admin-permohonan">
+  <header class="sh">
+    <p class="count">Contoh layar 5 dari 5</p>
+    <h2 id="s-admin-permohonan">Input permohonan langsung</h2>
+    <p class="fchips">Fitur F3, F5, F6</p>
+  </header>
+  <p class="lead">Untuk pemohon yang datang langsung ke kantor, petugas menginput permohonan. Aturan pembiayaan dicek saat disimpan.</p>
+  <div class="stage wide">
+    <figure class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Contoh tampilan komputer</span></div>
+      <div class="shotbox natural">
+        <img src="assets/shots/admin-permohonan-desktop.png" alt="Contoh form input permohonan pembiayaan untuk pemohon yang datang langsung">
+        <span class="pin" style="--x:0.1924;--y:0.1799" aria-hidden="true">1</span><span class="pin" style="--x:0.1924;--y:0.4736" aria-hidden="true">2</span><span class="pin" style="--x:0.6368;--y:0.1799" aria-hidden="true">3</span><span class="pin" style="--x:0.8327;--y:0.5444" aria-hidden="true">4</span>
+      </div>
+    </figure>
+    
+  </div>
+  <ol class="legend"><li><span class="lnum" aria-hidden="true">1</span><span>Petugas menginput permohonan untuk pemohon yang datang langsung (F3).</span></li><li><span class="lnum" aria-hidden="true">2</span><span>Contoh aturan: tanggal pencairan paling lambat tanggal 28 (F5, F6).</span></li><li><span class="lnum" aria-hidden="true">3</span><span>Daftar persyaratan dokumen yang diterima (F3).</span></li><li><span class="lnum" aria-hidden="true">4</span><span>Simpan permohonan (F3).</span></li></ol>
+</section>
+
+  <section class="page" aria-labelledby="fitur">
+    <p class="kicker">Cakupan</p>
+    <h2 id="fitur">14 fitur dalam satu pandangan</h2>
+    <p class="lead">Nomor fitur sama di semua dokumen. Rincian dan kriteria penerimaan ada di lampiran.</p>
+    <ul class="fgrid"><li class="fcard"><span class="fnum">F1</span><div><h3>Login dan peran</h3><p>Petugas masuk dengan akun; hak akses sesuai peran. Mitra tidak perlu akun.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F2</span><div><h3>Data mitra</h3><p>Data identitas dan foto mitra, hanya terlihat oleh yang berhak.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F3</span><div><h3>Permohonan pembiayaan</h3><p>Diajukan online oleh mitra atau diinput petugas, lalu diverifikasi sebelum survei.</p><p class="fwho">Admin dan publik</p></div></li><li class="fcard"><span class="fnum">F4</span><div><h3>Survei dan analisa</h3><p>Hasil survei fasilitator tercatat pada permohonan yang sama.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F5</span><div><h3>Penetapan dan validasi SOP</h3><p>Pimpinan menetapkan; aturan pembiayaan dicek otomatis.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F6</span><div><h3>Akad dan pencairan</h3><p>Nomor akad, tanggal realisasi, dan pencairan dana.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F7</span><div><h3>Jadwal cicilan dan pembayaran</h3><p>Jadwal otomatis; pokok, jasa, dan denda dicatat.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F8</span><div><h3>Pelunasan dan penyesuaian</h3><p>Pelunasan dipercepat dengan penyesuaian sisa jasa.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F9</span><div><h3>Dashboard</h3><p>Angka pencairan dan cicilan, dua grafik, filter tanggal.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F10</span><div><h3>Laporan inti</h3><p>Laporan per periode, dapat dicetak PDF dan Excel.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F11</span><div><h3>Cetak dokumen</h3><p>Formulir, tanda terima, rincian biaya, dan kwitansi ber-QR.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F12</span><div><h3>Log aktivitas</h3><p>Siapa mengubah apa dan kapan, tidak dapat diubah.</p><p class="fwho">Admin</p></div></li><li class="fcard"><span class="fnum">F13</span><div><h3>Situs publik</h3><p>Informasi, statistik gabungan, dan formulir pengajuan.</p><p class="fwho">Publik</p></div></li><li class="fcard"><span class="fnum">F14</span><div><h3>Lacak permohonan</h3><p>Pemohon melacak tahap permohonan dengan kode.</p><p class="fwho">Publik</p></div></li></ul>
+  </section>
+
+  <section class="page" aria-labelledby="langkah">
+    <p class="kicker">Selanjutnya</p>
+    <h2 id="langkah">Langkah berikut</h2>
+    <ol class="steps">
+      <li><h3>Bapak dan Ibu meninjau</h3><p>Contoh tampilan dan daftar fitur. Tandai yang perlu diubah.</p></li>
+      <li><h3>Kami memperbarui PRD</h3><p>Sesuai masukan dan jawaban atas pertanyaan terbuka.</p></li>
+      <li><h3>PRD disetujui</h3><p>Persetujuan klien diperlukan sebelum tahap berikutnya.</p></li>
+      <li><h3>Panduan lengkap dan penawaran</h3><p>Panduan final disiapkan. Penawaran harga disampaikan terpisah.</p></li>
+    </ol>
+    <div class="two">
+      <div class="box">
+        <h3>Yang kami butuhkan dari BLUD</h3>
+        <ul>
+          <li>Penjelasan alur kerja dan aturan pembiayaan yang berlaku.</li>
+          <li>Contoh formulir dan lembar Excel yang dipakai sekarang.</li>
+          <li>Nama resmi dan logo BLUD.</li>
+          <li>Akun Google milik BLUD untuk penyimpanan dokumen.</li>
+          <li>Daftar laporan yang benar-benar dipakai.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Pertanyaan terbuka</h3>
+        <ul>
+          <li>Apakah mitra mengajukan sendiri tanpa akun?</li>
+          <li>Bagaimana petugas memverifikasi identitas pemohon online?</li>
+          <li>Dokumen mana yang wajib diunggah, dan batas ukuran berkas?</li>
+          <li>Teks persetujuan data pribadi dan lama data disimpan.</li>
+          <li>Daftar lengkap ada di bagian 9 lampiran.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page prd" aria-labelledby="prd">
+    <p class="kicker">Lampiran</p>
     <h2 id="prd">Rancangan kebutuhan (PRD draft v0)</h2>
 <p class="banner"><strong>DRAFT v0, belum dikirim ke klien.</strong> Alur kerja di dokumen ini masih <strong>asumsi</strong> dan mengikuti contoh sistem dari Dinas lain. Semua yang bertanda <em>(Asumsi)</em> harus dikonfirmasi dengan klien sebelum PRD ini disetujui.</p>
 <p>Tanggal: 19 November 2026 · Status: Draft v0</p>
 <h3>1. Masalah dan tujuan</h3>
 <p><strong>Masalah.</strong> BLUD Diskum Batam memberikan pembiayaan kepada mitra, tetapi pencatatannya masih manual dengan lembar Excel. Akibatnya data mudah ganda atau berbeda versi, mencari status pencairan dan cicilan memakan waktu, laporan lambat dibuat, dan sulit diketahui siapa mengubah apa.</p>
 <p><strong>Tujuan.</strong></p>
-<ol><li>Seluruh proses pembiayaan, dari permohonan sampai lunas, tercatat di satu sistem.</li><li>Data diinput sekali dan langsung terlihat oleh petugas yang berkepentingan.</li><li>Aturan pembiayaan dicek otomatis oleh sistem <em>(aturan Batam: lihat bagian 9)</em>.</li><li>Pimpinan melihat angka pencairan dan cicilan di dashboard tanpa menunggu rekap.</li><li>Masyarakat mendapat situs publik yang modern berisi informasi BLUD dan statistik ringkas.</li></ol>
+<ol><li>Seluruh proses pembiayaan, dari permohonan sampai lunas, tercatat di satu sistem.</li><li>Data diinput sekali dan langsung terlihat oleh petugas yang berkepentingan.</li><li>Aturan pembiayaan dicek otomatis oleh sistem <em>(aturan Batam: lihat bagian 9)</em>.</li><li>Pimpinan melihat angka pencairan dan cicilan di dashboard tanpa menunggu rekap.</li><li>Masyarakat mendapat situs publik yang modern berisi informasi BLUD dan statistik ringkas.</li><li>Mitra dapat mengajukan pembiayaan sendiri secara online, tanpa akun, lalu memantau prosesnya <em>(Asumsi)</em>.</li></ol>
 <h3>2. Pengguna</h3>
-<table><thead><tr><th scope="col">Pengguna</th><th scope="col">Kebutuhan</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Admin</td><td>Mengelola akun, peran dan data master</td><td><em>(Asumsi)</em></td></tr><tr><td>Petugas pelayanan</td><td>Menginput mitra dan permohonan</td><td><em>(Asumsi)</em></td></tr><tr><td>Fasilitator lapangan</td><td>Mengisi hasil survei mitra</td><td><em>(Asumsi)</em></td></tr><tr><td>Pimpinan (Kasubag atau Kepala)</td><td>Menyetujui, mencairkan, memantau dashboard</td><td><em>(Asumsi)</em></td></tr><tr><td>Bendahara atau kasir</td><td>Mencatat pembayaran cicilan, mencetak kwitansi</td><td><em>(Asumsi)</em></td></tr><tr><td>Masyarakat dan mitra</td><td>Melihat informasi dan statistik; melacak permohonan dengan kode <em>(Asumsi)</em></td><td><em>(Asumsi)</em></td></tr></tbody></table>
+<table><thead><tr><th scope="col">Pengguna</th><th scope="col">Kebutuhan</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Admin</td><td>Mengelola akun, peran dan data master</td><td><em>(Asumsi)</em></td></tr><tr><td>Petugas pelayanan</td><td>Memverifikasi permohonan yang masuk online; menginput permohonan untuk pemohon yang datang langsung</td><td><em>(Asumsi)</em></td></tr><tr><td>Fasilitator lapangan</td><td>Mengisi hasil survei mitra</td><td><em>(Asumsi)</em></td></tr><tr><td>Pimpinan (Kasubag atau Kepala)</td><td>Menyetujui, mencairkan, memantau dashboard</td><td><em>(Asumsi)</em></td></tr><tr><td>Bendahara atau kasir</td><td>Mencatat pembayaran cicilan, mencetak kwitansi</td><td><em>(Asumsi)</em></td></tr><tr><td>Masyarakat dan mitra</td><td>Mengisi permohonan pembiayaan sendiri secara online tanpa akun, mengunggah dokumen persyaratan, melihat statistik, dan melacak permohonan dengan kode</td><td><em>(Asumsi)</em></td></tr></tbody></table>
 <p>Peran sebenarnya di Diskum Batam belum diketahui.</p>
 <h3>3. Fitur</h3>
 <p>Dua tampilan: <strong>situs publik</strong> (modern) dan <strong>situs admin</strong> (modern, bergaya pemerintahan). Nomor F1–F14 dipakai di semua dokumen turunan.</p>
 <table><thead><tr><th scope="col">No</th><th scope="col">Fitur</th><th scope="col">Situs</th></tr></thead><tbody><tr><td>F1</td><td>Login dan peran</td><td>Admin</td></tr><tr><td>F2</td><td>Data mitra</td><td>Admin</td></tr><tr><td>F3</td><td>Permohonan pembiayaan</td><td>Admin</td></tr><tr><td>F4</td><td>Survei dan analisa</td><td>Admin</td></tr><tr><td>F5</td><td>Penetapan dan validasi SOP</td><td>Admin</td></tr><tr><td>F6</td><td>Akad dan pencairan</td><td>Admin</td></tr><tr><td>F7</td><td>Jadwal cicilan dan pembayaran</td><td>Admin</td></tr><tr><td>F8</td><td>Pelunasan dan penyesuaian</td><td>Admin</td></tr><tr><td>F9</td><td>Dashboard</td><td>Admin</td></tr><tr><td>F10</td><td>Laporan inti</td><td>Admin</td></tr><tr><td>F11</td><td>Cetak dokumen</td><td>Admin</td></tr><tr><td>F12</td><td>Log aktivitas</td><td>Admin</td></tr><tr><td>F13</td><td>Situs publik</td><td>Publik</td></tr><tr><td>F14</td><td>Lacak permohonan</td><td>Publik</td></tr></tbody></table>
 <h3>4. Kebutuhan dan kriteria penerimaan per fitur</h3>
 <p>Alur di bawah ini adalah <strong>asumsi</strong> sampai dikonfirmasi klien.</p>
-<p><strong>F1 Login dan peran.</strong> Pengguna masuk dengan akun yang dibuat admin; hak akses mengikuti peran.<br><em>Given</em> pengguna tanpa akun, <em>when</em> membuka halaman admin, <em>then</em> diarahkan ke login. <em>Given</em> peran petugas pelayanan, <em>when</em> membuka menu pencairan, <em>then</em> akses ditolak.</p>
-<p><strong>F2 Data mitra.</strong> Simpan data identitas mitra (NIK, nama, alamat, kontak, foto, data rekening). Foto dan data pribadi hanya terlihat oleh pengguna yang berhak.<br><em>Given</em> NIK sudah terdaftar, <em>when</em> petugas menambah mitra dengan NIK sama, <em>then</em> sistem menolak dan menampilkan data yang ada.</p>
-<p><strong>F3 Permohonan pembiayaan.</strong> Petugas mencatat permohonan: mitra, jumlah, jangka waktu, jenis dan bidang usaha, daftar persyaratan dokumen. Permohonan dapat dibatalkan dengan alasan wajib.<br><em>Given</em> persyaratan wajib belum lengkap, <em>when</em> permohonan diajukan ke survei, <em>then</em> sistem menampilkan dokumen yang kurang.</p>
-<p><strong>F4 Survei dan analisa.</strong> Fasilitator mengisi hasil survei (modal, target penjualan, keuntungan, rincian penggunaan dana) pada permohonan yang sama.<br><em>Given</em> permohonan belum disurvei, <em>when</em> pimpinan membuka penetapan, <em>then</em> sistem meminta survei diselesaikan dahulu.</p>
-<p><strong>F5 Penetapan dan validasi SOP.</strong> Pimpinan menetapkan atau menolak. Sistem menolak nilai yang melanggar aturan (batas pembiayaan, nilai agunan).<br><em>Given</em> jumlah melebihi batas yang berlaku, <em>when</em> disimpan, <em>then</em> muncul pesan kesalahan yang menyebut aturan yang dilanggar. <em>(Nilai aturan: bagian 9.)</em></p>
-<p><strong>F6 Akad dan pencairan.</strong> Catat nomor akad, tanggal realisasi dan jatuh tempo, lalu cairkan. Aturan tanggal pencairan maksimal tanggal 28 <em>(Asumsi)</em>.<br><em>Given</em> tanggal realisasi lebih dari batas, <em>when</em> disimpan, <em>then</em> ditolak dengan alasan.</p>
-<p><strong>F7 Jadwal cicilan dan pembayaran.</strong> Sistem membuat jadwal cicilan otomatis; bendahara mencatat pembayaran pokok, jasa dan denda. Denda dihitung otomatis dengan kalender hari kerja <em>(Asumsi)</em>.<br><em>Given</em> cicilan lewat jatuh tempo, <em>when</em> dibuka, <em>then</em> denda tampil sesuai aturan dan hari kerja.</p>
-<p><strong>F8 Pelunasan dan penyesuaian.</strong> Pelunasan dipercepat dengan penyesuaian sisa jasa; status berubah menjadi Lunas.<br><em>Given</em> semua cicilan terbayar, <em>when</em> pembayaran terakhir disimpan, <em>then</em> status pinjaman otomatis Lunas.</p>
-<p><strong>F9 Dashboard.</strong> Kartu angka (hari ini, bulan ini, tahun ini) untuk pencairan dan cicilan, jumlah mitra, serta dua grafik, dengan filter tanggal.<br><em>Given</em> data pencairan baru disimpan, <em>when</em> dashboard dibuka, <em>then</em> angka sudah ikut berubah tanpa input ulang.</p>
-<p><strong>F10 Laporan inti.</strong> Laporan pencairan, cicilan, tunggakan, kolektibilitas dan pembiayaan lunas per periode, dapat dicetak PDF dan Excel. Daftar laporan final ditentukan klien.<br><em>Given</em> periode dipilih, <em>when</em> laporan dibuat, <em>then</em> totalnya sama dengan dashboard.</p>
-<p><strong>F11 Cetak dokumen.</strong> Formulir permohonan, tanda terima berkas, rincian biaya dan kwitansi pembayaran dengan kode QR, ukuran A4.<br><em>Given</em> pembayaran tersimpan, <em>when</em> kwitansi dicetak, <em>then</em> nomor, jumlah dan terbilang sesuai data.</p>
-<p><strong>F12 Log aktivitas.</strong> Setiap perubahan data tercatat: siapa, kapan, apa. Log tidak dapat diubah dari aplikasi.<br><em>Given</em> data pinjaman diubah, <em>when</em> admin membuka log, <em>then</em> tampil pengguna, waktu dan nilai sebelum dan sesudah.</p>
-<p><strong>F13 Situs publik.</strong> Beranda, profil, layanan, berita, galeri, kontak, dan statistik agregat. Tidak menampilkan data pribadi mitra.<br><em>Given</em> pengunjung membuka situs publik, <em>when</em> melihat statistik, <em>then</em> hanya angka total dan grafik yang tampil, tanpa nama, NIK atau foto.</p>
-<p><strong>F14 Lacak permohonan</strong> <em>(Asumsi)</em>. Pemohon memasukkan kode dan melihat status permohonan saja.<br><em>Given</em> kode salah, <em>when</em> dikirim, <em>then</em> tampil "Kode tidak ditemukan" tanpa petunjuk lain.</p>
+<div class="feat"><div class="fnum">F1</div><div class="fbody"><h4>Login dan peran</h4><p>Pengguna (petugas) masuk dengan akun yang dibuat admin; hak akses mengikuti peran. Mitra tidak memerlukan akun.</p><ul class="crit"><li><em>Given</em> pengguna tanpa akun, <em>when</em> membuka halaman admin, <em>then</em> diarahkan ke login. <em>Given</em> peran petugas pelayanan, <em>when</em> membuka menu pencairan, <em>then</em> akses ditolak.</li></ul></div></div>
+<div class="feat"><div class="fnum">F2</div><div class="fbody"><h4>Data mitra</h4><p>Simpan data identitas mitra (NIK, nama, alamat, kontak, foto, data rekening). Data berasal dari formulir online mitra (F3) atau diinput petugas, dan menjadi data mitra resmi setelah diverifikasi petugas. Foto dan data pribadi hanya terlihat oleh pengguna yang berhak.</p><ul class="crit"><li><em>Given</em> NIK sudah terdaftar, <em>when</em> petugas menambah mitra dengan NIK sama, <em>then</em> sistem menolak dan menampilkan data yang ada.</li></ul></div></div>
+<div class="feat"><div class="fnum">F3</div><div class="fbody"><h4>Permohonan pembiayaan</h4><p>Permohonan masuk dengan dua cara: (a) mitra mengisi formulir di situs publik tanpa akun, berisi data diri, data usaha, jumlah dan jangka waktu pembiayaan, serta unggahan dokumen persyaratan (foto atau scan) <em>(Asumsi)</em>; (b) petugas menginput untuk pemohon yang datang langsung <em>(Asumsi)</em>. Pemohon menyetujui pemrosesan data pribadinya sebelum mengirim, dan formulir publik dilindungi dari kiriman otomatis (misalnya CAPTCHA, usulan). Setelah dikirim, sistem memberi kode permohonan dan status "Menunggu verifikasi". Petugas memeriksa identitas dan dokumen, lalu meneruskan ke survei (F4), meminta perbaikan, atau menolak dengan alasan wajib. Permohonan juga dapat dibatalkan dengan alasan wajib.</p><ul class="crit"><li><em>Given</em> formulir online belum lengkap, <em>when</em> dikirim, <em>then</em> sistem menunjukkan isian yang kurang dan tidak mengirim.</li><li><em>Given</em> formulir lengkap dan persetujuan dicentang, <em>when</em> dikirim, <em>then</em> tampil kode permohonan dan status "Menunggu verifikasi".</li><li><em>Given</em> NIK sudah punya permohonan yang masih diproses, <em>when</em> dikirim lagi, <em>then</em> sistem menolak dan menyarankan melacak permohonan yang ada.</li><li><em>Given</em> permohonan "Menunggu verifikasi", <em>when</em> petugas memverifikasi, <em>then</em> status menjadi "Siap survei" dan tercatat di log aktivitas (F12).</li><li><em>Given</em> dokumen yang diunggah, <em>when</em> dibuka, <em>then</em> hanya petugas yang berhak yang dapat melihatnya, dan tidak ada tautan publik.</li></ul></div></div>
+<div class="feat"><div class="fnum">F4</div><div class="fbody"><h4>Survei dan analisa</h4><p>Fasilitator mengisi hasil survei (modal, target penjualan, keuntungan, rincian penggunaan dana) pada permohonan yang sama.</p><ul class="crit"><li><em>Given</em> permohonan belum disurvei, <em>when</em> pimpinan membuka penetapan, <em>then</em> sistem meminta survei diselesaikan dahulu.</li></ul></div></div>
+<div class="feat"><div class="fnum">F5</div><div class="fbody"><h4>Penetapan dan validasi SOP</h4><p>Pimpinan menetapkan atau menolak. Sistem menolak nilai yang melanggar aturan (batas pembiayaan, nilai agunan).</p><ul class="crit"><li><em>Given</em> jumlah melebihi batas yang berlaku, <em>when</em> disimpan, <em>then</em> muncul pesan kesalahan yang menyebut aturan yang dilanggar. <em>(Nilai aturan: bagian 9.)</em></li></ul></div></div>
+<div class="feat"><div class="fnum">F6</div><div class="fbody"><h4>Akad dan pencairan</h4><p>Catat nomor akad, tanggal realisasi dan jatuh tempo, lalu cairkan. Aturan tanggal pencairan maksimal tanggal 28 <em>(Asumsi)</em>.</p><ul class="crit"><li><em>Given</em> tanggal realisasi lebih dari batas, <em>when</em> disimpan, <em>then</em> ditolak dengan alasan.</li></ul></div></div>
+<div class="feat"><div class="fnum">F7</div><div class="fbody"><h4>Jadwal cicilan dan pembayaran</h4><p>Sistem membuat jadwal cicilan otomatis; bendahara mencatat pembayaran pokok, jasa dan denda. Denda dihitung otomatis dengan kalender hari kerja <em>(Asumsi)</em>.</p><ul class="crit"><li><em>Given</em> cicilan lewat jatuh tempo, <em>when</em> dibuka, <em>then</em> denda tampil sesuai aturan dan hari kerja.</li></ul></div></div>
+<div class="feat"><div class="fnum">F8</div><div class="fbody"><h4>Pelunasan dan penyesuaian</h4><p>Pelunasan dipercepat dengan penyesuaian sisa jasa; status berubah menjadi Lunas.</p><ul class="crit"><li><em>Given</em> semua cicilan terbayar, <em>when</em> pembayaran terakhir disimpan, <em>then</em> status pinjaman otomatis Lunas.</li></ul></div></div>
+<div class="feat"><div class="fnum">F9</div><div class="fbody"><h4>Dashboard</h4><p>Kartu angka (hari ini, bulan ini, tahun ini) untuk pencairan dan cicilan, jumlah mitra, serta dua grafik, dengan filter tanggal.</p><ul class="crit"><li><em>Given</em> data pencairan baru disimpan, <em>when</em> dashboard dibuka, <em>then</em> angka sudah ikut berubah tanpa input ulang.</li></ul></div></div>
+<div class="feat"><div class="fnum">F10</div><div class="fbody"><h4>Laporan inti</h4><p>Laporan pencairan, cicilan, tunggakan, kolektibilitas dan pembiayaan lunas per periode, dapat dicetak PDF dan Excel. Daftar laporan final ditentukan klien.</p><ul class="crit"><li><em>Given</em> periode dipilih, <em>when</em> laporan dibuat, <em>then</em> totalnya sama dengan dashboard.</li></ul></div></div>
+<div class="feat"><div class="fnum">F11</div><div class="fbody"><h4>Cetak dokumen</h4><p>Formulir permohonan, tanda terima berkas, rincian biaya dan kwitansi pembayaran dengan kode QR, ukuran A4.</p><ul class="crit"><li><em>Given</em> pembayaran tersimpan, <em>when</em> kwitansi dicetak, <em>then</em> nomor, jumlah dan terbilang sesuai data.</li></ul></div></div>
+<div class="feat"><div class="fnum">F12</div><div class="fbody"><h4>Log aktivitas</h4><p>Setiap perubahan data tercatat: siapa, kapan, apa. Log tidak dapat diubah dari aplikasi.</p><ul class="crit"><li><em>Given</em> data pinjaman diubah, <em>when</em> admin membuka log, <em>then</em> tampil pengguna, waktu dan nilai sebelum dan sesudah.</li></ul></div></div>
+<div class="feat"><div class="fnum">F13</div><div class="fbody"><h4>Situs publik</h4><p>Beranda, profil, layanan, berita, galeri, kontak, statistik agregat, dan halaman formulir pengajuan (F3). Halaman publik tidak pernah menampilkan data pribadi mitra.</p><ul class="crit"><li><em>Given</em> pengunjung membuka situs publik, <em>when</em> melihat statistik, <em>then</em> hanya angka total dan grafik yang tampil, tanpa nama, NIK atau foto.</li></ul></div></div>
+<div class="feat"><div class="fnum">F14</div><div class="fbody"><h4>Lacak permohonan</h4><p><em>(Asumsi)</em>. Pemohon memasukkan kode (diberikan setelah mengirim formulir, atau dari tanda terima) dan hanya melihat tahap permohonan, termasuk "Menunggu verifikasi" dan "Perlu perbaikan".</p><ul class="crit"><li><em>Given</em> kode benar, <em>when</em> dikirim, <em>then</em> hanya tahap permohonan yang tampil, tanpa data pribadi.</li><li><em>Given</em> kode salah, <em>when</em> dikirim, <em>then</em> tampil "Kode tidak ditemukan" tanpa petunjuk lain.</li></ul></div></div>
 <h3>5. Di luar cakupan</h3>
-<ul><li>Harga dan penawaran (dibuat terpisah).</li><li>Pemindahan data Excel lama <em>(Asumsi, dikonfirmasi di bagian 9)</em>.</li><li>Pembayaran online oleh mitra; pembayaran dicatat oleh petugas.</li><li>Aplikasi mobile.</li><li>Peta lokasi mitra (GIS), kecuali klien memintanya.</li><li>Pengiriman notifikasi WhatsApp atau SMS.</li></ul>
+<ul><li>Harga dan penawaran (dibuat terpisah).</li><li>Pemindahan data Excel lama <em>(Asumsi, dikonfirmasi di bagian 9)</em>.</li><li>Akun login untuk mitra (mitra mengajukan lewat formulir tanpa akun).</li><li>Pembayaran online oleh mitra; pembayaran dicatat oleh petugas.</li><li>Aplikasi mobile.</li><li>Peta lokasi mitra (GIS), kecuali klien memintanya.</li><li>Pengiriman notifikasi WhatsApp atau SMS.</li></ul>
 <h3>6. Ukuran keberhasilan (usulan, belum disepakati)</h3>
 <ul><li>Rekap pencairan dan cicilan dapat dibuat dalam hitungan menit, bukan hari.</li><li>Tidak ada data yang diketik dua kali antarpetugas.</li><li>Setiap perubahan data dapat ditelusuri ke satu pengguna.</li><li>Halaman publik dan admin memenuhi WCAG 2.2 AA dan Core Web Vitals "baik" (LCP ≤ 2,5 dtk, INP ≤ 200 ms, CLS ≤ 0,1).</li></ul>
 <h3>7. Batasan</h3>
-<ul><li><strong>Biaya:</strong> gratis lebih dulu (Firebase Spark, Google Apps Script, Google Drive). Layanan berbayar hanya dengan alasan tertulis dan persetujuan klien.</li><li><strong>Waktu:</strong> belum ditentukan.</li><li><strong>Perangkat:</strong> peramban modern di komputer dan ponsel.</li><li><strong>Data pribadi dan keuangan:</strong> NIK, foto, alamat, serta data pinjaman dan pembayaran diperlakukan sebagai data sensitif; setiap tahap yang menyentuhnya perlu persetujuan sebelum dibangun.</li><li><strong>Keamanan:</strong> daftar periksa OWASP Top 10 dan tinjauan keamanan pada setiap perubahan.</li></ul>
+<ul><li><strong>Biaya:</strong> gratis lebih dulu (Firebase Spark, Google Apps Script, Google Drive). Layanan berbayar hanya dengan alasan tertulis dan persetujuan klien.</li><li><strong>Waktu:</strong> belum ditentukan.</li><li><strong>Perangkat:</strong> peramban modern di komputer dan ponsel.</li><li><strong>Data pribadi dan keuangan:</strong> NIK, foto, alamat, serta data pinjaman dan pembayaran diperlakukan sebagai data sensitif; setiap tahap yang menyentuhnya perlu persetujuan sebelum dibangun. Formulir publik mengumpulkan NIK, foto, dan dokumen dari masyarakat: persetujuan pemrosesan, penyimpanan dokumen secara privat di Google Drive (tanpa tautan publik), batas jenis dan ukuran berkas, serta perlindungan dari spam harus disetujui sebelum dibangun.</li><li><strong>Keamanan:</strong> daftar periksa OWASP Top 10 dan tinjauan keamanan pada setiap perubahan.</li></ul>
 <h3>8. Tampilan</h3>
 <p>Situs publik: modern, biru muda, ramah ponsel. Situs admin: modern tetapi bergaya pemerintahan, dengan menu samping dan tabel. Contoh tampilan terlampir terpisah dan hanya berupa <strong>contoh</strong>, bukan komitmen desain akhir.</p>
 <h3>9. Pertanyaan terbuka</h3>
-<table><thead><tr><th scope="col">No</th><th scope="col">Pertanyaan</th><th scope="col">Dijawab oleh</th></tr></thead><tbody><tr><td>1</td><td>Bagaimana alur pembiayaan sebenarnya, dan siapa mengerjakan tiap langkah?</td><td>Klien (Kepala BLUD)</td></tr><tr><td>2</td><td>Peran apa saja yang ada di Diskum Batam?</td><td>Klien</td></tr><tr><td>3</td><td>Aturan pembiayaan: batas per jenis, jasa, jangka waktu, agunan, denda, batas tanggal pencairan</td><td>Klien</td></tr><tr><td>4</td><td>Apakah mitra boleh mengajukan atau melacak permohonan secara online?</td><td>Klien</td></tr><tr><td>5</td><td>Apakah peta lokasi mitra diperlukan?</td><td>Klien</td></tr><tr><td>6</td><td>Dasar hukum Batam (Perwako dan tarif) yang berlaku</td><td>Klien</td></tr><tr><td>7</td><td>Nama resmi, logo dan penulisan BLUD</td><td>Klien</td></tr><tr><td>8</td><td>Apakah data Excel lama harus dimasukkan?</td><td>Klien</td></tr><tr><td>9</td><td>Laporan apa saja yang benar-benar dipakai?</td><td>Klien</td></tr><tr><td>10</td><td>Perkiraan jumlah pengguna dan mitra</td><td>Klien</td></tr></tbody></table>
+<table><thead><tr><th scope="col">No</th><th scope="col">Pertanyaan</th><th scope="col">Dijawab oleh</th></tr></thead><tbody><tr><td>1</td><td>Bagaimana alur pembiayaan sebenarnya, dan siapa mengerjakan tiap langkah?</td><td>Klien (Kepala BLUD)</td></tr><tr><td>2</td><td>Peran apa saja yang ada di Diskum Batam?</td><td>Klien</td></tr><tr><td>3</td><td>Aturan pembiayaan: batas per jenis, jasa, jangka waktu, agunan, denda, batas tanggal pencairan</td><td>Klien</td></tr><tr><td>4</td><td>Benarkah mitra mengajukan sendiri lewat formulir online tanpa akun, lalu melacak dengan kode?</td><td>Klien</td></tr><tr><td>5</td><td>Apakah peta lokasi mitra diperlukan?</td><td>Klien</td></tr><tr><td>6</td><td>Dasar hukum Batam (Perwako dan tarif) yang berlaku</td><td>Klien</td></tr><tr><td>7</td><td>Nama resmi, logo dan penulisan BLUD</td><td>Klien</td></tr><tr><td>8</td><td>Apakah data Excel lama harus dimasukkan?</td><td>Klien</td></tr><tr><td>9</td><td>Laporan apa saja yang benar-benar dipakai?</td><td>Klien</td></tr><tr><td>10</td><td>Perkiraan jumlah pengguna dan mitra</td><td>Klien</td></tr><tr><td>11</td><td>Apakah pemohon yang datang langsung tetap diinput petugas?</td><td>Klien</td></tr><tr><td>12</td><td>Bagaimana petugas memverifikasi identitas pemohon online (NIK dan dokumen)?</td><td>Klien</td></tr><tr><td>13</td><td>Dokumen mana yang wajib diunggah, serta jenis dan ukuran maksimal berkas?</td><td>Klien</td></tr><tr><td>14</td><td>Teks persetujuan data pribadi dan lama data disimpan</td><td>Klien dan pihak hukum</td></tr></tbody></table>
 <h3>10. Persetujuan</h3>
 <table><thead><tr><th scope="col">Nama klien</th><th scope="col">Jabatan</th><th scope="col">Tanggal</th><th scope="col">Tanda tangan</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
   </section>

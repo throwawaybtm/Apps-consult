@@ -8,7 +8,7 @@ Everything below is a **placeholder (Asumsi)** until the client confirms the rea
 |---|---|---|---|
 | F1 | Login dan peran | Login, Admin, user menus | Keep. Roles are Asumsi. |
 | F2 | Data mitra | Mitra > Data Mitra | Keep; photo kept. Map/GIS moved to an open question. |
-| F3 | Permohonan pembiayaan | Pendataan Mitra, add and edit | Keep with the document checklist. |
+| F3 | Permohonan pembiayaan | Pendataan Mitra, add and edit | Changed 2026-11-20 (Asumsi): mitra submits an online form without an account and uploads documents; staff verify ("Menunggu verifikasi"), then the facilitator surveys. Staff can still enter walk-ins. Keeps the document checklist. |
 | F4 | Survei dan analisa | Pendataan edit (survey fields), Rincian Biaya | Keep as a step on the application, not a separate module. |
 | F5 | Penetapan dan validasi SOP | SOP validation (PPTX s9) | Keep; the rules themselves are open questions. |
 | F6 | Akad dan pencairan | Pencairan | Keep; the "by the 28th" rule is an Asumsi. |
@@ -19,7 +19,7 @@ Everything below is a **placeholder (Asumsi)** until the client confirms the rea
 | F11 | Cetak dokumen | Print forms, receipt, kwitansi with QR | Keep: formulir, tanda terima, rincian biaya, kwitansi. |
 | F12 | Log aktivitas | Activity log | Keep. |
 | F13 | Situs publik | none (Simantab pattern) | New: profil, berita, galeri, kontak, aggregate statistics. |
-| F14 | Lacak permohonan | none (Simantab pattern) | New, Asumsi: a mitra enters a code and sees status. |
+| F14 | Lacak permohonan | none (Simantab pattern) | New, Asumsi: a mitra enters the code given after submitting (or from the receipt) and sees the stage, including "Menunggu verifikasi" and "Perlu perbaikan". |
 
 ## Merges and drops
 

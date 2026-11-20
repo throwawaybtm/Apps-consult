@@ -94,6 +94,7 @@
   .badge-destructive { @apply bg-destructive text-white; }
   .badge-success { @apply bg-success-soft text-success; }
   .badge-warning { @apply bg-warning-soft text-warning; }
+  .badge-outline { @apply border-border text-foreground; }
 
   /* Card */
   .card { @apply flex flex-col gap-6 rounded-xl border bg-card py-6 text-card-foreground shadow-sm; }

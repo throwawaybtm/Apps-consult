@@ -23,7 +23,8 @@
     <ul class="mt-4 grid gap-1">
       <li><a class="sidebar-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
       <li><span class="sidebar-item off">Mitra</span></li>
-      <li><a class="sidebar-item" href="admin-permohonan.html">Permohonan</a></li>
+      <li><a class="sidebar-item justify-between" href="admin-verifikasi.html">Permohonan masuk <span class="badge badge-warning">3<span class="sr-only"> menunggu verifikasi</span></span></a></li>
+      <li><a class="sidebar-item" href="admin-permohonan.html">Input permohonan</a></li>
       <li><span class="sidebar-item off">Pencairan</span></li>
       <li><span class="sidebar-item off">Pembayaran</span></li>
       <li><span class="sidebar-item off">Laporan</span></li>
@@ -51,6 +52,8 @@
           </select>
         </form>
       </div>
+
+      <div class="alert mb-5 flex flex-wrap items-center justify-between gap-3 border-warning/40 bg-warning-soft text-warning" role="status"><span class="font-medium">Ada 3 permohonan online menunggu verifikasi.</span><a class="btn btn-outline" href="admin-verifikasi.html">Buka permohonan masuk</a></div>
 
       <section class="mb-4" aria-labelledby="k-cair">
         <h2 class="mb-4 text-sm font-medium text-muted-foreground" id="k-cair">Pencairan pembiayaan</h2>
@@ -147,6 +150,7 @@
             <legend class="mb-2 p-0 text-sm font-medium">Status</legend>
             <div class="flex flex-wrap gap-1">
               <label><input class="peer sr-only" type="radio" name="status" value="semua" checked><span class="toggle">Semua</span></label>
+              <label><input class="peer sr-only" type="radio" name="status" value="verifikasi"><span class="toggle">Menunggu verifikasi</span></label>
               <label><input class="peer sr-only" type="radio" name="status" value="berjalan"><span class="toggle">Berjalan</span></label>
               <label><input class="peer sr-only" type="radio" name="status" value="lunas"><span class="toggle">Lunas</span></label>
               <label><input class="peer sr-only" type="radio" name="status" value="batal"><span class="toggle">Batal</span></label>
@@ -159,6 +163,7 @@
                 <tr><th scope="col">Nomor</th><th scope="col">Mitra</th><th scope="col">Bidang usaha</th><th scope="col" class="num">Jumlah</th><th scope="col">Jangka waktu</th><th scope="col">Status</th></tr>
               </thead>
               <tbody>
+                <tr data-status="verifikasi"><th scope="row">KD-2026-0007</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MG</span>Mitra Contoh G</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 15.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="badge badge-outline">Menunggu verifikasi</span></td></tr>
                 <tr data-status="berjalan"><th scope="row">KD-2026-0006</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MA</span>Mitra Contoh A</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 20.000.000</td><td data-label="Jangka waktu">18 bulan</td><td data-label="Status"><span class="badge badge-secondary">Berjalan</span></td></tr>
                 <tr data-status="berjalan"><th scope="row">KD-2026-0005</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MB</span>Mitra Contoh B</span></td><td data-label="Bidang usaha">Industri</td><td class="num" data-label="Jumlah">Rp 30.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="badge badge-secondary">Berjalan</span></td></tr>
                 <tr data-status="berjalan"><th scope="row">KD-2026-0004</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MC</span>Mitra Contoh C</span></td><td data-label="Bidang usaha">Pertanian</td><td class="num" data-label="Jumlah">Rp 15.000.000</td><td data-label="Jangka waktu">24 bulan</td><td data-label="Status"><span class="badge badge-warning">Berjalan, menunggak</span></td></tr>

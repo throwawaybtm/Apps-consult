@@ -2,6 +2,9 @@
 
 Date: 2026-11-19. Pages: `public-home.html`, `admin-dashboard.html`, `admin-permohonan.html`. Standard: WCAG 2.2 AA.
 
+## Re-check after the online self-registration flow (2026-11-20)
+Two screens were added (public application form, admin verification) and two updated (home, dashboard). All five pages: axe reports no violations; no horizontal scroll at 320px, also with the WCAG text-spacing override (two layout fixes were needed on the verification page: a long button now wraps and the document rows wrap). The form shows errors only after interaction, links each error to its field, moves focus to the first error, checks file size with a text message, and the confirmation moves focus to its heading. Not tested: a real screen reader, and the browser's own file picker text (it follows the browser language).
+
 ## Re-check after the shadcn/ui-style restyle (2026-11-20)
 The mockups were restyled to match the shadcn/ui components (planned React + Vite + Tailwind v4 + shadcn/ui, pending stack approval). Re-run on the new pages: axe reports no violations; the form (errors after interaction, the "tanggal 28" rule, focus to the first error), the status filter, the menu and the Sheet-style drawer (Escape closes), the light focus ring on the sidebar (11.7:1) and 320px reflow all still pass. The remaining "needs manual check" items are chart axis labels (muted text on white, 9:1) and hero text over a light gradient (8.5:1 or more), checked by hand. Deliberate deviations from stock shadcn/ui are listed in `../DESIGN.md` (darker input border, opaque focus ring, 44px public buttons). Admin buttons are shadcn's 36px, above the 24px WCAG 2.2 minimum.
 

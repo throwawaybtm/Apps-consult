@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>e-BLUD: contoh form permohonan</title>
-<meta name="description" content="Contoh form permohonan pembiayaan di situs admin e-BLUD untuk diskusi dengan klien.">
+<title>e-BLUD: contoh form input permohonan (datang langsung)</title>
+<meta name="description" content="Contoh form input permohonan untuk pemohon yang datang langsung, di situs admin e-BLUD.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -23,7 +23,8 @@
     <ul class="mt-4 grid gap-1">
       <li><a class="sidebar-item" href="admin-dashboard.html">Dashboard</a></li>
       <li><span class="sidebar-item off">Mitra</span></li>
-      <li><a class="sidebar-item" href="admin-permohonan.html" aria-current="page">Permohonan</a></li>
+      <li><a class="sidebar-item justify-between" href="admin-verifikasi.html">Permohonan masuk <span class="badge badge-warning">3<span class="sr-only"> menunggu verifikasi</span></span></a></li>
+      <li><a class="sidebar-item" href="admin-permohonan.html" aria-current="page">Input permohonan</a></li>
       <li><span class="sidebar-item off">Pencairan</span></li>
       <li><span class="sidebar-item off">Pembayaran</span></li>
       <li><span class="sidebar-item off">Laporan</span></li>
@@ -41,8 +42,9 @@
 
     <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
       <div class="mb-5">
-        <p class="mb-1 text-sm text-muted-foreground"><a class="inline-block min-h-6 py-0.5" href="admin-dashboard.html">Dashboard</a> / Permohonan</p>
-        <h1 class="text-2xl">Permohonan pembiayaan baru</h1>
+        <p class="mb-1 text-sm text-muted-foreground"><a class="inline-block min-h-6 py-0.5" href="admin-dashboard.html">Dashboard</a> / Input permohonan</p>
+        <h1 class="text-2xl">Input permohonan pembiayaan</h1>
+        <p class="mt-1 text-muted-foreground">Untuk pemohon yang datang langsung ke kantor. Permohonan online masuk lewat <a href="admin-verifikasi.html">Permohonan masuk</a>.</p>
       </div>
 
       <form id="form-permohonan" action="#" novalidate>

@@ -30,7 +30,7 @@ The client wants a system **like e-Dagulir, wrapped in a modern look like Simant
 
 1. A **draft PRD v0** in Indonesian that lists features as F1, F2, … simplified from e-Dagulir, with every placeholder assumption marked and collected under "Open questions".
 2. **Research notes** in `research/` so the reasoning is traceable.
-3. **Two to three mockup screens** that show the client the two looks: modern public site, modern-but-government-style admin.
+3. **Mockup screens** (five after the 2026-11-20 flow change) that show the client the two looks: modern public site, modern-but-government-style admin.
 4. A feature list the client can cross out, add to, or correct.
 
 ## Non-goals
@@ -72,6 +72,7 @@ Decided by the user:
 - Two surfaces: a **public site** (modern, Simantab style) and an **admin site** (modern, but government style).
 - BLUD lends money to mitra; today they use Excel.
 - Go with option B.
+- **Online self-registration (2026-11-20, still an assumption until the client confirms):** the mitra applies by themself on the public site with an **online form and no account**. Documents are **uploaded** (scans or photos) and stored privately in Google Drive. After submitting, staff **verify, then the facilitator surveys**. The mitra tracks the application with a code (F14).
 - Project name is **e-blud** (folder `projects/e-blud/`).
 
 My calls (the user can reject any of these):
@@ -91,7 +92,9 @@ My calls (the user can reject any of these):
   - F13 Public site: profil, berita, galeri, kontak, aggregate statistics
   - F14 Lacak permohonan by code
 - **Simplification of e-Dagulir:** the five loan list pages (Pencairan, Pencairan Pinjaman, Pinjaman Lunas, Cicilan, Cicilan Lunas) become one "Pinjaman" page with status filters; "Pelayanan Batal" becomes a status; 30+ reports reduced to a core set.
-- **Mockup screens:** (1) public home page, (2) admin dashboard, (3) admin permohonan form with the requirements checklist. All with fake data and a "contoh" label.
+- **Mockup screens (five):** (1) public home page, (2) public application form (mitra self-registration, F3), (3) admin dashboard, (4) admin "Permohonan masuk" verification screen (F3), (5) admin form for walk-in applications entered by staff (F3, F5, F6). All with fake data and a "contoh" label.
+- **Walk-ins:** staff can still enter applications for people who come in person (proposal, to confirm).
+- **Public form safeguards (proposal):** consent before sending, CAPTCHA against bots, private Drive storage, file type and size limits. The public form collects NIK, photos and documents, so it is **checkpoint 3 (personal data)** before any real build.
 - **Public site data:** aggregate numbers only.
 - **Planned frontend (pending checkpoint 2):** React + Vite + Tailwind CSS v4 + shadcn/ui, from the repo default. The mockups use the same tokens and shadcn-style components so they carry straight into the real build.
 - **Fonts:** Inter, self-hosted as TrueType when the guidebook PDF is built (repo font rule). Mockups may load it from Google Fonts meanwhile.
@@ -109,6 +112,10 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 8. Whether existing Excel data must be imported.
 9. Which reports they actually need.
 10. Number of users and mitra (sizing against free-tier limits).
+11. Do walk-in applicants still get entered by staff?
+12. How do staff verify the identity of an online applicant (NIK and documents)?
+13. Which documents are mandatory uploads, and the allowed file types and sizes?
+14. Consent wording for personal data and how long data is kept (client and legal).
 
 ## Left to the builder
 
@@ -121,6 +128,6 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 1. Done: project folder `projects/e-blud/`.
 2. Done: `research/` notes.
 3. Done: `prd.md` v0 (Indonesian), marked DRAFT.
-4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), built as static HTML with Tailwind CSS v4 and styled to match the shadcn/ui components the planned React app would use (tokens in `DESIGN.md` and the `@theme` block of `mockups/input.css`; compiled to `mockups/mockups.css`), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
-5. Done: client preview PDF `preview/preview.pdf` (cover, intro, the three mockups, then the draft PRD). Regenerate it with `node projects/e-blud/preview/build-preview.cjs` and `npm run build:pdf -- projects/e-blud/preview/preview.html`; it is not the guidebook, which waits for PRD approval.
+4. Done: five mockups in `mockups/` (public home, public application form, admin dashboard, admin verification of incoming applications, admin walk-in form), built as static HTML with Tailwind CSS v4 and styled to match the shadcn/ui components the planned React app would use (tokens in `DESIGN.md` and the `@theme` block of `mockups/input.css`; compiled to `mockups/mockups.css`), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
+5. Done: client preview PDF `preview/preview.pdf`, redesigned 2026-11-20 (navy cover with screenshot collage, summary, journey timeline, five framed screens with numbered callouts, feature grid, next steps, then the draft PRD as feature blocks). Regenerate it with `node projects/e-blud/preview/capture-shots.cjs` (only when the mockups change), `node projects/e-blud/preview/build-preview.cjs` and `npm run build:pdf -- projects/e-blud/preview/preview.html`; it is not the guidebook, which waits for PRD approval.
 6. Next: you review. Nothing goes to the client until you say so. After the client reacts to the feature list, update the PRD first, then the guidebook.
