@@ -120,6 +120,6 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 1. Done: project folder `projects/e-blud/`.
 2. Done: `research/` notes.
 3. Done: `prd.md` v0 (Indonesian), marked DRAFT.
-4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
+4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), built with Tailwind CSS v4 (tokens in `DESIGN.md` and the `@theme` block of `mockups/input.css`; compiled to `mockups/mockups.css`), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
 5. Done: client preview PDF `preview/preview.pdf` (cover, intro, the three mockups, then the draft PRD). Regenerate it with `node projects/e-blud/preview/build-preview.cjs` and `npm run build:pdf -- projects/e-blud/preview/preview.html`; it is not the guidebook, which waits for PRD approval.
 6. Next: you review. Nothing goes to the client until you say so. After the client reacts to the feature list, update the PRD first, then the guidebook.

@@ -134,3 +134,4 @@
 - The persyaratan checklist has 8 generic items, not 10 (the reference's three collateral items are merged into two).
 - Task 5 used `npm run check:a11y` (axe-core, WCAG 2.2 AA) for automation, plus a manual pass for keyboard, focus, target size, reflow and contrast. Axe MCP is not used.
 - Screenshots are palette-optimised PNGs to stay under 200K each.
+- 2026-11-20: the mockups were moved to Tailwind CSS v4 (repo default). `shared.css` and `admin.css` are gone; tokens live in `DESIGN.md` and the `@theme` block of `mockups/input.css`, compiled with `npm run css` to `mockups/mockups.css` (committed, so the HTML opens as plain files). Pixel comparison against the plain-CSS version: public page identical at 1440px, dashboard within 0.02%; the permohonan form shifts by a few pixels because Tailwind's preflight resets browser default margins (checkbox, date input).

@@ -1,0 +1,131 @@
+/* e-BLUD mockups: Tailwind CSS v4 entry file. Tokens match ../DESIGN.md.
+   Compile from the repo root:
+     npm run css -- -i projects/e-blud/mockups/input.css -o projects/e-blud/mockups/mockups.css --minify
+   CONTOH TAMPILAN: placeholder look for discussion, not a final design. */
+
+@import "tailwindcss" source(none);
+@source "./*.html";
+
+@theme {
+  /* Start from the project palette only, not Tailwind's default colours. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-600: #0284c7; /* chart bars only */
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
+  --color-accent: #7dd3fc; /* current item on the dark sidebar */
+  --color-navy-900: #0b2540;
+  --color-navy-800: #12365a;
+  --color-ink: #0f2233;
+  --color-ink-2: #3b4a5a;
+  --color-line: #d3dde6;
+  --color-page: #eaf0f6;
+  --color-stripe: #f4f8fb;
+  --color-field-edge: #5b6b7b;
+  --color-sidebar: #dbe7f3;
+  --color-sidebar-dim: #a9bccf;
+  --color-sidebar-note: #b7c8da;
+  --color-footer-text: #dbeafe;
+  --color-ok: #166534;
+  --color-ok-bg: #dcfce7;
+  --color-warn: #92400e;
+  --color-warn-bg: #fef3c7;
+  --color-err: #b91c1c;
+  --color-err-bg: #fee2e2;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+
+  --radius-card: 14px;
+  --radius-control: 8px;
+  --radius-panel: 6px;
+  --radius-field: 4px;
+  --radius-mark: 10px;
+
+  --shadow-menu: 0 8px 24px rgb(11 37 64 / 0.14);
+  --shadow-journey: 0 10px 30px rgb(11 37 64 / 0.08);
+
+  --breakpoint-nav: 52rem;
+  --breakpoint-shell: 60rem;
+  --spacing-gutter: clamp(1rem, 4vw, 2rem);
+}
+
+/* Centered page column used by the public site */
+@utility wrap {
+  inline-size: min(100% - 2 * var(--spacing-gutter), 72rem);
+  margin-inline: auto;
+}
+
+@layer base {
+  :root { color-scheme: light; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; color: var(--color-ink); background: var(--color-white); }
+  h1, h2, h3 { font-weight: 700; line-height: 1.2; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { color: var(--color-brand-700); text-decoration: underline; text-underline-offset: 0.2em; }
+  :focus-visible { outline: 3px solid var(--color-brand-800); outline-offset: 2px; border-radius: 4px; }
+  input[type="date"]:focus-within { outline: 3px solid var(--color-brand-800); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn { @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-control border-2 border-brand-700 bg-brand-700 px-5 py-2 font-semibold text-white no-underline hover:border-brand-800 hover:bg-brand-800; }
+  .btn-quiet { @apply bg-transparent text-brand-700 hover:border-brand-700 hover:bg-brand-100 hover:text-brand-900; }
+
+  /* Cards, status chips */
+  .card { @apply rounded-card border border-line bg-white p-5; }
+  .panel { @apply rounded-panel border border-line bg-white p-5; }
+  .chip { @apply inline-block rounded-full border border-current px-2.5 py-0.5 text-[0.8rem] font-semibold; }
+
+  /* Journey timeline on the public hero: a real sequence */
+  .step { @apply relative pb-5 ps-9 last:pb-0 before:absolute before:start-[0.4rem] before:top-1 before:size-[0.9rem] before:rounded-full before:border-2 before:border-brand-700 before:bg-white before:content-[''] after:absolute after:start-[0.8rem] after:top-5 after:bottom-[0.1rem] after:w-0.5 after:bg-line after:content-[''] last:after:hidden; }
+  .step[data-state="done"] { @apply before:bg-brand-700; }
+  .step[data-state="now"] { @apply before:shadow-[0_0_0_4px_var(--color-brand-200)]; }
+
+  /* Single-series charts: CSS bars, a data table is always offered */
+  .cols { @apply relative grid h-44 auto-cols-fr grid-flow-col items-end gap-3 border-b border-ink-2 pb-7; }
+  .col { @apply relative flex h-full items-end justify-center; }
+  .col .bar { @apply w-[min(100%,2.25rem)] rounded-t-[4px] bg-brand-600 forced-colors:bg-[CanvasText]; block-size: calc(var(--v) * 100%); }
+  .col .tick { @apply absolute -bottom-[1.6rem] text-[0.8rem] text-ink-2; }
+  .col .val { @apply absolute text-[0.8rem] font-semibold text-ink; inset-block-end: calc(var(--v) * 100% + 0.2rem); }
+  .hbars { @apply grid gap-3; }
+  .hbars li { @apply grid grid-cols-[6.5rem_1fr_2.5rem] items-center gap-3 text-[0.9rem]; }
+  .hbars .track { @apply h-3.5; }
+  .hbars .fill { @apply block h-full rounded-e-[4px] bg-brand-600 forced-colors:bg-[CanvasText]; inline-size: calc(var(--v) * 100%); }
+  .hbars .num { @apply text-end text-ink-2 tabular-nums; }
+  .data-table { @apply text-[0.875rem]; }
+  .data-table summary { @apply min-h-6 cursor-pointer text-brand-700; }
+  .data-table table { @apply mt-2 w-full border-collapse; }
+  .data-table th, .data-table td { @apply border-b border-line px-2 py-1.5 text-start; }
+  .data-table th:last-child, .data-table td:last-child { @apply text-end; }
+
+  /* Form controls (admin) */
+  .control { @apply min-h-10 w-full rounded-field border border-field-edge bg-white px-2.5 py-1.5 text-ink; }
+
+  /* Admin sidebar items */
+  .nav-item { @apply flex min-h-10 items-center rounded-field border-s-4 border-transparent px-3 py-2 font-medium text-sidebar no-underline; }
+  a.nav-item { @apply hover:bg-navy-800; }
+  .nav-item[aria-current="page"] { @apply border-accent bg-navy-800 text-white; }
+  .nav-item.off { @apply cursor-default text-sidebar-dim; }
+
+  /* Admin KPI card */
+  .kpi { @apply grid gap-0.5 rounded-panel border border-s-4 border-line border-s-brand-700 bg-white px-4 py-3.5; }
+
+  /* Admin data table: dense on wide, stacked cards in narrow containers */
+  .grid-table { @apply w-full min-w-160 border-separate border-spacing-0 text-[0.9rem] @max-[600px]:min-w-0; }
+  .grid-table thead { @apply sticky top-0 z-1 @max-[600px]:hidden; }
+  .grid-table th { @apply bg-navy-900 px-3 py-2.5 text-start whitespace-nowrap text-white; }
+  .grid-table tbody th { @apply bg-transparent font-semibold whitespace-normal text-ink; }
+  .grid-table td, .grid-table tbody th { @apply border-b border-line px-3 py-2.5 align-middle; }
+  .grid-table tbody tr:nth-child(even) { @apply bg-stripe; }
+  .grid-table .num { @apply text-end tabular-nums; }
+  .grid-table tbody tr { @apply @max-[600px]:grid @max-[600px]:gap-1 @max-[600px]:border-b @max-[600px]:border-line @max-[600px]:p-3; }
+  .grid-table td, .grid-table tbody th { @apply @max-[600px]:flex @max-[600px]:justify-between @max-[600px]:gap-4 @max-[600px]:border-0 @max-[600px]:px-0 @max-[600px]:py-0.5; }
+  .grid-table td::before { @apply hidden font-semibold text-ink-2 @max-[600px]:inline; content: attr(data-label); }
+}

@@ -2,6 +2,9 @@
 
 Date: 2026-11-19. Pages: `public-home.html`, `admin-dashboard.html`, `admin-permohonan.html`. Standard: WCAG 2.2 AA.
 
+## Re-check after the Tailwind move (2026-11-20)
+The mockups were rebuilt with Tailwind CSS v4 with the same look. Everything below was re-run on the new pages: axe reports no violations, keyboard and focus behaviour is unchanged (menu and drawer open, close with Escape, light focus ring on the sidebar), no horizontal scroll at 320px, no target under 24px, form errors and the "tanggal 28" rule still work.
+
 ## Automated
 `npm run check:a11y` (axe-core, tags wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa): **no violations** on all three pages. One "needs manual check" item remains on the public page (hero text over a gradient); worked out by hand below.
 

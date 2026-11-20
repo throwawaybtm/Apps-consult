@@ -8,163 +8,72 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="shared.css">
-<style>
-  .wrap { inline-size: min(100% - 2 * var(--gutter), 72rem); margin-inline: auto; }
-
-  /* Header: popover menu on narrow screens, inline row on wide */
-  .site-header { background: var(--surface); border-block-end: 1px solid var(--line); position: relative; }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-block-size: 4.25rem; }
-  .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--sky-900); text-decoration: none; font-weight: 700; }
-  .brand-mark {
-    display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem;
-    border-radius: 10px; background: var(--sky-700); color: #fff; font-size: 0.95rem;
-  }
-  .brand small { display: block; font-weight: 500; color: var(--ink-2); font-size: 0.78rem; line-height: 1.2; }
-  .menu-button { anchor-name: --menu-button; }
-  .site-menu {
-    position: fixed; inset: auto; inset-block-start: anchor(--menu-button bottom); inset-inline-end: var(--gutter);
-    margin: 0.5rem 0 0; padding: 0.5rem; list-style: none; inline-size: min(80dvw, 18rem);
-    border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface);
-    box-shadow: 0 8px 24px rgb(11 37 64 / 0.14);
-  }
-  .site-menu a { display: block; padding: 0.75rem 1rem; border-radius: var(--radius-control); color: var(--ink); text-decoration: none; font-weight: 500; }
-  .site-menu a:hover { background: var(--sky-50); }
-  @media (min-width: 52rem) {
-    .menu-button { display: none; }
-    .site-menu {
-      position: static; display: flex; gap: 0.25rem; margin: 0; padding: 0; inline-size: auto;
-      border: 0; background: transparent; box-shadow: none; overflow: visible;
-    }
-  }
-
-  /* Hero */
-  .hero { background: linear-gradient(180deg, var(--sky-50), var(--surface)); padding-block: clamp(2.5rem, 7vw, 5rem); }
-  .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
-  @media (min-width: 52rem) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
-  .hero h1 { font-size: clamp(2rem, 5.5vw, 3.25rem); letter-spacing: -0.02em; color: var(--sky-900); max-inline-size: 18ch; }
-  .hero p { margin-block-start: 1rem; color: var(--ink-2); font-size: 1.125rem; max-inline-size: 52ch; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.75rem; }
-
-  /* Journey card: a real sequence, so an ordered list */
-  .journey { padding: 1.5rem; box-shadow: 0 10px 30px rgb(11 37 64 / 0.08); }
-  .journey h2 { font-size: 1.05rem; }
-  .journey .code { color: var(--ink-2); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-  .steps { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0; }
-  .steps li { position: relative; padding: 0 0 1.25rem 2.25rem; }
-  .steps li:last-child { padding-block-end: 0; }
-  .steps li::before {
-    content: ""; position: absolute; inset-inline-start: 0.4rem; inset-block-start: 0.25rem;
-    inline-size: 0.9rem; block-size: 0.9rem; border-radius: 50%; border: 2px solid var(--sky-700); background: var(--surface);
-  }
-  .steps li::after {
-    content: ""; position: absolute; inset-inline-start: 0.8rem; inset-block-start: 1.25rem; inset-block-end: 0.1rem;
-    inline-size: 2px; background: var(--line);
-  }
-  .steps li:last-child::after { display: none; }
-  .steps .done::before { background: var(--sky-700); }
-  .steps .now::before { background: var(--surface); box-shadow: 0 0 0 4px var(--sky-200); }
-  .steps strong { display: block; }
-  .steps span { color: var(--ink-2); font-size: 0.875rem; }
-
-  /* Sections */
-  section.block { padding-block: clamp(2.5rem, 6vw, 4rem); }
-  section.block > .wrap > h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--sky-900); }
-  .lede { margin-block-start: 0.5rem; color: var(--ink-2); max-inline-size: var(--measure); }
-  .stats { display: grid; gap: 1rem; margin-block-start: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
-  .charts { display: grid; gap: 1rem; margin-block-start: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
-
-  .how { background: var(--sky-50); }
-  .how-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); counter-reset: s; }
-  .how-list li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 1.25rem; }
-  .how-list li::before { content: counter(s); display: grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: 50%; background: var(--sky-100); color: var(--sky-900); font-weight: 700; margin-block-end: 0.75rem; }
-  .how-list h3 { font-size: 1.05rem; margin-block-end: 0.25rem; }
-  .how-list p { color: var(--ink-2); font-size: 0.95rem; }
-
-  /* Tracking form */
-  .track-box { display: grid; gap: 1.5rem; margin-block-start: 1.5rem; }
-  @media (min-width: 52rem) { .track-box { grid-template-columns: 1fr 1fr; align-items: start; } }
-  .field label { display: block; font-weight: 600; margin-block-end: 0.25rem; }
-  .hint { display: block; color: var(--ink-2); font-size: 0.875rem; margin-block-end: 0.5rem; }
-  .row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .row input { flex: 1 1 14rem; min-block-size: 2.75rem; padding: 0.5rem 0.75rem; font: inherit; border: 2px solid var(--ink-2); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); }
-  .row input:focus-visible { outline: 3px solid var(--sky-800); outline-offset: 2px; }
-  #track-result { min-block-size: 3rem; }
-  .result { padding: 1rem 1.25rem; border-radius: var(--radius-card); border: 1px solid var(--line); background: var(--sky-50); }
-  .result.error { background: var(--err-bg); border-color: var(--err); color: var(--err); }
-
-  footer { background: var(--navy-900); color: #dbeafe; padding-block: 2.5rem; }
-  footer a { color: #fff; }
-  footer .wrap { display: grid; gap: 1.5rem; }
-  @media (min-width: 52rem) { footer .wrap { grid-template-columns: 1.2fr 1fr; } }
-  footer h2 { font-size: 1.05rem; color: #fff; margin-block-end: 0.5rem; }
-  footer p { max-inline-size: 48ch; }
-</style>
+<link rel="stylesheet" href="mockups.css">
 </head>
 <body>
-<a class="skip-link" href="#konten">Lewati ke konten utama</a>
-<p class="contoh-banner">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama di halaman ini adalah data contoh.</p>
+<a class="absolute start-4 -top-16 z-100 rounded-control bg-navy-900 px-4 py-3 text-white focus:top-4" href="#konten">Lewati ke konten utama</a>
+<p class="bg-warn-bg px-gutter py-2 text-center text-[0.875rem] text-warn">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama di halaman ini adalah data contoh.</p>
 
-<header class="site-header" id="beranda">
-  <div class="wrap header-inner">
-    <a class="brand" href="#beranda">
-      <span class="brand-mark" aria-hidden="true">eB</span>
-      <span>e-BLUD<small>BLUD Diskum Batam (nama resmi menyusul)</small></span>
+<header class="relative border-b border-line bg-white" id="beranda">
+  <div class="wrap flex min-h-17 items-center justify-between gap-4">
+    <a class="flex items-center gap-3 font-bold text-brand-900 no-underline" href="#beranda">
+      <span class="grid size-10 place-items-center rounded-mark bg-brand-700 text-[0.95rem] text-white" aria-hidden="true">eB</span>
+      <span>e-BLUD<small class="block text-[0.78rem] leading-[1.2] font-medium text-ink-2">BLUD Diskum Batam (nama resmi menyusul)</small></span>
     </a>
     <nav aria-label="Utama">
-      <button class="btn btn-quiet menu-button" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
-      <ul id="site-menu" class="site-menu" popover="auto">
-        <li><a href="#beranda" aria-current="page">Beranda</a></li>
-        <li><a href="#statistik">Statistik</a></li>
-        <li><a href="#alur">Cara mengajukan</a></li>
-        <li><a href="#lacak">Lacak permohonan</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+      <button class="btn btn-quiet [anchor-name:--menu-button] nav:hidden" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
+      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-card border border-line bg-white p-2 shadow-menu [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none">
+        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#beranda" aria-current="page">Beranda</a></li>
+        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#statistik">Statistik</a></li>
+        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#alur">Cara mengajukan</a></li>
+        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#lacak">Lacak permohonan</a></li>
+        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main id="konten">
-  <section class="hero" aria-labelledby="judul-hero">
-    <div class="wrap hero-grid">
+  <section class="bg-linear-to-b from-brand-50 to-white py-[clamp(2.5rem,7vw,5rem)]" aria-labelledby="judul-hero">
+    <div class="wrap grid items-center gap-10 nav:grid-cols-[1.15fr_0.85fr]">
       <div>
-        <h1 id="judul-hero">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
-        <p>Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
-        <div class="cta-row">
+        <h1 id="judul-hero" class="max-w-[18ch] text-[clamp(2rem,5.5vw,3.25rem)] tracking-[-0.02em] text-brand-900">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
+        <p class="mt-4 max-w-[52ch] text-[1.125rem] text-ink-2">Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
+        <div class="mt-7 flex flex-wrap gap-3">
           <a class="btn" href="#alur">Ajukan pembiayaan</a>
           <a class="btn btn-quiet" href="#lacak">Lacak permohonan</a>
         </div>
       </div>
-      <aside class="card journey" aria-labelledby="judul-journey">
-        <h2 id="judul-journey">Perjalanan satu permohonan</h2>
-        <p class="code">Contoh kode KD-2026-0001</p>
-        <ol class="steps">
-          <li class="done"><strong>Pengajuan diterima</strong><span>Berkas dicatat petugas</span></li>
-          <li class="done"><strong>Survei lapangan</strong><span>Fasilitator mengunjungi usaha</span></li>
-          <li class="now" aria-current="step"><strong>Penetapan</strong><span>Menunggu keputusan pimpinan</span></li>
-          <li><strong>Pencairan</strong><span>Akad dan dana dicairkan</span></li>
-          <li><strong>Cicilan sampai lunas</strong><span>Pembayaran dicatat bendahara</span></li>
+      <aside class="card p-6 shadow-journey" aria-labelledby="judul-journey">
+        <h2 id="judul-journey" class="text-[1.05rem]">Perjalanan satu permohonan</h2>
+        <p class="mt-4 text-[0.85rem] text-ink-2 tabular-nums">Contoh kode KD-2026-0001</p>
+        <ol class="mt-5 grid">
+          <li class="step" data-state="done"><strong class="block">Pengajuan diterima</strong><span class="text-[0.875rem] text-ink-2">Berkas dicatat petugas</span></li>
+          <li class="step" data-state="done"><strong class="block">Survei lapangan</strong><span class="text-[0.875rem] text-ink-2">Fasilitator mengunjungi usaha</span></li>
+          <li class="step" data-state="now" aria-current="step"><strong class="block">Penetapan</strong><span class="text-[0.875rem] text-ink-2">Menunggu keputusan pimpinan</span></li>
+          <li class="step"><strong class="block">Pencairan</strong><span class="text-[0.875rem] text-ink-2">Akad dan dana dicairkan</span></li>
+          <li class="step"><strong class="block">Cicilan sampai lunas</strong><span class="text-[0.875rem] text-ink-2">Pembayaran dicatat bendahara</span></li>
         </ol>
       </aside>
     </div>
   </section>
 
-  <section class="block" id="statistik" aria-labelledby="judul-statistik">
+  <section class="py-[clamp(2.5rem,6vw,4rem)]" id="statistik" aria-labelledby="judul-statistik">
     <div class="wrap">
-      <h2 id="judul-statistik">Penyaluran pembiayaan tahun ini</h2>
-      <p class="lede">Hanya angka gabungan. Data pribadi mitra tidak ditampilkan di halaman publik.</p>
+      <h2 id="judul-statistik" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Penyaluran pembiayaan tahun ini</h2>
+      <p class="mt-2 max-w-[68ch] text-ink-2">Hanya angka gabungan. Data pribadi mitra tidak ditampilkan di halaman publik.</p>
 
-      <div class="stats">
-        <div class="card stat"><span class="stat-label">Mitra pemanfaat</span><span class="stat-value">128 orang</span><span class="stat-note">Contoh data</span></div>
-        <div class="card stat"><span class="stat-label">Pembiayaan tersalurkan</span><span class="stat-value">Rp 338 juta</span><span class="stat-note">Januari sampai November, contoh data</span></div>
-        <div class="card stat"><span class="stat-label">Pembiayaan lunas</span><span class="stat-value">41 permohonan</span><span class="stat-note">Contoh data</span></div>
+      <div class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-4">
+        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Mitra pemanfaat</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">128 orang</span><span class="text-[0.85rem] text-ink-2">Contoh data</span></div>
+        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Pembiayaan tersalurkan</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">Rp 338 juta</span><span class="text-[0.85rem] text-ink-2">Januari sampai November, contoh data</span></div>
+        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Pembiayaan lunas</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">41 permohonan</span><span class="text-[0.85rem] text-ink-2">Contoh data</span></div>
       </div>
 
-      <div class="charts">
-        <figure class="card chart" style="margin:0">
+      <div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-4">
+        <figure class="card m-0 grid gap-3">
           <figcaption>
-            <h3>Pembiayaan tersalurkan per bulan</h3>
-            <p class="chart-sub">Juta rupiah, Juni sampai November (contoh data)</p>
+            <h3 class="text-[1.05rem]">Pembiayaan tersalurkan per bulan</h3>
+            <p class="text-[0.875rem] text-ink-2">Juta rupiah, Juni sampai November (contoh data)</p>
           </figcaption>
           <div class="cols" aria-hidden="true">
             <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
@@ -191,10 +100,10 @@
           </details>
         </figure>
 
-        <figure class="card chart" style="margin:0">
+        <figure class="card m-0 grid gap-3">
           <figcaption>
-            <h3>Mitra per bidang usaha</h3>
-            <p class="chart-sub">Jumlah orang (contoh data)</p>
+            <h3 class="text-[1.05rem]">Mitra per bidang usaha</h3>
+            <p class="text-[0.875rem] text-ink-2">Jumlah orang (contoh data)</p>
           </figcaption>
           <ul class="hbars" aria-hidden="true">
             <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">48</span></li>
@@ -222,45 +131,45 @@
     </div>
   </section>
 
-  <section class="block how" id="alur" aria-labelledby="judul-alur">
+  <section class="bg-brand-50 py-[clamp(2.5rem,6vw,4rem)]" id="alur" aria-labelledby="judul-alur">
     <div class="wrap">
-      <h2 id="judul-alur">Cara mengajukan pembiayaan</h2>
-      <p class="lede">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
-      <ol class="how-list">
-        <li><h3>Siapkan berkas</h3><p>Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></li>
-        <li><h3>Datang ke kantor BLUD</h3><p>Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></li>
-        <li><h3>Survei dan penetapan</h3><p>Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></li>
-        <li><h3>Pencairan dan cicilan</h3><p>Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></li>
+      <h2 id="judul-alur" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Cara mengajukan pembiayaan</h2>
+      <p class="mt-2 max-w-[68ch] text-ink-2">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
+      <ol class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-4 [counter-reset:s]">
+        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Siapkan berkas</h3><p class="text-[0.95rem] text-ink-2">Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></li>
+        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Datang ke kantor BLUD</h3><p class="text-[0.95rem] text-ink-2">Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></li>
+        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Survei dan penetapan</h3><p class="text-[0.95rem] text-ink-2">Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></li>
+        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Pencairan dan cicilan</h3><p class="text-[0.95rem] text-ink-2">Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="block" id="lacak" aria-labelledby="judul-lacak">
+  <section class="py-[clamp(2.5rem,6vw,4rem)]" id="lacak" aria-labelledby="judul-lacak">
     <div class="wrap">
-      <h2 id="judul-lacak">Lacak permohonan</h2>
-      <p class="lede">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
-      <div class="track-box">
-        <form id="track-form" class="field" novalidate>
-          <label for="kode">Kode permohonan</label>
-          <span class="hint" id="kode-hint">Contoh: KD-2026-0001</span>
-          <div class="row">
-            <input id="kode" name="kode" type="text" autocomplete="off" aria-describedby="kode-hint" required>
+      <h2 id="judul-lacak" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Lacak permohonan</h2>
+      <p class="mt-2 max-w-[68ch] text-ink-2">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
+      <div class="mt-6 grid gap-6 nav:grid-cols-2 nav:items-start">
+        <form id="track-form" novalidate>
+          <label class="mb-1 block font-semibold" for="kode">Kode permohonan</label>
+          <span class="mb-2 block text-[0.875rem] text-ink-2" id="kode-hint">Contoh: KD-2026-0001</span>
+          <div class="flex flex-wrap gap-3">
+            <input class="min-h-11 flex-[1_1_14rem] rounded-control border-2 border-ink-2 bg-white px-3 py-2 text-ink" id="kode" name="kode" type="text" autocomplete="off" aria-describedby="kode-hint" required>
             <button class="btn" type="submit">Lacak</button>
           </div>
         </form>
-        <div id="track-result" role="status" aria-live="polite"></div>
+        <div id="track-result" class="min-h-12" role="status" aria-live="polite"></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer id="kontak">
-  <div class="wrap">
+<footer class="bg-navy-900 py-10 text-footer-text" id="kontak">
+  <div class="wrap grid gap-6 nav:grid-cols-[1.2fr_1fr]">
     <div>
-      <h2>BLUD Diskum Batam</h2>
-      <p>Alamat, jam layanan, telepon, dan email akan diisi dari data resmi BLUD.</p>
+      <h2 class="mb-2 text-[1.05rem] text-white">BLUD Diskum Batam</h2>
+      <p class="max-w-[48ch]">Alamat, jam layanan, telepon, dan email akan diisi dari data resmi BLUD.</p>
     </div>
-    <p>Halaman ini adalah contoh tampilan. Nama resmi dan logo menyusul.</p>
+    <p class="max-w-[48ch]">Halaman ini adalah contoh tampilan. Nama resmi dan logo menyusul.</p>
   </div>
 </footer>
 
@@ -274,11 +183,11 @@
       var code = document.getElementById('kode').value.trim().toUpperCase();
       out.textContent = '';
       var box = document.createElement('p');
-      box.className = 'result';
       if (code === 'KD-2026-0001') {
+        box.className = 'rounded-card border border-line bg-brand-50 px-5 py-4';
         box.textContent = 'Permohonan KD-2026-0001: tahap Penetapan. Menunggu keputusan pimpinan.';
       } else {
-        box.className = 'result error';
+        box.className = 'rounded-card border border-err bg-err-bg px-5 py-4 text-err';
         box.textContent = 'Kode tidak ditemukan. Periksa kembali kode pada tanda terima berkas.';
       }
       out.appendChild(box);
