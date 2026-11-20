@@ -1,0 +1,27 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-20T09:00:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "e-BLUD: PRD dan contoh tampilan",
+  "order": [
+    "cover", "agenda", "masalah", "tujuan", "pengguna", "alur", "tampilan",
+    "s-home", "s-form", "s-ponsel", "s-dashboard", "s-verifikasi", "s-input",
+    "fitur", "batas", "privasi", "tanya-1", "tanya-2", "langkah", "tutup"
+  ],
+  "sections": {
+    "s1": { "description": "Pembukaan dan agenda pertemuan.", "start": "cover" },
+    "s2": { "description": "Masalah sekarang, tujuan, dan pengguna sistem.", "start": "masalah" },
+    "s3": { "description": "Alur satu permohonan dan dua tampilan sistem.", "start": "alur" },
+    "s4": { "description": "Lima contoh layar dengan penjelasan.", "start": "s-home" },
+    "s5": { "description": "Daftar fitur, batasan, dan perlindungan data pribadi.", "start": "fitur" },
+    "s6": { "description": "Pertanyaan untuk BLUD dan langkah berikut.", "start": "tanya-1" }
+  },
+  "faces": {
+    "inter": {
+      "family": "Inter",
+      "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

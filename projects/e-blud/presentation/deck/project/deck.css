@@ -1,0 +1,110 @@
+/* e-BLUD deck. Type scale: 120 / 64 / 40 / 28 / 24. Palette: navy, sky blue, warm white, one orange for callout pins. */
+:root {
+  --navy: #0B2540;
+  --navy-2: #12365A;
+  --ink: #0F2233;
+  --body: #3B4A5A;
+  --light: #F4F8FB;
+  --card: #FFFFFF;
+  --line: #D3DDE6;
+  --brand: #0369A1;
+  --sky: #7DD3FC;
+  --halo: #BAE6FD;
+  --pin: #C2410C;
+  --on-dark: #F4F8FB;
+  --on-dark-2: #C9DDEB;
+}
+
+body { font-family: 'Inter', Arial, sans-serif; }
+
+section {
+  counter-increment: page;
+  padding: 128px 128px 160px;
+  background: var(--light);
+  color: var(--ink);
+  font-family: 'Inter', Arial, sans-serif;
+}
+section.dark { background: var(--navy); color: var(--on-dark); }
+
+h1 { font-size: 120px; line-height: 1; font-weight: 700; letter-spacing: -3px; margin: 0; color: var(--on-dark); }
+h2 { font-size: 64px; line-height: 1.1; font-weight: 700; letter-spacing: -1px; margin: 0 0 44px; color: var(--navy); }
+section.dark h2 { color: var(--on-dark); }
+h3 { font-size: 40px; line-height: 1.15; font-weight: 600; margin: 0 0 14px; color: var(--navy); }
+section.dark h3 { color: var(--on-dark); }
+
+p { font-size: 28px; line-height: 1.4; margin: 0; color: var(--body); }
+section.dark p { color: var(--on-dark-2); }
+
+.eyebrow { font-size: 24px; font-weight: 600; color: var(--brand); margin: 0 0 14px; }
+section.dark .eyebrow { color: var(--sky); }
+.small { font-size: 24px; line-height: 1.4; }
+.strong { color: var(--ink); font-weight: 600; }
+section.dark .strong { color: var(--on-dark); }
+
+/* Footer: one pinned row */
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1000px; font-size: 24px; color: var(--body); }
+.pg { position: absolute; right: 128px; bottom: 64px; width: 200px; font-size: 24px; text-align: right; color: var(--body); }
+.pg::before { content: counter(page); }
+section.dark .foot, section.dark .pg { color: var(--on-dark-2); }
+
+/* Cards */
+.card { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 44px; }
+section.dark .card { background: var(--navy-2); border-color: #1E4A75; }
+.grid { display: flex; gap: 24px; }
+.col { display: flex; flex-direction: column; flex: 1; }
+.card p { margin-top: 0; }
+
+/* Numbered badges (sequence, callouts) */
+.num { box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--brand); flex: none; }
+.num p { font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1; margin: 0; }
+.pinbg { background: var(--pin); }
+
+/* Screenshot frame with pins */
+.shot { position: relative; width: 960px; height: 600px; border-radius: 16px; overflow: hidden; border: 2px solid var(--line); background: #FFFFFF; flex: none; }
+.shot img { width: 960px; height: 600px; object-fit: cover; }
+.pin { position: absolute; box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--pin); border: 4px solid #FFFFFF; }
+.pin p { font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1; margin: 0; }
+.split { display: flex; gap: 64px; align-items: flex-start; }
+.callouts { display: flex; flex-direction: column; width: 640px; }
+.co { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 32px; }
+.co .num { width: 48px; height: 48px; background: var(--pin); }
+.co .num p { font-size: 24px; }
+.co p { font-size: 28px; color: var(--ink); }
+.note { font-size: 24px; line-height: 1.4; color: var(--body); margin-top: 8px; }
+
+/* Journey cards */
+.steps { display: flex; gap: 16px; }
+.step { display: flex; flex-direction: column; flex: 1; background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 24px 20px 28px; }
+.step .num { width: 48px; height: 48px; margin-bottom: 20px; }
+.step .num p { font-size: 24px; }
+.step h3 { font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
+.step p { font-size: 24px; }
+.role { font-weight: 600; color: var(--brand); }
+
+/* Feature grid */
+.fgrid { display: flex; flex-wrap: wrap; gap: 16px; }
+.fcard { box-sizing: border-box; width: 224px; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 22px 18px; }
+.fcard .f { font-size: 40px; font-weight: 700; color: var(--brand); line-height: 1; margin: 0 0 10px; }
+.fcard .n { font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1.25; margin: 0 0 10px; }
+.fcard .w { font-size: 24px; color: var(--body); line-height: 1.2; margin: 0; }
+
+ul { font-size: 28px; line-height: 1.45; color: var(--body); margin: 0; padding-left: 36px; }
+ul li { margin-bottom: 12px; }
+section.dark ul { color: var(--on-dark-2); }
+
+table { font-size: 28px; color: var(--ink); width: 1664px; }
+th, td { padding: 14px 20px; }
+
+/* Journey list and question rows */
+.arow { display: flex; align-items: center; gap: 28px; padding: 11px 0; border-bottom: 2px solid var(--line); }
+.arow .num { width: 48px; height: 48px; }
+.arow .num p { font-size: 24px; }
+.at { width: 620px; font-size: 40px; line-height: 1.1; font-weight: 600; color: var(--navy); }
+.ar { width: 380px; font-size: 28px; font-weight: 600; color: var(--brand); }
+.ad { width: 560px; font-size: 28px; color: var(--body); }
+.qrow { display: flex; gap: 24px; padding: 14px 0; border-bottom: 2px solid var(--line); }
+.qrow .q { width: 64px; font-size: 28px; font-weight: 700; color: var(--brand); }
+.qrow .t { width: 1560px; font-size: 28px; color: var(--ink); }
+.steps.big .step { padding: 40px 32px; }
+.steps.big .step h3 { font-size: 40px; line-height: 1.15; }
+.steps.big .step p { font-size: 28px; }
