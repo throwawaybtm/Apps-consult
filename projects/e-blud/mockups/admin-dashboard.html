@@ -10,163 +10,167 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="mockups.css">
 </head>
-<body class="bg-page">
-<a class="absolute start-4 -top-16 z-100 rounded-control bg-navy-900 px-4 py-3 text-white focus:top-4 focus-visible:outline-brand-200" href="#konten">Lewati ke konten utama</a>
+<body class="bg-page text-sm leading-normal">
+<a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
 <div class="grid min-h-dvh grid-rows-[auto_auto_1fr] shell:grid-cols-[16rem_1fr] shell:grid-rows-[auto_1fr]">
-  <p class="bg-warn-bg px-gutter py-2 text-center text-[0.875rem] text-warn shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama adalah data contoh.</p>
+  <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama adalah data contoh.</p>
 
-  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-navy-900 p-4 text-sidebar [inset:0_auto_0_0] backdrop:bg-navy-900/55 **:focus-visible:outline-brand-200 shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
-    <a class="flex items-center gap-3 border-b border-navy-800 pt-1 pb-4 font-bold text-white no-underline" href="admin-dashboard.html">
-      <span class="grid size-10 place-items-center rounded-panel bg-brand-700 text-[0.95rem] text-white" aria-hidden="true">eB</span>
-      <span>e-BLUD<small class="block text-[0.75rem] leading-[1.2] font-medium text-sidebar-note">BLUD Diskum Batam (contoh)</small></span>
+  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/50 **:focus-visible:outline-sidebar-ring shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="flex items-center gap-3 border-b border-sidebar-accent pt-1 pb-4 font-bold text-white no-underline" href="admin-dashboard.html">
+      <span class="grid size-10 place-items-center rounded-lg bg-primary text-[0.95rem] text-primary-foreground" aria-hidden="true">eB</span>
+      <span>e-BLUD<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">BLUD Diskum Batam (contoh)</small></span>
     </a>
-    <ul class="mt-4 grid gap-0.5">
-      <li><a class="nav-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
-      <li><span class="nav-item off">Mitra</span></li>
-      <li><a class="nav-item" href="admin-permohonan.html">Permohonan</a></li>
-      <li><span class="nav-item off">Pencairan</span></li>
-      <li><span class="nav-item off">Pembayaran</span></li>
-      <li><span class="nav-item off">Laporan</span></li>
-      <li><span class="nav-item off">Log aktivitas</span></li>
+    <ul class="mt-4 grid gap-1">
+      <li><a class="sidebar-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
+      <li><span class="sidebar-item off">Mitra</span></li>
+      <li><a class="sidebar-item" href="admin-permohonan.html">Permohonan</a></li>
+      <li><span class="sidebar-item off">Pencairan</span></li>
+      <li><span class="sidebar-item off">Pembayaran</span></li>
+      <li><span class="sidebar-item off">Laporan</span></li>
+      <li><span class="sidebar-item off">Log aktivitas</span></li>
     </ul>
-    <p class="mt-6 border-t border-navy-800 pt-4 text-[0.8rem] text-sidebar-note">Menu berwarna redup belum dibuat di contoh ini.</p>
-    <button class="btn btn-quiet mt-4 border-white text-white hover:border-white hover:bg-navy-800 hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+    <p class="mt-6 border-t border-sidebar-accent pt-4 text-xs text-sidebar-muted">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-ghost mt-4 border-white text-white hover:bg-sidebar-accent hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
   </nav>
 
   <div>
-    <header class="flex min-h-14 items-center justify-between gap-4 border-b border-line bg-white px-gutter py-3">
-      <button class="btn btn-quiet shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
-      <span class="ms-auto text-end text-[0.9rem] text-ink-2">Petugas Contoh<br>Peran: Pimpinan (contoh)</span>
+    <header class="flex min-h-14 items-center justify-between gap-4 border-b bg-background px-gutter py-3">
+      <button class="btn btn-outline shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
+      <span class="ms-auto text-end text-sm text-muted-foreground">Petugas Contoh<br>Peran: Pimpinan (contoh)</span>
     </header>
 
     <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
       <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 class="text-[1.5rem] text-navy-900">Dashboard</h1>
-        </div>
-        <form class="mb-4 flex flex-wrap items-end gap-x-4 gap-y-3" aria-label="Filter periode">
-          <div>
-            <label class="mb-1 block text-[0.85rem] font-semibold" for="periode">Periode</label>
-            <select class="control w-auto min-w-44" id="periode" name="periode">
-              <option>Tahun ini</option>
-              <option>Bulan ini</option>
-              <option>Pilih tanggal</option>
-            </select>
-          </div>
+        <h1 class="text-2xl">Dashboard</h1>
+        <form class="grid gap-2" aria-label="Filter periode">
+          <label class="label" for="periode">Periode</label>
+          <select class="input w-auto min-w-44" id="periode" name="periode">
+            <option>Tahun ini</option>
+            <option>Bulan ini</option>
+            <option>Pilih tanggal</option>
+          </select>
         </form>
       </div>
 
       <section class="mb-4" aria-labelledby="k-cair">
-        <h2 class="mb-4 text-[0.95rem] font-semibold text-ink-2" id="k-cair">Pencairan pembiayaan</h2>
+        <h2 class="mb-4 text-sm font-medium text-muted-foreground" id="k-cair">Pencairan pembiayaan</h2>
         <dl class="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-3">
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Hari ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 0</dd><dd class="text-[0.85rem] text-ink-2">0 orang</dd></div>
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Bulan ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 68 juta</dd><dd class="text-[0.85rem] text-ink-2">3 orang</dd></div>
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Tahun ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 338 juta</dd><dd class="text-[0.85rem] text-ink-2">14 orang</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Hari ini</dt><dd class="card-title text-2xl tabular-nums">Rp 0</dd><dd class="text-muted-foreground">0 orang</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Bulan ini</dt><dd class="card-title text-2xl tabular-nums">Rp 68 juta</dd><dd class="text-muted-foreground">3 orang</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Tahun ini</dt><dd class="card-title text-2xl tabular-nums">Rp 338 juta</dd><dd class="text-muted-foreground">14 orang</dd></div>
         </dl>
       </section>
 
       <section class="mb-4" aria-labelledby="k-cil">
-        <h2 class="mb-4 text-[0.95rem] font-semibold text-ink-2" id="k-cil">Pembayaran cicilan</h2>
+        <h2 class="mb-4 text-sm font-medium text-muted-foreground" id="k-cil">Pembayaran cicilan</h2>
         <dl class="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-3">
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Hari ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 2,2 juta</dd><dd class="text-[0.85rem] text-ink-2">4 pembayaran</dd></div>
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Bulan ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 14,6 juta</dd><dd class="text-[0.85rem] text-ink-2">31 pembayaran</dd></div>
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Tahun ini</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">Rp 96,4 juta</dd><dd class="text-[0.85rem] text-ink-2">287 pembayaran</dd></div>
-          <div class="kpi"><dt class="text-[0.85rem] text-ink-2">Jumlah mitra</dt><dd class="text-[1.4rem] font-bold text-navy-900 tabular-nums">128 orang</dd><dd class="text-[0.85rem] text-ink-2">Semua yang terdaftar</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Hari ini</dt><dd class="card-title text-2xl tabular-nums">Rp 2,2 juta</dd><dd class="text-muted-foreground">4 pembayaran</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Bulan ini</dt><dd class="card-title text-2xl tabular-nums">Rp 14,6 juta</dd><dd class="text-muted-foreground">31 pembayaran</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Tahun ini</dt><dd class="card-title text-2xl tabular-nums">Rp 96,4 juta</dd><dd class="text-muted-foreground">287 pembayaran</dd></div>
+          <div class="card gap-1 px-6 py-4"><dt class="card-description">Jumlah mitra</dt><dd class="card-title text-2xl tabular-nums">128 orang</dd><dd class="text-muted-foreground">Semua yang terdaftar</dd></div>
         </dl>
       </section>
 
       <div class="mb-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,24rem),1fr))] gap-4">
-        <figure class="panel m-0 grid gap-3">
-          <figcaption>
-            <h2 class="text-[1.1rem] text-navy-900">Pencairan per bulan</h2>
-            <p class="text-[0.875rem] text-ink-2">Juta rupiah, Juni sampai November</p>
+        <figure class="card m-0 gap-4">
+          <figcaption class="card-header">
+            <h2 class="card-title">Pencairan per bulan</h2>
+            <p class="card-description">Juta rupiah, Juni sampai November</p>
           </figcaption>
-          <div class="cols" aria-hidden="true">
-            <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
-            <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
-            <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
-            <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
-            <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
-            <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+          <div class="card-content grid gap-3">
+            <div class="cols" aria-hidden="true">
+              <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
+              <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
+              <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
+              <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
+              <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
+              <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+            </div>
+            <details class="chart-data">
+              <summary>Lihat tabel data</summary>
+              <table>
+                <caption class="sr-only">Pencairan per bulan, juta rupiah</caption>
+                <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Juni</th><td>45</td></tr>
+                  <tr><th scope="row">Juli</th><td>60</td></tr>
+                  <tr><th scope="row">Agustus</th><td>38</td></tr>
+                  <tr><th scope="row">September</th><td>72</td></tr>
+                  <tr><th scope="row">Oktober</th><td>55</td></tr>
+                  <tr><th scope="row">November</th><td>68</td></tr>
+                </tbody>
+              </table>
+            </details>
           </div>
-          <details class="data-table">
-            <summary>Lihat tabel data</summary>
-            <table>
-              <caption class="sr-only">Pencairan per bulan, juta rupiah</caption>
-              <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Juni</th><td>45</td></tr>
-                <tr><th scope="row">Juli</th><td>60</td></tr>
-                <tr><th scope="row">Agustus</th><td>38</td></tr>
-                <tr><th scope="row">September</th><td>72</td></tr>
-                <tr><th scope="row">Oktober</th><td>55</td></tr>
-                <tr><th scope="row">November</th><td>68</td></tr>
-              </tbody>
-            </table>
-          </details>
         </figure>
 
-        <figure class="panel m-0 grid gap-3">
-          <figcaption>
-            <h2 class="text-[1.1rem] text-navy-900">Pencairan per bidang usaha</h2>
-            <p class="text-[0.875rem] text-ink-2">Jumlah orang, tahun ini</p>
+        <figure class="card m-0 gap-4">
+          <figcaption class="card-header">
+            <h2 class="card-title">Pencairan per bidang usaha</h2>
+            <p class="card-description">Jumlah orang, tahun ini</p>
           </figcaption>
-          <ul class="hbars" aria-hidden="true">
-            <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">6</span></li>
-            <li><span>Industri</span><span class="track"><span class="fill" style="--v:.67"></span></span><span class="num">4</span></li>
-            <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.5"></span></span><span class="num">3</span></li>
-            <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.33"></span></span><span class="num">2</span></li>
-            <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.17"></span></span><span class="num">1</span></li>
-          </ul>
-          <details class="data-table">
-            <summary>Lihat tabel data</summary>
-            <table>
-              <caption class="sr-only">Pencairan per bidang usaha, jumlah orang</caption>
-              <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Perdagangan</th><td>6</td></tr>
-                <tr><th scope="row">Industri</th><td>4</td></tr>
-                <tr><th scope="row">Pertanian</th><td>3</td></tr>
-                <tr><th scope="row">Peternakan</th><td>2</td></tr>
-                <tr><th scope="row">Jasa</th><td>1</td></tr>
-              </tbody>
-            </table>
-          </details>
+          <div class="card-content grid gap-3">
+            <ul class="hbars" aria-hidden="true">
+              <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">6</span></li>
+              <li><span>Industri</span><span class="track"><span class="fill" style="--v:.67"></span></span><span class="num">4</span></li>
+              <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.5"></span></span><span class="num">3</span></li>
+              <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.33"></span></span><span class="num">2</span></li>
+              <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.17"></span></span><span class="num">1</span></li>
+            </ul>
+            <details class="chart-data">
+              <summary>Lihat tabel data</summary>
+              <table>
+                <caption class="sr-only">Pencairan per bidang usaha, jumlah orang</caption>
+                <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Perdagangan</th><td>6</td></tr>
+                  <tr><th scope="row">Industri</th><td>4</td></tr>
+                  <tr><th scope="row">Pertanian</th><td>3</td></tr>
+                  <tr><th scope="row">Peternakan</th><td>2</td></tr>
+                  <tr><th scope="row">Jasa</th><td>1</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </div>
         </figure>
       </div>
 
-      <section class="panel" aria-labelledby="judul-pinjaman">
-        <div class="mb-4 flex flex-wrap items-center justify-between gap-3 border-b-2 border-navy-900 pb-3">
-          <h2 class="text-[1.1rem] text-navy-900" id="judul-pinjaman">Pinjaman</h2>
-          <a class="btn" href="admin-permohonan.html">Tambah permohonan</a>
+      <section class="card" aria-labelledby="judul-pinjaman">
+        <div class="card-header divided">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h2 class="card-title" id="judul-pinjaman">Pinjaman</h2>
+            <a class="btn btn-default" href="admin-permohonan.html">Tambah permohonan</a>
+          </div>
         </div>
-        <div class="mb-4 flex flex-wrap items-end gap-x-4 gap-y-3">
-          <fieldset class="m-0 inline-flex flex-wrap gap-1 border-0 p-0" id="status-filter">
-            <legend class="mb-1 p-0 text-[0.85rem] font-semibold">Status</legend>
-            <label><input class="peer sr-only" type="radio" name="status" value="semua" checked><span class="inline-flex min-h-10 cursor-pointer items-center rounded-field border border-field-edge bg-white px-3.5 py-1 text-[0.9rem] font-semibold peer-checked:border-navy-900 peer-checked:bg-navy-900 peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-800">Semua</span></label>
-            <label><input class="peer sr-only" type="radio" name="status" value="berjalan"><span class="inline-flex min-h-10 cursor-pointer items-center rounded-field border border-field-edge bg-white px-3.5 py-1 text-[0.9rem] font-semibold peer-checked:border-navy-900 peer-checked:bg-navy-900 peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-800">Berjalan</span></label>
-            <label><input class="peer sr-only" type="radio" name="status" value="lunas"><span class="inline-flex min-h-10 cursor-pointer items-center rounded-field border border-field-edge bg-white px-3.5 py-1 text-[0.9rem] font-semibold peer-checked:border-navy-900 peer-checked:bg-navy-900 peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-800">Lunas</span></label>
-            <label><input class="peer sr-only" type="radio" name="status" value="batal"><span class="inline-flex min-h-10 cursor-pointer items-center rounded-field border border-field-edge bg-white px-3.5 py-1 text-[0.9rem] font-semibold peer-checked:border-navy-900 peer-checked:bg-navy-900 peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-800">Batal</span></label>
+        <div class="card-content grid gap-4">
+          <fieldset class="m-0 border-0 p-0" id="status-filter">
+            <legend class="mb-2 p-0 text-sm font-medium">Status</legend>
+            <div class="flex flex-wrap gap-1">
+              <label><input class="peer sr-only" type="radio" name="status" value="semua" checked><span class="toggle">Semua</span></label>
+              <label><input class="peer sr-only" type="radio" name="status" value="berjalan"><span class="toggle">Berjalan</span></label>
+              <label><input class="peer sr-only" type="radio" name="status" value="lunas"><span class="toggle">Lunas</span></label>
+              <label><input class="peer sr-only" type="radio" name="status" value="batal"><span class="toggle">Batal</span></label>
+            </div>
           </fieldset>
+          <div class="max-h-112 max-w-full overflow-auto rounded-md border @container" tabindex="0" role="region" aria-labelledby="judul-pinjaman">
+            <table class="data-table" id="tabel-pinjaman">
+              <caption class="sr-only">Daftar pinjaman contoh</caption>
+              <thead>
+                <tr><th scope="col">Nomor</th><th scope="col">Mitra</th><th scope="col">Bidang usaha</th><th scope="col" class="num">Jumlah</th><th scope="col">Jangka waktu</th><th scope="col">Status</th></tr>
+              </thead>
+              <tbody>
+                <tr data-status="berjalan"><th scope="row">KD-2026-0006</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MA</span>Mitra Contoh A</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 20.000.000</td><td data-label="Jangka waktu">18 bulan</td><td data-label="Status"><span class="badge badge-secondary">Berjalan</span></td></tr>
+                <tr data-status="berjalan"><th scope="row">KD-2026-0005</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MB</span>Mitra Contoh B</span></td><td data-label="Bidang usaha">Industri</td><td class="num" data-label="Jumlah">Rp 30.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="badge badge-secondary">Berjalan</span></td></tr>
+                <tr data-status="berjalan"><th scope="row">KD-2026-0004</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MC</span>Mitra Contoh C</span></td><td data-label="Bidang usaha">Pertanian</td><td class="num" data-label="Jumlah">Rp 15.000.000</td><td data-label="Jangka waktu">24 bulan</td><td data-label="Status"><span class="badge badge-warning">Berjalan, menunggak</span></td></tr>
+                <tr data-status="lunas"><th scope="row">KD-2026-0003</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MD</span>Mitra Contoh D</span></td><td data-label="Bidang usaha">Peternakan</td><td class="num" data-label="Jumlah">Rp 10.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="badge badge-success">Lunas</span></td></tr>
+                <tr data-status="lunas"><th scope="row">KD-2026-0002</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">ME</span>Mitra Contoh E</span></td><td data-label="Bidang usaha">Jasa</td><td class="num" data-label="Jumlah">Rp 25.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="badge badge-success">Lunas</span></td></tr>
+                <tr data-status="batal"><th scope="row">KD-2026-0001</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground" aria-hidden="true">MF</span>Mitra Contoh F</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 50.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="badge badge-destructive">Batal</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="p-6 text-muted-foreground" id="kosong" hidden>Tidak ada pinjaman dengan status ini.</p>
+          <p class="sr-only" role="status" id="jumlah-hasil"></p>
         </div>
-        <div class="max-h-112 max-w-full overflow-auto rounded-panel border border-line @container" tabindex="0" role="region" aria-labelledby="judul-pinjaman">
-          <table class="grid-table" id="tabel-pinjaman">
-            <caption class="sr-only">Daftar pinjaman contoh</caption>
-            <thead>
-              <tr><th scope="col">Nomor</th><th scope="col">Mitra</th><th scope="col">Bidang usaha</th><th scope="col" class="num">Jumlah</th><th scope="col">Jangka waktu</th><th scope="col">Status</th></tr>
-            </thead>
-            <tbody>
-              <tr data-status="berjalan"><th scope="row">KD-2026-0006</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">MA</span>Mitra Contoh A</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 20.000.000</td><td data-label="Jangka waktu">18 bulan</td><td data-label="Status"><span class="chip bg-brand-100 text-brand-900">Berjalan</span></td></tr>
-              <tr data-status="berjalan"><th scope="row">KD-2026-0005</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">MB</span>Mitra Contoh B</span></td><td data-label="Bidang usaha">Industri</td><td class="num" data-label="Jumlah">Rp 30.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="chip bg-brand-100 text-brand-900">Berjalan</span></td></tr>
-              <tr data-status="berjalan"><th scope="row">KD-2026-0004</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">MC</span>Mitra Contoh C</span></td><td data-label="Bidang usaha">Pertanian</td><td class="num" data-label="Jumlah">Rp 15.000.000</td><td data-label="Jangka waktu">24 bulan</td><td data-label="Status"><span class="chip bg-warn-bg text-warn">Berjalan, menunggak</span></td></tr>
-              <tr data-status="lunas"><th scope="row">KD-2026-0003</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">MD</span>Mitra Contoh D</span></td><td data-label="Bidang usaha">Peternakan</td><td class="num" data-label="Jumlah">Rp 10.000.000</td><td data-label="Jangka waktu">12 bulan</td><td data-label="Status"><span class="chip bg-ok-bg text-ok">Lunas</span></td></tr>
-              <tr data-status="lunas"><th scope="row">KD-2026-0002</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">ME</span>Mitra Contoh E</span></td><td data-label="Bidang usaha">Jasa</td><td class="num" data-label="Jumlah">Rp 25.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="chip bg-ok-bg text-ok">Lunas</span></td></tr>
-              <tr data-status="batal"><th scope="row">KD-2026-0001</th><td data-label="Mitra"><span class="flex items-center gap-2.5"><span class="inline-grid size-8 flex-none place-items-center rounded-full bg-brand-100 text-[0.8rem] font-bold text-brand-900" aria-hidden="true">MF</span>Mitra Contoh F</span></td><td data-label="Bidang usaha">Perdagangan</td><td class="num" data-label="Jumlah">Rp 50.000.000</td><td data-label="Jangka waktu">36 bulan</td><td data-label="Status"><span class="chip bg-err-bg text-err">Batal</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="p-6 text-ink-2" id="kosong" hidden>Tidak ada pinjaman dengan status ini.</p>
-        <p class="sr-only" role="status" id="jumlah-hasil"></p>
       </section>
     </main>
   </div>

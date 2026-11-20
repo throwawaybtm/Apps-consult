@@ -38,7 +38,7 @@ The client wants a system **like e-Dagulir, wrapped in a modern look like Simant
 - Pricing or a quote (kept separate by repo rule).
 - The guidebook PDF, dev handbook and agent kit. They come after the client approves the PRD.
 - Any working software, database or backend.
-- Deciding the final stack. That goes in the decision record at the top of the dev handbook.
+- Deciding the final stack. That goes in the decision record at the top of the dev handbook. The repo default is React + Vite + Tailwind CSS v4 + shadcn/ui; for e-blud that is the **planned** frontend, **pending checkpoint 2 (stack approval)**, and the mockups are styled to match it.
 - Migrating their existing Excel data.
 
 ## Anti-goals (what would make this round a failure)
@@ -93,6 +93,7 @@ My calls (the user can reject any of these):
 - **Simplification of e-Dagulir:** the five loan list pages (Pencairan, Pencairan Pinjaman, Pinjaman Lunas, Cicilan, Cicilan Lunas) become one "Pinjaman" page with status filters; "Pelayanan Batal" becomes a status; 30+ reports reduced to a core set.
 - **Mockup screens:** (1) public home page, (2) admin dashboard, (3) admin permohonan form with the requirements checklist. All with fake data and a "contoh" label.
 - **Public site data:** aggregate numbers only.
+- **Planned frontend (pending checkpoint 2):** React + Vite + Tailwind CSS v4 + shadcn/ui, from the repo default. The mockups use the same tokens and shadcn-style components so they carry straight into the real build.
 - **Fonts:** Inter, self-hosted as TrueType when the guidebook PDF is built (repo font rule). Mockups may load it from Google Fonts meanwhile.
 
 ## Open questions (carried into the PRD)
@@ -120,6 +121,6 @@ Each is an assumption from e-Dagulir that must be confirmed with the client:
 1. Done: project folder `projects/e-blud/`.
 2. Done: `research/` notes.
 3. Done: `prd.md` v0 (Indonesian), marked DRAFT.
-4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), built with Tailwind CSS v4 (tokens in `DESIGN.md` and the `@theme` block of `mockups/input.css`; compiled to `mockups/mockups.css`), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
+4. Done: three mockups in `mockups/` (public home, admin dashboard, admin permohonan form), built as static HTML with Tailwind CSS v4 and styled to match the shadcn/ui components the planned React app would use (tokens in `DESIGN.md` and the `@theme` block of `mockups/input.css`; compiled to `mockups/mockups.css`), checked with `check:a11y` and a manual accessibility review (`mockups/a11y-review.md`).
 5. Done: client preview PDF `preview/preview.pdf` (cover, intro, the three mockups, then the draft PRD). Regenerate it with `node projects/e-blud/preview/build-preview.cjs` and `npm run build:pdf -- projects/e-blud/preview/preview.html`; it is not the guidebook, which waits for PRD approval.
 6. Next: you review. Nothing goes to the client until you say so. After the client reacts to the feature list, update the PRD first, then the guidebook.

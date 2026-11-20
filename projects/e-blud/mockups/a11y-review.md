@@ -2,6 +2,9 @@
 
 Date: 2026-11-19. Pages: `public-home.html`, `admin-dashboard.html`, `admin-permohonan.html`. Standard: WCAG 2.2 AA.
 
+## Re-check after the shadcn/ui-style restyle (2026-11-20)
+The mockups were restyled to match the shadcn/ui components (planned React + Vite + Tailwind v4 + shadcn/ui, pending stack approval). Re-run on the new pages: axe reports no violations; the form (errors after interaction, the "tanggal 28" rule, focus to the first error), the status filter, the menu and the Sheet-style drawer (Escape closes), the light focus ring on the sidebar (11.7:1) and 320px reflow all still pass. The remaining "needs manual check" items are chart axis labels (muted text on white, 9:1) and hero text over a light gradient (8.5:1 or more), checked by hand. Deliberate deviations from stock shadcn/ui are listed in `../DESIGN.md` (darker input border, opaque focus ring, 44px public buttons). Admin buttons are shadcn's 36px, above the 24px WCAG 2.2 minimum.
+
 ## Re-check after the Tailwind move (2026-11-20)
 The mockups were rebuilt with Tailwind CSS v4 with the same look. Everything below was re-run on the new pages: axe reports no violations, keyboard and focus behaviour is unchanged (menu and drawer open, close with Escape, light focus ring on the sidebar), no horizontal scroll at 320px, no target under 24px, form errors and the "tanggal 28" rule still work.
 

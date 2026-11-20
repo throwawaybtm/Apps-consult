@@ -11,150 +11,167 @@
 <link rel="stylesheet" href="mockups.css">
 </head>
 <body>
-<a class="absolute start-4 -top-16 z-100 rounded-control bg-navy-900 px-4 py-3 text-white focus:top-4" href="#konten">Lewati ke konten utama</a>
-<p class="bg-warn-bg px-gutter py-2 text-center text-[0.875rem] text-warn">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama di halaman ini adalah data contoh.</p>
+<a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
+<p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning">Contoh tampilan untuk diskusi, bukan desain akhir. Semua angka dan nama di halaman ini adalah data contoh.</p>
 
-<header class="relative border-b border-line bg-white" id="beranda">
+<header class="relative border-b bg-background" id="beranda">
   <div class="wrap flex min-h-17 items-center justify-between gap-4">
-    <a class="flex items-center gap-3 font-bold text-brand-900 no-underline" href="#beranda">
-      <span class="grid size-10 place-items-center rounded-mark bg-brand-700 text-[0.95rem] text-white" aria-hidden="true">eB</span>
-      <span>e-BLUD<small class="block text-[0.78rem] leading-[1.2] font-medium text-ink-2">BLUD Diskum Batam (nama resmi menyusul)</small></span>
+    <a class="flex items-center gap-3 font-bold text-heading no-underline" href="#beranda">
+      <span class="grid size-10 place-items-center rounded-lg bg-primary text-[0.95rem] text-primary-foreground" aria-hidden="true">eB</span>
+      <span>e-BLUD<small class="block text-xs leading-[1.2] font-medium text-muted-foreground">BLUD Diskum Batam (nama resmi menyusul)</small></span>
     </a>
     <nav aria-label="Utama">
-      <button class="btn btn-quiet [anchor-name:--menu-button] nav:hidden" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
-      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-card border border-line bg-white p-2 shadow-menu [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none">
-        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#beranda" aria-current="page">Beranda</a></li>
-        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#statistik">Statistik</a></li>
-        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#alur">Cara mengajukan</a></li>
-        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#lacak">Lacak permohonan</a></li>
-        <li><a class="block rounded-control px-4 py-3 font-medium text-ink no-underline hover:bg-brand-50" href="#kontak">Kontak</a></li>
+      <button class="btn btn-outline [anchor-name:--menu-button] nav:hidden" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
+      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-md border bg-popover p-1 text-popover-foreground shadow-md [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none">
+        <li><a class="btn btn-ghost w-full justify-start aria-[current=page]:bg-accent nav:w-auto" href="#beranda" aria-current="page">Beranda</a></li>
+        <li><a class="btn btn-ghost w-full justify-start nav:w-auto" href="#statistik">Statistik</a></li>
+        <li><a class="btn btn-ghost w-full justify-start nav:w-auto" href="#alur">Cara mengajukan</a></li>
+        <li><a class="btn btn-ghost w-full justify-start nav:w-auto" href="#lacak">Lacak permohonan</a></li>
+        <li><a class="btn btn-ghost w-full justify-start nav:w-auto" href="#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main id="konten">
-  <section class="bg-linear-to-b from-brand-50 to-white py-[clamp(2.5rem,7vw,5rem)]" aria-labelledby="judul-hero">
+  <section class="bg-linear-to-b from-tint to-background py-[clamp(2.5rem,7vw,5rem)]" aria-labelledby="judul-hero">
     <div class="wrap grid items-center gap-10 nav:grid-cols-[1.15fr_0.85fr]">
       <div>
-        <h1 id="judul-hero" class="max-w-[18ch] text-[clamp(2rem,5.5vw,3.25rem)] tracking-[-0.02em] text-brand-900">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
-        <p class="mt-4 max-w-[52ch] text-[1.125rem] text-ink-2">Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
+        <h1 id="judul-hero" class="max-w-[18ch] text-[clamp(2rem,5.5vw,3.25rem)] tracking-[-0.02em] text-heading">Pembiayaan usaha mitra, tercatat jelas dari pengajuan sampai lunas.</h1>
+        <p class="mt-4 max-w-[52ch] text-[1.125rem] text-muted-foreground">Ajukan pembiayaan, pantau prosesnya, dan lihat angka penyaluran dana BLUD secara terbuka.</p>
         <div class="mt-7 flex flex-wrap gap-3">
-          <a class="btn" href="#alur">Ajukan pembiayaan</a>
-          <a class="btn btn-quiet" href="#lacak">Lacak permohonan</a>
+          <a class="btn btn-default btn-lg" href="#alur">Ajukan pembiayaan</a>
+          <a class="btn btn-outline btn-lg" href="#lacak">Lacak permohonan</a>
         </div>
       </div>
-      <aside class="card p-6 shadow-journey" aria-labelledby="judul-journey">
-        <h2 id="judul-journey" class="text-[1.05rem]">Perjalanan satu permohonan</h2>
-        <p class="mt-4 text-[0.85rem] text-ink-2 tabular-nums">Contoh kode KD-2026-0001</p>
-        <ol class="mt-5 grid">
-          <li class="step" data-state="done"><strong class="block">Pengajuan diterima</strong><span class="text-[0.875rem] text-ink-2">Berkas dicatat petugas</span></li>
-          <li class="step" data-state="done"><strong class="block">Survei lapangan</strong><span class="text-[0.875rem] text-ink-2">Fasilitator mengunjungi usaha</span></li>
-          <li class="step" data-state="now" aria-current="step"><strong class="block">Penetapan</strong><span class="text-[0.875rem] text-ink-2">Menunggu keputusan pimpinan</span></li>
-          <li class="step"><strong class="block">Pencairan</strong><span class="text-[0.875rem] text-ink-2">Akad dan dana dicairkan</span></li>
-          <li class="step"><strong class="block">Cicilan sampai lunas</strong><span class="text-[0.875rem] text-ink-2">Pembayaran dicatat bendahara</span></li>
-        </ol>
+      <aside class="card" aria-labelledby="judul-journey">
+        <div class="card-header">
+          <h2 id="judul-journey" class="card-title text-base">Perjalanan satu permohonan</h2>
+          <p class="card-description tabular-nums">Contoh kode KD-2026-0001</p>
+        </div>
+        <div class="card-content">
+          <ol class="grid">
+            <li class="step" data-state="done"><strong class="block">Pengajuan diterima</strong><span class="text-sm text-muted-foreground">Berkas dicatat petugas</span></li>
+            <li class="step" data-state="done"><strong class="block">Survei lapangan</strong><span class="text-sm text-muted-foreground">Fasilitator mengunjungi usaha</span></li>
+            <li class="step" data-state="now" aria-current="step"><strong class="block">Penetapan</strong><span class="text-sm text-muted-foreground">Menunggu keputusan pimpinan</span></li>
+            <li class="step"><strong class="block">Pencairan</strong><span class="text-sm text-muted-foreground">Akad dan dana dicairkan</span></li>
+            <li class="step"><strong class="block">Cicilan sampai lunas</strong><span class="text-sm text-muted-foreground">Pembayaran dicatat bendahara</span></li>
+          </ol>
+        </div>
       </aside>
     </div>
   </section>
 
   <section class="py-[clamp(2.5rem,6vw,4rem)]" id="statistik" aria-labelledby="judul-statistik">
     <div class="wrap">
-      <h2 id="judul-statistik" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Penyaluran pembiayaan tahun ini</h2>
-      <p class="mt-2 max-w-[68ch] text-ink-2">Hanya angka gabungan. Data pribadi mitra tidak ditampilkan di halaman publik.</p>
+      <h2 id="judul-statistik" class="text-[clamp(1.5rem,3.5vw,2rem)] text-heading">Penyaluran pembiayaan tahun ini</h2>
+      <p class="mt-2 max-w-[68ch] text-muted-foreground">Hanya angka gabungan. Data pribadi mitra tidak ditampilkan di halaman publik.</p>
 
       <div class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-4">
-        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Mitra pemanfaat</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">128 orang</span><span class="text-[0.85rem] text-ink-2">Contoh data</span></div>
-        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Pembiayaan tersalurkan</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">Rp 338 juta</span><span class="text-[0.85rem] text-ink-2">Januari sampai November, contoh data</span></div>
-        <div class="card grid gap-1"><span class="text-[0.9rem] text-ink-2">Pembiayaan lunas</span><span class="text-[1.75rem] font-bold text-brand-900 tabular-nums">41 permohonan</span><span class="text-[0.85rem] text-ink-2">Contoh data</span></div>
+        <div class="card gap-3">
+          <div class="card-header"><span class="card-description">Mitra pemanfaat</span><span class="card-title text-2xl tabular-nums">128 orang</span></div>
+          <div class="card-footer text-sm text-muted-foreground">Contoh data</div>
+        </div>
+        <div class="card gap-3">
+          <div class="card-header"><span class="card-description">Pembiayaan tersalurkan</span><span class="card-title text-2xl tabular-nums">Rp 338 juta</span></div>
+          <div class="card-footer text-sm text-muted-foreground">Januari sampai November, contoh data</div>
+        </div>
+        <div class="card gap-3">
+          <div class="card-header"><span class="card-description">Pembiayaan lunas</span><span class="card-title text-2xl tabular-nums">41 permohonan</span></div>
+          <div class="card-footer text-sm text-muted-foreground">Contoh data</div>
+        </div>
       </div>
 
       <div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-4">
-        <figure class="card m-0 grid gap-3">
-          <figcaption>
-            <h3 class="text-[1.05rem]">Pembiayaan tersalurkan per bulan</h3>
-            <p class="text-[0.875rem] text-ink-2">Juta rupiah, Juni sampai November (contoh data)</p>
+        <figure class="card m-0 gap-4">
+          <figcaption class="card-header">
+            <h3 class="card-title">Pembiayaan tersalurkan per bulan</h3>
+            <p class="card-description">Juta rupiah, Juni sampai November (contoh data)</p>
           </figcaption>
-          <div class="cols" aria-hidden="true">
-            <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
-            <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
-            <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
-            <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
-            <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
-            <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+          <div class="card-content grid gap-3">
+            <div class="cols" aria-hidden="true">
+              <div class="col" style="--v:.63"><div class="bar"></div><span class="tick">Jun</span></div>
+              <div class="col" style="--v:.83"><div class="bar"></div><span class="tick">Jul</span></div>
+              <div class="col" style="--v:.53"><div class="bar"></div><span class="tick">Agu</span></div>
+              <div class="col" style="--v:1"><div class="bar"></div><span class="tick">Sep</span><span class="val">72</span></div>
+              <div class="col" style="--v:.76"><div class="bar"></div><span class="tick">Okt</span></div>
+              <div class="col" style="--v:.94"><div class="bar"></div><span class="tick">Nov</span><span class="val">68</span></div>
+            </div>
+            <details class="chart-data">
+              <summary>Lihat tabel data</summary>
+              <table>
+                <caption class="sr-only">Pembiayaan tersalurkan per bulan, juta rupiah</caption>
+                <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Juni</th><td>45</td></tr>
+                  <tr><th scope="row">Juli</th><td>60</td></tr>
+                  <tr><th scope="row">Agustus</th><td>38</td></tr>
+                  <tr><th scope="row">September</th><td>72</td></tr>
+                  <tr><th scope="row">Oktober</th><td>55</td></tr>
+                  <tr><th scope="row">November</th><td>68</td></tr>
+                </tbody>
+              </table>
+            </details>
           </div>
-          <details class="data-table">
-            <summary>Lihat tabel data</summary>
-            <table>
-              <caption class="sr-only">Pembiayaan tersalurkan per bulan, juta rupiah</caption>
-              <thead><tr><th scope="col">Bulan</th><th scope="col">Juta rupiah</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Juni</th><td>45</td></tr>
-                <tr><th scope="row">Juli</th><td>60</td></tr>
-                <tr><th scope="row">Agustus</th><td>38</td></tr>
-                <tr><th scope="row">September</th><td>72</td></tr>
-                <tr><th scope="row">Oktober</th><td>55</td></tr>
-                <tr><th scope="row">November</th><td>68</td></tr>
-              </tbody>
-            </table>
-          </details>
         </figure>
 
-        <figure class="card m-0 grid gap-3">
-          <figcaption>
-            <h3 class="text-[1.05rem]">Mitra per bidang usaha</h3>
-            <p class="text-[0.875rem] text-ink-2">Jumlah orang (contoh data)</p>
+        <figure class="card m-0 gap-4">
+          <figcaption class="card-header">
+            <h3 class="card-title">Mitra per bidang usaha</h3>
+            <p class="card-description">Jumlah orang (contoh data)</p>
           </figcaption>
-          <ul class="hbars" aria-hidden="true">
-            <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">48</span></li>
-            <li><span>Industri</span><span class="track"><span class="fill" style="--v:.63"></span></span><span class="num">30</span></li>
-            <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.44"></span></span><span class="num">21</span></li>
-            <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.31"></span></span><span class="num">15</span></li>
-            <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.29"></span></span><span class="num">14</span></li>
-          </ul>
-          <details class="data-table">
-            <summary>Lihat tabel data</summary>
-            <table>
-              <caption class="sr-only">Jumlah mitra per bidang usaha</caption>
-              <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Perdagangan</th><td>48</td></tr>
-                <tr><th scope="row">Industri</th><td>30</td></tr>
-                <tr><th scope="row">Pertanian</th><td>21</td></tr>
-                <tr><th scope="row">Peternakan</th><td>15</td></tr>
-                <tr><th scope="row">Jasa</th><td>14</td></tr>
-              </tbody>
-            </table>
-          </details>
+          <div class="card-content grid gap-3">
+            <ul class="hbars" aria-hidden="true">
+              <li><span>Perdagangan</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="num">48</span></li>
+              <li><span>Industri</span><span class="track"><span class="fill" style="--v:.63"></span></span><span class="num">30</span></li>
+              <li><span>Pertanian</span><span class="track"><span class="fill" style="--v:.44"></span></span><span class="num">21</span></li>
+              <li><span>Peternakan</span><span class="track"><span class="fill" style="--v:.31"></span></span><span class="num">15</span></li>
+              <li><span>Jasa</span><span class="track"><span class="fill" style="--v:.29"></span></span><span class="num">14</span></li>
+            </ul>
+            <details class="chart-data">
+              <summary>Lihat tabel data</summary>
+              <table>
+                <caption class="sr-only">Jumlah mitra per bidang usaha</caption>
+                <thead><tr><th scope="col">Bidang usaha</th><th scope="col">Orang</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Perdagangan</th><td>48</td></tr>
+                  <tr><th scope="row">Industri</th><td>30</td></tr>
+                  <tr><th scope="row">Pertanian</th><td>21</td></tr>
+                  <tr><th scope="row">Peternakan</th><td>15</td></tr>
+                  <tr><th scope="row">Jasa</th><td>14</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </div>
         </figure>
       </div>
     </div>
   </section>
 
-  <section class="bg-brand-50 py-[clamp(2.5rem,6vw,4rem)]" id="alur" aria-labelledby="judul-alur">
+  <section class="bg-tint py-[clamp(2.5rem,6vw,4rem)]" id="alur" aria-labelledby="judul-alur">
     <div class="wrap">
-      <h2 id="judul-alur" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Cara mengajukan pembiayaan</h2>
-      <p class="mt-2 max-w-[68ch] text-ink-2">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
+      <h2 id="judul-alur" class="text-[clamp(1.5rem,3.5vw,2rem)] text-heading">Cara mengajukan pembiayaan</h2>
+      <p class="mt-2 max-w-[68ch] text-muted-foreground">Alur ini contoh dan akan disesuaikan dengan aturan BLUD yang berlaku.</p>
       <ol class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-4 [counter-reset:s]">
-        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Siapkan berkas</h3><p class="text-[0.95rem] text-ink-2">Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></li>
-        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Datang ke kantor BLUD</h3><p class="text-[0.95rem] text-ink-2">Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></li>
-        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Survei dan penetapan</h3><p class="text-[0.95rem] text-ink-2">Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></li>
-        <li class="card [counter-increment:s] before:mb-3 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-brand-100 before:font-bold before:text-brand-900 before:content-[counter(s)]"><h3 class="mb-1 text-[1.05rem]">Pencairan dan cicilan</h3><p class="text-[0.95rem] text-ink-2">Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Siapkan berkas</h3><p class="card-description">Fotokopi KTP dan Kartu Keluarga, proposal usaha, rekomendasi kelurahan, dan dokumen jaminan.</p></div></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Datang ke kantor BLUD</h3><p class="card-description">Petugas mencatat data Anda dan memberi tanda terima berisi kode permohonan.</p></div></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Survei dan penetapan</h3><p class="card-description">Fasilitator mengunjungi usaha Anda, lalu pimpinan memutuskan permohonan.</p></div></li>
+        <li class="card gap-3 [counter-increment:s] before:mx-6 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-secondary before:font-bold before:text-secondary-foreground before:content-[counter(s)]"><div class="card-header"><h3 class="card-title">Pencairan dan cicilan</h3><p class="card-description">Setelah akad, dana dicairkan dan cicilan dibayar sesuai jadwal.</p></div></li>
       </ol>
     </div>
   </section>
 
   <section class="py-[clamp(2.5rem,6vw,4rem)]" id="lacak" aria-labelledby="judul-lacak">
     <div class="wrap">
-      <h2 id="judul-lacak" class="text-[clamp(1.5rem,3.5vw,2rem)] text-brand-900">Lacak permohonan</h2>
-      <p class="mt-2 max-w-[68ch] text-ink-2">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
+      <h2 id="judul-lacak" class="text-[clamp(1.5rem,3.5vw,2rem)] text-heading">Lacak permohonan</h2>
+      <p class="mt-2 max-w-[68ch] text-muted-foreground">Masukkan kode dari tanda terima untuk melihat tahap permohonan. Anda hanya akan melihat status, bukan data pribadi.</p>
       <div class="mt-6 grid gap-6 nav:grid-cols-2 nav:items-start">
-        <form id="track-form" novalidate>
-          <label class="mb-1 block font-semibold" for="kode">Kode permohonan</label>
-          <span class="mb-2 block text-[0.875rem] text-ink-2" id="kode-hint">Contoh: KD-2026-0001</span>
+        <form id="track-form" class="grid gap-2" novalidate>
+          <label class="label" for="kode">Kode permohonan</label>
+          <span class="text-sm text-muted-foreground" id="kode-hint">Contoh: KD-2026-0001</span>
           <div class="flex flex-wrap gap-3">
-            <input class="min-h-11 flex-[1_1_14rem] rounded-control border-2 border-ink-2 bg-white px-3 py-2 text-ink" id="kode" name="kode" type="text" autocomplete="off" aria-describedby="kode-hint" required>
-            <button class="btn" type="submit">Lacak</button>
+            <input class="input h-11 w-auto flex-[1_1_14rem]" id="kode" name="kode" type="text" autocomplete="off" aria-describedby="kode-hint" required>
+            <button class="btn btn-default btn-lg" type="submit">Lacak</button>
           </div>
         </form>
         <div id="track-result" class="min-h-12" role="status" aria-live="polite"></div>
@@ -163,10 +180,10 @@
   </section>
 </main>
 
-<footer class="bg-navy-900 py-10 text-footer-text" id="kontak">
+<footer class="bg-sidebar py-10 text-sidebar-foreground" id="kontak">
   <div class="wrap grid gap-6 nav:grid-cols-[1.2fr_1fr]">
     <div>
-      <h2 class="mb-2 text-[1.05rem] text-white">BLUD Diskum Batam</h2>
+      <h2 class="mb-2 text-base text-white">BLUD Diskum Batam</h2>
       <p class="max-w-[48ch]">Alamat, jam layanan, telepon, dan email akan diisi dari data resmi BLUD.</p>
     </div>
     <p class="max-w-[48ch]">Halaman ini adalah contoh tampilan. Nama resmi dan logo menyusul.</p>
@@ -184,10 +201,10 @@
       out.textContent = '';
       var box = document.createElement('p');
       if (code === 'KD-2026-0001') {
-        box.className = 'rounded-card border border-line bg-brand-50 px-5 py-4';
+        box.className = 'alert bg-tint text-foreground';
         box.textContent = 'Permohonan KD-2026-0001: tahap Penetapan. Menunggu keputusan pimpinan.';
       } else {
-        box.className = 'rounded-card border border-err bg-err-bg px-5 py-4 text-err';
+        box.className = 'alert alert-destructive';
         box.textContent = 'Kode tidak ditemukan. Periksa kembali kode pada tanda terima berkas.';
       }
       out.appendChild(box);

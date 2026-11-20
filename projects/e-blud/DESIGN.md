@@ -1,44 +1,58 @@
 # e-BLUD design tokens
 
-Source of truth for the `@theme` block in `mockups/input.css` (and later the real app). These are the values the first-round mockups already use; they are a placeholder look for discussion until the client reacts. Nothing here is a final design.
+Source of truth for the `@theme` block in `mockups/input.css` and, later, the real app.
+
+**Planned frontend: React + Vite + Tailwind CSS v4 + shadcn/ui, pending checkpoint 2 (stack approval).** The mockups are static HTML, but their buttons, cards, badges, inputs, tables, sidebar and charts follow the shadcn/ui components (Button, Card, Badge, Input, Label, Checkbox, Table / data table, Alert, Toggle group, Sheet, Sidebar, Chart) and use shadcn's semantic token names, so they carry straight into the app. The look is a placeholder for discussion until the client reacts. Nothing here is final.
 
 ## Two surfaces
 
 | | Public site | Admin site |
 |---|---|---|
 | Mood | Modern, light, friendly (same family as the reference public site) | Modern but government style: dense, sidebar, tables |
-| Page background | white, `brand-50` wash in the hero | `page` (`#eaf0f6`) |
-| Corners | `card` 14px, `control` 8px | `panel` 6px, `field` 4px |
-| Navigation | Top bar; popover menu when narrow | Navy sidebar; popover drawer when narrow |
+| Page background | `background`, `tint` wash in the hero | `page` |
+| Components | shadcn Button (large), Card, Badge, Input, Alert, dropdown menu | shadcn Sidebar and Sheet, Card, data Table, Toggle group, Form, Checkbox, Chart |
+| Navigation | Top bar; menu popover when narrow | Navy sidebar; Sheet drawer when narrow |
 
-## Colour
+## Tokens (shadcn semantic names)
 
 | Token | Value | Use |
 |---|---|---|
-| `brand-50` | `#f0f9ff` | washes, hover |
-| `brand-100` | `#e0f2fe` | chips, avatars |
-| `brand-200` | `#bae6fd` | focus ring on dark surfaces, current step halo |
-| `brand-600` | `#0284c7` | chart bars only (4.1:1 on white, needs 3:1) |
-| `brand-700` | `#0369a1` | text, buttons (5.9:1 on white) |
-| `brand-800` | `#075985` | focus ring, button hover |
-| `brand-900` | `#0c4a6e` | headings |
-| `navy-900` / `navy-800` | `#0b2540` / `#12365a` | admin sidebar, table head, footer |
-| `ink` / `ink-2` | `#0f2233` / `#3b4a5a` | body / secondary text (9.1:1 on white) |
-| `line` | `#d3dde6` | borders |
-| `page`, `stripe` | `#eaf0f6`, `#f4f8fb` | admin background, table stripes |
-| `field-edge` | `#5b6b7b` | form control borders (5.5:1) |
-| `ok` / `ok-bg` | `#166534` / `#dcfce7` | success |
-| `warn` / `warn-bg` | `#92400e` / `#fef3c7` | warning, "contoh" banner |
-| `err` / `err-bg` | `#b91c1c` / `#fee2e2` | errors |
+| `background` / `foreground` | `#ffffff` / `#0f2233` | page, text |
+| `card` / `card-foreground` | `#ffffff` / `#0f2233` | Card |
+| `popover` / `popover-foreground` | `#ffffff` / `#0f2233` | menus |
+| `primary` / `primary-foreground` | `#0369a1` / `#ffffff` | default Button, links (5.9:1 on white) |
+| `secondary` / `secondary-foreground` | `#e0f2fe` / `#0c4a6e` | secondary Badge, avatars |
+| `muted` / `muted-foreground` | `#f4f8fb` / `#3b4a5a` | table hover, secondary text (9.1:1 on white) |
+| `accent` / `accent-foreground` | `#e0f2fe` / `#0c4a6e` | hover and selected states |
+| `destructive` / `destructive-soft` | `#b91c1c` / `#fee2e2` | errors, Batal |
+| `success` / `success-soft` | `#166534` / `#dcfce7` | Lunas |
+| `warning` / `warning-soft` | `#92400e` / `#fef3c7` | menunggak, "contoh" banner |
+| `border` | `#d3dde6` | borders |
+| `input` | `#5b6b7b` | form control border (5.5:1, see deviations) |
+| `ring` | `#075985` | focus ring |
+| `chart-1` | `#0284c7` | chart bars (4.1:1 on white, graphics need 3:1) |
+| `sidebar`, `sidebar-foreground`, `sidebar-muted` | `#0b2540`, `#dbe7f3`, `#a9bccf` | admin sidebar, footer |
+| `sidebar-accent` / `sidebar-accent-foreground` | `#12365a` / `#ffffff` | sidebar hover and current item |
+| `sidebar-ring` | `#bae6fd` | focus ring on dark surfaces |
+| `heading`, `tint`, `page` | `#0c4a6e`, `#f0f9ff`, `#eaf0f6` | public headings, wash, admin background |
 
-Status is never colour alone: chips and errors always carry text.
+Status is never colour alone: badges and errors always carry text.
 
-## Type
+## Type and shape
 
-Inter (400, 600, 700), system fallback. Body 1rem at 1.6 line height. Headings 700, line height 1.2, balanced wrapping.
+Inter (400, 600, 700), system fallback. Public body 1rem; admin and shadcn components use `text-sm`. Radius follows shadcn: controls `rounded-md`, Card `rounded-xl`, popovers `rounded-md`. Shadows `shadow-xs` and `shadow-sm`.
+
+## Deviations from stock shadcn/ui (on purpose)
+
+- **Input border** uses `input` `#5b6b7b`, not the pale default, to meet WCAG 1.4.11 (3:1).
+- **Focus ring** is an opaque 3px outline in `ring`, not the translucent `ring/50`, to meet WCAG 2.4.11 and 1.4.11.
+- **Public buttons** use a large size 44px high for touch; admin keeps shadcn's default 36px (above the 24px WCAG 2.2 minimum).
+- **Charts** are CSS bars with a text table alternative, standing in for the shadcn Chart (Recharts) component.
+- **Status filter** is a native radio group styled as a Toggle group.
+- Dark mode tokens are not defined yet.
 
 ## Rules
 
 - Tokens only: no hard-coded colours or sizes in markup.
-- Text, controls and focus rings meet WCAG 2.2 AA; target size at least 24px, buttons 44px high.
-- Charts are single-series bars with a text table alternative.
+- Never strip the keyboard, focus or ARIA behaviour of a shadcn component.
+- Text, controls and focus rings meet WCAG 2.2 AA.
