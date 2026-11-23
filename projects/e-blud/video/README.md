@@ -44,6 +44,27 @@ Subtle effects, quiet and under the captions; the video works the same on mute. 
 
 Add sounds only with `npm run sfx` (never by hand). If a CC BY sound is ever used, the video needs a credits end card that reads `credits.json`, or the sound must be swapped for a CC0 one.
 
+## Version 3 (more engaging, with music)
+
+`out/demo-v3.mp4` (about 69 seconds) sits next to the 82-second `out/e-blud-demo.mp4` so the two can be compared. Composition `EBludV3`; scenes in `src/v3/`, timings and captions in `src/v3/theme3.ts`, sounds in `src/v3/sfx3.ts`. Changes: a hook in the first seconds ("Masih pakai Excel?"), faster pacing, zoom into the important parts, captions that pop in word by word, dashboard numbers that count up (contoh data), and an ending with the benefit and next steps. Same rules as above; features shown are F1 to F14 from the PRD, no pricing.
+
+| # | Scene (id) | Frames | PRD features |
+|---|---|---|---|
+| 1 | Hook, then title (`V1Hook`) | 120 | none |
+| 2 | The problem (`V2Masalah`) | 180 | none |
+| 3 | Public home (`V3Home`) | 210 | F13, F14 |
+| 4 | Online form (`V4Form`) | 240 | F3, F13 |
+| 5 | Code and tracking (`V5Kode`) | 180 | F3, F14 |
+| 6 | Staff dashboard (`V6Dashboard`) | 150 | F9, F3, F7, F8 |
+| 7 | Counting numbers (`V7Angka`) | 90 | F9 |
+| 8 | Verification (`V8Verifikasi`) | 240 | F2, F3, F4 |
+| 9 | Rules check (`V9Aturan`) | 180 | F3, F5, F6 |
+| 10 | 14 features (`V10Fitur`) | 180 | F1 to F14 |
+| 11 | Assumptions (`V11Asumsi`) | 150 | none |
+| 12 | Benefit and next steps (`V12Tutup`) | 150 | none |
+
+Background music: "April Showers" by kjartan_abel, **CC0** (https://freesound.org/people/kjartan_abel/sounds/608392), at about -21 dB, fading in over 1.5 s and out over the last 2.5 s, trimmed to the video length. No credits needed. Other CC0 options already searched: "Positive Acoustic Guitar Background Music" (guitarman213), "Tropicorp Advertisement" (code_box). Render: `npm run video -- src/index.ts EBludV3 out/demo-v3.mp4 --public-dir=$PWD/public --bundle-cache=false` (from this folder).
+
 ## Files
 
 | Path | What |
