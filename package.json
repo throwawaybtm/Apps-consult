@@ -9,11 +9,19 @@
     "precheck:a11y": "npm install --no-audit --no-fund --silent",
     "check:a11y": "node tools/check-a11y.cjs",
     "precss": "npm install --no-audit --no-fund --silent",
-    "css": "tailwindcss"
+    "css": "tailwindcss",
+    "prevideo": "npm install --no-audit --no-fund --silent",
+    "video": "node tools/video.cjs render",
+    "prevideo:still": "npm install --no-audit --no-fund --silent",
+    "video:still": "node tools/video.cjs still"
   },
   "devDependencies": {
+    "@remotion/cli": "4.0.545",
     "@tailwindcss/cli": "^4.3.5",
     "axe-core": "^4.14.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.545",
     "tailwindcss": "^4.3.5"
   }
 }

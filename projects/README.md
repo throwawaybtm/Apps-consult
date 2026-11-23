@@ -19,6 +19,7 @@ projects/
       guidebook.html     source
       assets/            images, fonts, mockup screenshots
       guidebook.pdf      built output
+    video/               optional Remotion demo video (src/, out/)
     dev-handbook.md
     agent-kit/           CLAUDE.md, specs/, build-order.md (copied into the app repo at build time)
 ```

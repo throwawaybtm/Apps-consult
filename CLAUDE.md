@@ -43,6 +43,13 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - PDF output: A4, backgrounds printed, embedded fonts that support Indonesian text.
 - Guidebook fonts: put TrueType-outline fonts (`.ttf`, or a `.woff2` built from TrueType outlines) in `guidebook/assets/` and load them with `@font-face`. CFF/OTF outlines, including WOFF2 files that wrap them, get embedded as Type 3 glyphs, which some PDF viewers render poorly.
 
+## Optional: demo video
+
+- A short **Indonesian walkthrough video** (60–90 seconds, with captions) can go alongside the guidebook, made with **Remotion** (the `remotion:*` skills). It lives in `projects/<name>/video/` (`src/index.ts` registers the compositions) and renders to `projects/<name>/video/out/`.
+- It reuses the project's mockup screens, `@theme` colours and guidebook font, contains **no pricing**, and every feature it shows must exist in the PRD, like the guidebook.
+- **License:** Remotion is free for individuals, companies of 3 people or fewer, and non-profits. Use it only for **our own deliverables**. Never build Remotion into a client's app unless the client buys a Remotion Company License; their headcount counts.
+- Render with `npm run video`, never plain `npx remotion render`: the wrapper points Remotion at the preinstalled headless Chromium, because the cloud proxy blocks Remotion's own browser download. Check frames with `npm run video:still` before a full render. Remotion Studio can't be viewed from a cloud session.
+
 ## Human checkpoints: stop and ask at each one
 
 1. PRD approved by the client, before anything else.
@@ -66,5 +73,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - `npm run build:pdf -- <input.html> [output.pdf]`: prints a guidebook to an A4 PDF with the preinstalled Playwright Chromium. Never run `playwright install`.
 - `npm run css -- -i <input.css> -o <output.css> [--minify]`: compiles Tailwind v4 for mockups. Run it from the repo root with repo-root paths. The input CSS must sit inside the repo (for example `projects/<name>/mockups/`) so `@import "tailwindcss"` resolves; it starts with `@import "tailwindcss";` and holds the `@theme` tokens. Recompile before `build:pdf` or `check:a11y`.
 - `npm run check:a11y -- <page.html> [more.html ...]`: runs axe-core WCAG 2.0–2.2 A/AA rules in Chromium. Exits 1 and lists each violation with where and how to fix it; items needing a manual check are listed without failing.
+- `npm run video -- <entry.ts> <composition-id> <out.mp4> [remotion flags]`: renders a Remotion video (H.264 MP4) with the preinstalled headless Chromium.
+- `npm run video:still -- <entry.ts> <composition-id> <out.png> --frame=<n>`: renders one frame to check the look before a full render.
 - `npm test`: runs the tool tests.
-- `npm test`, `css` and `check:a11y` run `npm install` first, so a fresh session needs no setup.
+- `npm test`, `css`, `check:a11y`, `video` and `video:still` run `npm install` first, so a fresh session needs no setup.
