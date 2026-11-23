@@ -1,7 +1,7 @@
 # SIMAK DISKUM: design
 
 Date: 2026-11-23
-Status: Draft, awaiting approval
+Status: Approved 2026-11-23
 
 ## Intent
 
