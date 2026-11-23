@@ -1,0 +1,172 @@
+{
+ "public-home": [
+  {
+   "n": "1",
+   "x": 305,
+   "y": 105,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 102,
+   "y": 452,
+   "visible": true
+  },
+  {
+   "n": "3",
+   "x": 102,
+   "y": 544,
+   "visible": true
+  }
+ ],
+ "public-kalender": [
+  {
+   "n": "1",
+   "x": 574,
+   "y": 119,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 102,
+   "y": 159,
+   "visible": true
+  },
+  {
+   "n": "3",
+   "x": 689,
+   "y": 159,
+   "visible": true
+  }
+ ],
+ "public-detail": [
+  {
+   "n": "1",
+   "x": 102,
+   "y": 134,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 102,
+   "y": 197,
+   "visible": true
+  },
+  {
+   "n": "3",
+   "x": 635,
+   "y": 131,
+   "visible": true
+  }
+ ],
+ "admin-dashboard": [
+  {
+   "n": "1",
+   "x": 198,
+   "y": 145,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 198,
+   "y": 224,
+   "visible": true
+  }
+ ],
+ "admin-kegiatan-a": [
+  {
+   "n": "1",
+   "x": 198,
+   "y": 17,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 215,
+   "y": 432,
+   "visible": true
+  },
+  {
+   "n": "3",
+   "x": 198,
+   "y": 522,
+   "visible": true
+  },
+  {
+   "n": "4",
+   "x": 198,
+   "y": 544,
+   "visible": false
+  },
+  {
+   "n": "5",
+   "x": 198,
+   "y": 544,
+   "visible": false
+  },
+  {
+   "n": "6",
+   "x": 710,
+   "y": 143,
+   "visible": true
+  }
+ ],
+ "admin-kegiatan-b": [
+  {
+   "n": "1",
+   "x": 156,
+   "y": 0,
+   "visible": false
+  },
+  {
+   "n": "2",
+   "x": 169,
+   "y": 0,
+   "visible": false
+  },
+  {
+   "n": "3",
+   "x": 156,
+   "y": 22,
+   "visible": true
+  },
+  {
+   "n": "4",
+   "x": 156,
+   "y": 264,
+   "visible": true
+  },
+  {
+   "n": "5",
+   "x": 156,
+   "y": 465,
+   "visible": true
+  },
+  {
+   "n": "6",
+   "x": 766,
+   "y": 14,
+   "visible": true
+  }
+ ],
+ "admin-laporan": [
+  {
+   "n": "1",
+   "x": 693,
+   "y": 33,
+   "visible": true
+  },
+  {
+   "n": "2",
+   "x": 252,
+   "y": 179,
+   "visible": true
+  },
+  {
+   "n": "3",
+   "x": 252,
+   "y": 493,
+   "visible": true
+  }
+ ]
+}

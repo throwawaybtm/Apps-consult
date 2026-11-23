@@ -1,0 +1,27 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-23T05:10:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "SIMAK DISKUM: PRD dan contoh tampilan",
+  "order": [
+    "cover", "agenda", "masalah", "tujuan", "pengguna", "alur", "fitur",
+    "s-home", "s-ponsel", "s-kalender", "s-detail", "s-dashboard", "s-form-1", "s-form-2", "s-laporan",
+    "privasi", "batas", "keputusan", "langkah", "tutup"
+  ],
+  "sections": {
+    "s1": { "description": "Pembukaan dan agenda pertemuan.", "start": "cover" },
+    "s2": { "description": "Masalah sekarang, tujuan, pengguna, dan alur satu kegiatan.", "start": "masalah" },
+    "s3": { "description": "Daftar fitur F1 sampai F19.", "start": "fitur" },
+    "s4": { "description": "Contoh layar portal publik dan halaman admin, lengkap dengan laporan.", "start": "s-home" },
+    "s5": { "description": "Perlindungan data, batas cakupan, dan tujuh keputusan untuk klien.", "start": "privasi" },
+    "s6": { "description": "Langkah berikut dan penutup.", "start": "langkah" }
+  },
+  "faces": {
+    "plus-jakarta-sans": {
+      "family": "Plus Jakarta Sans",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    }
+  },
+  "designSystems": []
+}

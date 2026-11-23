@@ -1,0 +1,101 @@
+/* SIMAK DISKUM deck. Type scale: 120 / 64 / 40 / 28 / 24. Palette from ../../../DESIGN.md: navy, royal blue, one gold marker, one orange for callout pins. */
+:root {
+  --navy: #0F1F4D;
+  --navy-2: #1B2F6E;
+  --ink: #101A3A;
+  --body: #424C66;
+  --light: #F5F7FC;
+  --tint: #E8EEFF;
+  --card: #FFFFFF;
+  --line: #D5DBE8;
+  --brand: #1D4ED8;
+  --heading: #14246B;
+  --halo: #C7D2FE;
+  --gold: #F4B400;
+  --gold-ink: #3D2C00;
+  --pin: #C2410C;
+  --on-dark: #F5F7FC;
+  --on-dark-2: #C9D3F0;
+}
+
+body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+
+section {
+  counter-increment: page;
+  padding: 128px 128px 160px;
+  background: var(--light);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+section.dark { background: var(--navy); color: var(--on-dark); }
+
+h1 { font-size: 120px; line-height: 1; font-weight: 800; letter-spacing: -3px; margin: 0; color: var(--on-dark); }
+h2 { font-size: 64px; line-height: 1.1; font-weight: 700; letter-spacing: -1px; margin: 0 0 44px; color: var(--heading); }
+section.dark h2 { color: var(--on-dark); }
+h3 { font-size: 40px; line-height: 1.15; font-weight: 600; margin: 0 0 14px; color: var(--heading); }
+section.dark h3 { color: var(--on-dark); }
+
+p { font-size: 28px; line-height: 1.4; margin: 0; color: var(--body); }
+section.dark p { color: var(--on-dark-2); }
+
+.eyebrow { font-size: 24px; font-weight: 600; color: var(--brand); margin: 0 0 14px; }
+section.dark .eyebrow { color: var(--gold); }
+.small { font-size: 24px; line-height: 1.4; }
+.strong { color: var(--ink); font-weight: 600; }
+
+/* Footer: one pinned row */
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1200px; font-size: 24px; color: var(--body); }
+.pg { position: absolute; right: 128px; bottom: 64px; width: 200px; font-size: 24px; text-align: right; color: var(--body); }
+.pg::before { content: counter(page); }
+section.dark .foot, section.dark .pg { color: var(--on-dark-2); }
+
+/* Cards */
+.card { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 44px; }
+.grid { display: flex; gap: 24px; }
+.col { display: flex; flex-direction: column; flex: 1; }
+.card p { margin-top: 0; }
+
+/* Numbered badges (sequence) */
+.num { box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--brand); flex: none; }
+.num p { font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1; margin: 0; }
+.gold { background: var(--gold); }
+.gold p { color: var(--gold-ink); }
+
+/* Screenshot frame with pins */
+.shot { position: relative; width: 960px; height: 600px; border-radius: 16px; overflow: hidden; border: 2px solid var(--line); background: #FFFFFF; flex: none; }
+.shot img { width: 960px; height: 600px; object-fit: cover; }
+.pin { position: absolute; box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--pin); border: 4px solid #FFFFFF; }
+.pin p { font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1; margin: 0; }
+.split { display: flex; gap: 64px; align-items: flex-start; }
+.callouts { display: flex; flex-direction: column; width: 640px; }
+.co { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 28px; }
+.co .num { width: 48px; height: 48px; background: var(--pin); }
+.co .num p { font-size: 24px; }
+.co p { font-size: 28px; color: var(--ink); }
+.note { font-size: 24px; line-height: 1.4; color: var(--body); margin-top: 8px; }
+
+/* Sequence rows */
+.arow { display: flex; align-items: center; gap: 28px; padding: 13px 0; border-bottom: 2px solid var(--line); }
+.arow .num { width: 48px; height: 48px; }
+.arow .num p { font-size: 24px; }
+.at { width: 660px; font-size: 40px; line-height: 1.1; font-weight: 600; color: var(--heading); }
+.ar { width: 340px; font-size: 28px; font-weight: 600; color: var(--brand); }
+.ad { width: 560px; font-size: 28px; color: var(--body); }
+.role { font-weight: 600; color: var(--brand); }
+
+/* Feature grid: 19 small cards in four columns of colour-coded groups */
+.fgrid { display: flex; flex-wrap: wrap; gap: 14px; }
+.fcard { box-sizing: border-box; width: 320px; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px 20px; display: flex; gap: 16px; align-items: center; }
+.fcard.pub { background: var(--tint); border-color: var(--brand); }
+.fcard .f { font-size: 28px; font-weight: 800; color: var(--brand); line-height: 1; margin: 0; width: 64px; flex: none; }
+.fcard .n { font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1.2; margin: 0; }
+
+ul { font-size: 28px; line-height: 1.45; color: var(--body); margin: 0; padding-left: 36px; }
+ul li { margin-bottom: 12px; }
+section.dark ul { color: var(--on-dark-2); }
+
+/* Decision rows */
+.qrow { display: flex; gap: 24px; padding: 12px 0; border-bottom: 2px solid var(--line); align-items: flex-start; }
+.qrow .q { width: 64px; font-size: 28px; font-weight: 800; color: var(--brand); flex: none; }
+.qrow .t { width: 1020px; font-size: 28px; color: var(--ink); }
+.qrow .w { width: 500px; font-size: 24px; color: var(--body); }
