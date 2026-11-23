@@ -75,10 +75,11 @@
   body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; color: var(--color-foreground); background: var(--color-background); }
   h1, h2, h3 { font-weight: 700; line-height: 1.2; text-wrap: balance; }
   p { text-wrap: pretty; }
+  ::placeholder { color: var(--color-muted-foreground); opacity: 1; } /* stock 50% tint is about 3.2:1 */
   a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 0.2em; }
   /* Opaque 3px ring (stock shadcn uses ring/50): WCAG 2.4.11 */
   :focus-visible { outline: 3px solid var(--color-ring); outline-offset: 2px; border-radius: 4px; }
-  input[type="date"]:focus-within { outline: 3px solid var(--color-ring); outline-offset: 2px; }
+  input[type="date"]:focus-within, input[type="time"]:focus-within { outline: 3px solid var(--color-ring); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   }
@@ -183,7 +184,7 @@
   .agenda-row[data-state="cancelled"] .agenda-title { @apply text-muted-foreground line-through decoration-1; }
 
   /* Stage progress (F8): a real sequence of four stages */
-  .stages { @apply grid grid-cols-4 gap-1; }
+  .stages { @apply grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-4 sm:gap-1; }
   .stages li { @apply relative grid gap-1 border-t-4 border-border pt-2 text-xs text-muted-foreground; }
   .stages li[data-state="done"] { @apply border-primary text-foreground; }
   .stages li[data-state="now"] { @apply border-primary font-semibold text-heading; }
@@ -196,8 +197,8 @@
   .cal-day { @apply min-h-24 border-e border-b p-1.5 [&:nth-child(7n)]:border-e-0 max-sm:min-h-14; }
   .cal-day .n { @apply mb-1 inline-grid size-6 place-items-center rounded-full text-xs font-medium; }
   .cal-day.out { @apply bg-muted/60 text-muted-foreground; }
-  .cal-day[aria-current="date"] .n { @apply bg-gold font-bold text-gold-foreground; }
-  .cal-ev { @apply mb-1 block truncate rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground no-underline max-sm:hidden; }
+  .cal-day[aria-current="date"] .n { @apply bg-gold font-bold text-gold-foreground ring-2 ring-gold-foreground; }
+  .cal-ev { @apply mb-1 block min-h-6 truncate leading-5 rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground no-underline max-sm:hidden; }
   .cal-ev.cancelled { @apply bg-destructive-soft text-destructive line-through; }
   .cal-dot { @apply hidden size-1.5 rounded-full bg-primary max-sm:inline-block; }
 
