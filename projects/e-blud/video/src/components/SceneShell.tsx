@@ -9,7 +9,7 @@ const FACES: Array<[string, string]> = [
   ["700", "Inter-Bold.ttf"],
 ];
 
-const useInter = () => {
+export const useInter = () => {
   const { delayRender, continueRender } = useDelayRender();
   const [handle] = useState(() => delayRender("Inter"));
   useEffect(() => {
