@@ -13,7 +13,8 @@
     "prevideo": "npm install --no-audit --no-fund --silent",
     "video": "node tools/video.cjs render",
     "prevideo:still": "npm install --no-audit --no-fund --silent",
-    "video:still": "node tools/video.cjs still"
+    "video:still": "node tools/video.cjs still",
+    "sfx": "node tools/sfx.cjs"
   },
   "devDependencies": {
     "@remotion/cli": "4.0.545",

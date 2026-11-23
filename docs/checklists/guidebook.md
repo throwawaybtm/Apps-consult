@@ -13,5 +13,5 @@ Language: **Indonesian**. Format: HTML in `guidebook/guidebook.html`, built to a
 - [ ] **No pricing:** the price and terms are in a separate quote. It's fine to say a quote will follow.
 - [ ] **Matches the PRD:** every feature shown appears in the PRD, with the same F-number.
 - [ ] **Accessible:** `npm run check:a11y -- projects/<name>/guidebook/guidebook.html` (and any mockup pages) reports no violations, and `design:accessibility-review` finds nothing blocking.
-- [ ] **Demo video (optional):** if made, it follows the same rules (Indonesian with captions, no pricing, only PRD features, project fonts and colours), lives in `video/`, and renders with `npm run video`.
+- [ ] **Demo video (optional):** if made, it follows the same rules (Indonesian with captions, no pricing, only PRD features, project fonts and colours), lives in `video/`, and renders with `npm run video`. Sound effects come only from `npm run sfx`; `npm run sfx -- status` was shown to the user, and every CC BY sound either has an on-screen credit or was swapped for CC0.
 - [ ] **Builds cleanly:** `npm run build:pdf` succeeds, with no broken images and Indonesian text rendered in the chosen font.

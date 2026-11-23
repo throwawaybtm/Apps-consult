@@ -49,6 +49,9 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - It reuses the project's mockup screens, `@theme` colours and guidebook font, contains **no pricing**, and every feature it shows must exist in the PRD, like the guidebook.
 - **License:** Remotion is free for individuals, companies of 3 people or fewer, and non-profits. Use it only for **our own deliverables**. Never build Remotion into a client's app unless the client buys a Remotion Company License; their headcount counts.
 - Render with `npm run video`, never plain `npx remotion render`: the wrapper points Remotion at the preinstalled headless Chromium, because the cloud proxy blocks Remotion's own browser download. Check frames with `npm run video:still` before a full render. Remotion Studio can't be viewed from a cloud session.
+- **Sound effects** come from **Openverse** (mostly Freesound) through `npm run sfx`, which saves them to `projects/<name>/video/public/sfx/` and records each one in `credits.json` there. Allowed: **CC0** and Public Domain Mark (no credit), and **CC BY** (needs a visible credit). The tool refuses NC, ND, SA and sampling+ licenses. Never add sounds by hand from elsewhere.
+- **Credits are the user's call per video:** before the final render, run `npm run sfx -- status <name>` and tell the user whether any CC BY sounds are used. If they want credits, add an end card that reads `credits.json` and shows each `credit` line; if not, swap the listed CC BY sounds for CC0 ones. Never ship a CC BY sound without its on-screen credit.
+- Keep effects subtle and under the captions: the video must still make sense on mute.
 
 ## Human checkpoints: stop and ask at each one
 
@@ -75,5 +78,8 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - `npm run check:a11y -- <page.html> [more.html ...]`: runs axe-core WCAG 2.0–2.2 A/AA rules in Chromium. Exits 1 and lists each violation with where and how to fix it; items needing a manual check are listed without failing.
 - `npm run video -- <entry.ts> <composition-id> <out.mp4> [remotion flags]`: renders a Remotion video (H.264 MP4) with the preinstalled headless Chromium.
 - `npm run video:still -- <entry.ts> <composition-id> <out.png> --frame=<n>`: renders one frame to check the look before a full render.
+- `npm run sfx -- search "<terms>" [--cc0]`: searches Openverse for sound effects (CC0 and CC BY, or CC0 only) and lists id, license, length and source page.
+- `npm run sfx -- get <openverse-id> <project>`: downloads that sound into the project's `video/public/sfx/` and records its credit in `credits.json`.
+- `npm run sfx -- status <project>`: lists the project's sounds and whether a credits end card is needed (or which CC BY sounds to swap for CC0).
 - `npm test`: runs the tool tests.
 - `npm test`, `css`, `check:a11y`, `video` and `video:still` run `npm install` first, so a fresh session needs no setup.
