@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMAK DISKUM: contoh laporan 8 kolom</title>
+<meta name="description" content="Contoh pratinjau laporan 8 kolom dengan kop surat dan tanda tangan SIMAK DISKUM (F14 sampai F16).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="mockups.css">
+</head>
+<body class="bg-page text-sm leading-normal">
+<a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
+<div class="grid min-h-dvh grid-rows-[auto_auto_1fr] shell:grid-cols-[16rem_1fr] shell:grid-rows-[auto_1fr]">
+  <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama adalah data contoh.</p>
+
+  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/50 **:focus-visible:outline-sidebar-ring shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="flex items-center gap-3 border-b border-sidebar-accent pt-1 pb-4 font-extrabold text-white no-underline" href="admin-dashboard.html">
+      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
+      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Diskum Batam (contoh)</small></span>
+    </a>
+    <ul class="mt-4 grid gap-1">
+      <li><a class="sidebar-item" href="admin-dashboard.html">Dashboard</a></li>
+      <li><a class="sidebar-item" href="admin-kegiatan.html">Formulir kegiatan</a></li>
+      <li><a class="sidebar-item" href="admin-laporan.html" aria-current="page">Laporan</a></li>
+      <li><span class="sidebar-item off">Data master</span></li>
+      <li><span class="sidebar-item off">Pengguna dan peran</span></li>
+      <li><span class="sidebar-item off">Riwayat perubahan</span></li>
+      <li><span class="sidebar-item off">Pengaturan</span></li>
+      <li><span class="sidebar-item off">Cadangan data</span></li>
+    </ul>
+    <p class="mt-6 border-t border-sidebar-accent pt-4 text-xs text-sidebar-muted">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-ghost mt-4 border-white text-white hover:bg-sidebar-accent hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+  </nav>
+
+  <div class="min-w-0">
+    <header class="flex min-h-14 items-center justify-between gap-4 border-b bg-background px-gutter py-3">
+      <button class="btn btn-outline shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
+      <span class="ms-auto text-end text-sm text-muted-foreground">Petugas Contoh<br>Peran: Admin (contoh)</span>
+    </header>
+    <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
+      <div class="mb-5 flex flex-wrap items-end justify-between gap-4"><h1 class="text-2xl">Laporan jadwal kegiatan</h1></div>
+
+      <form class="card mb-5 grid gap-4 px-6 py-5 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_auto_auto]" aria-label="Pilihan laporan">
+        <div class="grid gap-2"><label class="label" for="dari">Dari tanggal</label><input class="input" id="dari" type="date" value="2026-11-23"></div>
+        <div class="grid gap-2"><label class="label" for="sampai">Sampai tanggal</label><input class="input" id="sampai" type="date" value="2026-11-27"></div>
+        <div class="flex items-end gap-2"><input class="checkbox" id="batal" type="checkbox" checked><label class="label" for="batal">Sertakan kegiatan dibatalkan</label></div>
+        <div class="flex flex-wrap items-end gap-2" data-pin="1"><button class="btn btn-default" type="button">Unduh PDF (A4)</button><button class="btn btn-outline" type="button">Excel (.xlsx)</button><button class="btn btn-outline" type="button">Gambar</button></div>
+      </form>
+
+      <p class="alert alert-info mb-5" role="note">Orientasi kertas (potret atau lanskap) dan berkas kop surat resmi menunggu keputusan klien (pertanyaan terbuka 4 dan 5). Contoh ini memakai lanskap dan kop sementara.</p>
+
+      <div class="overflow-x-auto pb-2">
+      <article class="paper" aria-label="Pratinjau laporan">
+        <header class="kop" data-pin="2">
+          <span class="grid size-16 place-items-center border border-black text-[0.65rem]" aria-hidden="true">Logo<br>contoh</span>
+          <div><p class="text-base font-bold">PEMERINTAH KOTA BATAM (contoh)</p><p class="text-lg font-bold">DINAS KOPERASI DAN USAHA MIKRO</p><p>Alamat dan kontak contoh · Batam, Kepulauan Riau</p></div>
+        </header>
+        <h2 class="mt-4 mb-3 text-center text-base font-bold">JADWAL KEGIATAN, 23 s.d. 27 November 2026</h2>
+        <table>
+          <thead><tr><th>No</th><th>Hari / Tanggal</th><th>Pukul</th><th>Kegiatan</th><th>Tempat</th><th>Penyelenggara</th><th>Dihadiri Oleh</th><th>Keterangan</th></tr></thead>
+          <tbody><tr><td style="text-align:center">1</td><td>Senin, 23/11/2026</td><td>10.00 s.d. 12.00</td><td>Rapat Koordinasi Program UMKM Naik Kelas</td><td>Ruang Rapat Utama</td><td>Bidang UMKM</td><td>Kepala Dinas; Kepala Bidang UMKM; Kasubag Umum</td><td>-</td></tr><tr><td style="text-align:center">2</td><td>Senin, 23/11/2026</td><td>13.30 s.d. 15.00</td><td>Pelatihan Pengelolaan Keuangan Koperasi</td><td>Aula Lantai 2</td><td>Bidang Koperasi</td><td>Kepala Bidang Koperasi; Seksi Pembinaan</td><td>-</td></tr><tr class="cancelled"><td style="text-align:center">3</td><td>Senin, 23/11/2026</td><td>15.30 s.d. selesai</td><td>[DIBATALKAN] Sosialisasi Pendaftaran NIB untuk Pelaku Mikro</td><td>Aula Kecamatan Contoh</td><td>Bidang UMKM</td><td>-</td><td>Dibatalkan: dijadwalkan ulang pekan depan.</td></tr><tr><td style="text-align:center">4</td><td>Selasa, 24/11/2026</td><td>09.00 s.d. 11.30</td><td>Monitoring Koperasi Kelurahan</td><td>Kantor Kelurahan Contoh</td><td>Bidang Koperasi</td><td>Kepala Bidang Koperasi</td><td>-</td></tr><tr><td style="text-align:center">5</td><td>Kamis, 26/11/2026</td><td>09.00 s.d. selesai</td><td>Rapat Evaluasi Triwulan</td><td>Ruang Rapat Utama</td><td>Sekretariat</td><td>Sekretaris; Kasubag Umum</td><td>-</td></tr></tbody>
+        </table>
+        <footer class="mt-8 grid justify-end" data-pin="3">
+          <div class="w-72 text-center"><p>Batam, 23 November 2026</p><p class="font-semibold">Kepala Dinas (jabatan contoh)</p><p class="h-20" aria-hidden="true"></p><p class="font-bold underline">Nama Pejabat</p><p>NIP 19xxxxxx xxxxxx x xxx</p></div>
+        </footer>
+      </article>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

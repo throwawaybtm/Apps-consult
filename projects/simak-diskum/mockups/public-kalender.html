@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMAK DISKUM: contoh kalender</title>
+<meta name="description" content="Contoh tampilan kalender dan pencarian publik SIMAK DISKUM (F2, F3).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="mockups.css">
+</head>
+<body>
+<a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
+<p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama di halaman ini adalah data contoh.</p>
+
+<header class="border-b-4 border-b-gold bg-sidebar text-sidebar-foreground">
+  <div class="wrap flex min-h-17 items-center justify-between gap-4">
+    <a class="flex items-center gap-3 font-extrabold text-white no-underline" href="public-home.html">
+      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
+      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Dinas Koperasi dan Usaha Mikro Kota Batam</small></span>
+    </a>
+    <nav aria-label="Utama">
+      <button class="btn btn-outline [anchor-name:--menu-button] nav:hidden" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
+      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-md border bg-popover p-1 text-popover-foreground shadow-md [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:text-sidebar-foreground nav:shadow-none">
+        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white aria-[current=page]:bg-sidebar-accent hover:bg-sidebar-accent hover:text-white" href="public-home.html">Beranda</a></li>
+        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white hover:bg-sidebar-accent hover:text-white" href="public-kalender.html" aria-current="page">Kalender</a></li>
+        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white hover:bg-sidebar-accent hover:text-white" href="public-kalender.html#cari">Cari kegiatan</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="konten">
+<section class="wrap py-8" aria-labelledby="judul-kalender">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div><h1 class="text-3xl text-heading" id="judul-kalender">Kalender kegiatan</h1><p class="mt-1 text-muted-foreground">November 2026 · waktu WIB</p></div>
+    <div class="flex flex-wrap gap-2" data-pin="1">
+      <div class="inline-flex gap-1" role="group" aria-label="Periode">
+        <a class="btn btn-outline" href="#" aria-label="Bulan sebelumnya">‹</a>
+        <a class="btn btn-outline" href="#">Hari ini</a>
+        <a class="btn btn-outline" href="#" aria-label="Bulan berikutnya">›</a>
+      </div>
+      <fieldset class="inline-flex gap-1"><legend class="sr-only">Tampilan</legend>
+        <label class="relative"><input class="peer sr-only" type="radio" name="tampil" checked><span class="toggle">Bulan</span></label>
+        <label class="relative"><input class="peer sr-only" type="radio" name="tampil"><span class="toggle">Minggu</span></label>
+        <label class="relative"><input class="peer sr-only" type="radio" name="tampil"><span class="toggle">Hari</span></label>
+        <label class="relative"><input class="peer sr-only" type="radio" name="tampil"><span class="toggle">Daftar</span></label>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_17rem]">
+    <div>
+      <div class="cal" role="group" aria-label="Kalender November 2026" data-pin="2">
+<div class="cal-head">Sen</div><div class="cal-head">Sel</div><div class="cal-head">Rab</div><div class="cal-head">Kam</div><div class="cal-head">Jum</div><div class="cal-head">Sab</div><div class="cal-head">Min</div>
+<div class="cal-day out"><span class="n">26</span></div>
+<div class="cal-day out"><span class="n">27</span></div>
+<div class="cal-day out"><span class="n">28</span></div>
+<div class="cal-day out"><span class="n">29</span></div>
+<div class="cal-day out"><span class="n">30</span></div>
+<div class="cal-day out"><span class="n">31</span></div>
+<div class="cal-day"><span class="n">1</span></div>
+<div class="cal-day"><span class="n">2</span></div>
+<div class="cal-day"><span class="n">3</span><a class="cal-ev" href="public-detail.html">09.00 Rapat Bulanan</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">4</span></div>
+<div class="cal-day"><span class="n">5</span><a class="cal-ev" href="public-detail.html">13.00 Pelatihan Koperasi</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">6</span></div>
+<div class="cal-day"><span class="n">7</span></div>
+<div class="cal-day"><span class="n">8</span></div>
+<div class="cal-day"><span class="n">9</span></div>
+<div class="cal-day"><span class="n">10</span><a class="cal-ev cancelled" href="public-detail.html#batal">09.00 Sosialisasi NIB (batal)</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">11</span></div>
+<div class="cal-day"><span class="n">12</span><a class="cal-ev" href="public-detail.html">10.00 Rapat Anggaran</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">13</span></div>
+<div class="cal-day"><span class="n">14</span></div>
+<div class="cal-day"><span class="n">15</span></div>
+<div class="cal-day"><span class="n">16</span><a class="cal-ev" href="public-detail.html">08.00 Apel Pagi</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">17</span><a class="cal-ev" href="public-detail.html">09.00 Bimtek Koperasi</a><a class="cal-ev" href="public-detail.html">13.00 Rapat Internal</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">18</span></div>
+<div class="cal-day"><span class="n">19</span><a class="cal-ev" href="public-detail.html">10.00 Pameran UMKM</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">20</span></div>
+<div class="cal-day"><span class="n">21</span></div>
+<div class="cal-day"><span class="n">22</span></div>
+<div class="cal-day" aria-current="date"><span class="n">23</span><a class="cal-ev" href="public-detail.html">10.00 Rapat Koordinasi UMKM</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">24</span><a class="cal-ev" href="public-detail.html">09.00 Monitoring Kelurahan</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">25</span></div>
+<div class="cal-day"><span class="n">26</span><a class="cal-ev" href="public-detail.html">09.00 Rapat Evaluasi</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">27</span><a class="cal-ev" href="public-detail.html">13.30 Pelatihan Digital</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day"><span class="n">28</span></div>
+<div class="cal-day"><span class="n">29</span></div>
+<div class="cal-day"><span class="n">30</span><a class="cal-ev" href="public-detail.html">09.00 Laporan Bulanan</a><span class="cal-dot" role="img" aria-label="Ada kegiatan"></span></div>
+<div class="cal-day out"><span class="n">1</span></div>
+<div class="cal-day out"><span class="n">2</span></div>
+<div class="cal-day out"><span class="n">3</span></div>
+<div class="cal-day out"><span class="n">4</span></div>
+<div class="cal-day out"><span class="n">5</span></div>
+<div class="cal-day out"><span class="n">6</span></div>
+      </div>
+      <p class="mt-3 text-sm text-muted-foreground">Di ponsel, kalender tampil sebagai tanda titik dan tampilan Daftar menjadi bawaan.</p>
+    </div>
+
+    <aside class="grid content-start gap-4" id="cari" aria-labelledby="judul-saring">
+      <form class="card gap-4 px-5 py-5" data-pin="3">
+        <h2 class="text-base text-heading" id="judul-saring">Cari dan saring</h2>
+        <div class="grid gap-2"><label class="label" for="q">Kata kunci</label><input class="input" id="q" type="search" placeholder="Nama kegiatan atau tempat"></div>
+        <div class="grid gap-2"><label class="label" for="dari">Dari tanggal</label><input class="input" id="dari" type="date" value="2026-11-01"></div>
+        <div class="grid gap-2"><label class="label" for="sampai">Sampai tanggal</label><input class="input" id="sampai" type="date" value="2026-11-30"></div>
+        <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Semua</option><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option></select></div>
+        <div class="grid gap-2"><label class="label" for="penyelenggara">Penyelenggara</label><select class="select" id="penyelenggara"><option>Semua</option><option>Sekretariat</option><option>Bidang Koperasi</option><option>Bidang UMKM</option></select></div>
+        <div class="grid gap-2"><label class="label" for="status">Status</label><select class="select" id="status"><option>Semua</option><option>Terjadwal</option><option>Selesai</option><option>Dibatalkan</option></select></div>
+        <div class="flex gap-2"><button class="btn btn-default" type="submit">Terapkan</button><button class="btn btn-outline" type="reset">Reset</button></div>
+      </form>
+      <p class="text-sm text-muted-foreground" role="status">12 kegiatan cocok dengan penyaringan.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="bg-sidebar py-8 text-sm text-sidebar-muted">
+  <div class="wrap">
+    <p class="font-semibold text-sidebar-foreground">SIMAK DISKUM · Dinas Koperasi dan Usaha Mikro Kota Batam</p>
+    <p class="mt-1">Sistem Informasi Manajemen Agenda Kedinasan. Contoh tampilan, nama dan logo resmi menyusul.</p>
+  </div>
+</footer>
+</body>
+</html>

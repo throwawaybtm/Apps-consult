@@ -1,0 +1,211 @@
+/* SIMAK DISKUM mockups: Tailwind CSS v4 entry file. Tokens match ../DESIGN.md.
+   Components below reproduce the shadcn/ui patterns (Button, Card, Badge, Input, Label, Checkbox,
+   Table, Alert, Toggle, Sidebar, Sheet, Progress, Textarea) so the real React app can swap in the real components.
+   Compile from the repo root:
+     npm run css -- -i projects/simak-diskum/mockups/input.css -o projects/simak-diskum/mockups/mockups.css --minify
+   CONTOH TAMPILAN: placeholder look for discussion, not a final design. */
+
+@import "tailwindcss" source(none);
+@source "./*.html";
+
+@theme {
+  /* Start from the project palette only, not Tailwind's default colours. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* shadcn/ui semantic tokens */
+  --color-background: #ffffff;
+  --color-foreground: #101a3a;
+  --color-card: #ffffff;
+  --color-card-foreground: #101a3a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #101a3a;
+  --color-primary: #1d4ed8;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #e0e7ff;
+  --color-secondary-foreground: #1e3a8a;
+  --color-muted: #f5f7fc;
+  --color-muted-foreground: #424c66;
+  --color-accent: #e0e7ff;
+  --color-accent-foreground: #1e3a8a;
+  --color-destructive: #b91c1c;
+  --color-destructive-soft: #fee2e2;
+  --color-success: #166534;
+  --color-success-soft: #dcfce7;
+  --color-warning: #92400e;
+  --color-warning-soft: #fef3c7;
+  --color-border: #d5dbe8;
+  --color-input: #5b6580; /* darker than stock shadcn: WCAG 1.4.11 */
+  --color-ring: #1e3a8a;
+  --color-chart-1: #3b5bdb;
+  --color-sidebar: #0f1f4d;
+  --color-sidebar-foreground: #dfe5f7;
+  --color-sidebar-muted: #aab6d8;
+  --color-sidebar-accent: #1b2f6e;
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-ring: #c7d2fe;
+
+  /* Project-specific */
+  --color-heading: #14246b;
+  --color-tint: #f0f4ff;
+  --color-halo: #c7d2fe;
+  --color-page: #eceff7;
+  --color-gold: #f4b400;           /* "hari ini" marker, kop surat rule; never text on white */
+  --color-gold-soft: #fff4cc;
+  --color-gold-foreground: #3d2c00;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+
+  --breakpoint-nav: 52rem;
+  --breakpoint-shell: 60rem;
+  --spacing-gutter: clamp(1rem, 4vw, 2rem);
+}
+
+/* Centered page column used by the public site */
+@utility wrap {
+  inline-size: min(100% - 2 * var(--spacing-gutter), 72rem);
+  margin-inline: auto;
+}
+
+@layer base {
+  *, ::before, ::after { border-color: var(--color-border); }
+  :root { color-scheme: light; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; color: var(--color-foreground); background: var(--color-background); }
+  h1, h2, h3 { font-weight: 700; line-height: 1.2; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 0.2em; }
+  /* Opaque 3px ring (stock shadcn uses ring/50): WCAG 2.4.11 */
+  :focus-visible { outline: 3px solid var(--color-ring); outline-offset: 2px; border-radius: 4px; }
+  input[type="date"]:focus-within { outline: 3px solid var(--color-ring); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  /* Button: default, outline, ghost; sizes default (h-9) and lg (h-11 for touch) */
+  .btn { @apply inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border border-transparent px-4 py-2 text-sm font-medium whitespace-nowrap no-underline transition-all disabled:pointer-events-none disabled:opacity-50; }
+  .btn-default { @apply bg-primary text-primary-foreground shadow-xs hover:bg-primary/90; }
+  .btn-outline { @apply border-border bg-background text-foreground shadow-xs hover:bg-accent hover:text-accent-foreground; }
+  .btn-ghost { @apply text-foreground hover:bg-accent hover:text-accent-foreground; }
+  .btn-lg { @apply h-11 px-6 text-base; }
+
+  /* Badge */
+  .badge { @apply inline-flex w-fit items-center justify-center gap-1 rounded-md border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap; }
+  .badge-secondary { @apply bg-secondary text-secondary-foreground; }
+  .badge-destructive { @apply bg-destructive text-white; }
+  .badge-success { @apply bg-success-soft text-success; }
+  .badge-warning { @apply bg-warning-soft text-warning; }
+  .badge-outline { @apply border-border text-foreground; }
+
+  /* Card */
+  .card { @apply flex flex-col gap-6 rounded-xl border bg-card py-6 text-card-foreground shadow-sm; }
+  .card-header { @apply grid gap-1.5 px-6; }
+  .card-header.divided { @apply border-b pb-6; }
+  .card-title { @apply text-base leading-none font-semibold; }
+  .card-description { @apply text-sm text-muted-foreground; }
+  .card-content { @apply px-6; }
+  .card-footer { @apply flex items-center px-6; }
+
+  /* Alert */
+  .alert { @apply relative w-full rounded-lg border px-4 py-3 text-sm; }
+  .alert-success { @apply border-success/40 bg-success-soft text-success; }
+  .alert-destructive { @apply border-destructive/40 bg-destructive-soft text-destructive; }
+
+  /* Form: Label, Input (also native Select), Checkbox */
+  .label { @apply flex items-center gap-2 text-sm leading-none font-medium select-none; }
+  .input { @apply flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base text-foreground shadow-xs md:text-sm user-invalid:border-destructive user-invalid:ring-[3px] user-invalid:ring-destructive/20; }
+  /* Native date input keeps the browser layout so the picker icon sits at the right edge */
+  .input[type="date"] { @apply block; }
+  .checkbox { @apply size-4 shrink-0 appearance-none rounded-[4px] border border-input bg-background shadow-xs checked:border-primary checked:bg-primary; }
+  .checkbox:checked { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E"); background-position: center; background-size: 100%; }
+
+  /* Toggle group item (outline variant); the radio input is a sibling-before with class peer */
+  .toggle { @apply inline-flex h-9 min-w-9 cursor-pointer items-center justify-center gap-2 rounded-md border bg-transparent px-3 text-sm font-medium whitespace-nowrap shadow-xs hover:bg-muted peer-checked:bg-accent peer-checked:text-accent-foreground peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring; }
+
+  /* Journey timeline on the public hero: a real sequence */
+  .step { @apply relative pb-5 ps-9 last:pb-0 before:absolute before:start-[0.4rem] before:top-1 before:size-[0.9rem] before:rounded-full before:border-2 before:border-primary before:bg-background before:content-[''] after:absolute after:start-[0.8rem] after:top-5 after:bottom-[0.1rem] after:w-0.5 after:bg-border after:content-[''] last:after:hidden; }
+  .step[data-state="done"] { @apply before:bg-primary; }
+  .step[data-state="now"] { @apply before:shadow-[0_0_0_4px_var(--color-halo)]; }
+
+  /* Chart (shadcn Chart look): inside a Card, light grid, rounded single-series bars, muted axis text.
+     CSS stands in for Recharts; a data table is always offered. */
+  .cols { @apply relative mt-4 grid h-44 auto-cols-fr grid-flow-col items-end gap-3 border-b pb-7; }
+  .cols::before { @apply pointer-events-none absolute inset-x-0 top-0 bottom-7 content-['']; background: repeating-linear-gradient(to top, var(--color-border) 0, var(--color-border) 1px, transparent 1px, transparent 25%); }
+  .col { @apply relative flex h-full items-end justify-center; }
+  .col .bar { @apply w-[min(100%,2.25rem)] rounded-t-[4px] bg-chart-1 forced-colors:bg-[CanvasText]; block-size: calc(var(--v) * 100%); }
+  .col .tick { @apply absolute -bottom-[1.6rem] text-xs text-muted-foreground; }
+  .col .val { @apply absolute text-xs font-medium text-foreground; inset-block-end: calc(var(--v) * 100% + 0.2rem); }
+  .hbars { @apply grid gap-3; }
+  .hbars li { @apply grid grid-cols-[6.5rem_1fr_2.5rem] items-center gap-3 text-sm; }
+  .hbars .track { @apply h-3.5; }
+  .hbars .fill { @apply block h-full rounded-e-[4px] bg-chart-1 forced-colors:bg-[CanvasText]; inline-size: calc(var(--v) * 100%); }
+  .hbars .num { @apply text-end text-muted-foreground tabular-nums; }
+  .chart-data { @apply text-sm; }
+  .chart-data summary { @apply min-h-6 cursor-pointer text-primary; }
+  .chart-data table { @apply mt-2 w-full border-collapse; }
+  .chart-data th, .chart-data td { @apply border-b px-2 py-1.5 text-start; }
+  .chart-data th:last-child, .chart-data td:last-child { @apply text-end; }
+
+  /* Sidebar menu button (shadcn Sidebar) */
+  .sidebar-item { @apply flex h-9 items-center gap-2 rounded-md px-2 text-sm text-sidebar-foreground no-underline; }
+  a.sidebar-item { @apply hover:bg-sidebar-accent hover:text-sidebar-accent-foreground; }
+  .sidebar-item[aria-current="page"] { @apply bg-sidebar-accent font-medium text-sidebar-accent-foreground; }
+  .sidebar-item.off { @apply cursor-default text-sidebar-muted; }
+
+  /* Data table (shadcn Table inside a bordered wrapper): dense on wide, stacked cards in narrow containers */
+  .data-table { @apply w-full min-w-160 caption-bottom border-separate border-spacing-0 text-sm @max-[600px]:min-w-0; }
+  .data-table thead { @apply sticky top-0 z-1 bg-card @max-[600px]:hidden; }
+  .data-table th { @apply h-10 border-b px-2 text-start align-middle font-medium whitespace-nowrap text-foreground; }
+  .data-table tbody th { @apply font-medium whitespace-normal; }
+  .data-table td, .data-table tbody th { @apply border-b p-2 align-middle; }
+  .data-table tbody tr:last-child td, .data-table tbody tr:last-child th { @apply border-b-0; }
+  .data-table tbody tr { @apply transition-colors hover:bg-muted/50; }
+  .data-table .num { @apply text-end tabular-nums; }
+  .data-table tbody tr { @apply @max-[600px]:grid @max-[600px]:gap-1 @max-[600px]:border-b @max-[600px]:p-3; }
+  .data-table td, .data-table tbody th { @apply @max-[600px]:flex @max-[600px]:justify-between @max-[600px]:gap-4 @max-[600px]:border-0 @max-[600px]:px-0 @max-[600px]:py-0.5; }
+  .data-table td::before { @apply hidden font-medium text-muted-foreground @max-[600px]:inline; content: attr(data-label); }
+}
+
+@layer components {
+  .alert-warning { @apply border-warning/40 bg-warning-soft text-warning; }
+  .alert-info { @apply border-primary/30 bg-tint text-heading; }
+  .textarea { @apply flex min-h-20 w-full rounded-md border border-input bg-transparent px-3 py-2 text-base text-foreground shadow-xs md:text-sm; }
+  .select { @apply flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base text-foreground shadow-xs md:text-sm; }
+
+  /* Agenda row on the public dashboard: a time rail (start time large, end time small) */
+  .agenda-row { @apply grid grid-cols-[4.75rem_1fr] gap-4 border-b py-4 last:border-b-0 sm:grid-cols-[6rem_1fr_auto]; }
+  .agenda-time { @apply text-2xl leading-none font-bold text-heading tabular-nums; }
+  .agenda-time small { @apply mt-1 block text-xs font-medium text-muted-foreground; }
+  .agenda-row[data-state="now"] { @apply -mx-4 border-s-4 border-s-gold bg-gold-soft/60 px-4; }
+  .agenda-row[data-state="cancelled"] .agenda-title { @apply text-muted-foreground line-through decoration-1; }
+
+  /* Stage progress (F8): a real sequence of four stages */
+  .stages { @apply grid grid-cols-4 gap-1; }
+  .stages li { @apply relative grid gap-1 border-t-4 border-border pt-2 text-xs text-muted-foreground; }
+  .stages li[data-state="done"] { @apply border-primary text-foreground; }
+  .stages li[data-state="now"] { @apply border-primary font-semibold text-heading; }
+  .stages li b { @apply block text-sm; }
+  .stages li[data-state="now"]::after { @apply absolute -top-[0.45rem] end-0 size-3 rounded-full bg-gold ring-2 ring-background content-['']; }
+
+  /* Calendar month grid (F2) */
+  .cal { @apply grid grid-cols-7 overflow-hidden rounded-xl border bg-card text-sm; }
+  .cal-head { @apply border-b bg-muted px-2 py-2 text-center text-xs font-semibold text-muted-foreground; }
+  .cal-day { @apply min-h-24 border-e border-b p-1.5 [&:nth-child(7n)]:border-e-0 max-sm:min-h-14; }
+  .cal-day .n { @apply mb-1 inline-grid size-6 place-items-center rounded-full text-xs font-medium; }
+  .cal-day.out { @apply bg-muted/60 text-muted-foreground; }
+  .cal-day[aria-current="date"] .n { @apply bg-gold font-bold text-gold-foreground; }
+  .cal-ev { @apply mb-1 block truncate rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground no-underline max-sm:hidden; }
+  .cal-ev.cancelled { @apply bg-destructive-soft text-destructive line-through; }
+  .cal-dot { @apply hidden size-1.5 rounded-full bg-primary max-sm:inline-block; }
+
+  /* Report paper (F14-F16): A4 sheet preview */
+  .paper { @apply mx-auto w-full max-w-[64rem] rounded-sm border bg-white p-8 text-[0.8rem] leading-snug text-black shadow-md max-sm:p-4; }
+  .paper table { @apply w-full border-collapse; }
+  .paper th, .paper td { @apply border border-black px-1.5 py-1 align-top text-start; }
+  .paper th { @apply bg-[#e9ecf5] text-center font-bold; }
+  .paper tr.cancelled td { @apply text-[#7f1d1d]; }
+  .kop { @apply grid grid-cols-[4.5rem_1fr] items-center gap-4 border-b-4 border-double border-black pb-3 text-center; }
+}

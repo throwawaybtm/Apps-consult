@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMAK DISKUM: contoh formulir kegiatan</title>
+<meta name="description" content="Contoh formulir kegiatan satu halaman SIMAK DISKUM (F7 sampai F12).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="mockups.css">
+</head>
+<body class="bg-page text-sm leading-normal">
+<a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
+<div class="grid min-h-dvh grid-rows-[auto_auto_1fr] shell:grid-cols-[16rem_1fr] shell:grid-rows-[auto_1fr]">
+  <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama adalah data contoh.</p>
+
+  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/50 **:focus-visible:outline-sidebar-ring shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="flex items-center gap-3 border-b border-sidebar-accent pt-1 pb-4 font-extrabold text-white no-underline" href="admin-dashboard.html">
+      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
+      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Diskum Batam (contoh)</small></span>
+    </a>
+    <ul class="mt-4 grid gap-1">
+      <li><a class="sidebar-item" href="admin-dashboard.html">Dashboard</a></li>
+      <li><a class="sidebar-item" href="admin-kegiatan.html" aria-current="page">Formulir kegiatan</a></li>
+      <li><a class="sidebar-item" href="admin-laporan.html">Laporan</a></li>
+      <li><span class="sidebar-item off">Data master</span></li>
+      <li><span class="sidebar-item off">Pengguna dan peran</span></li>
+      <li><span class="sidebar-item off">Riwayat perubahan</span></li>
+      <li><span class="sidebar-item off">Pengaturan</span></li>
+      <li><span class="sidebar-item off">Cadangan data</span></li>
+    </ul>
+    <p class="mt-6 border-t border-sidebar-accent pt-4 text-xs text-sidebar-muted">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-ghost mt-4 border-white text-white hover:bg-sidebar-accent hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+  </nav>
+
+  <div class="min-w-0">
+    <header class="flex min-h-14 items-center justify-between gap-4 border-b bg-background px-gutter py-3">
+      <button class="btn btn-outline shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
+      <span class="ms-auto text-end text-sm text-muted-foreground">Petugas Contoh<br>Peran: Admin (contoh)</span>
+    </header>
+    <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
+      <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
+        <div><p class="text-sm"><a href="admin-dashboard.html">Dashboard</a> / Formulir kegiatan</p><h1 class="mt-1 text-2xl">Ubah kegiatan</h1></div>
+        <div class="flex flex-wrap gap-2"><button class="btn btn-outline" type="button">Duplikat</button><button class="btn btn-outline text-destructive" type="button">Hapus (hanya admin)</button></div>
+      </div>
+
+      <section class="card mb-5 gap-3 px-6 py-5" aria-labelledby="h-tahap" data-pin="1">
+        <h2 class="card-title" id="h-tahap">Tahap administrasi</h2>
+        <ol class="stages">
+          <li data-state="done"><b>Input Awal</b>selesai</li>
+          <li data-state="done"><b>Proses Offline</b>selesai</li>
+          <li data-state="now" aria-current="step"><b>Detail Lengkap</b>tahap sekarang</li>
+          <li><b>Administrasi Lengkap</b>perlu surat undangan</li>
+        </ol>
+        <div><button class="btn btn-default" type="button">Majukan ke Administrasi Lengkap</button></div>
+      </section>
+
+      <div class="grid items-start gap-5 xl:grid-cols-[1fr_22rem]">
+        <form class="grid gap-5" aria-label="Formulir kegiatan">
+          <section class="card px-6 py-6" aria-labelledby="h-kegiatan">
+            <h2 class="card-title mb-4" id="h-kegiatan">Kegiatan</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="grid gap-2 sm:col-span-2"><label class="label" for="nama">Nama kegiatan</label><input class="input" id="nama" value="Rapat Koordinasi Program UMKM Naik Kelas" required></div>
+              <div class="grid gap-2"><label class="label" for="tgl">Tanggal</label><input class="input" id="tgl" type="date" value="2026-11-23" required></div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="grid gap-2"><label class="label" for="mulai">Jam mulai</label><input class="input" id="mulai" type="time" value="10:00" required></div>
+                <div class="grid gap-2"><label class="label" for="selesai">Jam selesai</label><input class="input" id="selesai" type="time" value="12:00" aria-describedby="h-selesai"></div>
+              </div>
+              <p class="text-xs text-muted-foreground sm:col-span-2" id="h-selesai">Kosongkan jam selesai bila belum pasti. Di portal tertulis "s.d. selesai".</p>
+              <div class="grid gap-2"><label class="label" for="tempat">Tempat</label><select class="select" id="tempat" aria-describedby="bentrok-ruang"><option>Ruang Rapat Utama</option><option>Aula Lantai 2</option><option>Ruang Rapat Bidang Koperasi</option><option>Daring (Zoom)</option></select></div>
+              <div class="grid gap-2"><label class="label" for="penyelenggara">Penyelenggara</label><select class="select" id="penyelenggara"><option>Bidang UMKM</option><option>Bidang Koperasi</option><option>Sekretariat</option></select></div>
+              <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option><option>Monitoring</option></select></div>
+              <div class="grid gap-2"><label class="label" for="hadir">Dihadiri oleh</label><select class="select" id="hadir"><option>3 dipilih: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</option></select></div>
+            </div>
+
+            <div class="alert alert-warning mt-4" role="status" id="bentrok-ruang" data-pin="2">
+              <p class="font-semibold">Mungkin bentrok. Anda tetap bisa menyimpan.</p>
+              <ul class="mt-1 list-disc ps-5">
+                <li>Ruang Rapat Utama dipakai pukul 09.00–11.00 oleh <a href="admin-kegiatan.html">Rapat Bulanan Sekretariat</a>.</li>
+                <li>Kasubag Umum juga menghadiri <a href="admin-kegiatan.html">Rapat Anggaran Internal</a> pukul 11.00–12.00.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card px-6 py-6" aria-labelledby="h-catatan" data-pin="3">
+            <h2 class="card-title mb-4" id="h-catatan">Catatan</h2>
+            <div class="grid gap-4">
+              <div class="grid gap-2"><label class="label" for="pub">Catatan publik (tampil di portal)</label><textarea class="textarea" id="pub" aria-invalid="true" aria-describedby="err-pub">Membahas rencana pendampingan. Gabung lewat meet.google.com/abc-defg-hij</textarea>
+                <p class="text-sm font-medium text-destructive" id="err-pub">Ada tautan rapat di catatan publik. Pindahkan ke "Tautan rapat internal" agar tidak tampil di portal.</p></div>
+              <div class="grid gap-2"><label class="label" for="int">Catatan internal <span class="badge badge-warning">Tidak tampil di publik</span></label><textarea class="textarea" id="int">Siapkan data binaan per kelurahan.</textarea></div>
+              <div class="grid gap-2"><label class="label" for="link">Tautan rapat internal <span class="badge badge-warning">Tidak tampil di publik</span></label><input class="input" id="link" type="url" placeholder="https://"></div>
+            </div>
+          </section>
+
+          <section class="card px-6 py-6" aria-labelledby="h-surat" data-pin="4">
+            <h2 class="card-title mb-1" id="h-surat">Surat undangan <span class="badge badge-warning">Internal</span></h2>
+            <p class="card-description mb-4">Dipakai untuk melengkapi administrasi. Tidak pernah tampil di portal publik.</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="grid gap-2"><label class="label" for="no">Nomor agenda</label><input class="input" id="no" placeholder="Contoh: 123/AG/XI/2026"></div>
+              <div class="grid gap-2"><label class="label" for="tglsurat">Tanggal surat</label><input class="input" id="tglsurat" type="date"></div>
+              <div class="grid gap-2 sm:col-span-2"><label class="label" for="perihal">Perihal</label><input class="input" id="perihal"></div>
+              <div class="grid gap-2 sm:col-span-2"><label class="label" for="drive">Link Google Drive</label><input class="input" id="drive" type="url" placeholder="https://drive.google.com/..."></div>
+            </div>
+          </section>
+
+          <section class="card px-6 py-6" aria-labelledby="h-status" data-pin="5">
+            <h2 class="card-title mb-1" id="h-status">Status</h2>
+            <p class="mb-4">Sekarang: <span class="badge badge-outline">Terjadwal</span></p>
+            <p class="card-description mb-4">Selesai diatur otomatis setelah jam selesai lewat. Anda tidak perlu mengubahnya.</p>
+            <details class="rounded-md border p-4">
+              <summary class="cursor-pointer font-medium text-destructive">Batalkan kegiatan</summary>
+              <div class="mt-4 grid gap-4">
+                <div class="grid gap-2"><label class="label" for="alasan">Alasan pembatalan (internal, wajib)</label><textarea class="textarea" id="alasan" required></textarea></div>
+                <div class="grid gap-2"><label class="label" for="notice">Pemberitahuan publik (opsional)</label><input class="input" id="notice" placeholder="Contoh: Dijadwalkan ulang pekan depan."></div>
+                <div><button class="btn btn-outline text-destructive" type="button">Batalkan kegiatan</button></div>
+              </div>
+            </details>
+          </section>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="btn btn-default btn-lg" type="submit">Simpan kegiatan</button>
+            <p class="text-sm text-muted-foreground">Bila orang lain sudah mengubah kegiatan ini, simpanan Anda ditahan dan isian Anda tetap ada (F12).</p>
+          </div>
+        </form>
+
+        <aside class="xl:sticky xl:top-4" aria-labelledby="h-pratinjau" data-pin="6">
+          <div class="card gap-3 px-5 py-5">
+            <h2 class="card-title" id="h-pratinjau">Pratinjau publik</h2>
+            <p class="card-description">Persis seperti yang tampil di portal. Catatan internal tidak ikut.</p>
+            <div class="rounded-lg border bg-tint p-4">
+              <p class="flex flex-wrap gap-2"><span class="badge badge-secondary">Rapat</span><span class="badge badge-outline">Terjadwal</span></p>
+              <p class="mt-2 text-base font-bold text-heading">Rapat Koordinasi Program UMKM Naik Kelas</p>
+              <p class="mt-1 text-sm">Senin, 23 November 2026 · 10.00 s.d. 12.00 WIB</p>
+              <p class="text-sm">Ruang Rapat Utama · Bidang UMKM</p>
+              <p class="mt-2 text-sm text-muted-foreground">Dihadiri: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
