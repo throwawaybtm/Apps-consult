@@ -64,5 +64,16 @@
     "needsCredit": false,
     "credit": "\"gentle chime tree.wav\" by johnnyguitar01, CC0 1.0, via freesound",
     "source": "https://freesound.org/people/johnnyguitar01/sounds/418164"
+  },
+  {
+    "file": "april-showers-eaa82972.mp3",
+    "id": "eaa82972-3f0f-4d31-816f-80367e83da6b",
+    "title": "April Showers",
+    "creator": "kjartan_abel",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"April Showers\" by kjartan_abel, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/kjartan_abel/sounds/608392"
   }
 ]
