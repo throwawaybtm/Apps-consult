@@ -7,7 +7,7 @@ import { C, captionOf, framesOf, SceneId } from "./theme";
 const R = rects as any;
 const clampX = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const out = Easing.bezier(0.16, 1, 0.3, 1);
-const LIGHT = `linear-gradient(180deg, ${C.tint}, #E0E7FF)`;
+const LIGHT = `linear-gradient(180deg, ${C.tint}, #DBEAFE)`;
 
 const Scene: React.FC<{ id: SceneId; background?: string; children: React.ReactNode }> = ({ id, background = LIGHT, children }) => (
   <SceneShell frames={framesOf(id)} caption={captionOf(id)} background={background}>{children}</SceneShell>
@@ -27,7 +27,7 @@ export const S1Title: React.FC = () => (
       <Reveal at={4}><div style={{ fontSize: 34, fontWeight: 600, color: C.gold }}>Dinas Koperasi dan Usaha Mikro Kota Batam</div></Reveal>
       <Reveal at={12}><div style={{ marginTop: 18, fontSize: 150, lineHeight: 1, fontWeight: 800, color: C.white, letterSpacing: -4 }}>SIMAK DISKUM</div></Reveal>
       <Reveal at={22}><div style={{ marginTop: 26, width: 220, height: 10, borderRadius: 5, background: C.gold }} /></Reveal>
-      <Reveal at={30}><div style={{ marginTop: 30, fontSize: 46, lineHeight: 1.25, color: "#C9D3F0", width: 1100 }}>Sistem Informasi Manajemen Agenda Kedinasan</div></Reveal>
+      <Reveal at={30}><div style={{ marginTop: 30, fontSize: 46, lineHeight: 1.25, color: "#CBD5E1", width: 1100 }}>Sistem Informasi Manajemen Agenda Kedinasan</div></Reveal>
     </div>
   </Scene>
 );
@@ -61,10 +61,10 @@ const H = R["public-home"];
 export const S3Home: React.FC = () => (
   <Scene id="S3Home">
     <LeftInfo eyebrow="Contoh layar 1 dari 7" title="Dashboard publik" chips={["F1", "F3"]} />
-    <BrowserFrame shot="public-home.png" pageHeight={H.height} panFrames={[0, 110, 150, 240]} panY={[0, 0, 200, 200]}>
-      <Highlight rect={H.p1} label="Agenda hari ini (F1)" n={1} at={14} until={96} />
-      <Highlight rect={H.p2} label="Ringkasan (F1)" n={2} at={96} until={156} />
-      <Highlight rect={H.p3} label="Pencarian dan filter (F3)" n={3} at={166} />
+    <BrowserFrame shot="public-home.png" pageHeight={H.height} panFrames={[0, 70, 110, 150, 200, 240]} panY={[0, 0, 200, 200, 330, 330]}>
+      <Highlight rect={H.p2} label="Ringkasan (F1)" n={1} at={14} until={84} />
+      <Highlight rect={H.p1} label="Agenda hari ini (F1)" n={2} at={92} until={164} below />
+      <Highlight rect={H.p3} label="Pencarian dan filter (F3)" n={3} at={174} />
     </BrowserFrame>
   </Scene>
 );
@@ -154,7 +154,7 @@ export const S10Fitur: React.FC = () => (
       <Reveal at={6}><div style={{ marginTop: 8, fontSize: 64, fontWeight: 800, color: C.white, letterSpacing: -1 }}>19 fitur, satu nomor di semua dokumen</div></Reveal>
       <div style={{ marginTop: 44, display: "flex", flexWrap: "wrap", gap: 14 }}>
         {FEATURES.map((name, i) => (
-          <Reveal key={name} at={14 + i * 4} style={{ width: 380, boxSizing: "border-box", background: C.navy2, border: "2px solid #2B4390", borderRadius: 16, padding: "14px 20px", display: "flex", gap: 14, alignItems: "center" }}>
+          <Reveal key={name} at={14 + i * 4} style={{ width: 380, boxSizing: "border-box", background: C.navy2, border: "2px solid #334155", borderRadius: 16, padding: "14px 20px", display: "flex", gap: 14, alignItems: "center" }}>
             <div style={{ fontSize: 30, fontWeight: 800, color: C.gold, width: 70 }}>F{i + 1}</div>
             <div style={{ fontSize: 28, fontWeight: 600, color: "#F5F7FC", lineHeight: 1.15 }}>{name}</div>
           </Reveal>
@@ -189,7 +189,7 @@ export const S12Tutup: React.FC = () => (
     <div style={{ position: "absolute", left: 160, top: 330, width: 1500, fontFamily: FONT }}>
       <Reveal at={4}><div style={{ fontSize: 110, fontWeight: 800, color: C.white, letterSpacing: -3 }}>Terima kasih</div></Reveal>
       <Reveal at={14}><div style={{ marginTop: 22, width: 220, height: 10, borderRadius: 5, background: C.gold }} /></Reveal>
-      <Reveal at={22}><div style={{ marginTop: 28, fontSize: 44, lineHeight: 1.3, color: "#C9D3F0" }}>Penawaran harga disampaikan terpisah.</div></Reveal>
+      <Reveal at={22}><div style={{ marginTop: 28, fontSize: 44, lineHeight: 1.3, color: "#CBD5E1" }}>Penawaran harga disampaikan terpisah.</div></Reveal>
     </div>
   </Scene>
 );

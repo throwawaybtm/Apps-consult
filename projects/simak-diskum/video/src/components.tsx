@@ -35,7 +35,7 @@ const Caption: React.FC<{ text: string; frames: number }> = ({ text, frames }) =
   const outT = interpolate(frame, [frames - 14, frames - 4], [1, 0], clampX);
   return (
     <div style={{ position: "absolute", left: 120, right: 120, bottom: 44, display: "flex", justifyContent: "center", opacity: inT * outT, translate: `0px ${interpolate(inT, [0, 1], [20, 0])}px` }}>
-      <div style={{ background: "rgba(15,31,77,0.94)", color: C.white, borderRadius: 30, padding: "20px 44px", fontSize: 44, lineHeight: 1.25, fontWeight: 600, textAlign: "center", maxWidth: 1680 }}>{text}</div>
+      <div style={{ background: "rgba(15,23,42,0.94)", color: C.white, borderRadius: 30, padding: "20px 44px", fontSize: 44, lineHeight: 1.25, fontWeight: 600, textAlign: "center", maxWidth: 1680 }}>{text}</div>
     </div>
   );
 };
@@ -64,7 +64,7 @@ export const BrowserFrame: React.FC<{ shot: string; pageHeight: number; panFrame
   const frame = useCurrentFrame();
   const y = interpolate(frame, panFrames, panY.map((v) => -v * SCALE), { ...clampX, easing: ease });
   return (
-    <div style={{ position: "absolute", left: 608, top: 48, width: FW, height: VH + BAR, borderRadius: 22, overflow: "hidden", background: C.white, boxShadow: "0 30px 80px rgba(15,31,77,0.35)" }}>
+    <div style={{ position: "absolute", left: 608, top: 48, width: FW, height: VH + BAR, borderRadius: 22, overflow: "hidden", background: C.white, boxShadow: "0 30px 80px rgba(15,23,42,0.35)" }}>
       <div style={{ height: BAR, background: C.navy, display: "flex", alignItems: "center", gap: 10, paddingLeft: 20 }}>
         {[0, 1, 2].map((i) => <div key={i} style={{ width: 14, height: 14, borderRadius: 7, background: "rgba(255,255,255,0.35)" }} />)}
         <div style={{ marginLeft: 16, fontSize: 24, color: C.halo }}>Contoh tampilan</div>

@@ -21,14 +21,14 @@ Slides reference images as `/_blob/<id>`, the ids the artifact assigned on uploa
 
 | Id in the slides | File |
 |---|---|
-| `1b7af95bc847dceb3166c9fa64caa4ff` | `assets/public-home.png` |
-| `2cdba7f6f5edff219fc1c4535dbd1f5d` | `assets/public-kalender.png` |
-| `727e0b7f0935d4dad46796d03333d124` | `assets/public-detail.png` |
-| `dfa16423828c43a387ecb24bffdc7ed4` | `assets/admin-dashboard.png` |
-| `08f2f6c35332a86f9a79f69745df7efb` | `assets/admin-kegiatan-a.png` |
-| `ea478818c8b94eb3e9706e90dcc37912` | `assets/admin-kegiatan-b.png` |
-| `21562e5c9859d5294d4d8bdbefed620f` | `assets/admin-laporan.png` |
-| `a4b2673826700825ca4468006248a1aa` | `assets/m-public-home.png` |
+| `bb9496e4d632e0853a208912b5d9478d` | `assets/public-home.png` |
+| `675ffc641331b7c7106698dd9918d6bd` | `assets/public-kalender.png` |
+| `4000dcac8b2d5518df1dd5fbb0b5ffbc` | `assets/public-detail.png` |
+| `802cef4b1a9a7bd4ba41a82b52d3d3b5` | `assets/admin-dashboard.png` |
+| `621cadf7964de1f1a9e06bf786bf6913` | `assets/admin-kegiatan-a.png` |
+| `b25a294c461bc13eeaa18da7f662a8a9` | `assets/admin-kegiatan-b.png` |
+| `4ac06b72a3802f11f0a0dc9a1ef64a5e` | `assets/admin-laporan.png` |
+| `6db5153bdf6a45777c262036c902eff6` | `assets/m-public-home.png` |
 
 ## Slides and PRD
 

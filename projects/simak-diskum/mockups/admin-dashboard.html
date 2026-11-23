@@ -15,10 +15,10 @@
 <div class="grid min-h-dvh grid-rows-[auto_auto_1fr] shell:grid-cols-[16rem_1fr] shell:grid-rows-[auto_1fr]">
   <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama adalah data contoh.</p>
 
-  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/50 **:focus-visible:outline-sidebar-ring shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
-    <a class="flex items-center gap-3 border-b border-sidebar-accent pt-1 pb-4 font-extrabold text-white no-underline" href="admin-dashboard.html">
-      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
-      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Diskum Batam (contoh)</small></span>
+  <nav class="m-0 h-dvh w-[min(85dvw,16rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/40 shell:static shell:block shell:h-auto shell:w-auto shell:border-e" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="flex items-center gap-3 border-b pt-1 pb-4 font-bold text-heading no-underline" href="admin-dashboard.html">
+      <span class="grid size-9 place-items-center rounded-lg bg-gold text-xs font-extrabold text-gold-foreground" aria-hidden="true">SD</span>
+      <span class="leading-tight">SIMAK DISKUM<small class="block text-xs font-medium text-muted-foreground">Kota Batam (contoh)</small></span>
     </a>
     <ul class="mt-4 grid gap-1">
       <li><a class="sidebar-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
@@ -30,14 +30,15 @@
       <li><span class="sidebar-item off">Pengaturan</span></li>
       <li><span class="sidebar-item off">Cadangan data</span></li>
     </ul>
-    <p class="mt-6 border-t border-sidebar-accent pt-4 text-xs text-sidebar-muted">Menu berwarna redup belum dibuat di contoh ini.</p>
-    <button class="btn btn-ghost mt-4 border-white text-white hover:bg-sidebar-accent hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+    <p class="mt-6 border-t pt-4 text-xs text-muted-foreground">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-outline mt-4 shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
   </nav>
 
   <div class="min-w-0">
-    <header class="flex min-h-14 items-center justify-between gap-4 border-b bg-background px-gutter py-3">
+    <header class="flex min-h-16 items-center gap-4 border-b bg-background px-gutter py-3">
       <button class="btn btn-outline shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
-      <span class="ms-auto text-end text-sm text-muted-foreground">Petugas Contoh<br>Peran: Admin (contoh)</span>
+      <div class="leading-tight"><p class="text-base font-bold text-heading">Admin Portal</p><p class="text-xs text-muted-foreground max-sm:hidden">Sistem Informasi Manajemen Agenda Kedinasan</p></div>
+      <span class="ms-auto flex items-center gap-2"><span class="grid size-8 place-items-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">PC</span><span class="leading-tight">Petugas Contoh<small class="block text-xs text-muted-foreground">Peran: Admin (contoh)</small></span></span>
     </header>
     <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
       <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
@@ -47,12 +48,12 @@
 
       <section class="mb-6" aria-labelledby="h-tahap">
         <h2 class="mb-3 text-sm font-medium text-muted-foreground" id="h-tahap">Kegiatan per tahap administrasi</h2>
-        <dl class="grid grid-cols-2 gap-3 lg:grid-cols-4" data-pin="1">
-          <div class="card gap-1 px-5 py-4"><dt class="text-sm text-muted-foreground">Input Awal</dt><dd class="text-3xl font-bold tabular-nums">6</dd></div>
-          <div class="card gap-1 px-5 py-4"><dt class="text-sm text-muted-foreground">Proses Offline</dt><dd class="text-3xl font-bold tabular-nums">9</dd></div>
-          <div class="card gap-1 px-5 py-4"><dt class="text-sm text-muted-foreground">Detail Lengkap</dt><dd class="text-3xl font-bold tabular-nums">4</dd></div>
-          <div class="card gap-1 px-5 py-4"><dt class="text-sm text-muted-foreground">Administrasi Lengkap</dt><dd class="text-3xl font-bold tabular-nums">19</dd></div>
-        </dl>
+        <ul role="list" class="grid grid-cols-1 gap-3 min-[30rem]:grid-cols-2 lg:grid-cols-4" data-pin="1">
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span><p class="text-sm text-muted-foreground">Input Awal</p><p class="text-3xl font-bold tabular-nums">6</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-offline-soft text-stage-offline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><p class="text-sm text-muted-foreground">Proses Offline</p><p class="text-3xl font-bold tabular-nums">9</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-details-soft text-stage-details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><p class="text-sm text-muted-foreground">Detail Lengkap</p><p class="text-3xl font-bold tabular-nums">4</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-complete-soft text-stage-complete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span><p class="text-sm text-muted-foreground">Administrasi Lengkap</p><p class="text-3xl font-bold tabular-nums">19</p></li>
+        </ul>
       </section>
 
       <section class="card gap-0 py-0" aria-labelledby="h-belum" data-pin="2">
@@ -61,10 +62,10 @@
           <table class="data-table">
             <thead><tr><th scope="col">Tanggal</th><th scope="col">Kegiatan</th><th scope="col">Tempat</th><th scope="col">Tahap</th><th scope="col">Kekurangan</th></tr></thead>
             <tbody>
-              <tr><td data-label="Tanggal">23/11/2026 10.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Rapat Koordinasi Program UMKM Naik Kelas</a></th><td data-label="Tempat">Ruang Rapat Utama</td><td data-label="Tahap"><span class="badge badge-warning">Detail Lengkap</span></td><td data-label="Kekurangan">Surat undangan belum diisi</td></tr>
-              <tr><td data-label="Tanggal">23/11/2026 13.30</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Pelatihan Pengelolaan Keuangan Koperasi</a></th><td data-label="Tempat">Aula Lantai 2</td><td data-label="Tahap"><span class="badge badge-secondary">Proses Offline</span></td><td data-label="Kekurangan">Peserta belum dipilih</td></tr>
-              <tr><td data-label="Tanggal">24/11/2026 09.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Monitoring Koperasi Kelurahan</a></th><td data-label="Tempat">Kantor Kelurahan Contoh</td><td data-label="Tahap"><span class="badge badge-outline">Input Awal</span></td><td data-label="Kekurangan">Tempat dan penyelenggara perlu dicek</td></tr>
-              <tr><td data-label="Tanggal">26/11/2026 09.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Rapat Evaluasi Triwulan</a></th><td data-label="Tempat">Ruang Rapat Utama</td><td data-label="Tahap"><span class="badge badge-outline">Input Awal</span></td><td data-label="Kekurangan">Jam selesai kosong</td></tr>
+              <tr><td data-label="Tanggal">23/11/2026 10.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Rapat Koordinasi Program UMKM Naik Kelas</a></th><td data-label="Tempat">Ruang Rapat Utama</td><td data-label="Tahap"><span class="badge badge-stage-details">Detail Lengkap</span></td><td data-label="Kekurangan">Surat undangan belum diisi</td></tr>
+              <tr><td data-label="Tanggal">23/11/2026 13.30</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Pelatihan Pengelolaan Keuangan Koperasi</a></th><td data-label="Tempat">Aula Lantai 2</td><td data-label="Tahap"><span class="badge badge-stage-offline">Proses Offline</span></td><td data-label="Kekurangan">Peserta belum dipilih</td></tr>
+              <tr><td data-label="Tanggal">24/11/2026 09.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Monitoring Koperasi Kelurahan</a></th><td data-label="Tempat">Kantor Kelurahan Contoh</td><td data-label="Tahap"><span class="badge badge-stage-initial">Input Awal</span></td><td data-label="Kekurangan">Tempat dan penyelenggara perlu dicek</td></tr>
+              <tr><td data-label="Tanggal">26/11/2026 09.00</td><th scope="row"><a class="inline-block min-h-6" href="admin-kegiatan.html">Rapat Evaluasi Triwulan</a></th><td data-label="Tempat">Ruang Rapat Utama</td><td data-label="Tahap"><span class="badge badge-stage-initial">Input Awal</span></td><td data-label="Kekurangan">Jam selesai kosong</td></tr>
             </tbody>
           </table>
         </div>

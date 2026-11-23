@@ -15,10 +15,10 @@
 <div class="grid min-h-dvh grid-rows-[auto_auto_1fr] shell:grid-cols-[16rem_1fr] shell:grid-rows-[auto_1fr]">
   <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning shell:col-span-full">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama adalah data contoh.</p>
 
-  <nav class="m-0 h-dvh w-[min(85dvw,18rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/50 **:focus-visible:outline-sidebar-ring shell:static shell:block shell:h-auto shell:w-auto" id="sidebar" popover="auto" aria-label="Menu admin">
-    <a class="flex items-center gap-3 border-b border-sidebar-accent pt-1 pb-4 font-extrabold text-white no-underline" href="admin-dashboard.html">
-      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
-      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Diskum Batam (contoh)</small></span>
+  <nav class="m-0 h-dvh w-[min(85dvw,16rem)] overflow-y-auto border-0 bg-sidebar p-4 text-sidebar-foreground [inset:0_auto_0_0] backdrop:bg-black/40 shell:static shell:block shell:h-auto shell:w-auto shell:border-e" id="sidebar" popover="auto" aria-label="Menu admin">
+    <a class="flex items-center gap-3 border-b pt-1 pb-4 font-bold text-heading no-underline" href="admin-dashboard.html">
+      <span class="grid size-9 place-items-center rounded-lg bg-gold text-xs font-extrabold text-gold-foreground" aria-hidden="true">SD</span>
+      <span class="leading-tight">SIMAK DISKUM<small class="block text-xs font-medium text-muted-foreground">Kota Batam (contoh)</small></span>
     </a>
     <ul class="mt-4 grid gap-1">
       <li><a class="sidebar-item" href="admin-dashboard.html">Dashboard</a></li>
@@ -30,14 +30,15 @@
       <li><span class="sidebar-item off">Pengaturan</span></li>
       <li><span class="sidebar-item off">Cadangan data</span></li>
     </ul>
-    <p class="mt-6 border-t border-sidebar-accent pt-4 text-xs text-sidebar-muted">Menu berwarna redup belum dibuat di contoh ini.</p>
-    <button class="btn btn-ghost mt-4 border-white text-white hover:bg-sidebar-accent hover:text-white shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
+    <p class="mt-6 border-t pt-4 text-xs text-muted-foreground">Menu berwarna redup belum dibuat di contoh ini.</p>
+    <button class="btn btn-outline mt-4 shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
   </nav>
 
   <div class="min-w-0">
-    <header class="flex min-h-14 items-center justify-between gap-4 border-b bg-background px-gutter py-3">
+    <header class="flex min-h-16 items-center gap-4 border-b bg-background px-gutter py-3">
       <button class="btn btn-outline shell:hidden" type="button" popovertarget="sidebar" aria-controls="sidebar">Menu</button>
-      <span class="ms-auto text-end text-sm text-muted-foreground">Petugas Contoh<br>Peran: Admin (contoh)</span>
+      <div class="leading-tight"><p class="text-base font-bold text-heading">Admin Portal</p><p class="text-xs text-muted-foreground max-sm:hidden">Sistem Informasi Manajemen Agenda Kedinasan</p></div>
+      <span class="ms-auto flex items-center gap-2"><span class="grid size-8 place-items-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">PC</span><span class="leading-tight">Petugas Contoh<small class="block text-xs text-muted-foreground">Peran: Admin (contoh)</small></span></span>
     </header>
     <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
       <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
@@ -106,7 +107,7 @@
 
           <section class="card px-6 py-6" aria-labelledby="h-status" data-pin="5">
             <h2 class="card-title mb-1" id="h-status">Status</h2>
-            <p class="mb-4">Sekarang: <span class="badge badge-outline">Terjadwal</span></p>
+            <p class="mb-4">Sekarang: <span class="badge badge-stage-details">Terjadwal</span></p>
             <p class="card-description mb-4">Selesai diatur otomatis setelah jam selesai lewat. Anda tidak perlu mengubahnya.</p>
             <details class="rounded-md border p-4">
               <summary class="min-h-6 cursor-pointer font-medium text-destructive">Batalkan kegiatan</summary>
@@ -129,7 +130,7 @@
             <h2 class="card-title" id="h-pratinjau">Pratinjau publik</h2>
             <p class="card-description">Persis seperti yang tampil di portal. Catatan internal tidak ikut.</p>
             <div class="rounded-lg border bg-tint p-4">
-              <p class="flex flex-wrap gap-2"><span class="badge badge-secondary">Rapat</span><span class="badge badge-outline">Terjadwal</span></p>
+              <p class="flex flex-wrap gap-2"><span class="badge badge-secondary">Rapat</span><span class="badge badge-stage-details">Terjadwal</span></p>
               <p class="mt-2 text-base font-bold text-heading">Rapat Koordinasi Program UMKM Naik Kelas</p>
               <p class="mt-1 text-sm">Senin, 23 November 2026 · 10.00 s.d. 12.00 WIB</p>
               <p class="text-sm">Ruang Rapat Utama · Bidang UMKM</p>

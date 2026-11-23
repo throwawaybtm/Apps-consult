@@ -28,7 +28,7 @@ SCENES.slice(0, -1).forEach((s) => {
 export const CUES: SfxCue[] = [
   ...whooshes,
   // A very soft pop whenever an orange highlight appears (same frames as the Highlight `at` props).
-  ...local("S3Home", [14, 96, 166], FILES.pop, 0.2, 8),
+  ...local("S3Home", [14, 92, 174], FILES.pop, 0.2, 8),
   ...local("S4Kalender", [14, 84, 164], FILES.pop, 0.2, 8),
   ...local("S5Detail", [14, 74, 144], FILES.pop, 0.2, 8),
   ...local("S6Dashboard", [14, 104], FILES.pop, 0.2, 8),

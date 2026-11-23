@@ -10,7 +10,13 @@ Date: 2026-11-23. Pages: `public-home`, `public-kalender`, `public-detail`, `adm
 ## Result after fixes
 axe: **no violations** on all six pages. Contrast: **no failing text** on any page. Tab walk: logical order (skip link, header, navigation, page content), every stop has a visible 3 px ring, nothing is covered by a sticky element. 320 px: no horizontal scroll, also with text-spacing overrides. Public menu and admin drawer open from the keyboard, close with Escape and return focus to their button. One `h1` per page, headings in order, labels on every field, no duplicate ids.
 
-## Found and fixed in this pass
+## Re-check after the restyle to the trial's look (2026-11-23)
+The mockups were restyled to match the trial app (white top bar, light sidebar, civic blue `#2563eb`, icon summary cards, stage colours; see `../DESIGN.md`). Everything above was re-run on the new pages: axe reports **no violations** on all six pages; computed contrast has no failing text; the Tab walk, focus rings, target sizes and 320 px reflow (also with text-spacing overrides) are unchanged and pass; the public menu and admin drawer still open from the keyboard, close with Escape and return focus.
+- **Trial colours that fail AA were darkened:** the trial's muted text `#64748b`, green `#16a34a`, amber `#d97706`, cyan `#0284c7` and blue text on soft blue are 3.0 to 4.1:1 on white or their soft fill. They became `#475569`, `#166534`, `#92400e`, `#075985` and `#1d4ed8` (list in `../DESIGN.md`).
+- **Two real findings from the re-check, both fixed:** the icon summary cards were a definition list with a decorative icon between its items (axe `definition-list`), so they are now a plain list; the four stage cards on the admin dashboard overflowed at 320 px, so they are one column on narrow phones.
+- The hero bridge illustration is decorative (`aria-hidden`); the hero text sits on a white to `#eff6ff` gradient and measures 7:1 or better.
+
+## Found and fixed in the first pass
 | # | Finding | Criterion | Fix |
 |---|---|---|---|
 | 1 | Placeholder text used the stock 50% tint of the text colour, about 3.2:1 | 1.4.3 | Placeholder uses `muted-foreground`, fully opaque (`input.css`) |
@@ -28,7 +34,6 @@ axe: **no violations** on all six pages. Contrast: **no failing text** on any pa
 - **Bentrok warning** has `role="status"`; in the app it must update as the fields change without moving focus (F9), and the field error for the meeting link must be linked with `aria-describedby` (already in the mockup) and announced on save.
 - **Report preview** (F14) is a visual stand-in for the A4 page; the downloaded PDF, Excel and image outputs need their own checks (tagged PDF, header row in Excel, text alternative for the image).
 - **Gold "now" row** on the public dashboard is supplemented by the "Berlangsung" badge text; keep that text in the app.
-- Presentation and video screenshots were taken before fixes 1 and 6, so they differ slightly from the current pages (placeholder tint, today ring). They are illustrations; re-run `presentation/capture-deck-shots.cjs` and `video/capture.cjs` if exact match matters.
 - **Needs a manual check (axe):** `label-content-name-mismatch` on the calendar previous and next buttons (they show ‹ and › and are spoken as "Bulan sebelumnya" and "Bulan berikutnya"). This is intended.
 
 ## Design choices that carry accessibility

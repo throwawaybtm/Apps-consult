@@ -14,57 +14,68 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  /* shadcn/ui semantic tokens */
+  /* shadcn/ui semantic tokens. Colours follow the trial app (docs/VISUAL_DESIGN_SYSTEM.md of the v5 trial),
+     with text and status colours darkened where the trial's values fail WCAG 2.2 AA. */
   --color-background: #ffffff;
-  --color-foreground: #101a3a;
+  --color-foreground: #0f172a;
   --color-card: #ffffff;
-  --color-card-foreground: #101a3a;
+  --color-card-foreground: #0f172a;
   --color-popover: #ffffff;
-  --color-popover-foreground: #101a3a;
-  --color-primary: #1d4ed8;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #2563eb;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #e0e7ff;
-  --color-secondary-foreground: #1e3a8a;
-  --color-muted: #f5f7fc;
-  --color-muted-foreground: #424c66;
-  --color-accent: #e0e7ff;
-  --color-accent-foreground: #1e3a8a;
+  --color-secondary: #eff6ff;
+  --color-secondary-foreground: #1e40af;
+  --color-muted: #f8fafc;
+  --color-muted-foreground: #475569;
+  --color-accent: #dbeafe;
+  --color-accent-foreground: #1d4ed8;
   --color-destructive: #b91c1c;
   --color-destructive-soft: #fee2e2;
   --color-success: #166534;
   --color-success-soft: #dcfce7;
   --color-warning: #92400e;
   --color-warning-soft: #fef3c7;
-  --color-border: #d5dbe8;
-  --color-input: #5b6580; /* darker than stock shadcn: WCAG 1.4.11 */
-  --color-ring: #1e3a8a;
-  --color-chart-1: #3b5bdb;
-  --color-sidebar: #0f1f4d;
-  --color-sidebar-foreground: #dfe5f7;
-  --color-sidebar-muted: #aab6d8;
-  --color-sidebar-accent: #1b2f6e;
-  --color-sidebar-accent-foreground: #ffffff;
-  --color-sidebar-ring: #c7d2fe;
+  --color-border: #e2e8f0;
+  --color-input: #64748b; /* darker than stock shadcn: WCAG 1.4.11 */
+  --color-ring: #1e40af;
+  --color-chart-1: #2563eb;
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #334155;
+  --color-sidebar-muted: #64748b;
+  --color-sidebar-accent: #dbeafe;
+  --color-sidebar-accent-foreground: #1d4ed8;
+  --color-sidebar-ring: #1e40af;
+
+  /* Administrative stages (F8) and operational status, trial hues made AA */
+  --color-stage-initial: #1d4ed8;
+  --color-stage-initial-soft: #eff6ff;
+  --color-stage-offline: #92400e;
+  --color-stage-offline-soft: #fef3c7;
+  --color-stage-details: #075985;
+  --color-stage-details-soft: #e0f2fe;
+  --color-stage-complete: #166534;
+  --color-stage-complete-soft: #dcfce7;
 
   /* Project-specific */
-  --color-heading: #14246b;
-  --color-tint: #f0f4ff;
-  --color-halo: #c7d2fe;
-  --color-page: #eceff7;
-  --color-gold: #f4b400;           /* "hari ini" marker, kop surat rule; never text on white */
+  --color-heading: #0f172a;
+  --color-tint: #eff6ff;
+  --color-halo: #bfdbfe;
+  --color-page: #f0f4f9;
+  --color-gold: #f4b400;           /* our touch: "hari ini" marker; never text on white */
   --color-gold-soft: #fff4cc;
   --color-gold-foreground: #3d2c00;
 
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
 
-  --breakpoint-nav: 52rem;
+  --breakpoint-nav: 60rem;
   --breakpoint-shell: 60rem;
   --spacing-gutter: clamp(1rem, 4vw, 2rem);
 }
 
 /* Centered page column used by the public site */
 @utility wrap {
-  inline-size: min(100% - 2 * var(--spacing-gutter), 72rem);
+  inline-size: min(100% - 2 * var(--spacing-gutter), 86rem);
   margin-inline: auto;
 }
 
@@ -99,6 +110,10 @@
   .badge-destructive { @apply bg-destructive text-white; }
   .badge-success { @apply bg-success-soft text-success; }
   .badge-warning { @apply bg-warning-soft text-warning; }
+  .badge-stage-initial { @apply bg-stage-initial-soft text-stage-initial; }
+  .badge-stage-offline { @apply bg-stage-offline-soft text-stage-offline; }
+  .badge-stage-details { @apply bg-stage-details-soft text-stage-details; }
+  .badge-stage-complete { @apply bg-stage-complete-soft text-stage-complete; }
   .badge-outline { @apply border-border text-foreground; }
 
   /* Card */
@@ -181,6 +196,8 @@
   .agenda-time { @apply text-2xl leading-none font-bold text-heading tabular-nums; }
   .agenda-time small { @apply mt-1 block text-xs font-medium text-muted-foreground; }
   .agenda-row[data-state="now"] { @apply -mx-4 border-s-4 border-s-gold bg-gold-soft/60 px-4; }
+  .icon-tile { @apply grid size-11 shrink-0 place-items-center rounded-lg; }
+  .icon-tile svg { @apply size-5; }
   .agenda-row[data-state="cancelled"] .agenda-title { @apply text-muted-foreground line-through decoration-1; }
 
   /* Stage progress (F8): a real sequence of four stages */

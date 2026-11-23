@@ -1,21 +1,21 @@
-/* SIMAK DISKUM deck. Type scale: 120 / 64 / 40 / 28 / 24. Palette from ../../../DESIGN.md: navy, royal blue, one gold marker, one orange for callout pins. */
+/* SIMAK DISKUM deck. Type scale: 120 / 64 / 40 / 28 / 24. Palette from ../../../DESIGN.md (the trial palette): navy, royal blue, one gold marker, one orange for callout pins. */
 :root {
-  --navy: #0F1F4D;
-  --navy-2: #1B2F6E;
-  --ink: #101A3A;
-  --body: #424C66;
-  --light: #F5F7FC;
-  --tint: #E8EEFF;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #0F172A;
+  --body: #475569;
+  --light: #F0F4F9;
+  --tint: #DBEAFE;
   --card: #FFFFFF;
-  --line: #D5DBE8;
-  --brand: #1D4ED8;
-  --heading: #14246B;
-  --halo: #C7D2FE;
+  --line: #E2E8F0;
+  --brand: #2563EB;
+  --heading: #0F172A;
+  --halo: #BFDBFE;
   --gold: #F4B400;
   --gold-ink: #3D2C00;
   --pin: #C2410C;
-  --on-dark: #F5F7FC;
-  --on-dark-2: #C9D3F0;
+  --on-dark: #F8FAFC;
+  --on-dark-2: #CBD5E1;
 }
 
 body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }

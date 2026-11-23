@@ -14,20 +14,24 @@
 <a class="absolute start-4 -top-16 z-100 rounded-md bg-foreground px-4 py-3 text-background focus:top-4" href="#konten">Lewati ke konten utama</a>
 <p class="bg-warning-soft px-gutter py-2 text-center text-sm text-warning">Contoh tampilan untuk diskusi, bukan desain akhir. Semua kegiatan, angka dan nama di halaman ini adalah data contoh.</p>
 
-<header class="border-b-4 border-b-gold bg-sidebar text-sidebar-foreground">
-  <div class="wrap flex min-h-17 items-center justify-between gap-4">
-    <a class="flex items-center gap-3 font-extrabold text-white no-underline" href="public-home.html">
-      <span class="grid size-10 place-items-center rounded-lg bg-gold text-sm text-gold-foreground" aria-hidden="true">SD</span>
-      <span>SIMAK DISKUM<small class="block text-xs leading-[1.2] font-medium text-sidebar-muted">Dinas Koperasi dan Usaha Mikro Kota Batam</small></span>
+<header class="border-b bg-background">
+  <div class="wrap flex min-h-16 items-center gap-4">
+    <a class="flex min-w-0 items-center gap-3 font-bold text-heading no-underline" href="public-home.html">
+      <span class="grid size-9 place-items-center rounded-lg bg-gold text-xs font-extrabold text-gold-foreground" aria-hidden="true">SD</span>
+      <span class="leading-tight">SIMAK DISKUM Kota Batam<small class="block text-xs font-medium text-muted-foreground max-[75rem]:hidden">Dinas Koperasi dan Usaha Mikro</small></span>
     </a>
-    <nav aria-label="Utama">
+    <nav class="ms-auto nav:mx-auto" aria-label="Utama">
       <button class="btn btn-outline [anchor-name:--menu-button] nav:hidden" type="button" popovertarget="site-menu" aria-controls="site-menu">Menu</button>
-      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-md border bg-popover p-1 text-popover-foreground shadow-md [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:text-sidebar-foreground nav:shadow-none">
-        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white aria-[current=page]:bg-sidebar-accent hover:bg-sidebar-accent hover:text-white" href="public-home.html">Beranda</a></li>
-        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white hover:bg-sidebar-accent hover:text-white" href="public-kalender.html" aria-current="page">Kalender</a></li>
-        <li><a class="btn w-full justify-start text-foreground no-underline nav:w-auto nav:text-white hover:bg-sidebar-accent hover:text-white" href="public-kalender.html#cari">Cari kegiatan</a></li>
+      <ul id="site-menu" popover="auto" class="fixed inset-auto mx-0 mt-2 mb-0 w-[min(80dvw,18rem)] rounded-md border bg-popover p-1 text-popover-foreground shadow-md [inset-block-start:anchor(--menu-button_bottom)] [inset-inline-end:var(--spacing-gutter)] nav:static nav:m-0 nav:flex nav:w-auto nav:gap-1 nav:overflow-visible nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none">
+        <li><a class="btn btn-ghost w-full justify-start no-underline nav:w-auto aria-[current=page]:bg-accent aria-[current=page]:text-accent-foreground" href="public-home.html">Beranda</a></li>
+        <li><a class="btn btn-ghost w-full justify-start no-underline nav:w-auto aria-[current=page]:bg-accent aria-[current=page]:text-accent-foreground" href="public-kalender.html" aria-current="page">Kalender</a></li>
+        <li><a class="btn btn-ghost w-full justify-start no-underline nav:w-auto aria-[current=page]:bg-accent aria-[current=page]:text-accent-foreground" href="public-kalender.html#cari">Cari kegiatan</a></li>
       </ul>
     </nav>
+    <div class="hidden items-center gap-3 nav:flex">
+      <form role="search" action="public-kalender.html"><input class="input w-52 rounded-full" type="search" name="q" aria-label="Cari agenda" placeholder="Cari agenda..."></form>
+      <span class="badge badge-secondary" title="Zona waktu">WIB</span>
+    </div>
   </div>
 </header>
 
@@ -117,9 +121,9 @@
 </section>
 </main>
 
-<footer class="bg-sidebar py-8 text-sm text-sidebar-muted">
+<footer class="border-t bg-background py-6 text-sm text-muted-foreground">
   <div class="wrap">
-    <p class="font-semibold text-sidebar-foreground">SIMAK DISKUM · Dinas Koperasi dan Usaha Mikro Kota Batam</p>
+    <p class="font-semibold text-foreground">SIMAK DISKUM · Dinas Koperasi dan Usaha Mikro Kota Batam</p>
     <p class="mt-1">Sistem Informasi Manajemen Agenda Kedinasan. Contoh tampilan, nama dan logo resmi menyusul.</p>
   </div>
 </footer>
