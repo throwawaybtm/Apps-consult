@@ -211,7 +211,7 @@ Open items before production (`GATE_A_CLIENT_ACCEPTANCE_HANDOFF.md`):
 | GAS as server layer, every endpoint checks Firebase identity | No server layer; Firestore rules only | Fine for Spark; the decision record should say so |
 | Free first (Spark) | Spark, $0/month | Matches |
 | WCAG **2.2** AA | Docs claim WCAG **2.1** AA | Run `check:a11y` against staging; check 2.2 additions (target size, focus not obscured) |
-| Never serve Drive files as public links | Stores a Drive URL on the invitation letter, internal by default | Confirm the URL never reaches `publicActivities` |
+| Never serve Drive files as public links | Stores a Drive URL on the invitation letter, internal by default | Checked: `projectPublicActivity()` builds the public copy from an explicit field list that has no `invitationLetter`, so the URL never reaches `publicActivities` (§9) |
 | Human checkpoint 3: personal data | Roster with NIPs is in the repo (see §8) | **Needs a decision now** |
 
 ## 8. Risks found while reading
@@ -220,3 +220,27 @@ Open items before production (`GATE_A_CLIENT_ACCEPTANCE_HANDOFF.md`):
 2. **Duplicate docs.** `docs/` at the root has drifted from `department-agenda-firebase/docs/` and holds unrelated ESP32 plans.
 3. **Machine-specific links.** Some docs link to `file:///d:/Temp/...`.
 4. **Status drift.** README badge says S04; the ledger says S06-D.
+
+## 9. Graphify check (code graph)
+
+Indexed by Graphify at commit `37f237c`, the same commit as the clone above, so the graph and this map describe the same code. **1,085 nodes, 1,941 edges, 97 communities.**
+
+Call chain for saving an activity, traced from resolved call edges:
+
+```mermaid
+graph LR
+  BL[bindListeners<br/>ActivityEditWorkflow.ts:296] --> SWA[saveWorkflowActivity<br/>ActivityEditWorkflow.ts:324]
+  SWA --> SA[saveActivity<br/>activityRepository.ts:59]
+  SA --> PPA[projectPublicActivity<br/>publicProjector.ts:25]
+  FORM[ActivityFormController.ts] --> GLP[generateLivePreviewDto :111] --> PPA
+  FORM --> EAC[evaluateActivityConflicts :141] --> FC[findConflicts<br/>conflictDetector.ts]
+```
+
+What the graph confirms:
+- **There is one write path.** `saveActivity()` is called from only one place in app code, `saveWorkflowActivity()`. Every save therefore goes through the same batch that writes the activity, its public copy and the audit entry.
+- **The public copy and the live preview use the same projector.** `projectPublicActivity()` has two app callers: the save, and the live public-preview card in the form. What the operator previews is what gets published.
+- **Conflict checking runs only in the admin form.** `findConflicts()` has one app caller, `evaluateActivityConflicts()`. Firestore rules don't check conflicts, so a write that skips the admin UI isn't checked either. For a client-side app with a warn-then-confirm flow, that is expected.
+- **Tests linked to the save path:** `repository.emulator.test.ts`, `publicPrivacyAudit.emulator.test.ts`, `firestore.rules.test.ts`. The projector also has `publicProjector.test.ts` and `masterData.test.ts`. The conflict detector has `conflictDetector.test.ts`.
+- **The Drive link stays private.** The projector copies an explicit list of fields. `invitationLetter` (including the Drive URL), `privateNotes`, `privateMeetingUrl` and `attendeeIds` aren't on it, and `publicNotes` goes through `sanitizePublicText()` first.
+
+Files Graphify ranks as the core: `activityRepository.ts`, `ActivityEditWorkflow.ts`, `ActivityFormController.ts`, `publicProjector.ts`, the public `AgendaView.ts` and `DashboardView.ts`, and the ops scripts `verifyProductionPreflight.mjs` and `backupRestore.mjs`.
