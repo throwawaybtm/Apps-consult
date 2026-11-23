@@ -52,6 +52,7 @@ research/ → prd.md → (client approves) → guidebook (HTML → PDF) + dev-ha
 - **Sound effects** come from **Openverse** (mostly Freesound) through `npm run sfx`, which saves them to `projects/<name>/video/public/sfx/` and records each one in `credits.json` there. Allowed: **CC0** and Public Domain Mark (no credit), and **CC BY** (needs a visible credit). The tool refuses NC, ND, SA and sampling+ licenses. Never add sounds by hand from elsewhere.
 - **Credits are the user's call per video:** before the final render, run `npm run sfx -- status <name>` and tell the user whether any CC BY sounds are used. If they want credits, add an end card that reads `credits.json` and shows each `credit` line; if not, swap the listed CC BY sounds for CC0 ones. Never ship a CC BY sound without its on-screen credit.
 - Keep effects subtle and under the captions: the video must still make sense on mute.
+- **Background music** follows the same rules and comes through the same tool (`npm run sfx -- search "<mood> background music"`). Keep it well under the effects and any voice (about −20 dB or lower), fade it in and out, and loop or trim it cleanly to the video's length.
 
 ## Human checkpoints: stop and ask at each one
 
