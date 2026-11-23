@@ -1,0 +1,68 @@
+[
+  {
+    "file": "whoosh-1-34ba7605.mp3",
+    "id": "34ba7605-bc18-4609-909c-87e4dc25bba9",
+    "title": "Whoosh #1",
+    "creator": "Kinoton",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"Whoosh #1\" by Kinoton, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/Kinoton/sounds/427823"
+  },
+  {
+    "file": "pop-2-7b1f829e.mp3",
+    "id": "7b1f829e-4a99-41bc-9b65-50e39c074751",
+    "title": "Pop 2",
+    "creator": "greenvwbeetle",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"Pop 2\" by greenvwbeetle, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/greenvwbeetle/sounds/244654"
+  },
+  {
+    "file": "soft-ui-button-click-aa763a9d.mp3",
+    "id": "aa763a9d-65bd-4f53-b1ad-a38a4dc1e475",
+    "title": "Soft UI Button Click",
+    "creator": "Jummit",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"Soft UI Button Click\" by Jummit, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/Jummit/sounds/528561"
+  },
+  {
+    "file": "chime-notification-adb6e260.mp3",
+    "id": "adb6e260-e493-43fd-a56e-8ceb4f477fe2",
+    "title": "Chime Notification",
+    "creator": "Jofae",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"Chime Notification\" by Jofae, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/Jofae/sounds/380482"
+  },
+  {
+    "file": "ui-sound-approval-high-pitched-bell-synt-a0bcc4b8.mp3",
+    "id": "a0bcc4b8-0355-4c06-9e3f-e2c8300bface",
+    "title": "[UI Sound] Approval - High Pitched Bell Synth",
+    "creator": "GabFitzgerald",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"[UI Sound] Approval - High Pitched Bell Synth\" by GabFitzgerald, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/GabFitzgerald/sounds/625174"
+  },
+  {
+    "file": "gentle-chime-tree-wav-f7ed0286.mp3",
+    "id": "f7ed0286-1a1d-4458-a38c-4823903683fa",
+    "title": "gentle chime tree.wav",
+    "creator": "johnnyguitar01",
+    "license": "cc0",
+    "licenseLabel": "CC0 1.0",
+    "needsCredit": false,
+    "credit": "\"gentle chime tree.wav\" by johnnyguitar01, CC0 1.0, via freesound",
+    "source": "https://freesound.org/people/johnnyguitar01/sounds/418164"
+  }
+]

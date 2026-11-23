@@ -11,6 +11,7 @@ import { S8Aturan } from "./scenes/S8Aturan";
 import { S9Fitur } from "./scenes/S9Fitur";
 import { S10Asumsi } from "./scenes/S10Asumsi";
 import { S11Tutup } from "./scenes/S11Tutup";
+import { SfxTrack } from "./components/SfxTrack";
 import { C, FPS, HEIGHT, SCENES, TOTAL_FRAMES, WIDTH } from "./theme";
 
 const COMPONENTS: Record<string, React.FC> = { S1Title, S2Masalah, S3Home, S4Form, S5Kode, S6Dashboard, S7Verifikasi, S8Aturan, S9Fitur, S10Asumsi, S11Tutup };
@@ -18,6 +19,7 @@ const COMPONENTS: Record<string, React.FC> = { S1Title, S2Masalah, S3Home, S4For
 // The whole walkthrough: scenes play one after another (about 82 seconds).
 const EBlud: React.FC = () => (
   <AbsoluteFill style={{ background: C.navy }}>
+  <SfxTrack />
   <Series>
     {SCENES.map((s) => {
       const Scene = COMPONENTS[s.id];
