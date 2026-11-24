@@ -2,7 +2,7 @@
 
 Dinas Koperasi dan Usaha Mikro Kota Batam
 
-Tanggal: 23 November 2026 · Status: Draft v1, menunggu persetujuan klien
+Tanggal: 23 November 2026 (diperbarui 24 November 2026: warna kategori di F1, F2, F13 dan daftar "Agenda minggu ini" di F6) · Status: Draft v1, menunggu persetujuan klien
 
 ## 1. Masalah dan tujuan
 
@@ -59,15 +59,17 @@ Semua waktu memakai **WIB (Asia/Jakarta)**. Tanggal ditulis DD/MM/YYYY.
 
 ### Portal publik
 
-**F1 Dashboard publik.** Halaman depan portal menampilkan agenda hari ini (WIB), diurutkan menurut jam mulai, dan ringkasan singkat: jumlah kegiatan hari ini, minggu ini dan bulan ini, serta kegiatan berikutnya. Kegiatan yang dibatalkan tetap tampil dengan tanda "Dibatalkan".
+**F1 Dashboard publik.** Halaman depan portal menampilkan agenda hari ini (WIB), diurutkan menurut jam mulai, dan ringkasan singkat: jumlah kegiatan hari ini, minggu ini dan bulan ini, serta kegiatan berikutnya. Kegiatan yang dibatalkan tetap tampil dengan tanda "Dibatalkan". Setiap baris agenda menampilkan warna kategorinya sebagai garis tipis di tepi kiri (lihat F13), dan nama kategori tetap tampil sebagai teks.
 - *Given* ada tiga kegiatan hari ini, *when* pengunjung membuka portal, *then* ketiganya tampil urut menurut jam mulai.
 - *Given* pukul 23.30 WIB dan perangkat pengunjung memakai zona waktu lain, *when* portal dibuka, *then* "hari ini" tetap mengikuti tanggal WIB.
 - *Given* tidak ada kegiatan hari ini, *when* portal dibuka, *then* tampil pesan "Tidak ada kegiatan hari ini" dan kegiatan berikutnya.
+- *Given* kegiatan berkategori "Rapat", *when* baris agendanya tampil, *then* ada garis tepi kiri berwarna kategori "Rapat" dan teks "Rapat" terbaca tanpa bergantung pada warna.
 
-**F2 Kalender.** Tampilan bulan, minggu, hari dan daftar. Pengunjung dapat berpindah periode (sebelumnya, berikutnya, hari ini). Di ponsel, tampilan daftar menjadi bawaan.
+**F2 Kalender.** Tampilan bulan, minggu, hari dan daftar. Pengunjung dapat berpindah periode (sebelumnya, berikutnya, hari ini). Di ponsel, tampilan daftar menjadi bawaan. Entri kalender memakai warna kategori (garis tipis di tepi kiri, teks tetap gelap pada latar muda); warna tidak pernah menjadi satu-satunya penanda, karena nama kategori tersedia sebagai teks lewat keterangan warna di bawah kalender dan di tampilan Daftar.
 - *Given* tampilan bulan, *when* pengunjung memilih satu tanggal, *then* tampilan hari untuk tanggal itu terbuka.
 - *Given* layar selebar 320 px, *when* kalender dibuka, *then* tampilan daftar muncul tanpa gulir menyamping.
 - *Given* kalender, *when* dioperasikan hanya dengan keyboard, *then* semua tampilan dan tombol periode dapat dijangkau dan dipakai.
+- *Given* entri kalender berkategori "Pelatihan", *when* kalender dibuka, *then* entri itu bergaris tepi warna "Pelatihan", dan keterangan warna di bawah kalender memuat nama "Pelatihan" sebagai teks.
 
 **F3 Pencarian dan filter.** Cari menurut kata kunci (nama kegiatan dan tempat), dan saring menurut rentang tanggal, kategori, penyelenggara dan status (Terjadwal, Selesai, Dibatalkan). Filter dapat digabung dan direset sekaligus.
 - *Given* filter kategori "Rapat" dan bulan Desember, *when* diterapkan, *then* hanya rapat di bulan Desember yang tampil, beserta jumlah hasilnya.
@@ -85,9 +87,13 @@ Semua waktu memakai **WIB (Asia/Jakarta)**. Tanggal ditulis DD/MM/YYYY.
 - *Given* akun login tetapi tidak punya peran, *when* masuk, *then* tampil "Akses ditolak" dan petunjuk menghubungi admin.
 - *Given* peran editor, *when* membuka menu data master, pengguna atau cadangan data, *then* menu itu tidak tersedia dan akses ditolak.
 
-**F6 Dashboard admin.** Kartu jumlah kegiatan per tahap administrasi (F8), dan daftar kegiatan yang belum lengkap (tahap belum "Administrasi Lengkap"), diurutkan dari tanggal terdekat. Setiap baris membuka formulir kegiatan itu.
+**F6 Dashboard admin.** Kartu jumlah kegiatan per tahap administrasi (F8), dan daftar kegiatan yang belum lengkap (tahap belum "Administrasi Lengkap"), diurutkan dari tanggal terdekat. Setiap baris membuka formulir kegiatan itu. Di bawahnya ada daftar singkat **"Agenda minggu ini"**: kegiatan minggu berjalan (Senin sampai Minggu, WIB) dengan tanggal, jam, nama kegiatan dan badge tahap administrasi, urut menurut waktu; setiap baris membuka formulir kegiatan itu, dan baris diberi garis warna kategori seperti di F1.
 - *Given* kegiatan baru disimpan di tahap "Input Awal", *when* dashboard dibuka, *then* angka "Input Awal" bertambah satu dan kegiatan itu masuk daftar belum lengkap.
 - *Given* kegiatan sudah "Administrasi Lengkap", *when* dashboard dibuka, *then* kegiatan itu tidak ada di daftar belum lengkap.
+- *Given* ada lima kegiatan pada minggu berjalan, *when* admin membuka dashboard, *then* "Agenda minggu ini" memuat kelimanya urut menurut tanggal dan jam, masing-masing dengan tanggal, jam, nama dan badge tahap.
+- *Given* daftar "Agenda minggu ini", *when* admin memilih satu baris, *then* formulir kegiatan itu terbuka.
+- *Given* kegiatan yang dibatalkan minggu ini, *when* daftar tampil, *then* barisnya ditandai "Dibatalkan" dengan teks, bukan hanya warna.
+- *Given* tidak ada kegiatan minggu ini, *when* dashboard dibuka, *then* tampil "Tidak ada kegiatan minggu ini".
 
 **F7 Formulir kegiatan satu halaman.** Membuat, mengubah, menduplikat dan menghapus kegiatan dalam **satu halaman** tanpa tab. Isian: nama kegiatan, tanggal, jam mulai, jam selesai (boleh kosong = "s.d. selesai"), tempat, penyelenggara, kategori, yang menghadiri (pilih dari data pegawai), catatan publik, catatan internal dan tautan rapat internal. Di samping (atau di bawah, pada ponsel) tampil **pratinjau publik langsung** yang sama persis dengan yang akan tampil di portal. Duplikat menyalin semua isian kecuali tanggal, status, tahap dan surat undangan. Hapus hanya untuk admin, dengan konfirmasi.
 - *Given* isian wajib (nama, tanggal, jam mulai, tempat, penyelenggara, kategori) belum diisi, *when* disimpan, *then* sistem menandai isian yang kurang di tempatnya dan tidak menyimpan.
@@ -121,10 +127,12 @@ Semua waktu memakai **WIB (Asia/Jakarta)**. Tanggal ditulis DD/MM/YYYY.
 - *Given* petugas A dan B membuka kegiatan yang sama, A menyimpan lebih dulu, *when* B menyimpan, *then* simpanan B ditolak dengan nama A dan waktu simpannya, dan isian B tetap ada di layar.
 - *Given* pesan itu tampil, *when* B memilih "Muat versi terbaru", *then* formulir memuat data simpanan A.
 
-**F13 Data master satu halaman.** Satu halaman berisi lima bagian: **pegawai, unit/bidang, ruangan/lokasi, penyelenggara, kategori**, dengan pencarian di tiap bagian. Ruangan/lokasi punya tipe (kantor, luar kantor, daring) dan tanda "dapat dipesan" untuk F9. Data yang sudah dipakai kegiatan **dinonaktifkan, bukan dihapus**; data nonaktif tidak muncul di pilihan formulir baru tetapi tetap tampil di kegiatan lama dan laporan. Hanya admin yang dapat mengubah data master.
+**F13 Data master satu halaman.** Satu halaman berisi lima bagian: **pegawai, unit/bidang, ruangan/lokasi, penyelenggara, kategori**, dengan pencarian di tiap bagian. Ruangan/lokasi punya tipe (kantor, luar kantor, daring) dan tanda "dapat dipesan" untuk F9. Data yang sudah dipakai kegiatan **dinonaktifkan, bukan dihapus**; data nonaktif tidak muncul di pilihan formulir baru tetapi tetap tampil di kegiatan lama dan laporan. Setiap **kategori** punya satu warna yang dipilih admin dari **6 warna tetap yang aksesibel** (kontras cukup terhadap latar putih, teks tetap gelap pada latar muda); kategori tanpa pilihan memakai abu-abu netral. Warna dipakai di F1, F2 dan F6 sebagai garis tipis di tepi kiri dan tidak pernah menjadi satu-satunya penanda. Hanya admin yang dapat mengubah data master.
 - *Given* ruangan sudah dipakai satu kegiatan, *when* admin menghapusnya, *then* sistem menolak dan menawarkan menonaktifkan.
 - *Given* pegawai dinonaktifkan, *when* formulir kegiatan baru dibuka, *then* pegawai itu tidak ada di pilihan, tetapi namanya tetap tampil di kegiatan lama.
 - *Given* nama penyelenggara sudah ada, *when* admin menambah nama yang sama, *then* ditolak sebagai duplikat.
+- *Given* admin memilih salah satu dari 6 warna untuk kategori "Rapat" dan menyimpan, *when* portal atau kalender dibuka, *then* entri dan baris agenda berkategori "Rapat" memakai warna itu, dan nama "Rapat" tetap tampil sebagai teks.
+- *Given* kategori baru yang belum diberi warna, *when* kegiatannya tampil, *then* garis tepinya abu-abu netral.
 
 **F14 Laporan 8 kolom.** Laporan jadwal resmi untuk rentang tanggal yang dipilih, dengan kolom tetap: `No | Hari / Tanggal | Pukul | Kegiatan | Tempat | Penyelenggara | Dihadiri Oleh | Keterangan`. Unduh sebagai **PDF (A4)**, **Excel (.xlsx)** dan **gambar** (PNG). Kegiatan yang dibatalkan ditandai "[DIBATALKAN]" dan Keterangan berisi pemberitahuan publiknya; alasan internal dan catatan internal tidak pernah masuk laporan. Pilihan untuk tidak menyertakan kegiatan yang dibatalkan.
 - *Given* rentang 1–31 Desember, *when* laporan dibuat, *then* semua kegiatan di rentang itu tampil urut tanggal dan jam, dengan delapan kolom di atas dan nomor berurutan.

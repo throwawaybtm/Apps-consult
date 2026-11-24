@@ -39,11 +39,10 @@
   <section class="bg-page py-6" aria-labelledby="judul-hero">
     <div class="wrap grid gap-6">
       <div class="grid overflow-hidden rounded-2xl border bg-linear-to-r from-background to-tint md:grid-cols-[1fr_26rem]">
-        <div class="p-8">
-          <h1 class="text-3xl font-extrabold text-heading" id="judul-hero">Selamat datang di SIMAK DISKUM</h1>
-          <p class="mt-2 max-w-xl text-base text-muted-foreground">Agenda kedinasan Dinas Koperasi dan Usaha Mikro Kota Batam, terbuka untuk masyarakat dan mitra.</p>
-          <p class="mt-4 font-semibold text-heading">Senin, 23 November 2026 · waktu WIB</p>
-          <a class="btn btn-default btn-lg mt-5" href="public-kalender.html">Buka kalender</a>
+        <div class="p-5 sm:p-8">
+          <h1 class="text-2xl font-extrabold text-heading sm:text-3xl" id="judul-hero">Selamat datang di SIMAK DISKUM</h1>
+          <p class="mt-2 max-w-xl text-base text-muted-foreground max-sm:hidden">Agenda kedinasan Dinas Koperasi dan Usaha Mikro Kota Batam, terbuka untuk masyarakat dan mitra.</p>
+          <a class="btn btn-default btn-lg mt-4 sm:mt-5" href="public-kalender.html">Buka kalender</a>
         </div>
         <div class="min-h-40 bg-halo/40 max-md:hidden"><svg class="h-full w-full" viewBox="0 0 448 200" role="presentation" aria-hidden="true" focusable="false">
   <rect x="0" y="150" width="448" height="50" fill="#bfdbfe"/>
@@ -58,53 +57,55 @@
 
       <section aria-labelledby="judul-ringkasan">
         <h2 class="sr-only" id="judul-ringkasan">Ringkasan</h2>
-        <ul role="list" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-pin="2">
-          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Hari ini</p><p class="text-2xl font-bold text-heading tabular-nums">4</p></li>
-          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Minggu ini</p><p class="text-2xl font-bold text-heading tabular-nums">11</p></li>
-          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Bulan ini</p><p class="text-2xl font-bold text-heading tabular-nums">38</p></li>
-          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4"><span class="icon-tile row-span-2 bg-stage-details-soft text-stage-details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="text-sm text-muted-foreground">Kegiatan berikutnya</p><p class="text-base font-semibold text-heading">Selasa 24/11, 09.00<span class="block text-sm font-normal text-muted-foreground">Monitoring Koperasi Kelurahan</span></p></li>
+        <ul role="list" class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" data-pin="2">
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4 max-sm:grid-cols-1 max-sm:gap-x-0 max-sm:px-3 max-sm:py-3"><span class="icon-tile row-span-2 max-sm:hidden bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Hari ini</p><p class="text-2xl font-bold text-heading tabular-nums">4</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4 max-sm:grid-cols-1 max-sm:gap-x-0 max-sm:px-3 max-sm:py-3"><span class="icon-tile row-span-2 max-sm:hidden bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Minggu ini</p><p class="text-2xl font-bold text-heading tabular-nums">8</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4 max-sm:grid-cols-1 max-sm:gap-x-0 max-sm:px-3 max-sm:py-3"><span class="icon-tile row-span-2 max-sm:hidden bg-stage-initial-soft text-stage-initial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><p class="text-sm text-muted-foreground">Bulan ini</p><p class="text-2xl font-bold text-heading tabular-nums">38</p></li>
+          <li class="card grid! grid-cols-[auto_1fr] items-center gap-x-4 gap-y-0 px-5 py-4 max-sm:grid-cols-1 max-sm:gap-x-0 max-sm:px-3 max-sm:py-3"><span class="icon-tile row-span-2 max-sm:hidden bg-stage-details-soft text-stage-details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><p class="text-sm text-muted-foreground">Kegiatan berikutnya</p><p class="text-base font-semibold text-heading"><span class="max-sm:hidden">Selasa </span>24/11, 09.00<span class="block text-sm font-normal text-muted-foreground max-sm:hidden">Monitoring Koperasi Kelurahan</span></p></li>
         </ul>
       </section>
 
       <section class="grid gap-6 lg:grid-cols-[14rem_1fr]" aria-labelledby="judul-hari-ini">
-        <div class="self-start">
-          <p class="text-8xl leading-none font-extrabold text-heading tabular-nums" aria-hidden="true">23</p>
-          <h2 class="mt-2 text-2xl text-heading" id="judul-hari-ini">Agenda hari ini</h2>
-          <p class="mt-1 text-muted-foreground">Senin, 23 November 2026</p>
+        <div class="flex items-center gap-4 self-start lg:block">
+          <p class="text-6xl leading-none font-extrabold text-heading tabular-nums lg:text-8xl" aria-hidden="true">23</p>
+          <div>
+            <h2 class="text-2xl text-heading lg:mt-2" id="judul-hari-ini">Agenda hari ini</h2>
+            <p class="mt-1 text-muted-foreground">Senin, 23 November 2026 · waktu WIB</p>
+          </div>
         </div>
         <div class="card gap-0 py-2" data-pin="1">
         <ol class="px-6" aria-label="Kegiatan hari ini">
-          <li class="agenda-row" data-state="done">
+          <li class="agenda-row cat-5" data-state="done">
             <p class="agenda-time">08.00<small>s.d. 09.30</small></p>
             <div>
               <h2 class="agenda-title text-base">Apel Pagi dan Arahan Kepala Dinas</h2>
-              <p class="text-sm text-muted-foreground">Halaman Kantor · Sekretariat</p>
+              <p class="text-sm text-muted-foreground">Apel · Halaman Kantor · Sekretariat</p>
             </div>
             <p class="self-start"><span class="badge badge-stage-complete">Selesai</span></p>
           </li>
-          <li class="agenda-row" data-state="now">
+          <li class="agenda-row cat-1" data-state="now">
             <p class="agenda-time">10.00<small>s.d. 12.00</small></p>
             <div>
               <h2 class="agenda-title text-base"><a href="public-detail.html">Rapat Koordinasi Program UMKM Naik Kelas</a></h2>
-              <p class="text-sm text-muted-foreground">Ruang Rapat Utama · Bidang UMKM</p>
+              <p class="text-sm text-muted-foreground">Rapat · Ruang Rapat Utama · Bidang UMKM</p>
               <p class="mt-1 text-sm">Dihadiri: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</p>
             </div>
             <p class="self-start"><span class="badge badge-warning">Berlangsung</span></p>
           </li>
-          <li class="agenda-row">
+          <li class="agenda-row cat-2">
             <p class="agenda-time">13.30<small>s.d. 15.00</small></p>
             <div>
               <h2 class="agenda-title text-base"><a href="public-detail.html">Pelatihan Pengelolaan Keuangan Koperasi</a></h2>
-              <p class="text-sm text-muted-foreground">Aula Lantai 2 · Bidang Koperasi</p>
+              <p class="text-sm text-muted-foreground">Pelatihan · Aula Lantai 2 · Bidang Koperasi</p>
               <p class="mt-1 text-sm">Dihadiri: Kepala Bidang Koperasi, Seksi Pembinaan</p>
             </div>
             <p class="self-start"><span class="badge badge-stage-details">Terjadwal</span></p>
           </li>
-          <li class="agenda-row" data-state="cancelled">
+          <li class="agenda-row cat-3" data-state="cancelled">
             <p class="agenda-time">15.30<small>s.d. selesai</small></p>
             <div>
               <h2 class="agenda-title text-base"><a href="public-detail.html#batal">Sosialisasi Pendaftaran NIB untuk Pelaku Mikro</a></h2>
-              <p class="text-sm text-muted-foreground">Aula Kecamatan Contoh · Bidang UMKM</p>
+              <p class="text-sm text-muted-foreground">Sosialisasi · Aula Kecamatan Contoh · Bidang UMKM</p>
               <p class="mt-1 text-sm font-medium text-destructive">Dibatalkan: dijadwalkan ulang pekan depan.</p>
             </div>
             <p class="self-start"><span class="badge badge-destructive">Dibatalkan</span></p>
@@ -120,7 +121,7 @@
       <h2 class="text-xl text-heading" id="judul-cari">Cari kegiatan</h2>
       <form class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_auto] lg:items-end" action="public-kalender.html" data-pin="3">
         <div class="grid gap-2"><label class="label" for="q">Kata kunci</label><input class="input" id="q" name="q" type="search" placeholder="Nama kegiatan atau tempat"></div>
-        <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Semua</option><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option><option>Monitoring</option></select></div>
+        <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Semua</option><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option><option>Monitoring</option><option>Apel</option><option>Pameran</option></select></div>
         <div class="grid gap-2"><label class="label" for="penyelenggara">Penyelenggara</label><select class="select" id="penyelenggara"><option>Semua</option><option>Sekretariat</option><option>Bidang Koperasi</option><option>Bidang UMKM</option></select></div>
         <div class="grid gap-2"><label class="label" for="status">Status</label><select class="select" id="status"><option>Semua</option><option>Terjadwal</option><option>Selesai</option><option>Dibatalkan</option></select></div>
         <button class="btn btn-default" type="submit">Cari</button>

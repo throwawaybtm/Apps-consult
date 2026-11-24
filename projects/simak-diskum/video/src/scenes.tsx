@@ -61,7 +61,7 @@ const H = R["public-home"];
 export const S3Home: React.FC = () => (
   <Scene id="S3Home">
     <LeftInfo eyebrow="Contoh layar 1 dari 7" title="Dashboard publik" chips={["F1", "F3"]} />
-    <BrowserFrame shot="public-home.png" pageHeight={H.height} panFrames={[0, 70, 110, 150, 200, 240]} panY={[0, 0, 200, 200, 330, 330]}>
+    <BrowserFrame shot="public-home.png" pageHeight={H.height} panFrames={[0, 70, 110, 150, 200, 240]} panY={[0, 0, 200, 200, 289, 289]}>
       <Highlight rect={H.p2} label="Ringkasan (F1)" n={1} at={14} until={84} />
       <Highlight rect={H.p1} label="Agenda hari ini (F1)" n={2} at={92} until={164} below />
       <Highlight rect={H.p3} label="Pencarian dan filter (F3)" n={3} at={174} />
@@ -100,9 +100,10 @@ const A = R["admin-dashboard"];
 export const S6Dashboard: React.FC = () => (
   <Scene id="S6Dashboard">
     <LeftInfo eyebrow="Contoh layar 4 dari 7" title="Dashboard admin" chips={["F6", "F8"]} />
-    <BrowserFrame shot="admin-dashboard.png" pageHeight={A.height} panFrames={[0, 210]} panY={[0, 0]}>
-      <Highlight rect={A.p1} label="Jumlah per tahap administrasi (F6)" n={1} at={14} until={104} />
-      <Highlight rect={A.p2} label="Belum lengkap, terdekat dulu (F6)" n={2} at={104} />
+    <BrowserFrame shot="admin-dashboard.png" pageHeight={A.height} panFrames={[0, 120, 170, 210]} panY={[0, 0, 307, 307]}>
+      <Highlight rect={A.p1} label="Jumlah per tahap administrasi (F6)" n={1} at={14} until={84} />
+      <Highlight rect={A.p2} label="Belum lengkap, terdekat dulu (F6)" n={2} at={84} until={150} />
+      <Highlight rect={A.p3} label="Agenda minggu ini, warna per kategori (F6)" n={3} at={164} />
     </BrowserFrame>
   </Scene>
 );
@@ -124,10 +125,10 @@ export const S7Form: React.FC = () => (
 export const S8Catatan: React.FC = () => (
   <Scene id="S8Catatan">
     <LeftInfo eyebrow="Contoh layar 5 dari 7" title="Catatan, surat, dan status" chips={["F8", "F10", "F11"]} />
-    <BrowserFrame shot="admin-kegiatan.png" pageHeight={F.height} panFrames={[0, 40, 130, 170, 270]} panY={[900, 940, 940, 1300, 1300]}>
+    <BrowserFrame shot="admin-kegiatan.png" pageHeight={F.height} panFrames={[0, 60, 270]} panY={[650, 700, 700]}>
       <Highlight rect={F.p3} label="Catatan publik dan internal (F11)" n={1} at={20} until={112} below />
-      <Highlight rect={F.p4} label="Surat undangan, hanya internal (F8)" n={2} at={112} until={192} below />
-      <Highlight rect={F.p5} label="Status: Selesai otomatis (F10)" n={3} at={192} />
+      <Highlight rect={F.p4} label="Surat undangan, tertutup (F8)" n={2} at={112} until={192} below />
+      <Highlight rect={F.p5} label="Status di kolom kanan (F10)" n={3} at={192} below labelRight />
     </BrowserFrame>
   </Scene>
 );

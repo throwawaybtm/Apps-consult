@@ -3,13 +3,13 @@
   {
    "n": "2",
    "x": 27,
-   "y": 281,
+   "y": 253,
    "visible": true
   },
   {
    "n": "1",
    "x": 193,
-   "y": 362,
+   "y": 335,
    "visible": true
   },
   {
@@ -71,6 +71,12 @@
    "x": 198,
    "y": 221,
    "visible": true
+  },
+  {
+   "n": "3",
+   "x": 198,
+   "y": 445,
+   "visible": true
   }
  ],
  "admin-kegiatan-a": [
@@ -99,15 +105,15 @@
    "visible": false
   },
   {
-   "n": "5",
-   "x": 198,
-   "y": 544,
-   "visible": false
-  },
-  {
    "n": "6",
    "x": 710,
    "y": 143,
+   "visible": true
+  },
+  {
+   "n": "5",
+   "x": 710,
+   "y": 387,
    "visible": true
   }
  ],
@@ -121,31 +127,31 @@
   {
    "n": "2",
    "x": 169,
-   "y": 0,
-   "visible": false
+   "y": 167,
+   "visible": true
   },
   {
    "n": "3",
    "x": 156,
-   "y": 22,
+   "y": 237,
    "visible": true
   },
   {
    "n": "4",
    "x": 156,
-   "y": 264,
-   "visible": true
-  },
-  {
-   "n": "5",
-   "x": 156,
-   "y": 465,
+   "y": 480,
    "visible": true
   },
   {
    "n": "6",
    "x": 766,
    "y": 14,
+   "visible": true
+  },
+  {
+   "n": "5",
+   "x": 766,
+   "y": 205,
    "visible": true
   }
  ],

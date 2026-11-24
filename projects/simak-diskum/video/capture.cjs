@@ -20,6 +20,7 @@ const pages = ["public-home", "public-kalender", "public-detail", "admin-dashboa
       const p = await ctx.newPage();
       await p.goto("file://" + path.join(mock, name + ".html"), { waitUntil: "load" });
       await p.evaluate(() => document.fonts.ready);
+      await p.addStyleTag({ content: ".savebar{position:static !important}" }); // sticky bar would float mid-page in a full-page shot
       out[name] = await p.evaluate(() => {
         const o = { height: document.documentElement.scrollHeight };
         for (const el of document.querySelectorAll("[data-pin]")) {

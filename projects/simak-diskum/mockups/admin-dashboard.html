@@ -24,13 +24,12 @@
       <li><a class="sidebar-item" href="admin-dashboard.html" aria-current="page">Dashboard</a></li>
       <li><a class="sidebar-item" href="admin-kegiatan.html">Formulir kegiatan</a></li>
       <li><a class="sidebar-item" href="admin-laporan.html">Laporan</a></li>
-      <li><span class="sidebar-item off">Data master</span></li>
-      <li><span class="sidebar-item off">Pengguna dan peran</span></li>
-      <li><span class="sidebar-item off">Riwayat perubahan</span></li>
-      <li><span class="sidebar-item off">Pengaturan</span></li>
-      <li><span class="sidebar-item off">Cadangan data</span></li>
+      <li><a class="sidebar-item" href="#">Data master</a></li>
+      <li><a class="sidebar-item" href="#">Pengguna dan peran</a></li>
+      <li><a class="sidebar-item" href="#">Riwayat perubahan</a></li>
+      <li><a class="sidebar-item" href="#">Pengaturan</a></li>
+      <li><a class="sidebar-item" href="#">Cadangan data</a></li>
     </ul>
-    <p class="mt-6 border-t pt-4 text-xs text-muted-foreground">Menu berwarna redup belum dibuat di contoh ini.</p>
     <button class="btn btn-outline mt-4 shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
   </nav>
 
@@ -69,6 +68,52 @@
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section class="card mt-6 gap-0 py-0" aria-labelledby="h-minggu" data-pin="3">
+        <div class="card-header divided pt-6"><h2 class="card-title" id="h-minggu">Agenda minggu ini</h2><p class="card-description">Senin 23 sampai Minggu 29 November 2026 · 8 kegiatan, urut menurut waktu. Pilih satu baris untuk membuka formulir.</p></div>
+        <ul role="list" class="px-6 py-2">
+        <li class="cat-5 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Apel. </span>Sen 23/11 · 08.00</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Apel Pagi dan Arahan Kepala Dinas</a>
+          <p class="flex gap-2"><span class="badge badge-stage-complete">Administrasi Lengkap</span></p>
+        </li>
+        <li class="cat-1 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Rapat. </span>Sen 23/11 · 10.00</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Rapat Koordinasi Program UMKM Naik Kelas</a>
+          <p class="flex gap-2"><span class="badge badge-stage-details">Detail Lengkap</span></p>
+        </li>
+        <li class="cat-2 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Pelatihan. </span>Sen 23/11 · 13.30</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Pelatihan Pengelolaan Keuangan Koperasi</a>
+          <p class="flex gap-2"><span class="badge badge-stage-offline">Proses Offline</span></p>
+        </li>
+        <li class="cat-3 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Sosialisasi. </span>Sen 23/11 · 15.30</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0 text-muted-foreground line-through" href="admin-kegiatan.html">Sosialisasi Pendaftaran NIB untuk Pelaku Mikro</a>
+          <p class="flex gap-2"><span class="badge badge-destructive">Dibatalkan</span> <span class="badge badge-stage-initial">Input Awal</span></p>
+        </li>
+        <li class="cat-4 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Monitoring. </span>Sel 24/11 · 09.00</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Monitoring Koperasi Kelurahan</a>
+          <p class="flex gap-2"><span class="badge badge-stage-initial">Input Awal</span></p>
+        </li>
+        <li class="cat-6 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Pameran. </span>Rab 25/11 · 09.00</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Pameran UMKM</a>
+          <p class="flex gap-2"><span class="badge badge-stage-complete">Administrasi Lengkap</span></p>
+        </li>
+        <li class="cat-1 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Rapat. </span>Kam 26/11 · 09.00</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Rapat Evaluasi Triwulan</a>
+          <p class="flex gap-2"><span class="badge badge-stage-initial">Input Awal</span></p>
+        </li>
+        <li class="cat-2 relative flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-s-4 border-b-border border-s-(--cat) py-3 ps-4 last:border-b-0">
+          <p class="w-full text-sm text-muted-foreground tabular-nums sm:w-36"><span class="sr-only">Pelatihan. </span>Jum 27/11 · 13.30</p>
+          <a class="inline-block min-h-6 min-w-0 flex-1 font-medium after:absolute after:inset-0" href="admin-kegiatan.html">Pelatihan Pemasaran Digital</a>
+          <p class="flex gap-2"><span class="badge badge-stage-offline">Proses Offline</span></p>
+        </li>
+        </ul>
       </section>
     </main>
   </div>

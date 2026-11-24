@@ -31,7 +31,7 @@ export const CUES: SfxCue[] = [
   ...local("S3Home", [14, 92, 174], FILES.pop, 0.2, 8),
   ...local("S4Kalender", [14, 84, 164], FILES.pop, 0.2, 8),
   ...local("S5Detail", [14, 74, 144], FILES.pop, 0.2, 8),
-  ...local("S6Dashboard", [14, 104], FILES.pop, 0.2, 8),
+  ...local("S6Dashboard", [14, 84, 164], FILES.pop, 0.2, 8),
   ...local("S7Form", [16, 120, 230], FILES.pop, 0.2, 8),
   ...local("S8Catatan", [20, 112, 192], FILES.pop, 0.2, 8),
   ...local("S9Laporan", [14, 84, 176], FILES.pop, 0.2, 8),

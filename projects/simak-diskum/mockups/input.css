@@ -57,6 +57,23 @@
   --color-stage-complete: #166534;
   --color-stage-complete-soft: #dcfce7;
 
+  /* Category colours (F13): six fixed accessible hues. The strong colour is a thin strip (3:1 or better
+     against white); the soft fill carries dark text, so text contrast is always the ink colour on a light fill. */
+  --color-cat-0: #64748b;
+  --color-cat-0-soft: #f1f5f9;
+  --color-cat-1: #2563eb;
+  --color-cat-1-soft: #dbeafe;
+  --color-cat-2: #16a34a;
+  --color-cat-2-soft: #dcfce7;
+  --color-cat-3: #ea580c;
+  --color-cat-3-soft: #ffedd5;
+  --color-cat-4: #7c3aed;
+  --color-cat-4-soft: #ede9fe;
+  --color-cat-5: #0d9488;
+  --color-cat-5-soft: #ccfbf1;
+  --color-cat-6: #e11d48;
+  --color-cat-6-soft: #ffe4e6;
+
   /* Project-specific */
   --color-heading: #0f172a;
   --color-tint: #eff6ff;
@@ -192,10 +209,10 @@
   .select { @apply flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base text-foreground shadow-xs md:text-sm; }
 
   /* Agenda row on the public dashboard: a time rail (start time large, end time small) */
-  .agenda-row { @apply grid grid-cols-[4.75rem_1fr] gap-4 border-b py-4 last:border-b-0 sm:grid-cols-[6rem_1fr_auto]; }
+  .agenda-row { @apply grid grid-cols-[4.75rem_1fr] gap-4 border-b py-4 ps-4 last:border-b-0 sm:grid-cols-[6rem_1fr_auto]; border-inline-start: 4px solid var(--cat, var(--color-cat-0)); }
   .agenda-time { @apply text-2xl leading-none font-bold text-heading tabular-nums; }
   .agenda-time small { @apply mt-1 block text-xs font-medium text-muted-foreground; }
-  .agenda-row[data-state="now"] { @apply -mx-4 border-s-4 border-s-gold bg-gold-soft/60 px-4; }
+  .agenda-row[data-state="now"] { @apply bg-gold-soft/60; }
   .icon-tile { @apply grid size-11 shrink-0 place-items-center rounded-lg; }
   .icon-tile svg { @apply size-5; }
   .agenda-row[data-state="cancelled"] .agenda-title { @apply text-muted-foreground line-through decoration-1; }
@@ -215,8 +232,8 @@
   .cal-day .n { @apply mb-1 inline-grid size-6 place-items-center rounded-full text-xs font-medium; }
   .cal-day.out { @apply bg-muted/60 text-muted-foreground; }
   .cal-day[aria-current="date"] .n { @apply bg-gold font-bold text-gold-foreground ring-2 ring-gold-foreground; }
-  .cal-ev { @apply mb-1 block min-h-6 truncate leading-5 rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground no-underline max-sm:hidden; }
-  .cal-ev.cancelled { @apply bg-destructive-soft text-destructive line-through; }
+  .cal-ev { @apply mb-1 block min-h-6 truncate leading-5 rounded-sm px-1.5 py-0.5 text-xs text-foreground no-underline max-sm:hidden; border-inline-start: 4px solid var(--cat, var(--color-cat-0)); background: var(--cat-soft, var(--color-cat-0-soft)); }
+  .cal-ev.cancelled { @apply text-destructive line-through; }
   .cal-dot { @apply hidden size-1.5 rounded-full bg-primary max-sm:inline-block; }
 
   /* Report paper (F14-F16): A4 sheet preview */
@@ -226,4 +243,27 @@
   .paper th { @apply bg-[#e9ecf5] text-center font-bold; }
   .paper tr.cancelled td { @apply text-[#7f1d1d]; }
   .kop { @apply grid grid-cols-[4.5rem_1fr] items-center gap-4 border-b-4 border-double border-black pb-3 text-center; }
+}
+
+@layer components {
+  /* Category colour helpers: set --cat and --cat-soft on any element */
+  .cat-0 { --cat: var(--color-cat-0); --cat-soft: var(--color-cat-0-soft); }
+  .cat-1 { --cat: var(--color-cat-1); --cat-soft: var(--color-cat-1-soft); }
+  .cat-2 { --cat: var(--color-cat-2); --cat-soft: var(--color-cat-2-soft); }
+  .cat-3 { --cat: var(--color-cat-3); --cat-soft: var(--color-cat-3-soft); }
+  .cat-4 { --cat: var(--color-cat-4); --cat-soft: var(--color-cat-4-soft); }
+  .cat-5 { --cat: var(--color-cat-5); --cat-soft: var(--color-cat-5-soft); }
+  .cat-6 { --cat: var(--color-cat-6); --cat-soft: var(--color-cat-6-soft); }
+  .badge-cat { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-medium whitespace-nowrap text-foreground; border-inline-start: 4px solid var(--cat, var(--color-cat-0)); background: var(--cat-soft, var(--color-cat-0-soft)); }
+
+  /* Date and time picker (shadcn date picker pattern): a text field in the Indonesian format plus a button
+     that opens a popover. Typing always works; the popover is an extra. */
+  .datefield-btn { @apply absolute end-0.5 top-0.5 grid size-8 cursor-pointer place-items-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground; }
+  .datefield-btn svg { @apply size-4; }
+  .picker { @apply m-0 w-72 rounded-md border bg-popover p-3 text-popover-foreground shadow-md; }
+  .pk-day { @apply grid size-9 cursor-pointer place-items-center rounded-md text-sm hover:bg-accent aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-[current=date]:ring-2 aria-[current=date]:ring-gold-foreground; }
+  .pk-time { @apply grid h-9 cursor-pointer place-items-center rounded-md text-sm tabular-nums hover:bg-accent aria-pressed:bg-primary aria-pressed:text-primary-foreground; }
+
+  /* Sticky save bar (F7): stays at the bottom of the viewport; the page sets scroll-padding so a focused field is never hidden behind it */
+  .savebar { @apply sticky bottom-0 z-10 -mx-gutter flex flex-wrap items-center gap-x-4 gap-y-2 border-t bg-background px-gutter py-3; box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.06); }
 }

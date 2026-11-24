@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-pb-28">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,13 +24,12 @@
       <li><a class="sidebar-item" href="admin-dashboard.html">Dashboard</a></li>
       <li><a class="sidebar-item" href="admin-kegiatan.html" aria-current="page">Formulir kegiatan</a></li>
       <li><a class="sidebar-item" href="admin-laporan.html">Laporan</a></li>
-      <li><span class="sidebar-item off">Data master</span></li>
-      <li><span class="sidebar-item off">Pengguna dan peran</span></li>
-      <li><span class="sidebar-item off">Riwayat perubahan</span></li>
-      <li><span class="sidebar-item off">Pengaturan</span></li>
-      <li><span class="sidebar-item off">Cadangan data</span></li>
+      <li><a class="sidebar-item" href="#">Data master</a></li>
+      <li><a class="sidebar-item" href="#">Pengguna dan peran</a></li>
+      <li><a class="sidebar-item" href="#">Riwayat perubahan</a></li>
+      <li><a class="sidebar-item" href="#">Pengaturan</a></li>
+      <li><a class="sidebar-item" href="#">Cadangan data</a></li>
     </ul>
-    <p class="mt-6 border-t pt-4 text-xs text-muted-foreground">Menu berwarna redup belum dibuat di contoh ini.</p>
     <button class="btn btn-outline mt-4 shell:hidden" type="button" popovertarget="sidebar" popovertargetaction="hide">Tutup menu</button>
   </nav>
 
@@ -40,10 +39,10 @@
       <div class="leading-tight"><p class="text-base font-bold text-heading">Admin Portal</p><p class="text-xs text-muted-foreground max-sm:hidden">Sistem Informasi Manajemen Agenda Kedinasan</p></div>
       <span class="ms-auto flex items-center gap-2"><span class="grid size-8 place-items-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">PC</span><span class="leading-tight">Petugas Contoh<small class="block text-xs text-muted-foreground">Peran: Admin (contoh)</small></span></span>
     </header>
-    <main class="min-w-0 px-gutter pt-5 pb-12" id="konten">
+    <main class="min-w-0 px-gutter pt-5 pb-0" id="konten">
       <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
         <div><p class="text-sm"><a class="inline-block min-h-6" href="admin-dashboard.html">Dashboard</a> / Formulir kegiatan</p><h1 class="mt-1 text-2xl">Ubah kegiatan</h1></div>
-        <div class="flex flex-wrap gap-2"><button class="btn btn-outline" type="button">Duplikat</button><button class="btn btn-outline text-destructive" type="button">Hapus (hanya admin)</button></div>
+        <button class="btn btn-outline" type="button">Duplikat</button>
       </div>
 
       <section class="card mb-5 gap-3 px-6 py-5" aria-labelledby="h-tahap" data-pin="1">
@@ -57,21 +56,43 @@
         <div><button class="btn btn-default" type="button">Majukan ke Administrasi Lengkap</button></div>
       </section>
 
-      <div class="grid items-start gap-5 xl:grid-cols-[1fr_22rem]">
-        <form class="grid gap-5" aria-label="Formulir kegiatan">
+      <form id="form-kegiatan" class="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-[1fr_22rem]" aria-label="Formulir kegiatan">
+        <div class="grid gap-5">
           <section class="card px-6 py-6" aria-labelledby="h-kegiatan">
             <h2 class="card-title mb-4" id="h-kegiatan">Kegiatan</h2>
             <div class="grid gap-4 sm:grid-cols-2">
               <div class="grid gap-2 sm:col-span-2"><label class="label" for="nama">Nama kegiatan</label><input class="input" id="nama" value="Rapat Koordinasi Program UMKM Naik Kelas" required></div>
-              <div class="grid gap-2"><label class="label" for="tgl">Tanggal</label><input class="input" id="tgl" type="date" value="2026-11-23" required></div>
+              <div class="grid gap-2"><label class="label" for="tgl">Tanggal</label>
+          <div class="relative">
+            <input class="input pe-11" id="tgl" name="tgl" type="text" inputmode="numeric" autocomplete="off" placeholder="hh/bb/tttt" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" value="23/11/2026" required>
+            <button class="datefield-btn" type="button" popovertarget="pk-tgl" aria-label="Pilih tanggal dari kalender" style="anchor-name:--a-tgl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></button>
+            <div class="picker" id="pk-tgl" popover role="dialog" aria-label="Kalender: Tanggal" style="position-anchor:--a-tgl;inset:auto;top:anchor(bottom);right:anchor(right);margin:.25rem 0 0">
+              <div class="flex items-center justify-between pb-2"><button class="btn btn-ghost size-8 p-0" type="button" aria-label="Bulan sebelumnya">‹</button><p class="text-sm font-semibold" aria-live="polite">November 2026</p><button class="btn btn-ghost size-8 p-0" type="button" aria-label="Bulan berikutnya">›</button></div>
+              <div class="grid grid-cols-7 justify-items-center"><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sen</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sel</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Rab</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Kam</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Jum</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sab</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Min</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><button class="pk-day" type="button" aria-label="1 November 2026" aria-pressed="false">1</button><button class="pk-day" type="button" aria-label="2 November 2026" aria-pressed="false">2</button><button class="pk-day" type="button" aria-label="3 November 2026" aria-pressed="false">3</button><button class="pk-day" type="button" aria-label="4 November 2026" aria-pressed="false">4</button><button class="pk-day" type="button" aria-label="5 November 2026" aria-pressed="false">5</button><button class="pk-day" type="button" aria-label="6 November 2026" aria-pressed="false">6</button><button class="pk-day" type="button" aria-label="7 November 2026" aria-pressed="false">7</button><button class="pk-day" type="button" aria-label="8 November 2026" aria-pressed="false">8</button><button class="pk-day" type="button" aria-label="9 November 2026" aria-pressed="false">9</button><button class="pk-day" type="button" aria-label="10 November 2026" aria-pressed="false">10</button><button class="pk-day" type="button" aria-label="11 November 2026" aria-pressed="false">11</button><button class="pk-day" type="button" aria-label="12 November 2026" aria-pressed="false">12</button><button class="pk-day" type="button" aria-label="13 November 2026" aria-pressed="false">13</button><button class="pk-day" type="button" aria-label="14 November 2026" aria-pressed="false">14</button><button class="pk-day" type="button" aria-label="15 November 2026" aria-pressed="false">15</button><button class="pk-day" type="button" aria-label="16 November 2026" aria-pressed="false">16</button><button class="pk-day" type="button" aria-label="17 November 2026" aria-pressed="false">17</button><button class="pk-day" type="button" aria-label="18 November 2026" aria-pressed="false">18</button><button class="pk-day" type="button" aria-label="19 November 2026" aria-pressed="false">19</button><button class="pk-day" type="button" aria-label="20 November 2026" aria-pressed="false">20</button><button class="pk-day" type="button" aria-label="21 November 2026" aria-pressed="false">21</button><button class="pk-day" type="button" aria-label="22 November 2026" aria-pressed="false">22</button><button class="pk-day" type="button" aria-label="23 November 2026" aria-pressed="true" aria-current="date" autofocus>23</button><button class="pk-day" type="button" aria-label="24 November 2026" aria-pressed="false">24</button><button class="pk-day" type="button" aria-label="25 November 2026" aria-pressed="false">25</button><button class="pk-day" type="button" aria-label="26 November 2026" aria-pressed="false">26</button><button class="pk-day" type="button" aria-label="27 November 2026" aria-pressed="false">27</button><button class="pk-day" type="button" aria-label="28 November 2026" aria-pressed="false">28</button><button class="pk-day" type="button" aria-label="29 November 2026" aria-pressed="false">29</button><button class="pk-day" type="button" aria-label="30 November 2026" aria-pressed="false">30</button></div>
+            </div>
+          </div></div>
               <div class="grid grid-cols-2 gap-2">
-                <div class="grid gap-2"><label class="label" for="mulai">Jam mulai</label><input class="input" id="mulai" type="time" value="10:00" required></div>
-                <div class="grid gap-2"><label class="label" for="selesai">Jam selesai</label><input class="input" id="selesai" type="time" value="12:00" aria-describedby="h-selesai"></div>
+                <div class="grid gap-2"><label class="label" for="mulai">Jam mulai</label>
+                  <div class="relative">
+                    <input class="input pe-11" id="mulai" name="mulai" type="text" inputmode="numeric" autocomplete="off" placeholder="jj.mm" pattern="[0-9]{2}\.[0-9]{2}" value="10.00" required>
+                    <button class="datefield-btn" type="button" popovertarget="pk-mulai" aria-label="Pilih jam mulai dari daftar" style="anchor-name:--a-mulai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></button>
+                    <div class="picker" id="pk-mulai" popover role="dialog" aria-label="Daftar jam: Jam mulai" style="width:14rem;position-anchor:--a-mulai;inset:auto;top:anchor(bottom);right:anchor(right);margin:.25rem 0 0">
+                      <div class="grid max-h-56 grid-cols-3 gap-1 overflow-y-auto"><button class="pk-time" type="button" aria-pressed="false">07.00</button><button class="pk-time" type="button" aria-pressed="false">07.30</button><button class="pk-time" type="button" aria-pressed="false">08.00</button><button class="pk-time" type="button" aria-pressed="false">08.30</button><button class="pk-time" type="button" aria-pressed="false">09.00</button><button class="pk-time" type="button" aria-pressed="false">09.30</button><button class="pk-time" type="button" aria-pressed="true" autofocus>10.00</button><button class="pk-time" type="button" aria-pressed="false">10.30</button><button class="pk-time" type="button" aria-pressed="false">11.00</button><button class="pk-time" type="button" aria-pressed="false">11.30</button><button class="pk-time" type="button" aria-pressed="false">12.00</button><button class="pk-time" type="button" aria-pressed="false">12.30</button><button class="pk-time" type="button" aria-pressed="false">13.00</button><button class="pk-time" type="button" aria-pressed="false">13.30</button><button class="pk-time" type="button" aria-pressed="false">14.00</button><button class="pk-time" type="button" aria-pressed="false">14.30</button><button class="pk-time" type="button" aria-pressed="false">15.00</button><button class="pk-time" type="button" aria-pressed="false">15.30</button><button class="pk-time" type="button" aria-pressed="false">16.00</button><button class="pk-time" type="button" aria-pressed="false">16.30</button><button class="pk-time" type="button" aria-pressed="false">17.00</button><button class="pk-time" type="button" aria-pressed="false">17.30</button></div>
+                    </div>
+                  </div></div>
+                <div class="grid gap-2"><label class="label" for="selesai">Jam selesai</label>
+                  <div class="relative">
+                    <input class="input pe-11" id="selesai" name="selesai" type="text" inputmode="numeric" autocomplete="off" placeholder="jj.mm" pattern="[0-9]{2}\.[0-9]{2}" value="12.00" aria-describedby="h-selesai">
+                    <button class="datefield-btn" type="button" popovertarget="pk-selesai" aria-label="Pilih jam selesai dari daftar" style="anchor-name:--a-selesai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></button>
+                    <div class="picker" id="pk-selesai" popover role="dialog" aria-label="Daftar jam: Jam selesai" style="width:14rem;position-anchor:--a-selesai;inset:auto;top:anchor(bottom);right:anchor(right);margin:.25rem 0 0">
+                      <div class="grid max-h-56 grid-cols-3 gap-1 overflow-y-auto"><button class="pk-time" type="button" aria-pressed="false">07.00</button><button class="pk-time" type="button" aria-pressed="false">07.30</button><button class="pk-time" type="button" aria-pressed="false">08.00</button><button class="pk-time" type="button" aria-pressed="false">08.30</button><button class="pk-time" type="button" aria-pressed="false">09.00</button><button class="pk-time" type="button" aria-pressed="false">09.30</button><button class="pk-time" type="button" aria-pressed="false">10.00</button><button class="pk-time" type="button" aria-pressed="false">10.30</button><button class="pk-time" type="button" aria-pressed="false">11.00</button><button class="pk-time" type="button" aria-pressed="false">11.30</button><button class="pk-time" type="button" aria-pressed="true" autofocus>12.00</button><button class="pk-time" type="button" aria-pressed="false">12.30</button><button class="pk-time" type="button" aria-pressed="false">13.00</button><button class="pk-time" type="button" aria-pressed="false">13.30</button><button class="pk-time" type="button" aria-pressed="false">14.00</button><button class="pk-time" type="button" aria-pressed="false">14.30</button><button class="pk-time" type="button" aria-pressed="false">15.00</button><button class="pk-time" type="button" aria-pressed="false">15.30</button><button class="pk-time" type="button" aria-pressed="false">16.00</button><button class="pk-time" type="button" aria-pressed="false">16.30</button><button class="pk-time" type="button" aria-pressed="false">17.00</button><button class="pk-time" type="button" aria-pressed="false">17.30</button></div>
+                    </div>
+                  </div></div>
               </div>
-              <p class="text-xs text-muted-foreground sm:col-span-2" id="h-selesai">Kosongkan jam selesai bila belum pasti. Di portal tertulis "s.d. selesai".</p>
+              <p class="text-xs text-muted-foreground sm:col-span-2" id="h-selesai">Format 24 jam, contoh 10.00. Kosongkan jam selesai bila belum pasti; di portal tertulis "s.d. selesai".</p>
               <div class="grid gap-2"><label class="label" for="tempat">Tempat</label><select class="select" id="tempat" aria-describedby="bentrok-ruang"><option>Ruang Rapat Utama</option><option>Aula Lantai 2</option><option>Ruang Rapat Bidang Koperasi</option><option>Daring (Zoom)</option></select></div>
               <div class="grid gap-2"><label class="label" for="penyelenggara">Penyelenggara</label><select class="select" id="penyelenggara"><option>Bidang UMKM</option><option>Bidang Koperasi</option><option>Sekretariat</option></select></div>
-              <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option><option>Monitoring</option></select></div>
+              <div class="grid gap-2"><label class="label" for="kategori">Kategori</label><select class="select" id="kategori"><option>Rapat</option><option>Pelatihan</option><option>Sosialisasi</option><option>Monitoring</option><option>Apel</option><option>Pameran</option></select></div>
               <div class="grid gap-2"><label class="label" for="hadir">Dihadiri oleh</label><select class="select" id="hadir"><option>3 dipilih: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</option></select></div>
             </div>
 
@@ -94,20 +115,47 @@
             </div>
           </section>
 
-          <section class="card px-6 py-6" aria-labelledby="h-surat" data-pin="4">
-            <h2 class="card-title mb-1" id="h-surat">Surat undangan <span class="badge badge-warning">Internal</span></h2>
-            <p class="card-description mb-4">Dipakai untuk melengkapi administrasi. Tidak pernah tampil di portal publik.</p>
-            <div class="grid gap-4 sm:grid-cols-2">
+          <details class="group card gap-0 py-0" data-pin="4">
+            <summary class="flex min-h-14 cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 px-6 py-4 [&::-webkit-details-marker]:hidden"><span class="card-title">Surat undangan</span><span class="badge badge-warning">Internal</span><span class="text-sm text-muted-foreground">Belum diisi · diperlukan untuk Administrasi Lengkap</span><svg class="ms-auto size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="grid gap-4 px-6 pt-2 pb-6 sm:grid-cols-2">
+              <p class="card-description sm:col-span-2">Dipakai untuk melengkapi administrasi. Tidak pernah tampil di portal publik.</p>
               <div class="grid gap-2"><label class="label" for="no">Nomor agenda</label><input class="input" id="no" placeholder="Contoh: 123/AG/XI/2026"></div>
-              <div class="grid gap-2"><label class="label" for="tglsurat">Tanggal surat</label><input class="input" id="tglsurat" type="date"></div>
+              <div class="grid gap-2"><label class="label" for="tglsurat">Tanggal surat</label>
+          <div class="relative">
+            <input class="input pe-11" id="tglsurat" name="tglsurat" type="text" inputmode="numeric" autocomplete="off" placeholder="hh/bb/tttt" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" value="">
+            <button class="datefield-btn" type="button" popovertarget="pk-tglsurat" aria-label="Pilih tanggal surat dari kalender" style="anchor-name:--a-tglsurat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></button>
+            <div class="picker" id="pk-tglsurat" popover role="dialog" aria-label="Kalender: Tanggal surat" style="position-anchor:--a-tglsurat;inset:auto;top:anchor(bottom);right:anchor(right);margin:.25rem 0 0">
+              <div class="flex items-center justify-between pb-2"><button class="btn btn-ghost size-8 p-0" type="button" aria-label="Bulan sebelumnya">‹</button><p class="text-sm font-semibold" aria-live="polite">November 2026</p><button class="btn btn-ghost size-8 p-0" type="button" aria-label="Bulan berikutnya">›</button></div>
+              <div class="grid grid-cols-7 justify-items-center"><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sen</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sel</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Rab</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Kam</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Jum</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Sab</span><span class="grid h-8 place-items-center text-xs text-muted-foreground">Min</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><button class="pk-day" type="button" aria-label="1 November 2026" aria-pressed="false">1</button><button class="pk-day" type="button" aria-label="2 November 2026" aria-pressed="false">2</button><button class="pk-day" type="button" aria-label="3 November 2026" aria-pressed="false">3</button><button class="pk-day" type="button" aria-label="4 November 2026" aria-pressed="false">4</button><button class="pk-day" type="button" aria-label="5 November 2026" aria-pressed="false">5</button><button class="pk-day" type="button" aria-label="6 November 2026" aria-pressed="false">6</button><button class="pk-day" type="button" aria-label="7 November 2026" aria-pressed="false">7</button><button class="pk-day" type="button" aria-label="8 November 2026" aria-pressed="false">8</button><button class="pk-day" type="button" aria-label="9 November 2026" aria-pressed="false">9</button><button class="pk-day" type="button" aria-label="10 November 2026" aria-pressed="false">10</button><button class="pk-day" type="button" aria-label="11 November 2026" aria-pressed="false">11</button><button class="pk-day" type="button" aria-label="12 November 2026" aria-pressed="false">12</button><button class="pk-day" type="button" aria-label="13 November 2026" aria-pressed="false">13</button><button class="pk-day" type="button" aria-label="14 November 2026" aria-pressed="false">14</button><button class="pk-day" type="button" aria-label="15 November 2026" aria-pressed="false">15</button><button class="pk-day" type="button" aria-label="16 November 2026" aria-pressed="false">16</button><button class="pk-day" type="button" aria-label="17 November 2026" aria-pressed="false">17</button><button class="pk-day" type="button" aria-label="18 November 2026" aria-pressed="false">18</button><button class="pk-day" type="button" aria-label="19 November 2026" aria-pressed="false">19</button><button class="pk-day" type="button" aria-label="20 November 2026" aria-pressed="false">20</button><button class="pk-day" type="button" aria-label="21 November 2026" aria-pressed="false">21</button><button class="pk-day" type="button" aria-label="22 November 2026" aria-pressed="false">22</button><button class="pk-day" type="button" aria-label="23 November 2026" aria-pressed="false" aria-current="date" autofocus>23</button><button class="pk-day" type="button" aria-label="24 November 2026" aria-pressed="false">24</button><button class="pk-day" type="button" aria-label="25 November 2026" aria-pressed="false">25</button><button class="pk-day" type="button" aria-label="26 November 2026" aria-pressed="false">26</button><button class="pk-day" type="button" aria-label="27 November 2026" aria-pressed="false">27</button><button class="pk-day" type="button" aria-label="28 November 2026" aria-pressed="false">28</button><button class="pk-day" type="button" aria-label="29 November 2026" aria-pressed="false">29</button><button class="pk-day" type="button" aria-label="30 November 2026" aria-pressed="false">30</button></div>
+            </div>
+          </div></div>
               <div class="grid gap-2 sm:col-span-2"><label class="label" for="perihal">Perihal</label><input class="input" id="perihal"></div>
               <div class="grid gap-2 sm:col-span-2"><label class="label" for="drive">Link Google Drive</label><input class="input" id="drive" type="url" placeholder="https://drive.google.com/..."></div>
             </div>
+          </details>
+
+          <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-destructive/40 bg-card px-6 py-4">
+            <div><p class="font-semibold">Hapus kegiatan</p><p class="text-sm text-muted-foreground">Permanen dan hanya untuk admin. Kegiatan akan hilang dari portal dan laporan berikutnya.</p></div>
+            <button class="btn btn-outline text-destructive" type="button">Hapus kegiatan</button>
+          </div>
+        </div>
+
+        <aside class="grid content-start gap-5 xl:sticky xl:top-4" aria-label="Pratinjau dan status">
+          <section class="card gap-3 px-5 py-5" aria-labelledby="h-pratinjau" data-pin="6">
+            <h2 class="card-title" id="h-pratinjau">Pratinjau publik</h2>
+            <p class="card-description">Persis seperti yang tampil di portal. Catatan internal tidak ikut.</p>
+            <div class="cat-1 rounded-lg border border-s-4 border-s-(--cat) bg-tint p-4">
+              <p class="flex flex-wrap gap-2"><span class="badge-cat cat-1">Rapat</span><span class="badge badge-stage-details">Terjadwal</span></p>
+              <p class="mt-2 text-base font-bold text-heading">Rapat Koordinasi Program UMKM Naik Kelas</p>
+              <p class="mt-1 text-sm">Senin, 23 November 2026 · 10.00 s.d. 12.00 WIB</p>
+              <p class="text-sm">Ruang Rapat Utama · Bidang UMKM</p>
+              <p class="mt-2 text-sm text-muted-foreground">Dihadiri: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</p>
+            </div>
           </section>
 
-          <section class="card px-6 py-6" aria-labelledby="h-status" data-pin="5">
+          <section class="card px-5 py-5" aria-labelledby="h-status" data-pin="5">
             <h2 class="card-title mb-1" id="h-status">Status</h2>
-            <p class="mb-4">Sekarang: <span class="badge badge-stage-details">Terjadwal</span></p>
+            <p class="mb-3">Sekarang: <span class="badge badge-stage-details">Terjadwal</span></p>
             <p class="card-description mb-4">Selesai diatur otomatis setelah jam selesai lewat. Anda tidak perlu mengubahnya.</p>
             <details class="rounded-md border p-4">
               <summary class="min-h-6 cursor-pointer font-medium text-destructive">Batalkan kegiatan</summary>
@@ -118,27 +166,13 @@
               </div>
             </details>
           </section>
-
-          <div class="flex flex-wrap items-center gap-3">
-            <button class="btn btn-default btn-lg" type="submit">Simpan kegiatan</button>
-            <p class="text-sm text-muted-foreground">Bila orang lain sudah mengubah kegiatan ini, simpanan Anda ditahan dan isian Anda tetap ada (F12).</p>
-          </div>
-        </form>
-
-        <aside class="xl:sticky xl:top-4" aria-labelledby="h-pratinjau" data-pin="6">
-          <div class="card gap-3 px-5 py-5">
-            <h2 class="card-title" id="h-pratinjau">Pratinjau publik</h2>
-            <p class="card-description">Persis seperti yang tampil di portal. Catatan internal tidak ikut.</p>
-            <div class="rounded-lg border bg-tint p-4">
-              <p class="flex flex-wrap gap-2"><span class="badge badge-secondary">Rapat</span><span class="badge badge-stage-details">Terjadwal</span></p>
-              <p class="mt-2 text-base font-bold text-heading">Rapat Koordinasi Program UMKM Naik Kelas</p>
-              <p class="mt-1 text-sm">Senin, 23 November 2026 · 10.00 s.d. 12.00 WIB</p>
-              <p class="text-sm">Ruang Rapat Utama · Bidang UMKM</p>
-              <p class="mt-2 text-sm text-muted-foreground">Dihadiri: Kepala Dinas, Kepala Bidang UMKM, Kasubag Umum</p>
-            </div>
-          </div>
         </aside>
-      </div>
+
+        <div class="savebar min-w-0 max-sm:py-2 xl:col-span-2">
+          <button class="btn btn-default btn-lg" type="submit">Simpan kegiatan</button>
+          <p class="max-w-2xl text-sm text-muted-foreground max-sm:text-xs">Bila orang lain sudah mengubah kegiatan ini, simpanan Anda ditahan dan isian Anda tetap ada (F12).</p>
+        </div>
+      </form>
     </main>
   </div>
 </div>

@@ -20,9 +20,9 @@ Output: `out/simak-demo.mp4` (committed, like e-BLUD; re-render it with the comm
 | 3 | Public dashboard (`S3Home`) | 8 | F1, F3 | Portal publik: agenda hari ini urut jam, dengan ringkasan dan pencarian. |
 | 4 | Calendar (`S4Kalender`) | 8 | F2, F3 | Kalender bulan, minggu, hari, dan daftar, lengkap dengan pencarian dan filter. |
 | 5 | Detail (`S5Detail`) | 7 | F4, F10, F11 | Detail kegiatan, dan pemberitahuan bila dibatalkan. Alasan internal tidak pernah tampil. |
-| 6 | Admin dashboard (`S6Dashboard`) | 7 | F6, F8 | Petugas melihat jumlah kegiatan per tahap dan apa yang masih perlu dilengkapi. |
+| 6 | Admin dashboard (`S6Dashboard`) | 7 | F6, F8, F13 | Petugas melihat jumlah kegiatan per tahap, apa yang masih perlu dilengkapi, dan agenda minggu ini. |
 | 7 | Form, top (`S7Form`) | 11 | F7, F8, F9 | Satu halaman untuk satu kegiatan: tahap administrasi, peringatan bentrok di dalam formulir, dan pratinjau publik. |
-| 8 | Form, notes and status (`S8Catatan`) | 9 | F8, F10, F11 | Tautan rapat di catatan publik ditahan. Selesai otomatis; Batalkan butuh alasan. |
+| 8 | Form, notes and status (`S8Catatan`) | 9 | F8, F10, F11 | Tautan rapat di catatan publik ditahan. Surat undangan tertutup sampai dibutuhkan; Selesai otomatis, Batalkan butuh alasan. |
 | 9 | Report (`S9Laporan`) | 9 | F14, F15, F16 | Laporan 8 kolom dengan kop surat dan tanda tangan, siap diunduh sebagai PDF, Excel, atau gambar. |
 | 10 | 19 features (`S10Fitur`) | 6 | F1 to F19 | Sembilan belas fitur, dari portal publik sampai cadangan data. |
 | 11 | Seven decisions (`S11Keputusan`) | 5 | none (PRD section 8) | Ada tujuh hal yang perlu Dinas putuskan sebelum PRD disetujui. |
@@ -37,7 +37,7 @@ Subtle effects and quiet music (music about -21 dB, effects quieter than a spoke
 | Moment | Sound | Creator | License |
 |---|---|---|---|
 | Each scene change (11) | Whoosh #1 | Kinoton | CC0 |
-| Each orange highlight appearing | Pop 2 | greenvwbeetle | CC0 |
+| Each orange highlight appearing (19 cues) | Pop 2 | greenvwbeetle | CC0 |
 | Report offered for download (scene 9) | Soft UI Button Click | Jummit | CC0 |
 | Signature block shown (scene 9) | [UI Sound] Approval - High Pitched Bell Synth | GabFitzgerald | CC0 |
 | Closing screen | gentle chime tree | johnnyguitar01 | CC0 |
