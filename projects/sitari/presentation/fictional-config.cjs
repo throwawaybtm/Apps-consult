@@ -31,7 +31,7 @@ function rewrite(templateRel, targetRel) {
   const out = template.replace(/\{ id: '([a-z-]+)', bidang: ('[^']*'), pic: '[^']*', phone: '[^']*' \}/g, (m, id, bidang) => {
     if (!PICS[id]) throw new Error('No fictional PIC for ' + id);
     n++;
-    const phone = '0812000000' + String(Object.keys(PICS).indexOf(id) + 10);
+    const phone = '62812000000' + String(Object.keys(PICS).indexOf(id) + 10); // 62-format, as the real config expects
     return `{ id: '${id}', bidang: ${bidang}, pic: '${PICS[id]}', phone: '${phone}' }`;
   });
   if (!n || n % Object.keys(PICS).length) throw new Error(`${templateRel}: replaced ${n} PICs, expected a multiple of ${Object.keys(PICS).length}`);
