@@ -28,7 +28,7 @@ const setClock = (date, hm) => { clock = at(date, hm); };
 const STAFF = [
   ['Drs. Hendra Wijaya, M.Si.', 'Kepala Dinas', 'Kepala Dinas', 'Pembina Utama Muda (IV/c)'],
   ['Ratna Dewi, S.H., M.H.', 'Sekretaris', 'Sekretariat', 'Pembina Tk. I (IV/b)'],
-  ['Agus Salim, S.E., M.M.', 'Kepala Bidang Pemberdayaan dan Perlindungan Koperasi', 'Bidang Pemberdayaan dan Perlindungan Koperasi', 'Pembina (IV/a)'],
+  ['Agus Setiawan, S.E., M.M.', 'Kepala Bidang Pemberdayaan dan Perlindungan Koperasi', 'Bidang Pemberdayaan dan Perlindungan Koperasi', 'Pembina (IV/a)'],
   ['Siti Rahmawati, S.E.', 'Kepala Bidang Pengawasan Koperasi', 'Bidang Pengawasan Koperasi', 'Pembina (IV/a)'],
   ['Budi Santoso, S.T., M.M.', 'Kepala Bidang Pengembangan Usaha Mikro', 'Bidang Pengembangan Usaha Mikro', 'Pembina (IV/a)'],
   ['Indah Permatasari, S.Sos.', 'Kepala Bidang Kewirausahaan', 'Bidang Kewirausahaan', 'Pembina (IV/a)'],
@@ -66,6 +66,7 @@ const PHOTO = (() => {
   return list;
 })();
 
+const LETTER = f => 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, 'seed-letters', f)).toString('base64');
 let base;
 async function api(fn, payload = {}) {
   const res = await fetch(`${base}/api/${fn}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) });
@@ -109,8 +110,8 @@ function tldPayload(v, tanggal, jam) {
   return {
     instansi: v.instansi, alamat: v.alamat, ketua_nama: v.ketua_nama, pengikut_list: v.pengikut_list, jumlah_orang: v.jumlah_orang,
     keperluan: v.keperluan, narahubung_hp: v.narahubung_hp, tanggal_kunjungan: tanggal, jam_kunjungan: jam, tujuan_bidang: v.bidang, bawa_sppd: 0,
-    surat_kunjungan_base64: pdf('Surat Permohonan Kunjungan', [v.instansi, 'Perihal: ' + v.keperluan, 'Tanggal: ' + tanggal]),
-    surat_tugas_base64: pdf('Surat Tugas', [v.instansi, 'Ketua rombongan: ' + v.ketua_nama])
+    surat_kunjungan_base64: LETTER('surat-permohonan.png'),
+    surat_tugas_base64: LETTER('surat-tugas.png')
   };
 }
 const roomUtama = '6001', roomBidang = '6002', roomPimpinan = '6003', roomPlut = '6005';
@@ -126,7 +127,7 @@ async function runTld(v, { submitOn, tanggal, jam, end, room, until }) {
   await wf(kode, 'confirm');
   if (until === 'Dikonfirmasi') return kode;
   setClock(submitOn, '13:30');
-  await wf(kode, 'disposisi', { file: { name: 'Lembar Disposisi.pdf', data: pdf('Lembar Disposisi', ['Kepada: ' + v.bidang.join(', '), 'Perihal: ' + v.keperluan, 'Diteruskan untuk ditindaklanjuti.']) } });
+  await wf(kode, 'disposisi', { file: { name: 'Lembar Disposisi.png', data: LETTER('disposisi.png') } });
   if (until === 'Sudah Disposisi') return kode;
   await wf(kode, 'notify');
   await wf(kode, 'book', { booking: { ruangan_id: room, tanggal, jam_mulai: jam, jam_selesai: end } });
@@ -209,9 +210,12 @@ async function seed() {
   // Photos and E-Notula for the two finished meetings, then lock last week's Rapat Pimpinan.
   for (const [m, date, hm] of [[rapim, '2026-11-16', '10:30'], [evalRapat, '2026-11-18', '16:00']]) {
     setClock(date, hm);
-    await api('saveAgendaPhotos', { rapat_id: m.id, files: PHOTO.slice(0, 2) });
+    await api('saveAgendaPhotos', { rapat_id: m.id, files: [PHOTO[PHOTO.length - 1]] });
     await api('saveAgendaNotula', { rapat_id: m.id, file: { name: 'E-Notula.pdf', data: pdf('Notula Rapat', [m.judul_rapat, 'Tanggal: ' + date, 'Ringkasan dan tindak lanjut.']) } });
   }
+  // Today's Rapat Pimpinan has its photo, so the E-Notula composer can open.
+  setClock(TODAY, '09:40');
+  await api('saveAgendaPhotos', { rapat_id: pagi.id, files: [PHOTO[PHOTO.length - 1]] });
   setClock('2026-11-17', '08:00');
   await api('lockAgendaRapat', { rapat_id: rapim.id }).catch(e => console.warn('lock:', e.message));
 
