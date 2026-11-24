@@ -1,0 +1,28 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-24T09:00:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "SI-TARI DISKUM: aplikasi tamu dan rapat",
+  "cover": "cover",
+  "order": [
+    "cover", "agenda",
+    "bagian-1", "sebelum", "perubahan", "pengguna", "dashboard", "fitur",
+    "bagian-2", "alur", "s-tld", "s-tdd", "s-bukutamu", "s-konfirmasi", "s-notifikasi", "s-kedatangan", "s-sppd",
+    "s-rapat", "s-presensi", "s-notula", "s-laporan", "s-ponsel",
+    "keamanan", "status", "tutup"
+  ],
+  "sections": {
+    "s1": { "description": "Pembukaan dan agenda.", "start": "cover" },
+    "s2": { "description": "Mengapa SI-TARI membantu: sebelum dan sesudah, pengguna, dashboard, enam belas fitur.", "start": "bagian-1" },
+    "s3": { "description": "Pemakaian sehari-hari: alur tamu, rapat, presensi, notula, laporan dan ponsel.", "start": "bagian-2" },
+    "s4": { "description": "Keamanan data, status uji coba dan penutup.", "start": "keamanan" }
+  },
+  "faces": {
+    "plus-jakarta-sans": {
+      "family": "Plus Jakarta Sans",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    }
+  },
+  "designSystems": []
+}
