@@ -25,6 +25,33 @@ npm run check:a11y -- projects/sitari/mockups/v3.5/dashboard.html projects/sitar
 
 The Pesisir palette comes from the theme proposal in the sitari-diskum-v3.5 repo (`docs/proposals/2026-11-25-theme-batam-pesisir`, revision 2). All its text and status-pill pairs are 5.9:1 or more, and the axe scan reports no violations. Whether the build uses it is the client's decision.
 
+## Owner revision (2026-11-25): v3 wording and v3's compact layout
+
+**The owner's rule:** change the layout, not v3's wording, and put a compact layout first. So:
+
+- **Wording is v3's, except "FO".**
+  - Labels as in v3: "Tamu Hari Ini", "Tipe Kedatangan", "Rapat Hari Ini", "Kendali SPPD", "Kunjungan Tamu Terbaru", "Pemakaian ruangan saat ini", "Semua", "Detail", "Belum Ditugaskan", "Jadwalkan Rapat".
+  - The table uses v3's column titles: ID & Waktu, Asal Instansi / Pengunjung, Detail Tamu & Kontak, Bidang Tujuan & Agenda, Penerima Tamu, Status, Aksi.
+  - Meeting states use v3's words: Selesai, Berlangsung, Terjadwal.
+  - The owner dislikes "FO", so the walk-in type is called **Dalam** (Tamu Dalam Daerah, TDD), v3's other name for it.
+- **The two dialogs use v3's forms.**
+  - **Walk-in visitor:** "Pendaftaran Kunjungan Tamu Dalam Daerah". It has the TDD form's fields, labels and placeholders, and its "Kirim Pendaftaran Kunjungan" button. There is no "staf tujuan", because v3 routes by bidang. The Persetujuan Kontak box is new.
+  - **Meeting:** "Buat Agenda Rapat Baru", with v3's fields in v3's order:
+    - Judul Agenda Rapat, Pilih Ruangan Rapat, Tanggal, Jam Mulai, Jam Selesai;
+    - Bidang Penyelenggara, then Pimpinan Rapat (filled in from Master_Pegawai but still editable);
+    - Agenda / Keterangan;
+    - the "Jadwalkan" button.
+- **Compact layout from v3:**
+  - On phones: a one-line header with the sign-out button, a 2×2 grid of the four v3 cards, and v3's bottom menu (Dashboard, Buku Tamu, Jadwal Rapat, Lainnya). The visits show as v3 cards: instansi, ketua (N Orang), status and Detail.
+  - "Rapat Hari Ini" sits above the visits, as in v3; on wide screens its meetings form one row.
+  - The visits table runs full width, with the agenda and address cut to one line.
+- **New pieces kept small:**
+  - "Menunggu Konfirmasi" is a count chip next to "Semua".
+  - "Siap Diverifikasi" is one line in the Kendali SPPD card.
+  - The signed-in account sits in the header.
+  - The dashboard search box is gone; Buku Tamu has search.
+- Both `dashboard.html` (v3 colours) and `dashboard-pesisir.html` (Batam Pesisir) use this markup. Make the Pesisir page by copying `dashboard.html` and swapping the stylesheet link, title and footer line.
+
 ## Dashboard: what changed from the first draft, and why
 
 The first draft (Tailwind CDN, Lucide from unpkg, sample data) was reviewed on 2026-11-25. This version fixes:

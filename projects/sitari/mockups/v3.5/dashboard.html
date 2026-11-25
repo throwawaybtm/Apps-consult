@@ -32,315 +32,321 @@
     <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
     <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
   </defs>
 </svg>
 
 <a href="#main" class="visually-hidden btn btn-primary absolute left-4 top-4 z-50">Lewati ke konten utama</a>
 
-<!-- Header: the app's green-to-navy band. The real app shows the Pemko Batam crest in the tile. -->
-<header class="on-dark bg-linear-to-br from-header-from via-header-via to-header-to text-white pb-20">
+<!-- Header: v3 layout and wording. Phones get v3's one-line header; the tabs move to the bottom menu. -->
+<header class="on-dark bg-linear-to-br from-header-from via-header-via to-header-to text-white pb-14 max-md:pb-12">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 border-b border-white/15 py-4">
+    <div class="flex items-center gap-3 border-b border-white/15 py-3 md:gap-6 md:py-4">
       <a href="dashboard.html" class="flex min-w-0 items-center gap-3 text-white no-underline">
-        <span class="grid size-11 flex-none place-items-center rounded-control bg-white/10 ring-1 ring-white/25">
-          <svg class="size-6 text-on-dark" aria-hidden="true"><use href="#i-building"/></svg>
+        <span class="grid size-10 flex-none place-items-center rounded-control bg-white/10 ring-1 ring-white/25 md:size-11">
+          <svg class="size-5 text-on-dark md:size-6" aria-hidden="true"><use href="#i-building"/></svg>
         </span>
         <span class="min-w-0 leading-tight">
-          <span class="block text-lg font-extrabold tracking-tight sm:text-xl">SI-TARI DISKUM</span>
-          <span class="block text-sm text-on-dark-muted">Tamu dan rapat internal, Dinas Koperasi dan Usaha Mikro Kota Batam</span>
+          <span class="block text-lg font-extrabold tracking-tight whitespace-nowrap md:text-xl">SI-TARI DISKUM</span>
+          <span class="block text-sm text-on-dark-muted max-md:hidden">Sistem Informasi Tamu &amp; Rapat Internal Dinas Koperasi dan Usaha Mikro</span>
         </span>
       </a>
-
-      <div class="ms-auto flex items-center gap-4">
-        <p class="text-right leading-tight max-sm:hidden">
-          <time id="clock" class="block font-mono text-base font-bold tabular-nums">10:15:00 WIB</time>
-          <span id="today" class="text-sm text-on-dark">Rabu, 25 November 2026</span>
+      <div class="ms-auto flex items-center gap-3 md:gap-4">
+        <p class="text-right leading-tight">
+          <time id="clock" class="block font-mono text-sm font-bold tabular-nums md:text-base">10:15:00 WIB</time>
+          <span id="today" class="text-xs whitespace-nowrap text-on-dark md:text-sm">Rabu, 25 November 2026</span>
         </p>
-        <!-- v3.5: signed in with Gmail through Firebase Auth -->
-        <div class="flex items-center gap-2 rounded-control bg-white/10 py-1.5 pe-1.5 ps-3 ring-1 ring-white/20">
-          <span class="leading-tight">
+        <!-- v3.5: signed in with Gmail (Firebase Auth). Phones show only the sign-out button. -->
+        <div class="flex items-center gap-2 rounded-control md:bg-white/10 md:py-1.5 md:pe-1.5 md:ps-3 md:ring-1 md:ring-white/20">
+          <span class="leading-tight max-md:hidden">
             <span class="block text-sm font-semibold">Admin Contoh</span>
             <span class="block text-xs text-on-dark">admin.contoh@gmail.com</span>
           </span>
-          <button type="button" class="icon-btn size-9! border-white/30! bg-transparent! text-white! hover:bg-white/15!" aria-label="Keluar dari SI-TARI">
+          <button type="button" class="icon-btn size-9! border-white/30! bg-transparent! text-white! hover:bg-white/15!" aria-label="Keluar (admin.contoh@gmail.com)">
             <svg aria-hidden="true"><use href="#i-logout"/></svg>
           </button>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap items-center justify-between gap-3 py-4">
-      <nav aria-label="Menu utama">
+    <div class="flex flex-wrap items-center justify-between gap-2 py-3 md:py-4">
+      <nav aria-label="Menu utama" class="max-md:hidden">
         <ul class="flex flex-wrap gap-1.5">
           <li><a href="dashboard.html" aria-current="page" class="btn bg-white text-heading">
             <svg aria-hidden="true"><use href="#i-dashboard"/></svg>Dashboard</a></li>
-          <li><a href="#buku-tamu" class="btn text-white hover:bg-white/12">
-            <svg aria-hidden="true"><use href="#i-book"/></svg>Buku Tamu</a></li>
-          <li><a href="#jadwal-rapat" class="btn text-white hover:bg-white/12">
+          <li><a href="#kunjungan" class="btn text-white hover:bg-white/12">
+            <svg aria-hidden="true"><use href="#i-users"/></svg>Buku Tamu</a></li>
+          <li><a href="#rapat-hari-ini" class="btn text-white hover:bg-white/12">
             <svg aria-hidden="true"><use href="#i-calendar"/></svg>Jadwal Rapat</a></li>
           <li><a href="#lainnya" class="btn text-white hover:bg-white/12">
-            <svg aria-hidden="true"><use href="#i-grid"/></svg>Lainnya</a></li>
+            <svg aria-hidden="true"><use href="#i-qr"/></svg>Lainnya</a></li>
         </ul>
       </nav>
-      <div class="flex flex-wrap gap-2">
-        <button type="button" class="btn btn-action" data-open="dlg-tamu">
-          <svg aria-hidden="true"><use href="#i-user-plus"/></svg>Catat tamu FO
+      <div class="grid w-full grid-cols-2 gap-2 md:flex md:w-auto">
+        <button type="button" class="btn btn-action justify-center max-md:min-h-10 max-md:px-2 max-md:text-sm" data-open="dlg-tamu">
+          <svg aria-hidden="true"><use href="#i-user-plus"/></svg><span class="md:hidden">Tamu Dalam Daerah</span><span class="max-md:hidden">Catat Tamu Dalam Daerah</span>
         </button>
-        <button type="button" class="btn btn-ghost-dark" data-open="dlg-rapat">
-          <svg aria-hidden="true"><use href="#i-calendar-plus"/></svg>Jadwalkan rapat
+        <button type="button" class="btn btn-ghost-dark justify-center max-md:min-h-10 max-md:px-2 max-md:text-sm" data-open="dlg-rapat">
+          <svg aria-hidden="true"><use href="#i-calendar-plus"/></svg>Jadwalkan Rapat
         </button>
       </div>
     </div>
   </div>
 </header>
 
-<main id="main" class="mx-auto -mt-16 w-full max-w-7xl flex-1 px-4 pb-12 sm:px-6 lg:px-8">
+<main id="main" class="mx-auto -mt-10 w-full max-w-7xl flex-1 px-3 pb-8 sm:px-6 lg:px-8 max-md:pb-24">
   <h1 class="visually-hidden">Dashboard</h1>
 
-  <!-- Today at a glance. Each card opens the list it counts, so the numbers lead to the work. -->
-  <section aria-labelledby="h-ringkasan" class="mb-6">
+  <!-- The four v3 cards, same wording. 2 x 2 on phones, one row on wide screens. -->
+  <section aria-labelledby="h-ringkasan" class="mb-4 md:mb-6">
     <h2 id="h-ringkasan" class="visually-hidden">Ringkasan hari ini</h2>
-    <ul id="kpis" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-busy="true">
+    <ul id="kpis" class="grid grid-cols-2 gap-2.5 md:gap-4 lg:grid-cols-4" aria-busy="true">
       <li>
-        <a href="#buku-tamu" class="card flex h-full gap-4 p-5 text-foreground no-underline outline-offset-4 hover:border-action ring-inset ring-action/0 border-l-4! border-l-action!">
-          <span class="grid size-11 flex-none place-items-center rounded-control bg-action-soft text-action-text"><svg class="size-5" aria-hidden="true"><use href="#i-hourglass"/></svg></span>
-          <span class="min-w-0">
-            <span class="block text-sm font-semibold text-heading">Menunggu konfirmasi</span>
-            <span class="when-loading mt-2 block h-8 w-14 skeleton"></span>
-            <span class="when-loaded mt-1 block text-3xl font-extrabold tabular-nums text-heading" data-k="menunggu">2</span>
-            <span class="when-loaded block text-sm text-muted">Permohonan TLD perlu dijadwalkan</span>
+        <a href="#kunjungan" class="card block h-full p-3.5 text-foreground no-underline hover:border-accent md:p-5">
+          <span class="flex items-start justify-between gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-muted">Tamu Hari Ini</span>
+            <span class="grid size-8 flex-none place-items-center rounded-control bg-accent-faint text-accent-strong max-md:hidden"><svg class="size-4" aria-hidden="true"><use href="#i-users"/></svg></span>
           </span>
+          <span class="when-loading mt-2 block h-7 w-12 skeleton"></span>
+          <span class="when-loaded mt-1 block text-2xl font-extrabold tabular-nums text-heading md:text-3xl" data-k="tamu">3</span>
+          <span class="when-loaded block text-sm text-muted">Total <b class="text-heading" data-k="total">17</b><span class="max-md:hidden"> kunjungan terdata</span></span>
         </a>
       </li>
       <li>
-        <a href="#buku-tamu" class="card flex h-full gap-4 p-5 text-foreground no-underline hover:border-accent">
-          <span class="grid size-11 flex-none place-items-center rounded-control bg-accent-faint text-accent-strong"><svg class="size-5" aria-hidden="true"><use href="#i-users"/></svg></span>
-          <span class="min-w-0">
-            <span class="block text-sm font-semibold text-heading">Tamu hari ini</span>
-            <span class="when-loading mt-2 block h-8 w-14 skeleton"></span>
-            <span class="when-loaded mt-1 block text-3xl font-extrabold tabular-nums text-heading" data-k="tamu">3</span>
-            <span class="when-loaded block text-sm text-muted"><span data-k="tld">2</span> TLD dan <span data-k="fo">1</span> FO. Total <span data-k="total">17</span> tercatat.</span>
+        <a href="#kunjungan" class="card block h-full p-3.5 text-foreground no-underline hover:border-accent md:p-5">
+          <span class="flex items-start justify-between gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-muted">Tipe Kedatangan</span>
+            <span class="grid size-8 flex-none place-items-center rounded-control bg-st-disposisi-bg text-st-disposisi-fg max-md:hidden"><svg class="size-4" aria-hidden="true"><use href="#i-building"/></svg></span>
           </span>
+          <span class="when-loading mt-2 block h-7 w-20 skeleton"></span>
+          <span class="when-loaded mt-1 flex items-baseline gap-1.5 text-heading">
+            <span class="text-2xl font-extrabold tabular-nums md:text-3xl" data-k="tld">2</span><span class="text-sm font-semibold text-muted">Luar</span>
+            <span class="text-muted" aria-hidden="true">/</span>
+            <span class="text-2xl font-extrabold tabular-nums md:text-3xl" data-k="tdd">1</span><span class="text-sm font-semibold text-muted">Dalam</span>
+          </span>
+          <span class="when-loaded block text-sm text-muted max-md:hidden">Online &amp; Kiosk Resepsionis</span>
         </a>
       </li>
       <li>
-        <a href="#rapat-hari-ini" class="card flex h-full gap-4 p-5 text-foreground no-underline hover:border-accent">
-          <span class="grid size-11 flex-none place-items-center rounded-control bg-st-disposisi-bg text-st-disposisi-fg"><svg class="size-5" aria-hidden="true"><use href="#i-calendar"/></svg></span>
-          <span class="min-w-0">
-            <span class="block text-sm font-semibold text-heading">Rapat hari ini</span>
-            <span class="when-loading mt-2 block h-8 w-14 skeleton"></span>
-            <span class="when-loaded mt-1 block text-3xl font-extrabold tabular-nums text-heading" data-k="rapat">3</span>
-            <span class="when-loaded block text-sm text-muted">1 sedang berlangsung</span>
+        <a href="#rapat-hari-ini" class="card block h-full p-3.5 text-foreground no-underline hover:border-accent md:p-5">
+          <span class="flex items-start justify-between gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-muted">Rapat Hari Ini</span>
+            <span class="grid size-8 flex-none place-items-center rounded-control bg-st-disposisi-bg text-st-disposisi-fg max-md:hidden"><svg class="size-4" aria-hidden="true"><use href="#i-calendar"/></svg></span>
           </span>
+          <span class="when-loading mt-2 block h-7 w-12 skeleton"></span>
+          <span class="when-loaded mt-1 block text-2xl font-extrabold tabular-nums text-heading md:text-3xl" data-k="rapat">3</span>
+          <span class="when-loaded block text-sm text-muted max-md:hidden">Agenda Ruangan Terjadwal</span>
         </a>
       </li>
       <li>
-        <a href="#lainnya" class="card flex h-full gap-4 p-5 text-foreground no-underline hover:border-accent">
-          <span class="grid size-11 flex-none place-items-center rounded-control bg-st-sppd-bg text-st-sppd-fg"><svg class="size-5" aria-hidden="true"><use href="#i-file-check"/></svg></span>
-          <span class="min-w-0 flex-1">
-            <span class="block text-sm font-semibold text-heading">Kendali SPPD</span>
-            <span class="when-loading mt-2 block h-16 w-full skeleton"></span>
-            <span class="when-loaded mt-1.5 grid grid-cols-[auto_1fr] items-baseline gap-x-2.5 gap-y-0.5 text-sm">
-              <span class="text-lg font-extrabold tabular-nums text-heading">1</span><span>siap diverifikasi</span>
-              <span class="text-lg font-extrabold tabular-nums text-heading">2</span><span>terkunci, bukti belum lengkap</span>
-              <span class="text-lg font-extrabold tabular-nums text-heading">4</span><span>sah dan terverifikasi</span>
-            </span>
+        <a href="#lainnya" class="card block h-full border-l-4! border-l-action! bg-action-soft! p-3.5 text-foreground no-underline md:p-5">
+          <span class="flex items-start justify-between gap-2">
+            <span class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-action-text"><svg class="size-3.5" aria-hidden="true"><use href="#i-lock"/></svg>Kendali SPPD</span>
+            <span class="grid size-8 flex-none place-items-center rounded-control bg-white text-action-text max-md:hidden"><svg class="size-4" aria-hidden="true"><use href="#i-file-check"/></svg></span>
           </span>
+          <span class="when-loading mt-2 block h-7 w-24 skeleton"></span>
+          <span class="when-loaded mt-1 flex items-baseline gap-1.5"><span class="text-2xl font-extrabold tabular-nums text-danger md:text-3xl">2</span><span class="text-sm font-bold text-danger">Terkunci</span></span>
+          <span class="when-loaded block text-xs font-semibold text-st-selesai-fg md:text-sm">4 Sah &amp; Terverifikasi</span>
+          <span class="when-loaded block text-xs font-semibold text-st-disposisi-fg md:text-sm">1 Siap Diverifikasi</span>
         </a>
       </li>
     </ul>
   </section>
 
-  <div class="grid items-start gap-6 lg:grid-cols-12">
-    <!-- Recent visits -->
-    <section id="buku-tamu" aria-labelledby="h-kunjungan" class="card overflow-hidden lg:col-span-8">
-      <div class="flex flex-wrap items-end justify-between gap-3 border-b border-border p-5">
+  <div class="grid gap-4 md:gap-5">
+    <!-- Kunjungan Tamu Terbaru: v3 columns on wide screens, v3 cards on phones. -->
+    <section id="kunjungan" aria-labelledby="h-kunjungan" class="card overflow-hidden">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-3 md:px-5 md:py-4">
         <div>
-          <h2 id="h-kunjungan" class="text-lg font-bold text-heading">Kunjungan terbaru</h2>
-          <p class="text-sm text-muted">Enam kunjungan terakhir, TLD dan FO. Cari untuk melihat yang lain.</p>
+          <h2 id="h-kunjungan" class="text-base font-bold text-heading md:text-lg">Kunjungan Tamu Terbaru</h2>
+          <p class="text-sm text-muted max-md:hidden">Kunjungan terbaru yang tercatat</p>
         </div>
-        <div class="flex w-full flex-wrap items-center gap-2 sm:w-auto">
-          <label for="cari" class="visually-hidden">Cari kunjungan</label>
-          <div class="relative min-w-0 flex-1 sm:w-64">
-            <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" aria-hidden="true"><use href="#i-search"/></svg>
-            <input id="cari" type="search" class="control ps-9!" placeholder="Cari tamu atau kode" autocomplete="off" aria-describedby="hasil-cari">
-          </div>
-          <a href="#buku-tamu" class="btn btn-quiet">Buka Buku Tamu</a>
+        <div class="flex items-center gap-2">
+          <a href="#kunjungan" class="pill bg-st-menunggu-bg text-st-menunggu-fg no-underline"><span data-k="menunggu">2</span>&nbsp;Menunggu Konfirmasi</a>
+          <a href="#kunjungan" class="text-sm font-bold text-accent-strong">Semua</a>
         </div>
       </div>
-
-      <div class="visits-wrap" tabindex="0" role="region" aria-labelledby="cap-kunjungan">
-        <table class="visits">
-          <caption id="cap-kunjungan" class="visually-hidden">Kunjungan terbaru</caption>
-          <thead>
+      <div class="overflow-x-auto max-md:hidden" tabindex="0" role="region" aria-labelledby="cap-kunjungan">
+        <table class="w-full text-sm">
+          <caption id="cap-kunjungan" class="visually-hidden">Kunjungan Tamu Terbaru</caption>
+          <thead class="bg-subtle text-left text-xs font-bold uppercase tracking-wider text-muted">
             <tr>
-              <th scope="col" class="col-tamu">Tamu dan instansi</th>
-              <th scope="col">Tujuan, agenda, dan penerima</th>
-              <th scope="col">Status</th>
-              <th scope="col"><span class="visually-hidden">Aksi</span></th>
+              <th scope="col" class="px-4 py-2.5">ID &amp; Waktu</th>
+              <th scope="col" class="px-3 py-2.5">Asal Instansi / Pengunjung</th>
+              <th scope="col" class="px-3 py-2.5">Detail Tamu &amp; Kontak</th>
+              <th scope="col" class="px-3 py-2.5">Bidang Tujuan &amp; Agenda</th>
+              <th scope="col" class="px-3 py-2.5">Penerima Tamu</th>
+              <th scope="col" class="px-3 py-2.5">Status</th>
+              <th scope="col" class="px-4 py-2.5 text-right">Aksi</th>
             </tr>
           </thead>
-          <tbody id="visit-rows" aria-busy="true">
-            <tr class="when-loading"><td colspan="4"><span class="block h-10 skeleton"></span></td></tr>
-            <tr class="when-loading"><td colspan="4"><span class="block h-10 skeleton"></span></td></tr>
-            <tr class="when-loading"><td colspan="4"><span class="block h-10 skeleton"></span></td></tr>
+          <tbody id="visit-rows" class="divide-y divide-border" aria-busy="true">
+            <tr class="when-loading"><td colspan="7" class="px-4 py-3"><span class="block h-8 skeleton"></span></td></tr>
+            <tr class="when-loading"><td colspan="7" class="px-4 py-3"><span class="block h-8 skeleton"></span></td></tr>
           </tbody>
         </table>
-        <p id="kosong" class="hidden px-5 py-10 text-center text-sm text-muted">
-          Tidak ada kunjungan yang cocok. Coba nama tamu, instansi, kode kunjungan, atau bidang lain.
-        </p>
       </div>
-      <p id="hasil-cari" class="visually-hidden" aria-live="polite"></p>
+      <ul id="visit-cards" class="space-y-2.5 p-3 md:hidden" aria-label="Kunjungan Tamu Terbaru" aria-busy="true">
+        <li class="when-loading h-20 skeleton"></li>
+      </ul>
     </section>
 
-    <!-- Today's meetings -->
-    <section id="rapat-hari-ini" aria-labelledby="h-rapat" class="card lg:col-span-4">
-      <div class="flex items-end justify-between gap-3 border-b border-border p-5">
+    <!-- Rapat Hari Ini: above the visits, as in v3. One row of meetings on wide screens. -->
+    <section id="rapat-hari-ini" aria-labelledby="h-rapat" class="card order-first overflow-hidden">
+      <div class="flex items-center justify-between gap-2 border-b border-border px-4 py-3 md:px-5 md:py-4">
         <div>
-          <h2 id="h-rapat" class="text-lg font-bold text-heading">Rapat hari ini</h2>
-          <p class="text-sm text-muted">Pemakaian ruangan, urut jam</p>
+          <h2 id="h-rapat" class="text-base font-bold text-heading md:text-lg">Rapat Hari Ini</h2>
+          <p class="text-sm text-muted max-md:hidden">Pemakaian ruangan saat ini</p>
         </div>
-        <a href="#jadwal-rapat" class="btn btn-quiet">Kalender</a>
+        <a href="#rapat-hari-ini" class="text-sm font-bold text-accent-strong">Semua</a>
       </div>
-      <ol id="meetings" class="space-y-3 p-5" aria-busy="true">
-        <li class="when-loading h-24 skeleton"></li>
-        <li class="when-loading h-24 skeleton"></li>
+      <ol id="meetings" class="divide-y divide-border lg:grid lg:grid-cols-3 lg:divide-x lg:divide-y-0" aria-busy="true">
+        <li class="when-loading m-3 h-14 skeleton"></li>
       </ol>
     </section>
   </div>
 </main>
 
-<footer class="border-t border-border bg-white">
+<footer class="border-t border-border bg-white max-md:hidden">
   <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 py-4 text-sm text-muted sm:px-6 lg:px-8">
     <p>&copy; 2026 Dinas Koperasi dan Usaha Mikro Kota Batam</p>
     <p>Contoh tampilan v3.5. Semua nama dan nomor fiktif.</p>
   </div>
 </footer>
 
-<!-- Dialog: walk-in guest at the front office (TDD). TLD requests come only through the public form. -->
+<!-- Phones: v3's bottom menu. -->
+<nav aria-label="Menu utama" class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-border bg-white px-1.5 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:hidden">
+  <a href="dashboard.html" aria-current="page" class="flex flex-col items-center gap-0.5 rounded-control bg-accent-faint py-1.5 text-xs font-bold text-accent-strong no-underline"><svg class="size-5" aria-hidden="true"><use href="#i-dashboard"/></svg>Dashboard</a>
+  <a href="#kunjungan" class="flex flex-col items-center gap-0.5 rounded-control py-1.5 text-xs font-semibold text-muted no-underline"><svg class="size-5" aria-hidden="true"><use href="#i-users"/></svg>Buku Tamu</a>
+  <a href="#rapat-hari-ini" class="flex flex-col items-center gap-0.5 rounded-control py-1.5 text-xs font-semibold text-muted no-underline"><svg class="size-5" aria-hidden="true"><use href="#i-calendar"/></svg>Jadwal Rapat</a>
+  <a href="#lainnya" class="flex flex-col items-center gap-0.5 rounded-control py-1.5 text-xs font-semibold text-muted no-underline"><svg class="size-5" aria-hidden="true"><use href="#i-qr"/></svg>Lainnya</a>
+</nav>
+
+<!-- Dialog: walk-in Tamu Dalam Daerah, with the v3 TDD form's fields and wording, plus Persetujuan Kontak. -->
 <dialog id="dlg-tamu" class="sheet" aria-labelledby="dlg-tamu-title">
   <form id="form-tamu" class="flex min-h-0 flex-col" novalidate>
-    <div class="flex items-start justify-between gap-4 border-b border-border p-5">
+    <div class="flex items-start justify-between gap-4 border-b border-border p-4 md:p-5">
       <div>
-        <h1 id="dlg-tamu-title" class="text-lg font-bold text-heading">Catat tamu FO</h1>
-        <p class="text-sm text-muted">Untuk tamu yang sudah hadir di front office. Permohonan kunjungan TLD masuk lewat formulir publik.</p>
+        <h1 id="dlg-tamu-title" class="text-lg font-bold text-heading">Pendaftaran Kunjungan Tamu Dalam Daerah</h1>
+        <p class="text-sm text-muted"><span class="text-danger">*</span> Wajib diisi</p>
       </div>
       <button type="button" class="icon-btn" data-close aria-label="Tutup"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
     </div>
-    <div class="grid gap-4 overflow-y-auto p-5 sm:grid-cols-2">
+    <div class="grid gap-3.5 overflow-y-auto p-4 sm:grid-cols-2 md:p-5">
       <div class="sm:col-span-2">
-        <label class="field-label" for="t-ketua">Nama ketua rombongan</label>
+        <label class="field-label" for="t-ketua">Nama Ketua Rombongan <span class="text-danger" aria-hidden="true">*</span></label>
         <input class="control" id="t-ketua" name="ketua_nama" required autocomplete="name" autofocus data-error="e-ketua">
         <p class="error-msg" id="e-ketua"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi nama ketua rombongan.</p>
       </div>
       <div>
-        <label class="field-label" for="t-instansi">Asal instansi</label>
-        <input class="control" id="t-instansi" name="instansi" required autocomplete="organization" data-error="e-instansi">
-        <p class="error-msg" id="e-instansi"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi asal instansi, atau tulis Perorangan.</p>
-      </div>
-      <div>
-        <label class="field-label" for="t-jumlah">Jumlah orang</label>
+        <label class="field-label" for="t-jumlah">Total Orang <span class="text-danger" aria-hidden="true">*</span></label>
         <input class="control" id="t-jumlah" name="jumlah_orang" type="number" inputmode="numeric" min="1" max="200" value="1" required data-error="e-jumlah">
-        <p class="error-msg" id="e-jumlah"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi jumlah orang, paling sedikit 1.</p>
-      </div>
-      <div class="sm:col-span-2">
-        <label class="field-label" for="t-anggota">Daftar anggota rombongan</label>
-        <span class="field-hint" id="h-anggota">Satu nama per baris. Tulis tanda strip (-) jika datang sendiri.</span>
-        <textarea class="control" id="t-anggota" name="pengikut_list" rows="2" required aria-describedby="h-anggota" data-error="e-anggota"></textarea>
-        <p class="error-msg" id="e-anggota"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi daftar anggota, atau tanda strip (-) jika datang sendiri.</p>
+        <p class="error-msg" id="e-jumlah"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi total orang, paling sedikit 1.</p>
       </div>
       <div>
-        <label class="field-label" for="t-wa">WhatsApp narahubung</label>
-        <span class="field-hint" id="h-wa">Contoh: 081234567890</span>
-        <input class="control" id="t-wa" name="narahubung_hp" type="tel" inputmode="tel" autocomplete="tel" required pattern="0[0-9]{8,13}" aria-describedby="h-wa" data-error="e-wa">
+        <label class="field-label" for="t-wa">WhatsApp Narahubung <span class="text-danger" aria-hidden="true">*</span></label>
+        <input class="control" id="t-wa" name="narahubung_hp" type="tel" inputmode="tel" autocomplete="tel" required pattern="0[0-9]{8,13}" placeholder="08xxxxxxxxxx" data-error="e-wa">
         <p class="error-msg" id="e-wa"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Tulis nomor yang diawali 0, 9 sampai 14 angka.</p>
       </div>
+      <div class="sm:col-span-2">
+        <label class="field-label" for="t-anggota">Daftar Anggota Rombongan <span class="text-danger" aria-hidden="true">*</span></label>
+        <textarea class="control" id="t-anggota" name="pengikut_list" rows="2" required placeholder="Satu nama anggota per baris (jika sendiri, tulis nama Anda)..." data-error="e-anggota"></textarea>
+        <p class="error-msg" id="e-anggota"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi daftar anggota rombongan.</p>
+      </div>
       <div>
-        <label class="field-label" for="t-bidang">Bidang tujuan</label>
-        <span class="field-hint" id="h-bidang">Staf penerima mengikuti bidang ini.</span>
-        <select class="control" id="t-bidang" name="tujuan_bidang" required aria-describedby="h-bidang" data-error="e-bidang"></select>
+        <label class="field-label" for="t-instansi">Nama Instansi / Asal Pengunjung</label>
+        <input class="control" id="t-instansi" name="instansi" autocomplete="organization" placeholder="Koperasi / UMKM Mandiri">
+      </div>
+      <div>
+        <label class="field-label" for="t-alamat">Alamat Instansi / Domisili</label>
+        <input class="control" id="t-alamat" name="alamat" placeholder="Kecamatan / Kelurahan di Kota Batam...">
+      </div>
+      <div class="sm:col-span-2">
+        <label class="field-label" for="t-bidang">Bidang Tujuan <span class="text-danger" aria-hidden="true">*</span></label>
+        <select class="control" id="t-bidang" name="tujuan_bidang" required data-error="e-bidang"></select>
         <p class="error-msg" id="e-bidang"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih bidang tujuan.</p>
       </div>
       <div class="sm:col-span-2">
-        <label class="field-label" for="t-staf">Staf tujuan</label>
-        <select class="control" id="t-staf" name="staf_tujuan" required data-error="e-staf" disabled><option value="">Pilih bidang terlebih dahulu</option></select>
-        <p class="error-msg" id="e-staf"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih staf yang ingin ditemui.</p>
-      </div>
-      <div class="sm:col-span-2">
-        <label class="field-label" for="t-agenda">Keperluan</label>
-        <textarea class="control" id="t-agenda" name="keperluan" rows="2" required data-error="e-agenda"></textarea>
-        <p class="error-msg" id="e-agenda"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Tulis keperluan kunjungan secara singkat.</p>
+        <label class="field-label" for="t-agenda">Agenda <span class="text-danger" aria-hidden="true">*</span></label>
+        <textarea class="control" id="t-agenda" name="keperluan" rows="2" required placeholder="Jelaskan secara singkat keperluan Anda..." data-error="e-agenda"></textarea>
+        <p class="error-msg" id="e-agenda"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Tulis agenda kunjungan secara singkat.</p>
       </div>
       <div class="sm:col-span-2">
         <div class="flex flex-wrap items-start gap-x-3">
           <input class="check mt-1 size-5 flex-none accent-primary" id="t-setuju" name="persetujuan" type="checkbox" required data-error="e-setuju">
           <label for="t-setuju" class="min-w-0 flex-1 text-sm">Tamu setuju dihubungi lewat WhatsApp untuk keperluan kunjungan ini, dan datanya disimpan sesuai kebijakan Dinas.</label>
-          <p class="error-msg basis-full" id="e-setuju"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Persetujuan tamu diperlukan sebelum mencatat.</p>
+          <p class="error-msg basis-full" id="e-setuju"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Persetujuan tamu diperlukan sebelum mendaftarkan.</p>
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap justify-end gap-2 border-t border-border p-5">
+    <div class="flex flex-wrap justify-end gap-2 border-t border-border p-4 md:p-5">
       <button type="button" class="btn btn-quiet" data-close>Batal</button>
-      <button type="submit" class="btn btn-primary">Catat tamu</button>
+      <button type="submit" class="btn btn-primary">Kirim Pendaftaran Kunjungan</button>
     </div>
   </form>
 </dialog>
 
-<!-- Dialog: schedule a meeting. Pimpinan fills in from Master_Pegawai (Urutan_Pimpinan, Unit_Pimpinan). -->
+<!-- Dialog: v3's "Buat Agenda Rapat Baru", same fields and wording. Pimpinan fills in from Master_Pegawai (Urutan_Pimpinan, Unit_Pimpinan). -->
 <dialog id="dlg-rapat" class="sheet" aria-labelledby="dlg-rapat-title">
   <form id="form-rapat" class="flex min-h-0 flex-col" novalidate>
-    <div class="flex items-start justify-between gap-4 border-b border-border p-5">
+    <div class="flex items-start justify-between gap-4 border-b border-border p-4 md:p-5">
       <div>
-        <h1 id="dlg-rapat-title" class="text-lg font-bold text-heading">Jadwalkan rapat</h1>
-        <p class="text-sm text-muted">Rapat baru tampil di kalender dan bisa dipakai untuk presensi QR.</p>
+        <h1 id="dlg-rapat-title" class="text-lg font-bold text-heading">Buat Agenda Rapat Baru</h1>
+        <p class="text-sm text-muted"><span class="text-danger">*</span> Wajib diisi</p>
       </div>
-      <button type="button" class="icon-btn" data-close aria-label="Tutup"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+      <button type="button" class="icon-btn" data-close aria-label="Tutup form jadwal rapat"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
     </div>
-    <div class="grid gap-4 overflow-y-auto p-5 sm:grid-cols-3">
+    <div class="grid gap-3.5 overflow-y-auto p-4 sm:grid-cols-3 md:p-5">
       <div class="sm:col-span-3">
-        <label class="field-label" for="r-nama">Nama rapat</label>
-        <input class="control" id="r-nama" name="nama_rapat" required autofocus data-error="e-nama">
-        <p class="error-msg" id="e-nama"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi nama rapat.</p>
+        <label class="field-label" for="r-nama">Judul Agenda Rapat <span class="text-danger" aria-hidden="true">*</span></label>
+        <input class="control" id="r-nama" name="nama_rapat" required autofocus placeholder="Contoh: Rapat Evaluasi Pembinaan Koperasi Sehat" data-error="e-nama">
+        <p class="error-msg" id="e-nama"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi judul agenda rapat.</p>
+      </div>
+      <div class="sm:col-span-3">
+        <label class="field-label" for="r-ruang">Pilih Ruangan Rapat <span class="text-danger" aria-hidden="true">*</span></label>
+        <select class="control" id="r-ruang" name="ruangan" required data-error="e-ruang"></select>
+        <p class="error-msg" id="e-ruang"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih ruangan rapat.</p>
       </div>
       <div>
-        <label class="field-label" for="r-tanggal">Tanggal</label>
+        <label class="field-label" for="r-tanggal">Tanggal <span class="text-danger" aria-hidden="true">*</span></label>
         <input class="control" id="r-tanggal" name="tanggal" type="date" required data-error="e-tanggal">
         <p class="error-msg" id="e-tanggal"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih tanggal hari ini atau setelahnya.</p>
       </div>
       <div>
-        <label class="field-label" for="r-mulai">Jam mulai</label>
+        <label class="field-label" for="r-mulai">Jam Mulai <span class="text-danger" aria-hidden="true">*</span></label>
         <input class="control" id="r-mulai" name="jam_mulai" type="time" step="900" required data-error="e-mulai">
         <p class="error-msg" id="e-mulai"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi jam mulai (WIB).</p>
       </div>
       <div>
-        <label class="field-label" for="r-selesai">Jam selesai</label>
+        <label class="field-label" for="r-selesai">Jam Selesai <span class="text-danger" aria-hidden="true">*</span></label>
         <input class="control" id="r-selesai" name="jam_selesai" type="time" step="900" required data-error="e-selesai">
         <p class="error-msg" id="e-selesai"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Jam selesai harus setelah jam mulai.</p>
       </div>
       <div class="sm:col-span-3">
-        <label class="field-label" for="r-ruang">Ruangan</label>
-        <select class="control" id="r-ruang" name="ruangan" required data-error="e-ruang"></select>
-        <p class="error-msg" id="e-ruang"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih ruangan.</p>
-      </div>
-      <div class="sm:col-span-3">
-        <label class="field-label" for="r-unit">Bidang penyelenggara</label>
+        <label class="field-label" for="r-unit">Bidang Penyelenggara <span class="text-danger" aria-hidden="true">*</span></label>
         <select class="control" id="r-unit" name="unit" required data-error="e-unit"></select>
         <p class="error-msg" id="e-unit"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Pilih bidang penyelenggara.</p>
       </div>
       <div class="sm:col-span-3">
-        <label class="field-label" for="r-pimpinan">Pimpinan rapat</label>
-        <span class="field-hint" id="h-pimpinan">Terisi otomatis dari data pimpinan di Master_Pegawai.</span>
-        <input class="control" id="r-pimpinan" name="pimpinan" readonly aria-describedby="h-pimpinan" placeholder="Pilih bidang penyelenggara">
+        <label class="field-label" for="r-pimpinan">Pimpinan Rapat <span class="text-danger" aria-hidden="true">*</span></label>
+        <input class="control" id="r-pimpinan" name="pimpinan" required placeholder="Kepala Dinas / Kabid..." data-error="e-pimpinan">
+        <p class="error-msg" id="e-pimpinan"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi pimpinan rapat.</p>
+      </div>
+      <div class="sm:col-span-3">
+        <label class="field-label" for="r-agenda">Agenda / Keterangan <span class="text-danger" aria-hidden="true">*</span></label>
+        <textarea class="control" id="r-agenda" name="agenda" rows="2" required data-error="e-ragenda"></textarea>
+        <p class="error-msg" id="e-ragenda"><svg class="mt-0.5 size-4 flex-none" role="img" aria-label="Error"><use href="#i-alert"/></svg>Isi agenda atau keterangan rapat.</p>
       </div>
     </div>
-    <div class="flex flex-wrap justify-end gap-2 border-t border-border p-5">
+    <div class="flex flex-wrap justify-end gap-2 border-t border-border p-4 md:p-5">
       <button type="button" class="btn btn-quiet" data-close>Batal</button>
-      <button type="submit" class="btn btn-primary">Jadwalkan rapat</button>
+      <button type="submit" class="btn btn-primary">Jadwalkan</button>
     </div>
   </form>
 </dialog>
 
-<div class="toast" role="status" aria-live="polite">
+<div class="toast max-md:bottom-20!" role="status" aria-live="polite">
   <p id="toast" class="hidden items-center gap-2 rounded-control bg-heading px-4 py-3 text-sm font-semibold text-white shadow-card"></p>
 </div>
 <div id="announcer" class="visually-hidden" aria-live="polite"></div>
@@ -352,14 +358,9 @@ const BIDANG = [
   'Bidang Pemberdayaan dan Pelindungan Koperasi', 'Bidang Pengawasan Koperasi', 'Bidang Pengembangan Usaha Mikro',
   'Bidang Kewirausahaan', 'UPTD PLUT KUMKM', 'UPTD Pengelolaan Dana Bergulir'
 ];
-const STAF = {
-  'Sekretariat (Umum dan Kepegawaian)': ['Staf Umum Contoh A'], 'Sekretariat (Program dan Perencanaan)': ['Staf Perencanaan Contoh'],
-  'Sekretariat (Keuangan dan Aset)': ['Staf Keuangan Contoh'], 'Bidang Pemberdayaan dan Pelindungan Koperasi': ['Staf Koperasi Contoh A', 'Staf Koperasi Contoh B'],
-  'Bidang Pengawasan Koperasi': ['Staf Pengawasan Contoh'], 'Bidang Pengembangan Usaha Mikro': ['Staf Usaha Mikro Contoh A', 'Staf Usaha Mikro Contoh B'],
-  'Bidang Kewirausahaan': ['Staf Kewirausahaan Contoh'], 'UPTD PLUT KUMKM': ['Staf PLUT Contoh'], 'UPTD Pengelolaan Dana Bergulir': ['Staf Dana Bergulir Contoh']
-};
 const UNIT_PIMPINAN = { 'Dinas': 'Kepala Dinas (contoh)', 'Sekretariat': 'Sekretaris Dinas (contoh)', 'Bidang Kewirausahaan': 'Kepala Bidang Kewirausahaan (contoh)',
   'Bidang Pengembangan Usaha Mikro': 'Kepala Bidang Pengembangan Usaha Mikro (contoh)', 'UPTD PLUT KUMKM': 'Kepala UPTD PLUT KUMKM (contoh)' };
+const BIDANG_PENYELENGGARA = Object.keys(UNIT_PIMPINAN);
 const RUANGAN = ['Ruang Rapat Kepala Dinas', 'Ruang Rapat Lantai 2', 'Aula PLUT KUMKM'];
 
 // Status names and colours follow GLOSSARY.md and DESIGN.md "Status pills".
@@ -374,20 +375,20 @@ const STATUS = {
 };
 
 const visits = [
-  { kode: 'TLD-25112026-041', waktu: '25-11-2026 09:40 WIB', jenis: 'TLD', tamu: 'Rahmat Hidayat', jumlah: 6, instansi: 'Dinas Koperasi Kabupaten Contoh', bidang: ['Bidang Pengembangan Usaha Mikro'], agenda: 'Studi tiru layanan kurasi produk UMKM', penerima: 'Akan ditentukan admin', status: 'Menunggu Konfirmasi' },
-  { kode: 'TDD-25112026-040', waktu: '25-11-2026 09:12 WIB', jenis: 'FO', tamu: "Nur'aini Siregar", jumlah: 2, instansi: 'Koperasi Konsumen Contoh Sejahtera', bidang: ['Bidang Pemberdayaan dan Pelindungan Koperasi'], agenda: 'Konsultasi persiapan RAT tahunan', penerima: 'Staf Koperasi Contoh A', status: 'Non-SPPD' },
-  { kode: 'TLD-24112026-039', waktu: '24-11-2026 14:05 WIB', jenis: 'TLD', tamu: 'Yohanes Situmorang', jumlah: 4, instansi: 'DPRD Kabupaten Contoh', bidang: ['Bidang Kewirausahaan', 'UPTD PLUT KUMKM'], agenda: 'Kunjungan kerja pembinaan wirausaha muda', penerima: 'Staf Kewirausahaan Contoh', status: 'Menunggu Kedatangan' },
-  { kode: 'TLD-24112026-038', waktu: '24-11-2026 10:30 WIB', jenis: 'TLD', tamu: 'Dewi Kartika', jumlah: 3, instansi: 'Bappeda Kota Contoh', bidang: ['Sekretariat (Program dan Perencanaan)'], agenda: 'Sinkronisasi data perencanaan 2027', penerima: 'Staf Perencanaan Contoh', status: 'Kelola SPPD' },
-  { kode: 'TDD-24112026-037', waktu: '24-11-2026 09:02 WIB', jenis: 'FO', tamu: 'Agus Salim', jumlah: 1, instansi: 'SMK Negeri Contoh', bidang: ['Sekretariat (Umum dan Kepegawaian)'], agenda: 'Monitoring siswa praktik kerja lapangan', penerima: 'Staf Umum Contoh A', status: 'Selesai' },
-  { kode: 'TLD-23112026-036', waktu: '23-11-2026 15:20 WIB', jenis: 'TLD', tamu: 'Maria Ulfa', jumlah: 8, instansi: 'Dinas UMKM Provinsi Contoh', bidang: ['UPTD Pengelolaan Dana Bergulir'], agenda: 'Koordinasi penyaluran dana bergulir', penerima: 'Staf Dana Bergulir Contoh', status: 'Sudah Disposisi' },
-  { kode: 'TLD-23112026-035', waktu: '23-11-2026 11:00 WIB', jenis: 'TLD', tamu: 'Hendra Gunawan', jumlah: 2, instansi: 'CV Contoh Makmur', bidang: ['Bidang Pengawasan Koperasi'], agenda: 'Audiensi rencana kemitraan', penerima: 'Tidak ditugaskan', status: 'Ditolak' },
-  { kode: 'TLD-22112026-034', waktu: '22-11-2026 10:15 WIB', jenis: 'TLD', tamu: 'Fitri Handayani', jumlah: 5, instansi: 'Kecamatan Contoh', bidang: ['Bidang Pengembangan Usaha Mikro'], agenda: 'Pendampingan pendataan usaha mikro', penerima: 'Staf Usaha Mikro Contoh B', status: 'Menunggu Konfirmasi' }
+  { kode: 'TLD-25112026-041', waktu: '25-11-2026 09:40 WIB', jenis: 'TLD', tamu: 'Rahmat Hidayat', jumlah: 6, hp: '081200001141', alamat: 'Jl. Contoh No. 12, Kabupaten Contoh', instansi: 'Dinas Koperasi Kabupaten Contoh', bidang: ['Bidang Pengembangan Usaha Mikro'], agenda: 'Studi tiru layanan kurasi produk UMKM', penerima: 'Belum Ditugaskan', status: 'Menunggu Konfirmasi' },
+  { kode: 'TDD-25112026-040', waktu: '25-11-2026 09:12 WIB', jenis: 'TDD', tamu: "Nur'aini Siregar", jumlah: 2, hp: '081200001140', alamat: 'Kecamatan Contoh, Kota Batam', instansi: 'Koperasi Konsumen Contoh Sejahtera', bidang: ['Bidang Pemberdayaan dan Pelindungan Koperasi'], agenda: 'Konsultasi persiapan RAT tahunan', penerima: 'Staf Koperasi Contoh A', status: 'Non-SPPD' },
+  { kode: 'TLD-24112026-039', waktu: '24-11-2026 14:05 WIB', jenis: 'TLD', tamu: 'Yohanes Situmorang', jumlah: 4, hp: '081200001139', alamat: 'Jl. Contoh Raya No. 5, Kabupaten Contoh', instansi: 'DPRD Kabupaten Contoh', bidang: ['Bidang Kewirausahaan', 'UPTD PLUT KUMKM'], agenda: 'Kunjungan kerja pembinaan wirausaha muda', penerima: 'Staf Kewirausahaan Contoh', status: 'Menunggu Kedatangan' },
+  { kode: 'TLD-24112026-038', waktu: '24-11-2026 10:30 WIB', jenis: 'TLD', tamu: 'Dewi Kartika', jumlah: 3, hp: '081200001138', alamat: 'Jl. Perencanaan No. 3, Kota Contoh', instansi: 'Bappeda Kota Contoh', bidang: ['Sekretariat (Program dan Perencanaan)'], agenda: 'Sinkronisasi data perencanaan 2027', penerima: 'Staf Perencanaan Contoh', status: 'Kelola SPPD' },
+  { kode: 'TDD-24112026-037', waktu: '24-11-2026 09:02 WIB', jenis: 'TDD', tamu: 'Agus Salim', jumlah: 1, hp: '081200001137', alamat: 'Kecamatan Contoh, Kota Batam', instansi: 'SMK Negeri Contoh', bidang: ['Sekretariat (Umum dan Kepegawaian)'], agenda: 'Monitoring siswa praktik kerja lapangan', penerima: 'Staf Umum Contoh A', status: 'Selesai' },
+  { kode: 'TLD-23112026-036', waktu: '23-11-2026 15:20 WIB', jenis: 'TLD', tamu: 'Maria Ulfa', jumlah: 8, hp: '081200001136', alamat: 'Jl. Contoh No. 8, Provinsi Contoh', instansi: 'Dinas UMKM Provinsi Contoh', bidang: ['UPTD Pengelolaan Dana Bergulir'], agenda: 'Koordinasi penyaluran dana bergulir', penerima: 'Staf Dana Bergulir Contoh', status: 'Sudah Disposisi' },
+  { kode: 'TLD-23112026-035', waktu: '23-11-2026 11:00 WIB', jenis: 'TLD', tamu: 'Hendra Gunawan', jumlah: 2, hp: '081200001135', alamat: 'Jl. Niaga No. 2, Kota Contoh', instansi: 'CV Contoh Makmur', bidang: ['Bidang Pengawasan Koperasi'], agenda: 'Audiensi rencana kemitraan', penerima: 'Belum Ditugaskan', status: 'Ditolak' },
+  { kode: 'TLD-22112026-034', waktu: '22-11-2026 10:15 WIB', jenis: 'TLD', tamu: 'Fitri Handayani', jumlah: 5, hp: '081200001134', alamat: 'Kecamatan Contoh, Kota Contoh', instansi: 'Kecamatan Contoh', bidang: ['Bidang Pengembangan Usaha Mikro'], agenda: 'Pendampingan pendataan usaha mikro', penerima: 'Staf Usaha Mikro Contoh B', status: 'Menunggu Konfirmasi' }
 ];
 
 const meetings = [
-  { mulai: '08:00', selesai: '09:00', nama: 'Rapat pimpinan mingguan', ruang: 'Ruang Rapat Kepala Dinas', pimpinan: 'Kepala Dinas (contoh)', state: 'selesai' },
-  { mulai: '09:30', selesai: '11:30', nama: 'Evaluasi penyaluran dana bergulir triwulan IV', ruang: 'Ruang Rapat Lantai 2', pimpinan: 'Kepala UPTD Pengelolaan Dana Bergulir (contoh)', state: 'berlangsung' },
-  { mulai: '13:30', selesai: '15:00', nama: 'Persiapan kurasi peserta bazar UMKM', ruang: 'Aula PLUT KUMKM', pimpinan: 'Kepala UPTD PLUT KUMKM (contoh)', state: 'terjadwal' }
+  { mulai: '08:00', selesai: '09:00', nama: 'Rapat Pimpinan Mingguan', ruang: 'Ruang Rapat Kepala Dinas', pimpinan: 'Kepala Dinas (contoh)', state: 'selesai' },
+  { mulai: '09:30', selesai: '11:30', nama: 'Evaluasi Penyaluran Dana Bergulir Triwulan IV', ruang: 'Ruang Rapat Lantai 2', pimpinan: 'Kepala UPTD Pengelolaan Dana Bergulir (contoh)', state: 'berlangsung' },
+  { mulai: '13:30', selesai: '15:00', nama: 'Persiapan Kurasi Peserta Bazar UMKM', ruang: 'Aula PLUT KUMKM', pimpinan: 'Kepala UPTD PLUT KUMKM (contoh)', state: 'terjadwal' }
 ];
 
 // ---- Small DOM helper: text always goes in through textContent, never through HTML strings --
@@ -409,61 +410,64 @@ function icon(id, cls = 'size-4') {
   use.setAttribute('href', '#' + id); svg.append(use); return svg;
 }
 
-// ---- Visits table ------------------------------------------------------------------------
+// ---- Visits: v3 table on wide screens, v3 cards on phones. Text only through textContent. -------
 const rowsEl = document.getElementById('visit-rows');
+const cardsEl = document.getElementById('visit-cards');
+const td = (cls, ...c) => el('td', { class: `px-3 py-2.5 align-top ${cls}` }, ...c);
+const statusPill = v => el('span', { class: `pill ${STATUS[v.status]}`, text: v.status });
+const detailBtn = v => el('button', { type: 'button', class: 'btn btn-quiet min-h-9! px-3! py-1! text-sm', 'data-action': 'detail', 'data-kode': v.kode, 'aria-label': `Detail ${v.kode}, ${v.tamu}`, text: 'Detail' });
 function visitRow(v) {
-  const who = el('th', { scope: 'row' },
-    el('span', { class: 'block font-semibold text-heading', text: v.tamu }),
-    el('span', { class: 'block text-muted', text: `${v.instansi} (${v.jumlah} orang)` }),
-    el('span', { class: 'mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1' },
-      el('span', { class: `pill-tag ${v.jenis === 'FO' ? 'bg-accent-soft text-st-selesai-fg' : 'bg-st-disposisi-bg text-st-disposisi-fg'}`, text: v.jenis }),
-      el('span', { class: 'font-mono text-xs font-bold text-heading', text: v.kode }),
-      el('span', { class: 'text-xs text-muted', text: v.waktu })));
-  const tujuan = el('td', { 'data-label': 'Tujuan, agenda, dan penerima' },
-    el('span', { class: 'flex flex-wrap gap-1' }, ...v.bidang.map(b => el('span', { class: 'rounded-md bg-subtle px-2 py-0.5 text-xs font-semibold text-muted-on-page ring-1 ring-border', text: b }))),
-    el('span', { class: 'mt-1 block text-foreground', text: v.agenda }),
-    el('span', { class: 'mt-0.5 block text-muted' }, 'Penerima: ', el('span', { class: 'text-foreground', text: v.penerima })));
-  const status = el('td', { 'data-label': 'Status' }, el('span', { class: `pill ${STATUS[v.status]}`, text: v.status }));
-  const aksi = el('td', { class: 'whitespace-nowrap' },
-    el('span', { class: 'inline-flex gap-1.5' },
-      el('button', { type: 'button', class: 'icon-btn', 'data-action': 'detail', 'data-kode': v.kode, 'aria-label': `Lihat detail ${v.kode}, ${v.tamu}` }, icon('i-eye', '')),
-      el('button', { type: 'button', class: 'icon-btn', 'data-action': 'edit', 'data-kode': v.kode, 'aria-label': `Ubah ${v.kode}, ${v.tamu}` }, icon('i-pencil', ''))));
-  return el('tr', {}, who, tujuan, status, aksi);
+  const [tgl, jam] = [v.waktu.slice(0, 10), v.waktu.slice(11)];
+  return el('tr', {},
+    el('th', { scope: 'row', class: 'px-4 py-2.5 text-left align-top font-normal whitespace-nowrap' },
+      el('span', { class: 'block font-mono text-xs font-bold text-heading', text: v.kode }),
+      el('span', { class: 'block text-xs text-muted', text: `${tgl} • ${jam}` })),
+    td('max-w-60', el('span', { class: 'block font-semibold text-heading', text: v.instansi }), el('span', { class: 'block truncate text-xs text-muted', text: v.alamat, title: v.alamat })),
+    td('', el('span', { class: 'block text-heading', text: v.tamu }), el('span', { class: 'block text-xs text-muted', text: `(${v.jumlah} Orang)` }),
+      el('span', { class: 'block font-mono text-xs font-semibold text-st-selesai-fg', text: v.hp })),
+    td('max-w-64', el('span', { class: 'flex flex-wrap gap-1' }, ...v.bidang.map(b => el('span', { class: 'rounded-md bg-st-disposisi-bg px-1.5 py-0.5 text-xs font-semibold text-st-disposisi-fg', text: b }))),
+      el('span', { class: 'mt-1 block truncate text-xs text-muted', text: v.agenda, title: v.agenda })),
+    td(v.penerima === 'Belum Ditugaskan' ? 'font-bold text-action-text' : 'text-heading', v.penerima),
+    td('whitespace-nowrap', statusPill(v)),
+    el('td', { class: 'px-4 py-2.5 text-right align-top' }, detailBtn(v)));
 }
-function renderVisits(query = '') {
-  const q = query.trim().toLowerCase();
-  const list = visits.filter(v => !q || [v.tamu, v.instansi, v.kode, v.agenda, v.penerima, ...v.bidang].some(s => s.toLowerCase().includes(q))).slice(0, 6);
+function visitCard(v) {
+  return el('li', { class: 'rounded-2xl border border-border bg-white p-3' },
+    el('p', { class: 'font-bold text-heading', text: v.instansi }),
+    el('p', { class: 'text-sm text-foreground' }, v.tamu, el('span', { class: 'text-muted', text: ` (${v.jumlah} Orang)` })),
+    el('div', { class: 'mt-2 flex items-center justify-between gap-2' }, statusPill(v), detailBtn(v)));
+}
+function renderVisits() {
+  const list = visits.slice(0, 6);
   rowsEl.replaceChildren(...list.map(visitRow));
-  rowsEl.setAttribute('aria-busy', 'false');
-  document.getElementById('kosong').classList.toggle('hidden', list.length > 0);
-  document.getElementById('hasil-cari').textContent = q ? `${list.length} kunjungan cocok` : '';
+  cardsEl.replaceChildren(...list.map(visitCard));
+  rowsEl.setAttribute('aria-busy', 'false'); cardsEl.setAttribute('aria-busy', 'false');
 }
-// One listener for all row buttons: the visit is found by its code, never by text pasted into HTML.
-rowsEl.addEventListener('click', e => {
+// One listener per list: the visit is found by its code, never by text pasted into HTML.
+for (const list of [rowsEl, cardsEl]) list.addEventListener('click', e => {
   const btn = e.target.closest('button[data-action]');
   if (!btn) return;
   const v = visits.find(x => x.kode === btn.dataset.kode);
-  if (v) toast(btn.dataset.action === 'edit' ? `Membuka formulir ubah ${v.kode}` : `Membuka detail ${v.kode}`);
+  if (v) toast(`Membuka detail ${v.kode}`);
 });
-document.getElementById('cari').addEventListener('input', e => renderVisits(e.target.value));
 
 // ---- Meetings timeline -------------------------------------------------------------------
+// v3's labels for today's meetings: Selesai, Berlangsung, Terjadwal.
 const STATE = {
-  berlangsung: { label: 'Sedang berlangsung', pill: 'bg-st-selesai-bg text-st-selesai-fg', card: 'border-accent bg-accent-faint' },
-  terjadwal: { label: 'Terjadwal', pill: 'bg-st-disposisi-bg text-st-disposisi-fg', card: 'border-border bg-white' },
-  selesai: { label: 'Selesai', pill: 'bg-st-non-bg text-st-non-fg', card: 'border-border bg-subtle' }
+  berlangsung: { label: 'Berlangsung', pill: 'bg-st-selesai-bg text-st-selesai-fg', card: 'bg-accent-faint' },
+  terjadwal: { label: 'Terjadwal', pill: 'bg-st-disposisi-bg text-st-disposisi-fg', card: 'bg-white' },
+  selesai: { label: 'Selesai', pill: 'bg-st-non-bg text-st-non-fg', card: 'bg-subtle' }
 };
 function renderMeetings() {
   const ol = document.getElementById('meetings');
   ol.replaceChildren(...meetings.map(m => {
     const s = STATE[m.state];
-    return el('li', { class: `rounded-2xl border p-4 ${s.card}` },
-      el('div', { class: 'flex flex-wrap items-center justify-between gap-2' },
-        el('p', { class: 'font-mono text-sm font-bold tabular-nums text-heading' }, el('time', { text: `${m.mulai}–${m.selesai}` }), ' WIB'),
+    return el('li', { class: `px-4 py-2.5 md:px-5 ${s.card}` },
+      el('div', { class: 'flex items-center justify-between gap-2' },
+        el('p', { class: 'font-mono text-xs font-bold tabular-nums text-heading' }, el('time', { text: `${m.mulai} - ${m.selesai}` }), ' WIB'),
         el('span', { class: `pill ${s.pill} ${m.state === 'berlangsung' ? 'live-dot' : ''}`, text: s.label })),
-      el('p', { class: 'mt-1.5 font-semibold text-heading', text: m.nama }),
-      el('p', { class: 'mt-1 flex items-center gap-1.5 text-sm text-muted' }, icon('i-pin', 'size-4 flex-none'), m.ruang),
-      el('p', { class: 'mt-0.5 text-sm text-muted', text: `Dipimpin ${m.pimpinan}` }));
+      el('p', { class: 'mt-0.5 truncate font-semibold text-heading', text: m.nama, title: m.nama }),
+      el('p', { class: 'flex items-center gap-1.5 truncate text-xs text-muted' }, icon('i-pin', 'size-3.5 flex-none'), `${m.ruang} • ${m.pimpinan}`));
   }));
   ol.setAttribute('aria-busy', 'false');
 }
@@ -476,7 +480,11 @@ function tick() {
   const clock = document.getElementById('clock');
   clock.textContent = fmtTime.format(now).replaceAll('.', ':') + ' WIB';
   clock.dateTime = now.toISOString();
-  document.getElementById('today').textContent = fmtDate.format(now);
+  // Phones drop the weekday so the date stays on one line.
+  const parts = fmtDate.formatToParts(now);
+  const weekday = parts.find(x => x.type === 'weekday')?.value || '';
+  const rest = fmtDate.format(now).replace(weekday + ', ', '').replace(weekday, '').trim();
+  document.getElementById('today').replaceChildren(el('span', { class: 'max-md:hidden', text: weekday ? weekday + ', ' : '' }), rest);
 }
 
 // ---- Dialogs (native <dialog>, opened with showModal) -----------------------------------
@@ -490,17 +498,12 @@ for (const btn of document.querySelectorAll('dialog [data-close]')) {
 function fillSelect(select, items, placeholder) {
   select.replaceChildren(el('option', { value: '', text: placeholder }), ...items.map(i => el('option', { value: i, text: i })));
 }
-fillSelect(document.getElementById('t-bidang'), BIDANG, 'Pilih bidang');
-fillSelect(document.getElementById('r-ruang'), RUANGAN, 'Pilih ruangan');
-fillSelect(document.getElementById('r-unit'), Object.keys(UNIT_PIMPINAN), 'Pilih bidang penyelenggara');
+fillSelect(document.getElementById('t-bidang'), BIDANG, '-- Pilih Bidang Tujuan --');
+fillSelect(document.getElementById('r-ruang'), RUANGAN, '-- Pilih Ruangan Rapat --');
+fillSelect(document.getElementById('r-unit'), BIDANG_PENYELENGGARA, '-- Pilih Bidang Penyelenggara --');
 
-const stafSel = document.getElementById('t-staf');
-document.getElementById('t-bidang').addEventListener('change', e => {
-  const list = STAF[e.target.value] || [];
-  stafSel.disabled = list.length === 0;
-  fillSelect(stafSel, list, list.length ? 'Pilih staf' : 'Pilih bidang terlebih dahulu');
-});
 document.getElementById('r-unit').addEventListener('change', e => {
+  // Filled from Master_Pegawai (Urutan_Pimpinan, Unit_Pimpinan); the admin can still change it, as in v3.
   document.getElementById('r-pimpinan').value = UNIT_PIMPINAN[e.target.value] || '';
 });
 
@@ -559,14 +562,14 @@ handleSubmit(document.getElementById('form-tamu'), fd => {
   const d = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Jakarta', day: '2-digit', month: '2-digit', year: 'numeric' }).format(now);
   const t = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(now);
   const kode = `TDD-${d.replaceAll('/', '')}-042`;
-  visits.unshift({ kode, waktu: `${d.replaceAll('/', '-')} ${t} WIB`, jenis: 'FO', tamu: fd.get('ketua_nama'), jumlah: Number(fd.get('jumlah_orang')),
-    instansi: fd.get('instansi'), bidang: [fd.get('tujuan_bidang')], agenda: fd.get('keperluan'), penerima: fd.get('staf_tujuan'), status: 'Non-SPPD' });
-  document.getElementById('cari').value = '';
+  visits.unshift({ kode, waktu: `${d.replaceAll('/', '-')} ${t} WIB`, jenis: 'TDD', tamu: fd.get('ketua_nama'), jumlah: Number(fd.get('jumlah_orang')),
+    hp: fd.get('narahubung_hp'), alamat: fd.get('alamat') || '-', instansi: fd.get('instansi') || '-', bidang: [fd.get('tujuan_bidang')], agenda: fd.get('keperluan'),
+    penerima: 'Belum Ditugaskan', status: 'Non-SPPD' });
   renderVisits();
-  toast(`Tamu dicatat dengan kode ${kode}`);
+  toast(`Pendaftaran kunjungan tersimpan dengan kode ${kode}`);
 });
 handleSubmit(document.getElementById('form-rapat'), fd => {
-  toast(`Rapat dijadwalkan: ${fd.get('nama_rapat')}, ${fd.get('jam_mulai')} WIB`);
+  toast(`Agenda rapat dijadwalkan: ${fd.get('nama_rapat')}, ${fd.get('jam_mulai')} WIB`);
 });
 
 let toastTimer;
