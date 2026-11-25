@@ -1,5 +1,9 @@
 # SITARI v3.5 mockups
 
+> **Superseded (2026-11-25): don't build from this folder.** The owner chose a different dashboard: v3's layout and wording in the Batam Pesisir colours, with "FO" renamed "Dalam", plus the signed-in account with sign-out next to the clock and v3's "Rapat Hari Ini" beside the visits (below them on phones). It lives in the `sitari-diskum-v3.5` repo at `docs/proposals/2026-11-25-theme-batam-pesisir/after/dashboard-final.html`, and design PR #2 §14 records it. Declined from this folder: the quick buttons and their dialogs, the Menunggu Konfirmasi chip and the Siap Diverifikasi line. The files below stay as history.
+>
+> Still worth carrying into the build: rows rendered with `textContent` and delegated listeners, never visitor data in `innerHTML` or `onclick` strings (see "Security" below).
+
 Static HTML mockups for the v3.5 screens (Firebase Hosting front end, Gmail login, Apps Script API). They use **fictional data only** and carry the tokens and markup the v3.5 build should reuse.
 
 | File | What |
