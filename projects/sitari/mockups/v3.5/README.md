@@ -7,14 +7,23 @@ Static HTML mockups for the v3.5 screens (Firebase Hosting front end, Gmail logi
 | `dashboard.html` | Admin dashboard: today's counts, recent visits, today's meetings, and the "Catat tamu FO" and "Jadwalkan rapat" dialogs |
 | `input.css` | Tailwind v4 entry with the `@theme` tokens from `../../DESIGN.md` (measured from the live v3 app) |
 | `mockups.css` | Compiled output. Rebuild after any change (below). |
+| `dashboard-pesisir.html` | The same dashboard in the **"Batam Pesisir"** palette (owner request, 2026-11-25). Same markup; only the stylesheet differs. |
+| `input-pesisir.css` | Tailwind v4 entry with the Pesisir `@theme` tokens: deep green into sea blue on the header, warm off-white page, emblem gold for the one action button, one status colour per meaning. Codes use tabular figures instead of a monospace font. |
+| `mockups-pesisir.css` | Compiled Pesisir output. |
 
 ```bash
 npm run css -- -i projects/sitari/mockups/v3.5/input.css -o projects/sitari/mockups/v3.5/mockups.css --minify
 ```
 
 ```bash
-npm run check:a11y -- projects/sitari/mockups/v3.5/dashboard.html
+npm run css -- -i projects/sitari/mockups/v3.5/input-pesisir.css -o projects/sitari/mockups/v3.5/mockups-pesisir.css --minify
 ```
+
+```bash
+npm run check:a11y -- projects/sitari/mockups/v3.5/dashboard.html projects/sitari/mockups/v3.5/dashboard-pesisir.html
+```
+
+The Pesisir palette comes from the theme proposal in the sitari-diskum-v3.5 repo (`docs/proposals/2026-11-25-theme-batam-pesisir`, revision 2). All its text and status-pill pairs are 5.9:1 or more, and the axe scan reports no violations. Whether the build uses it is the client's decision.
 
 ## Dashboard: what changed from the first draft, and why
 

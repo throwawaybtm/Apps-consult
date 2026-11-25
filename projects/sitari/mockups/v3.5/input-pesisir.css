@@ -1,0 +1,170 @@
+/* SI-TARI DISKUM v3.5 mockups, "Batam Pesisir" palette variant. Same markup and components as input.css; only the @theme tokens differ.
+   Compile from the repo root:
+     npm run css -- -i projects/sitari/mockups/v3.5/input-pesisir.css -o projects/sitari/mockups/v3.5/mockups-pesisir.css --minify
+   CONTOH TAMPILAN: static mockup with fictional data. The v3.5 build carries these tokens and markup into the real screens. */
+
+@import "tailwindcss" source(none);
+@source "./dashboard-pesisir.html";
+
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+
+  /* "Batam Pesisir" palette (sitari-diskum-v3.5 docs/proposals/2026-11-25-theme-batam-pesisir, revision 2):
+     deep green running into deep sea blue, emblem gold for the one action colour. */
+  --color-header-from: #0F5C4D;
+  --color-header-via: #0C4C42;
+  --color-header-to: #123A4C;
+  --color-primary: #0F5C4D;         /* white on it 7.9:1 */
+  --color-primary-hover: #0B4A3E;
+  --color-accent: #1F7A63;          /* icons and large numerals, 4.6:1 on accent-faint */
+  --color-accent-strong: #0F5C4D;   /* accent text and links on white, 7.9:1 */
+  --color-accent-soft: #D6EBE3;
+  --color-accent-faint: #E8F3EF;
+  --color-on-dark: #D5E7E1;         /* small text on the header gradient, 6.2:1 or more */
+  --color-on-dark-muted: #E8F3EF;
+
+  /* Surfaces and text: warm off-white page */
+  --color-page: #F7F6F2;
+  --color-surface: #ffffff;
+  --color-border: #E4E2DA;
+  --color-border-strong: #D9D6CC;
+  --color-foreground: #1B2430;      /* 14.5:1 on the page */
+  --color-heading: #1B2430;
+  --color-muted: #5B6472;           /* on white, 6.0:1 */
+  --color-muted-on-page: #4A5260;   /* on the page, 7.3:1 */
+  --color-subtle: #FAF9F6;
+
+  /* Action: emblem gold, dark enough for white text (5.9:1) */
+  --color-action: #8A5A12;
+  --color-action-hover: #6F480E;
+  --color-action-soft: #FBF3E4;
+  --color-action-text: #6F480E;
+
+  /* Status pills: one colour per meaning (needs action, in progress, SPPD, done, neutral, rejected); all 6.4:1 or more */
+  --color-st-menunggu-bg: #FDF1E4;   --color-st-menunggu-fg: #8A3B0A;
+  --color-st-disposisi-bg: #E8EFF8;  --color-st-disposisi-fg: #1D4E89;
+  --color-st-kedatangan-bg: #E8EFF8; --color-st-kedatangan-fg: #1D4E89;
+  --color-st-sppd-bg: #FBF3E4;       --color-st-sppd-fg: #6F480E;
+  --color-st-selesai-bg: #E9F6EE;    --color-st-selesai-fg: #166534;
+  --color-st-non-bg: #EFEDE7;        --color-st-non-fg: #4A5260;
+  --color-st-tolak-bg: #FCEBEB;      --color-st-tolak-fg: #991B1B;
+
+  --color-danger: #B91C1C;
+  --color-danger-soft: #FCEBEB;
+  --color-info: #1D4E89;            /* sea blue: focus ring, 8.4:1 on white */
+
+  /* Codes and the clock use the body font's tabular figures instead of a monospace font. */
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+  --font-mono: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgb(27 36 48 / 0.06), 0 4px 14px rgb(27 36 48 / 0.05);
+}
+
+@layer base {
+  .font-mono { font-variant-numeric: tabular-nums; letter-spacing: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-sans); color: var(--color-foreground); background: var(--color-page); line-height: 1.55; }
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-info);
+    outline-offset: 2px;
+  }
+  .on-dark :where(a, button):focus-visible { outline-color: #fde68a; }
+}
+
+@layer components {
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; padding: 0.5rem 1rem; border-radius: var(--radius-control);
+         font-weight: 600; font-size: 0.9375rem; line-height: 1.2; cursor: pointer; white-space: nowrap; }
+  .btn svg { width: 1.125rem; height: 1.125rem; flex: none; }
+  .btn-action { background: var(--color-action); color: #fff; }
+  .btn-action:hover { background: var(--color-action-hover); }
+  .btn-ghost-dark { color: #fff; border: 1px solid rgb(255 255 255 / 0.45); }
+  .btn-ghost-dark:hover { background: rgb(255 255 255 / 0.12); }
+  .btn-primary { background: var(--color-primary); color: #fff; }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+  .btn-quiet { color: var(--color-foreground); border: 1px solid var(--color-border-strong); background: #fff; }
+  .btn-quiet:hover { background: var(--color-subtle); }
+
+  .icon-btn { display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-control);
+              color: var(--color-muted-on-page); border: 1px solid var(--color-border); background: #fff; cursor: pointer; }
+  .icon-btn:hover { color: var(--color-accent-strong); border-color: var(--color-accent); background: var(--color-accent-faint); }
+  .icon-btn svg { width: 1.125rem; height: 1.125rem; }
+
+  .pill { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.1875rem 0.625rem; border-radius: var(--radius-pill);
+          font-size: 0.8125rem; font-weight: 600; line-height: 1.4; white-space: nowrap; }
+  .pill::before { content: ""; width: 0.4375rem; height: 0.4375rem; border-radius: 50%; background: currentColor; opacity: 0.75; }
+  .pill-tag { display: inline-flex; padding: 0.125rem 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.02em; }
+
+  .field-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--color-heading); margin-bottom: 0.25rem; }
+  .field-hint { display: block; font-size: 0.8125rem; color: var(--color-muted); margin-bottom: 0.375rem; }
+  .control { width: 100%; min-height: 2.75rem; padding: 0.5rem 0.875rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-control);
+             background: #fff; color: var(--color-heading); font-size: 0.9375rem; }
+  .control[readonly] { background: var(--color-subtle); color: var(--color-muted-on-page); }
+  textarea.control { min-height: 4.5rem; resize: vertical; }
+  .error-msg { display: none; margin-top: 0.375rem; font-size: 0.8125rem; font-weight: 600; color: var(--color-danger); }
+  /* :is() keeps each rule alive in browsers without :user-invalid; .submitted covers untouched fields after a failed submit. */
+  .control:is(:user-invalid, .submitted *:invalid) { border-color: var(--color-danger); background: var(--color-danger-soft); }
+  .control:is(:user-invalid, .submitted *:invalid) + .error-msg,
+  .check:is(:user-invalid, .submitted *:invalid) ~ .error-msg { display: flex; gap: 0.375rem; align-items: flex-start; }
+
+  .visually-hidden:where(:not(:focus-within, :active)) {
+    position: absolute !important; clip-path: inset(50%) !important; overflow: hidden !important;
+    width: 1px !important; height: 1px !important; margin: -1px !important; padding: 0 !important; border: 0 !important; white-space: nowrap !important;
+  }
+}
+
+/* Native modal dialogs: the browser gives focus containment, Esc and focus return. */
+/* margin:auto restores the browser's centring, which Tailwind's reset removes. */
+dialog.sheet { margin: auto; width: min(40rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); padding: 0; border: 0;
+               border-radius: var(--radius-card); background: #fff; color: var(--color-foreground); box-shadow: 0 30px 80px -20px rgb(15 23 42 / 0.5); }
+dialog.sheet:modal { overscroll-behavior: contain; }
+dialog.sheet::backdrop { background: rgb(15 23 42 / 0.55); overflow: hidden; overscroll-behavior: contain; }
+dialog.sheet[open] { display: flex; flex-direction: column; }
+
+/* Visits table: a real <table>; it turns into stacked cards when its own container is narrow. */
+.visits-wrap { container-type: inline-size; overflow: auto; }
+.visits { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; font-size: 0.875rem; }
+.visits caption { text-align: left; }
+.visits thead th { position: sticky; top: 0; z-index: 1; background: var(--color-subtle); color: var(--color-muted);
+                   font-size: 0.8125rem; font-weight: 600; padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border); }
+.visits tbody th, .visits tbody td { padding: 0.875rem 1rem; vertical-align: top; border-bottom: 1px solid var(--color-border); font-weight: 400; }
+.visits tbody tr:hover > * { background: var(--color-subtle); }
+.visits tbody tr:last-child > * { border-bottom: 0; }
+
+@container (width < 44rem) {
+  .visits, .visits thead, .visits tbody, .visits tr, .visits th, .visits td { display: block; }
+  .visits thead { display: none; }
+  .visits tbody tr { margin: 0 0 0.75rem; border: 1px solid var(--color-border); border-radius: 1rem; overflow: hidden; background: #fff; }
+  .visits tbody tr:last-child { margin-bottom: 0; }
+  .visits tbody th { background: var(--color-subtle); border-bottom: 1px solid var(--color-border); }
+  .visits tbody td { border-bottom: 0; padding-block: 0.5rem; }
+  .visits tbody td:last-child { padding-bottom: 0.875rem; }
+  .visits tbody tr:hover > * { background: inherit; }
+  .visits tbody tr:hover > th { background: var(--color-subtle); }
+  .visits td[data-label]::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 600; color: var(--color-muted); margin-bottom: 0.125rem; }
+}
+
+/* Skeleton placeholders while the API answers; motion off for reduced-motion users. */
+.skeleton { background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%); background-size: 200% 100%; border-radius: 0.5rem;
+            animation: shimmer 1.4s ease-in-out infinite; }
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+/* Only the dot blinks, so the status text keeps full contrast. */
+.live-dot::before { animation: pulse-dot 2s ease-in-out infinite; }
+@keyframes pulse-dot { 50% { opacity: 0.2; } }
+@media (prefers-reduced-motion: reduce) {
+  .skeleton, .live-dot::before { animation: none; }
+}
+.visits .col-tamu { width: 34%; }
+[aria-busy="true"] .when-loaded, [aria-busy="false"] .when-loading { display: none; }
+
+.toast { position: fixed; inset-inline-end: 1rem; inset-block-end: 1rem; z-index: 50; max-width: min(24rem, calc(100vw - 2rem)); }
+
+/* Pesisir: warm grey loading placeholders to match the off-white page. */
+.skeleton { background: linear-gradient(90deg, #ECEAE3 0%, #F5F3EE 50%, #ECEAE3 100%); background-size: 200% 100%; }
